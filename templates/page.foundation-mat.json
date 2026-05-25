@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "digital-suite"
+      "type": "foundation-mat"
     }
   },
   "order": ["main"]

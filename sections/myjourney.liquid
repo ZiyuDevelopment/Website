@@ -1,0 +1,54 @@
+```liquid
+<section class="min-h-screen bg-surface-container-lowest text-on-surface px-margin-mobile md:px-margin-desktop py-[160px] flex items-center">
+  <div class="max-w-container-max mx-auto grid md:grid-cols-2 gap-24 items-center">
+
+    <div class="order-2 md:order-1 rounded-xl overflow-hidden artifact-shadow">
+      <img
+        src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1600&auto=format&fit=crop"
+        alt="MyJourney"
+        width="1600"
+        height="1200"
+        class="w-full h-full object-cover"
+      >
+    </div>
+
+    <div class="order-1 md:order-2">
+      <span class="text-primary uppercase tracking-[0.2em] text-label-md block mb-6">
+        Reflective Archive
+      </span>
+
+      <h1 class="font-headline-xl text-headline-xl md:text-[84px] leading-tight mb-8">
+        MyJourney
+      </h1>
+
+      <p class="text-body-lg text-secondary mb-10 max-w-xl">
+        A chronological sanctuary for your growth, memories, goals, and reflections.
+        Designed to preserve the slow unfolding of your personal narrative.
+      </p>
+
+      <div class="flex gap-6">
+        <a href="/" class="px-8 py-4 rounded-xl bg-primary text-on-primary hover:bg-primary-container transition-colors">
+          Return Home
+        </a>
+
+        <a href="/pages/blokkr" class="px-8 py-4 rounded-xl border border-outline hover:bg-surface-container transition-colors">
+          View Blokkr
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MyJourney",
+  "settings": [],
+  "presets": [
+    {
+      "name": "MyJourney"
+    }
+  ]
+}
+{% endschema %}
+```
