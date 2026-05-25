@@ -1,42 +1,97 @@
-```liquid
-<section class="min-h-screen bg-surface-container-lowest text-on-surface px-margin-mobile md:px-margin-desktop py-[160px] flex items-center">
-  <div class="max-w-container-max mx-auto grid md:grid-cols-2 gap-24 items-center">
+<section class="min-h-screen bg-surface text-on-surface px-margin-mobile md:px-margin-desktop py-[160px]">
+  <div class="max-w-container-max mx-auto">
+    <a href="/" class="text-primary font-label-md text-label-md uppercase tracking-[0.2em]">
+      ← Back Home
+    </a>
 
-    <div class="order-2 md:order-1 rounded-xl overflow-hidden artifact-shadow">
-      <img
-        src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1600&auto=format&fit=crop"
-        alt="MyJourney"
-        width="1600"
-        height="1200"
-        class="w-full h-full object-cover"
-      >
-    </div>
+    <div class="mt-24 grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+      <div>
+        <span class="font-label-md text-label-md uppercase tracking-[0.2em] text-primary mb-6 block">
+          A Slow-Tech Experience
+        </span>
 
-    <div class="order-1 md:order-2">
-      <span class="text-primary uppercase tracking-[0.2em] text-label-md block mb-6">
-        Reflective Archive
-      </span>
+        <h1 class="font-headline-xl text-headline-xl md:text-[64px] leading-tight mb-8">
+          The All-In-One Almanac
+          <span class="text-primary italic font-normal">for Mastery</span>
+        </h1>
 
-      <h1 class="font-headline-xl text-headline-xl md:text-[84px] leading-tight mb-8">
-        MyJourney
-      </h1>
+        <p class="font-body-lg text-body-lg text-secondary max-w-xl mb-12">
+          A digital chronicle designed for the intentional mind. Document your evolution, map your progress across Realms, and transcend the noise of modern distraction.
+        </p>
 
-      <p class="text-body-lg text-secondary mb-10 max-w-xl">
-        A chronological sanctuary for your growth, memories, goals, and reflections.
-        Designed to preserve the slow unfolding of your personal narrative.
-      </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#waitlist" class="bg-primary text-on-primary px-10 py-4 rounded-xl font-label-md text-label-md shadow-lg hover:bg-primary-container transition-all">
+            Begin Your Chronicle
+          </a>
 
-      <div class="flex gap-6">
-        <a href="/" class="px-8 py-4 rounded-xl bg-primary text-on-primary hover:bg-primary-container transition-colors">
-          Return Home
-        </a>
+          <a href="/" class="border border-outline-variant text-on-surface px-10 py-4 rounded-xl font-label-md text-label-md hover:bg-surface-container-low transition-all">
+            View Philosophy
+          </a>
+        </div>
+      </div>
 
-        <a href="/pages/blokkr" class="px-8 py-4 rounded-xl border border-outline hover:bg-surface-container transition-colors">
-          View Blokkr
-        </a>
+      <div class="rounded-2xl overflow-hidden border border-outline-variant/30 shadow-xl">
+        <img
+          alt="MyJourney App Dashboard"
+          width="1600"
+          height="1000"
+          class="w-full h-auto object-cover"
+          src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1600&auto=format&fit=crop"
+        >
       </div>
     </div>
+  </div>
+</section>
 
+<section class="bg-surface-container-lowest px-margin-mobile md:px-margin-desktop py-[120px]">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-gutter">
+    <div class="bg-surface rounded-xl border border-outline-variant p-8">
+      <span class="material-symbols-outlined text-primary text-4xl mb-6">timeline</span>
+      <h2 class="font-headline-md text-headline-md mb-4">Chrono-Mapping</h2>
+      <p class="font-body-md text-body-md text-secondary">
+        Track your life through meaningful milestones instead of endless productivity metrics.
+      </p>
+    </div>
+
+    <div class="bg-surface rounded-xl border border-outline-variant p-8">
+      <span class="material-symbols-outlined text-primary text-4xl mb-6">psychology</span>
+      <h2 class="font-headline-md text-headline-md mb-4">Realms of Mastery</h2>
+      <p class="font-body-md text-body-md text-secondary">
+        Organize goals, habits, learning, and reflection into intentional areas of growth.
+      </p>
+    </div>
+
+    <div class="bg-surface rounded-xl border border-outline-variant p-8">
+      <span class="material-symbols-outlined text-primary text-4xl mb-6">auto_stories</span>
+      <h2 class="font-headline-md text-headline-md mb-4">Personal Archive</h2>
+      <p class="font-body-md text-body-md text-secondary">
+        Preserve your thoughts, progress, and lessons in a calm digital journal.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="waitlist" class="bg-inverse-surface text-inverse-on-surface px-margin-mobile md:px-margin-desktop py-[160px] text-center">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="font-headline-xl text-headline-xl mb-8">
+      Begin Your Chronicle.
+    </h2>
+
+    <p class="font-body-lg text-body-lg opacity-80 mb-12">
+      Join the MyJourney waitlist and help shape a calmer system for personal growth.
+    </p>
+
+    <div class="bg-white/10 p-2 rounded-2xl flex flex-col md:flex-row gap-4">
+      <input
+        class="bg-transparent text-inverse-on-surface placeholder:text-inverse-on-surface/50 font-body-md text-body-md px-6 py-4 flex-grow focus:ring-0"
+        placeholder="your@email.com"
+        type="email"
+      >
+
+      <button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-label-md text-label-md hover:bg-primary-container transition-all">
+        REQUEST ACCESS
+      </button>
+    </div>
   </div>
 </section>
 
@@ -51,4 +106,3 @@
   ]
 }
 {% endschema %}
-```
