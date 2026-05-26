@@ -1,83 +1,65 @@
-@import "tailwindcss";
-
 @theme {
-  --color-surface: #f8f9ff;
-  --color-primary: #8d4b00;
-  --color-secondary: #615e5b;
-  --color-outline: #887364;
+  --color-surface: #fbf9f4;
+  --color-background: #fbf9f4;
+  --color-primary: #000000;
+  --color-primary-container: #1c1b1b;
+  --color-secondary: #695d4a;
+  --color-secondary-container: #f2e0c8;
+  --color-tertiary: #000000;
+  --color-tertiary-container: #1d1b16;
+  --color-outline: #747878;
+  --color-outline-variant: #c4c7c7;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #eff4ff;
-  --color-surface-container: #e6eeff;
-  --color-surface-container-high: #dde9ff;
-  --color-primary-container: #b15f00;
-  --color-tertiary-container: #bfab56;
-  --color-inverse-surface: #233144;
-  --color-inverse-on-surface: #ebf1ff;
-  --color-on-surface: #0d1c2f;
+  --color-surface-container-low: #f5f3ee;
+  --color-surface-container: #f0eee9;
+  --color-surface-container-high: #eae8e3;
+  --color-surface-container-highest: #e4e2dd;
+  --color-surface-variant: #e4e2dd;
+  --color-inverse-surface: #30312e;
+  --color-inverse-on-surface: #f2f1ec;
+  --color-on-surface: #1b1c19;
+  --color-on-background: #1b1c19;
+  --color-on-surface-variant: #444748;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #fffbff;
-  --color-outline-variant: #dbc2b0;
+  --color-on-primary-container: #858383;
 
-  --font-body-sm: "Plus Jakarta Sans";
---font-body-md: "Plus Jakarta Sans";
---font-body-lg: "Plus Jakarta Sans";
---font-label-md: "Plus Jakarta Sans";
---font-headline-xl: "Libre Caslon Text";
---font-headline-lg: "Libre Caslon Text";
---font-headline-md: "Libre Caslon Text";
+  --font-body-md: "Hanken Grotesk";
+  --font-body-lg: "Hanken Grotesk";
+  --font-body-sm: "Hanken Grotesk";
+  --font-label-md: "Hanken Grotesk";
+  --font-headline-xl: "Newsreader";
+  --font-headline-lg: "Newsreader";
+  --font-headline-md: "Newsreader";
 
---text-label-md: 12px;
---text-label-md--line-height: 1;
---text-label-md--letter-spacing: 0.05em;
---text-label-md--font-weight: 600;
+  --text-label-md: 12px;
+  --text-label-md--line-height: 1;
+  --text-label-md--letter-spacing: 0.05em;
+  --text-label-md--font-weight: 600;
 
---text-body-sm: 14px;
---text-body-sm--line-height: 1.5;
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 1.5;
 
---text-body-md: 16px;
---text-body-md--line-height: 1.6;
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.6;
 
---text-body-lg: 18px;
---text-body-lg--line-height: 1.6;
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.6;
 
---text-headline-md: 24px;
---text-headline-md--line-height: 1.4;
---text-headline-md--font-weight: 600;
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 1.4;
+  --text-headline-md--font-weight: 500;
 
---text-headline-lg: 36px;
---text-headline-lg--line-height: 1.3;
---text-headline-lg--font-weight: 600;
+  --text-headline-lg: 36px;
+  --text-headline-lg--line-height: 1.2;
+  --text-headline-lg--font-weight: 500;
 
---text-headline-xl: 48px;
---text-headline-xl--line-height: 1.2;
---text-headline-xl--letter-spacing: -0.02em;
---text-headline-xl--font-weight: 700;
+  --text-headline-xl: 56px;
+  --text-headline-xl--line-height: 1.05;
+  --text-headline-xl--letter-spacing: -0.03em;
+  --text-headline-xl--font-weight: 500;
 
---spacing-margin-mobile: 20px;
-  --spacing-margin-desktop: 64px;
+  --spacing-margin-desktop: 80px;
+  --spacing-margin-mobile: 24px;
+  --spacing-gutter: 32px;
   --spacing-container-max: 1280px;
-  --spacing-gutter: 24px;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
 }

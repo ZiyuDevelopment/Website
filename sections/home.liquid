@@ -1,225 +1,136 @@
-<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm">
-  <nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
-    <div class="font-headline-md text-headline-md font-semibold text-primary">Ziyu Development</div>
+<section class="px-margin-mobile md:px-margin-desktop py-24 md:py-36 bg-surface">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter items-end">
 
-    <div class="hidden md:flex items-center gap-12">
-      <a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary pb-1" href="#digital">Digital Suite</a>
-      <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-300" href="#archive">Physical Archive</a>
-      <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors duration-300" href="#philosophy">Philosophy</a>
+    <div class="lg:col-span-8">
+      <span class="block uppercase tracking-[0.2em] text-label-md text-on-surface-variant mb-8">
+        Intentional Living Through Technology
+      </span>
+
+      <h1 class="font-headline-xl text-headline-xl md:text-[96px] leading-[0.95] tracking-[-0.04em] max-w-5xl">
+        Tools for people who want their lives back.
+      </h1>
     </div>
 
-    <button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-xl hover:bg-primary-container hover:scale-95 transition-all duration-200 shadow-sm active:scale-90">
-      Join Waitlist
-    </button>
-  </nav>
-</header>
+    <div class="lg:col-span-4">
+      <p class="text-body-lg text-on-surface-variant mb-8">
+        Ziyu Development builds software, hardware, and learning systems for focus, growth, and slower digital living.
+      </p>
 
-<section class="min-h-screen flex flex-col justify-center items-center relative px-margin-mobile overflow-hidden">
-  <div class="absolute inset-0 opacity-10 pointer-events-none">
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-container rounded-full blur-[120px]"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tertiary-container rounded-full blur-[120px]"></div>
-  </div>
+      <div class="flex flex-wrap gap-4">
+        <a href="/pages/store" class="bg-primary text-on-primary px-7 py-3 rounded-full">
+          Visit Store
+        </a>
 
-  <div class="max-w-4xl text-center reveal active">
-    <span class="font-label-md text-label-md uppercase tracking-[0.2em] text-secondary mb-6 block">
-      The Archival Scroll
-    </span>
+        <a href="/pages/archive" class="border border-outline px-7 py-3 rounded-full hover:bg-surface-container">
+          Explore Archive
+        </a>
+      </div>
+    </div>
 
-    <h1 class="font-headline-xl text-headline-xl md:text-[84px] leading-tight mb-8">
-      Software to help you
-      <span class="italic text-primary font-normal">catch your breath.</span>
-    </h1>
-
-    <p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto mb-12">
-      Ziyu is a laboratory for digital and physical artifacts that prioritize stillness. In an age of relentless acceleration, we build for the pause.
-    </p>
-
-    <a class="group flex items-center justify-center gap-3 font-label-md text-label-md text-primary" href="#digital">
-      Explore the Ecosystem
-      <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">east</span>
-    </a>
-  </div>
-
-  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
-    <span class="material-symbols-outlined text-secondary text-3xl">expand_more</span>
   </div>
 </section>
 
-<section class="py-[120px] bg-surface-container-lowest relative overflow-hidden" id="digital">
-  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-    <div class="mb-24 flex items-end justify-between reveal">
-      <div class="max-w-xl">
-        <h2 class="font-headline-lg text-headline-lg mb-6">Chapter I: The Digital Suite</h2>
-        <p class="font-body-md text-body-md text-secondary">
-          A collection of focused environments designed to eliminate cognitive noise. We don't build tools; we build sanctuaries for your attention.
-        </p>
-      </div>
-
-      <div class="hidden md:block text-outline-variant font-headline-md opacity-20 text-[120px] leading-none select-none">01</div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-      <div class="md:col-span-12 group relative overflow-hidden rounded-xl reveal">
-        <div class="aspect-[21/9] w-full bg-surface-container-high overflow-hidden">
-          <img
-            alt="Goal Grower Interface"
-            width="2400"
-            height="1028"
-            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-            src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2400&auto=format&fit=crop"
-          >
-        </div>
-
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-12">
-          <div class="max-w-lg text-white">
-            <h3 class="font-headline-md text-headline-md mb-4">Goal Grower</h3>
-            <p class="font-body-md opacity-90 mb-6">
-              Nurture your ambitions through organic progression. A productivity tool that values deep work over rapid completion.
-            </p>
-            <a class="inline-block px-6 py-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 font-label-md text-label-md transition-colors" href="/pages/myjourney">
-              Enter Sanctuary
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="md:col-span-6 group reveal">
-        <div class="aspect-video bg-surface-container rounded-xl overflow-hidden mb-6 relative">
-          <img
-            alt="Blokkr Interface"
-            width="1200"
-            height="675"
-            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1600&auto=format&fit=crop"
-          >
-          <div class="absolute top-4 right-4 bg-primary px-3 py-1 rounded-full text-[10px] text-on-primary font-bold tracking-widest uppercase">
-            Active
-          </div>
-        </div>
-
-        <h3 class="font-headline-md text-headline-md mb-2">Blokkr</h3>
-        <p class="font-body-md text-secondary mb-4">
-          Reclaim your digital perimeter. An intelligent barrier against the attention economy.
-        </p>
-        <a class="text-primary font-label-md text-label-md flex items-center gap-2 group-hover:underline" href="/pages/blokkr">
-          Explore Blokkr <span class="material-symbols-outlined text-sm">open_in_new</span>
-        </a>
-      </div>
-
-      <div class="md:col-span-6 group reveal">
-        <div class="aspect-video bg-surface-container rounded-xl overflow-hidden mb-6">
-          <img
-            alt="MyJourney Interface"
-            width="1200"
-            height="675"
-            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-            src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1600&auto=format&fit=crop"
-          >
-        </div>
-
-        <h3 class="font-headline-md text-headline-md mb-2">MyJourney</h3>
-        <p class="font-body-md text-secondary mb-4">
-          A reflective chronological archive. Document the slow unfolding of your personal narrative.
-        </p>
-        <a class="text-primary font-label-md text-label-md flex items-center gap-2 group-hover:underline" href="/pages/myjourney">
-          Explore MyJourney <span class="material-symbols-outlined text-sm">open_in_new</span>
-        </a>
-      </div>
+<section class="px-margin-mobile md:px-margin-desktop py-20 bg-surface">
+  <div class="max-w-container-max mx-auto">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden border border-outline-variant bg-surface-container">
+      <img
+        src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2200&auto=format&fit=crop"
+        alt="Intentional workspace"
+        width="2200"
+        height="1237"
+        class="w-full h-full object-cover grayscale"
+      >
     </div>
   </div>
 </section>
 
-<section class="py-[120px] bg-surface relative overflow-hidden" id="archive">
-  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-    <div class="mb-24 flex flex-col md:flex-row-reverse items-start md:items-end justify-between reveal">
-      <div class="max-w-xl text-right md:text-left">
-        <h2 class="font-headline-lg text-headline-lg mb-6">Chapter II: The Physical Archive</h2>
-        <p class="font-body-md text-body-md text-secondary">
-          Bridging the gap between pixels and atoms. Our physical objects are designed to be heirloom-quality companions to our digital tools.
-        </p>
-      </div>
+<section class="px-margin-mobile md:px-margin-desktop py-28 bg-surface-container-low">
+  <div class="max-w-container-max mx-auto">
 
-      <div class="hidden md:block text-outline-variant font-headline-md opacity-20 text-[120px] leading-none select-none">02</div>
-    </div>
-
-    <div class="flex flex-col md:flex-row gap-24 items-center reveal">
-      <div class="w-full md:w-3/5">
-        <div class="rounded-xl overflow-hidden shadow-xl aspect-[4/3]">
-          <img
-            alt="The Foundation Mat"
-            width="1200"
-            height="900"
-            class="w-full h-full object-cover"
-            src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop"
-          >
-        </div>
-      </div>
-
-      <div class="w-full md:w-2/5">
-        <span class="text-primary font-label-md text-label-md uppercase tracking-widest mb-4 block">
-          Archive Essential
+    <div class="flex items-end justify-between gap-8 mb-16">
+      <div>
+        <span class="block uppercase tracking-[0.2em] text-label-md text-on-surface-variant mb-4">
+          Products
         </span>
 
-        <h3 class="font-headline-md text-headline-md mb-6">The Foundation Mat</h3>
+        <h2 class="font-headline-lg text-headline-lg md:text-[64px] leading-tight">
+          Built as quiet systems.
+        </h2>
+      </div>
 
-        <p class="font-body-md text-secondary mb-8">
-          The base of your archive. A seamless surface crafted from vegetable-tanned leather and natural cork.
-        </p>
+      <a href="/pages/store" class="hidden md:inline-block border border-outline px-6 py-3 rounded-full">
+        View All
+      </a>
+    </div>
 
-        <a href="/pages/foundation-mat" class="inline-block border border-outline text-on-surface font-label-md text-label-md px-8 py-4 rounded-xl hover:bg-surface-container-high transition-colors">
-          Join Waitlist
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+      <a href="/pages/goal-grower" class="group bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=1200&auto=format&fit=crop" alt="Goal Grower" width="1200" height="1500" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="p-6">
+          <h3 class="font-headline-md text-headline-md mb-2">Goal Grower</h3>
+          <p class="text-body-sm text-on-surface-variant">A botanical goal tracker for steady personal growth.</p>
+        </div>
+      </a>
+
+      <a href="/pages/blokkr" class="group bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="Blokkr" width="1200" height="1500" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="p-6">
+          <h3 class="font-headline-md text-headline-md mb-2">Blokkr</h3>
+          <p class="text-body-sm text-on-surface-variant">Physical hardware for deep work and digital boundaries.</p>
+        </div>
+      </a>
+
+      <a href="/pages/myjourney" class="group bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1200&auto=format&fit=crop" alt="MyJourney" width="1200" height="1500" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="p-6">
+          <h3 class="font-headline-md text-headline-md mb-2">MyJourney</h3>
+          <p class="text-body-sm text-on-surface-variant">An encrypted digital garden for becoming better.</p>
+        </div>
+      </a>
+
+      <a href="/pages/kindlitt" class="group bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+        <div class="aspect-[4/5] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop" alt="KindLitt" width="1200" height="1500" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="p-6">
+          <h3 class="font-headline-md text-headline-md mb-2">KindLitt</h3>
+          <p class="text-body-sm text-on-surface-variant">A reading sanctuary for families and focused learning.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="px-margin-mobile md:px-margin-desktop py-32 bg-primary text-on-primary">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+    <h2 class="font-headline-lg text-headline-lg md:text-[72px] leading-tight">
+      Build a calmer relationship with technology.
+    </h2>
+
+    <div>
+      <p class="text-body-lg opacity-80 mb-8">
+        The archive documents the philosophy, roadmap, changelog, and research behind Ziyu Development.
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <a href="/pages/philosophy" class="bg-surface text-on-surface px-7 py-3 rounded-full">
+          Philosophy
+        </a>
+
+        <a href="/pages/journal" class="border border-white/30 px-7 py-3 rounded-full">
+          Read Journal
         </a>
       </div>
     </div>
   </div>
 </section>
-
-<section class="py-[160px] bg-inverse-surface text-inverse-on-surface relative" id="philosophy">
-  <div class="max-w-3xl mx-auto px-margin-mobile text-center reveal">
-    <h2 class="font-headline-lg text-headline-lg mb-12">
-      "We believe the most powerful technology is the one that knows when to disappear."
-    </h2>
-
-    <div class="w-24 h-px bg-primary mx-auto mb-12"></div>
-
-    <p class="font-body-lg text-body-lg opacity-80 mb-16">
-      Our philosophy is rooted in 'Enlightened Stillness.' We reject the dopamine-driven design patterns of the modern web in favor of clarity, longevity, and human dignity.
-    </p>
-  </div>
-</section>
-
-<footer class="bg-surface-container-lowest border-t border-outline-variant py-gutter">
-  <div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto gap-8">
-    <div class="font-headline-md text-headline-md text-on-surface font-semibold">Ziyu.</div>
-
-    <div class="flex flex-wrap justify-center gap-8">
-      <a class="font-label-md text-label-md text-secondary hover:text-primary transition-opacity" href="/">Home</a>
-      <a class="font-label-md text-label-md text-secondary hover:text-primary transition-opacity" href="/pages/blokkr">Blokkr</a>
-      <a class="font-label-md text-label-md text-secondary hover:text-primary transition-opacity" href="/pages/myjourney">MyJourney</a>
-      <a class="font-label-md text-label-md text-secondary hover:text-primary transition-opacity" href="/pages/kindlitt">KindLitt</a>
-    </div>
-
-    <p class="font-body-sm text-body-sm text-secondary">© 2026 Ziyu Development Hub. All rights reserved.</p>
-  </div>
-</footer>
-
-<script>
-  const observerOptions = {
-    root: null,
-    threshold: 0.1,
-    rootMargin: '0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
 
 {% schema %}
 {

@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "myjourney"
+      "type": "support"
     }
   },
   "order": ["main"]
