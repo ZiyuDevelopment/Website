@@ -1,0 +1,101 @@
+<section class="px-margin-mobile md:px-margin-desktop py-24 md:py-36 bg-surface">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-gutter">
+
+    <aside class="hidden lg:block sticky top-32 h-fit">
+      <nav class="flex flex-col gap-5 border-l border-outline-variant/30 pl-6 text-label-md uppercase tracking-[0.15em]">
+        <a href="#data">Data Collection</a>
+        <a href="#sanctuary">Digital Sanctuary</a>
+        <a href="#third-party">Third Party</a>
+        <a href="#rights">User Rights</a>
+      </nav>
+    </aside>
+
+    <article>
+      <header class="mb-24">
+        <span class="block uppercase tracking-[0.2em] text-label-md text-secondary mb-8">
+          Integrity First
+        </span>
+
+        <h1 class="font-headline-xl text-headline-xl md:text-[88px] leading-[0.95] tracking-[-0.04em] mb-8">
+          Privacy as a digital sanctuary.
+        </h1>
+
+        <p class="text-body-lg text-on-surface-variant max-w-3xl italic">
+          We treat personal data as something to protect, not something to extract.
+        </p>
+      </header>
+
+      <div class="space-y-24">
+
+        <section id="data" class="scroll-mt-32">
+          <h2 class="font-headline-lg text-headline-lg mb-6">01. The Minimalist Approach</h2>
+          <div class="space-y-6 text-body-lg text-on-surface-variant max-w-4xl">
+            <p>We collect only what is essential to provide a seamless, intentional experience.</p>
+            <p>If information does not serve the quality of your experience, we do not ask for it.</p>
+          </div>
+
+          <ul class="mt-10 space-y-4 text-on-surface-variant">
+            <li>• No third-party advertising cookies.</li>
+            <li>• Preference-based data collection only where needed.</li>
+            <li>• Minimal analytics intended to improve the product without exploiting attention.</li>
+          </ul>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+          <div class="bg-surface-container-low p-10 rounded-xl border border-outline-variant">
+            <h3 class="font-headline-md text-headline-md mb-4">Our Promise</h3>
+            <p class="text-on-surface-variant">
+              We will not sell your data to advertisers, brokers, or third parties that monetize your attention.
+            </p>
+          </div>
+
+          <div class="bg-primary text-on-primary p-10 rounded-xl">
+            <h3 class="font-headline-md text-headline-md mb-4">Privacy First</h3>
+            <p class="opacity-80">
+              The Ziyu ecosystem is intended to be funded by products and support, not surveillance.
+            </p>
+          </div>
+        </section>
+
+        <section id="sanctuary" class="scroll-mt-32">
+          <h2 class="font-headline-lg text-headline-lg mb-6">02. Digital Sanctuary</h2>
+          <p class="text-body-lg text-on-surface-variant max-w-4xl">
+            Security and privacy are integrated into the product experience from the beginning rather than added as an afterthought.
+          </p>
+        </section>
+
+        <section id="third-party" class="scroll-mt-32">
+          <h2 class="font-headline-lg text-headline-lg mb-6">03. Third-Party Services</h2>
+          <p class="text-body-lg text-on-surface-variant max-w-4xl">
+            When outside providers are required for hosting, payments, or infrastructure, we aim to choose partners that respect privacy and security.
+          </p>
+        </section>
+
+        <section id="rights" class="scroll-mt-32">
+          <h2 class="font-headline-lg text-headline-lg mb-6">04. User Rights</h2>
+          <p class="text-body-lg text-on-surface-variant max-w-4xl mb-8">
+            You may request access, correction, export, or deletion of your data.
+          </p>
+
+          <button class="border border-primary px-8 py-3 rounded-full hover:bg-primary hover:text-on-primary transition-all">
+            Request Data Export
+          </button>
+        </section>
+
+      </div>
+    </article>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Privacy",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Privacy"
+    }
+  ]
+}
+{% endschema %}
