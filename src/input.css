@@ -1,67 +1,190 @@
 @import "tailwindcss";
 
 @theme {
-  --color-surface: #fbf9f4;
   --color-background: #fbf9f4;
-  --color-primary: #000000;
-  --color-primary-container: #1c1b1b;
-  --color-secondary: #695d4a;
-  --color-secondary-container: #f2e0c8;
-  --color-tertiary: #000000;
-  --color-tertiary-container: #1d1b16;
-  --color-outline: #747878;
-  --color-outline-variant: #c4c7c7;
+  --color-surface: #fbf9f4;
+  --color-surface-bright: #fbf9f4;
   --color-surface-container-lowest: #ffffff;
   --color-surface-container-low: #f5f3ee;
   --color-surface-container: #f0eee9;
   --color-surface-container-high: #eae8e3;
   --color-surface-container-highest: #e4e2dd;
   --color-surface-variant: #e4e2dd;
-  --color-inverse-surface: #30312e;
-  --color-inverse-on-surface: #f2f1ec;
+  --color-surface-dim: #dbdad5;
+
+  --color-primary: #705838;
+  --color-primary-container: #8b704f;
+  --color-primary-fixed: #ffddb6;
+  --color-primary-fixed-dim: #e2c19b;
+  --color-secondary: #5c614d;
+  --color-secondary-container: #e0e5cc;
+  --color-tertiary: #575a76;
+  --color-tertiary-container: #707290;
+
   --color-on-surface: #1b1c19;
   --color-on-background: #1b1c19;
-  --color-on-surface-variant: #444748;
+  --color-on-surface-variant: #4e453c;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #858383;
+  --color-on-primary-container: #fffbff;
+  --color-on-secondary-container: #626753;
+
+  --color-outline: #80756b;
+  --color-outline-variant: #d1c4b8;
+  --color-inverse-surface: #30312e;
+  --color-inverse-on-surface: #f2f1ec;
 
   --font-body-md: "Hanken Grotesk";
   --font-body-lg: "Hanken Grotesk";
-  --font-body-sm: "Hanken Grotesk";
   --font-label-md: "Hanken Grotesk";
-  --font-headline-xl: "Newsreader";
-  --font-headline-lg: "Newsreader";
-  --font-headline-md: "Newsreader";
+  --font-headline-md: "Hanken Grotesk";
+  --font-headline-lg: "EB Garamond";
+  --font-headline-xl: "EB Garamond";
+  --font-display-lg: "EB Garamond";
 
-  --text-label-md: 12px;
+  --text-label-md: 14px;
   --text-label-md--line-height: 1;
   --text-label-md--letter-spacing: 0.05em;
-  --text-label-md--font-weight: 600;
-
-  --text-body-sm: 14px;
-  --text-body-sm--line-height: 1.5;
+  --text-label-md--font-weight: 500;
 
   --text-body-md: 16px;
   --text-body-md--line-height: 1.6;
+  --text-body-md--font-weight: 400;
 
   --text-body-lg: 18px;
   --text-body-lg--line-height: 1.6;
+  --text-body-lg--font-weight: 400;
 
   --text-headline-md: 24px;
   --text-headline-md--line-height: 1.4;
-  --text-headline-md--font-weight: 500;
+  --text-headline-md--letter-spacing: -0.01em;
+  --text-headline-md--font-weight: 600;
 
-  --text-headline-lg: 36px;
+  --text-headline-lg: 48px;
   --text-headline-lg--line-height: 1.2;
   --text-headline-lg--font-weight: 500;
 
-  --text-headline-xl: 56px;
+  --text-headline-xl: 64px;
   --text-headline-xl--line-height: 1.05;
   --text-headline-xl--letter-spacing: -0.03em;
   --text-headline-xl--font-weight: 500;
 
-  --spacing-margin-desktop: 80px;
-  --spacing-margin-mobile: 24px;
-  --spacing-gutter: 32px;
+  --text-display-lg: 64px;
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 500;
+
+  --spacing-gutter: 24px;
   --spacing-container-max: 1280px;
+  --spacing-unit: 8px;
+  --spacing-margin-mobile: 20px;
+  --spacing-margin-desktop: 80px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fbf9f4;
+  color: #1b1c19;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-feature-settings: "kern" 1, "onum" 1, "pnum" 1;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #ffddb6;
+  color: #291801;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+  vertical-align: middle;
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(112, 88, 56, 0.12), transparent 30%),
+    radial-gradient(circle at 75% 15%, rgba(92, 97, 77, 0.1), transparent 34%),
+    radial-gradient(circle at 50% 90%, rgba(226, 193, 155, 0.18), transparent 40%);
+}
+
+.glass-nav {
+  background: rgba(251, 249, 244, 0.62);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-card {
+  background: rgba(251, 249, 244, 0.62);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.chapter-label {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.cinematic-card {
+  transition:
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cinematic-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 40px 120px rgba(27, 28, 25, 0.12);
+  border-color: rgba(112, 88, 56, 0.45);
+}
+
+.cinematic-image {
+  transition:
+    transform 1400ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .cinematic-image {
+  transform: scale(1.055);
+}
+
+.page-reveal {
+  animation: pageReveal 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes pageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: subtleFloat 7s ease-in-out infinite;
 }

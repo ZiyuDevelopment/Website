@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "store"
+      "type": "projects"
     }
   },
   "order": ["main"]
