@@ -1,95 +1,130 @@
 <section class="ziyu-section">
   <div class="ziyu-container">
-    <div style="max-width: 760px; margin-bottom: 80px;">
-      <span class="ziyu-label">Member Access</span>
-      <h1 class="ziyu-h1">Welcome back, Scholar.</h1>
-      <p class="ziyu-body-lg" style="margin-top: 28px;">
-        The Study is a quiet member space for reflection, saved essays, focus progress, and archive access.
-      </p>
+    <div class="ziyu-study-hero">
+      <div>
+        <span class="ziyu-label">Member Access</span>
+
+        <h1 class="ziyu-h1">
+          Welcome back, Scholar.
+        </h1>
+
+        <p class="ziyu-body-lg" style="margin-top: 28px;">
+          The Study is a quiet member space for reflection, saved essays, focus progress, and archive access.
+        </p>
+      </div>
+
+      <a href="/pages/settings" class="ziyu-button ziyu-button--ghost">
+        Account Settings
+      </a>
     </div>
 
-    <div class="ziyu-grid-12">
-      <div class="ziyu-card" style="grid-column: span 8; padding: 40px; min-height: 420px; position: relative;">
+    <div class="ziyu-study-grid">
+
+      <div class="ziyu-card ziyu-study-prompt">
         <span class="ziyu-label">Daily Prompt</span>
 
-        <h2 class="ziyu-h3" style="font-style: italic; max-width: 720px;">
+        <h2 class="ziyu-h3" style="font-style: italic;">
           “What is one habit you have outgrown that no longer serves your intention?”
         </h2>
 
         <textarea
+          class="ziyu-textarea"
           placeholder="Write your reflection here..."
-          style="margin-top: 48px; width: 100%; min-height: 120px; background: transparent; border: 0; border-bottom: 1px solid var(--outline-soft); resize: vertical; outline: none;"
         ></textarea>
 
-        <div style="margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap;">
+        <div class="ziyu-study-actions">
           <button class="ziyu-button">Save Reflection</button>
           <button class="ziyu-button ziyu-button--ghost">Skip Today</button>
         </div>
       </div>
 
-      <div class="ziyu-card" style="grid-column: span 4; padding: 40px; background: var(--surface-high);">
+      <aside class="ziyu-card ziyu-study-progress">
         <span class="ziyu-label">My Progress</span>
 
-        <div style="display: grid; gap: 32px; margin-top: 36px;">
+        <div class="ziyu-progress-list">
           <div>
             <span class="ziyu-label ziyu-label--muted">Articles Read</span>
-            <p class="ziyu-h3">12 <span style="font-family: var(--sans); font-size: 16px; color: var(--muted);">this month</span></p>
+            <p class="ziyu-h3">12 <span>this month</span></p>
           </div>
 
           <div>
             <span class="ziyu-label ziyu-label--muted">Focus Time</span>
-            <p class="ziyu-h3">42 <span style="font-family: var(--sans); font-size: 16px; color: var(--muted);">hours total</span></p>
+            <p class="ziyu-h3">42 <span>hours total</span></p>
           </div>
 
           <div>
             <span class="ziyu-label ziyu-label--muted">Streak</span>
-            <p class="ziyu-h3">07 <span style="font-family: var(--sans); font-size: 16px; color: var(--muted);">days mindful</span></p>
+            <p class="ziyu-h3">07 <span>days mindful</span></p>
           </div>
         </div>
-      </div>
+      </aside>
+
     </div>
 
-    <div style="margin-top: 96px;">
-      <div style="display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 40px;">
+    <section class="ziyu-saved">
+      <div class="ziyu-saved__header">
         <h2 class="ziyu-h3">Saved for Later</h2>
-        <a href="/pages/deep-work-library" style="color: var(--primary);">View All Archive →</a>
+        <a href="/pages/deep-work-library" class="ziyu-card-link">View All Archive →</a>
       </div>
 
-      <div class="ziyu-grid-3">
+      <div class="ziyu-article-grid">
+
         <article class="ziyu-card">
-          <div style="aspect-ratio: 4 / 3;">
-            <img class="ziyu-image" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1200&auto=format&fit=crop" alt="Journaling">
+          <div class="ziyu-article-card__image">
+            <img
+              class="ziyu-image"
+              src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1200&auto=format&fit=crop"
+              alt="Journaling"
+              width="1200"
+              height="900"
+            >
           </div>
-          <div style="padding: 28px;">
+
+          <div class="ziyu-article-card__content">
             <span class="ziyu-label ziyu-label--muted">Philosophy · 12 min</span>
             <h3 class="ziyu-h4">The Ethics of Intentional Disconnection</h3>
-            <p class="ziyu-body" style="margin-top: 14px;">Exploring digital utility and human presence.</p>
+            <p class="ziyu-body">Exploring digital utility and human presence.</p>
           </div>
         </article>
 
         <article class="ziyu-card">
-          <div style="aspect-ratio: 4 / 3;">
-            <img class="ziyu-image ziyu-grayscale" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Tranquility">
+          <div class="ziyu-article-card__image">
+            <img
+              class="ziyu-image ziyu-grayscale"
+              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop"
+              alt="Tranquility"
+              width="1200"
+              height="900"
+            >
           </div>
-          <div style="padding: 28px;">
+
+          <div class="ziyu-article-card__content">
             <span class="ziyu-label ziyu-label--muted">Practice · 8 min</span>
             <h3 class="ziyu-h4">Designing Your Physical Sanctuary</h3>
-            <p class="ziyu-body" style="margin-top: 14px;">How environment shapes deep work.</p>
+            <p class="ziyu-body">How environment shapes deep work.</p>
           </div>
         </article>
 
         <article class="ziyu-card">
-          <div style="aspect-ratio: 4 / 3;">
-            <img class="ziyu-image" src="https://images.unsplash.com/photo-1517971071642-34a2d3ecc9cd?q=80&w=1200&auto=format&fit=crop" alt="Paper texture">
+          <div class="ziyu-article-card__image">
+            <img
+              class="ziyu-image"
+              src="https://images.unsplash.com/photo-1517971071642-34a2d3ecc9cd?q=80&w=1200&auto=format&fit=crop"
+              alt="Paper texture"
+              width="1200"
+              height="900"
+            >
           </div>
-          <div style="padding: 28px;">
+
+          <div class="ziyu-article-card__content">
             <span class="ziyu-label ziyu-label--muted">Essay · 15 min</span>
             <h3 class="ziyu-h4">The Permanence of the Printed Word</h3>
-            <p class="ziyu-body" style="margin-top: 14px;">Why physical artifacts anchor long-form thought.</p>
+            <p class="ziyu-body">Why physical artifacts anchor long-form thought.</p>
           </div>
         </article>
+
       </div>
-    </div>
+    </section>
   </div>
 </section>
 

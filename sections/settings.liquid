@@ -1,77 +1,100 @@
 <section class="ziyu-section">
-  <div class="ziyu-container" style="max-width: 1000px;">
-    <div style="margin-bottom: 80px;">
+  <div class="ziyu-container ziyu-settings-container">
+    <div class="ziyu-settings-hero">
       <span class="ziyu-label">Member Settings</span>
-      <h1 class="ziyu-h1">Account Settings</h1>
-      <p class="ziyu-body-lg" style="margin-top: 28px;">
+
+      <h1 class="ziyu-h1">
+        Account Settings
+      </h1>
+
+      <p class="ziyu-body-lg">
         Manage your archive membership, preferences, billing records, and digital residence.
       </p>
     </div>
 
-    <div class="ziyu-timeline">
-      <div class="ziyu-timeline-item">
+    <div class="ziyu-settings-list">
+
+      <section class="ziyu-settings-row">
         <span class="ziyu-label">Profile</span>
+
         <div class="ziyu-grid-2">
-          <label>
+          <label class="ziyu-field">
             <span class="ziyu-label ziyu-label--muted">Display Name</span>
-            <input value="Ziyu Member" style="width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--outline-soft); padding: 12px 0; outline: none;">
+            <input value="Ziyu Member">
           </label>
 
-          <label>
+          <label class="ziyu-field">
             <span class="ziyu-label ziyu-label--muted">Email</span>
-            <input value="hello@ziyu.dev" style="width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--outline-soft); padding: 12px 0; outline: none;">
+            <input value="hello@ziyu.dev">
           </label>
         </div>
-      </div>
+      </section>
 
-      <div class="ziyu-timeline-item">
+      <section class="ziyu-settings-row">
         <span class="ziyu-label">Security</span>
+
         <div>
           <h2 class="ziyu-h3">Account Password</h2>
-          <p class="ziyu-body-lg" style="margin-top: 12px;">Manage your login credentials and account access.</p>
-          <button class="ziyu-button ziyu-button--ghost" style="margin-top: 24px;">Change Password</button>
-        </div>
-      </div>
 
-      <div class="ziyu-timeline-item">
+          <p class="ziyu-body-lg" style="margin-top: 12px;">
+            Manage your login credentials and account access.
+          </p>
+
+          <button class="ziyu-button ziyu-button--ghost" style="margin-top: 24px;">
+            Change Password
+          </button>
+        </div>
+      </section>
+
+      <section class="ziyu-settings-row">
         <span class="ziyu-label">Membership</span>
-        <div class="ziyu-card" style="padding: 36px;">
-          <span class="ziyu-status">The Archive Plus</span>
-          <h2 class="ziyu-h3" style="margin-top: 22px;">Annual Benefactor</h2>
-          <p class="ziyu-body-lg" style="margin-top: 12px;">Next renewal: December 14, 2026</p>
-        </div>
-      </div>
 
-      <div class="ziyu-timeline-item">
+        <div class="ziyu-card ziyu-membership-card">
+          <span class="ziyu-status">The Archive Plus</span>
+
+          <h2 class="ziyu-h3">
+            Annual Benefactor
+          </h2>
+
+          <p class="ziyu-body-lg">
+            Next renewal: December 14, 2026
+          </p>
+        </div>
+      </section>
+
+      <section class="ziyu-settings-row">
         <span class="ziyu-label">Billing</span>
-        <div>
-          <table style="width: 100%; border-collapse: collapse;">
+
+        <div class="ziyu-table-wrap">
+          <table class="ziyu-table">
             <thead>
-              <tr style="border-bottom: 1px solid var(--outline-soft);">
-                <th style="text-align: left; padding: 16px 0;">Date</th>
-                <th style="text-align: left; padding: 16px 0;">Invoice</th>
-                <th style="text-align: left; padding: 16px 0;">Status</th>
-                <th style="text-align: right; padding: 16px 0;">Amount</th>
+              <tr>
+                <th>Date</th>
+                <th>Invoice</th>
+                <th>Status</th>
+                <th>Amount</th>
               </tr>
             </thead>
+
             <tbody>
-              <tr style="border-bottom: 1px solid var(--outline-soft);">
-                <td style="padding: 20px 0;">Dec 14, 2025</td>
-                <td style="padding: 20px 0;">INV-9821-ARCH</td>
-                <td style="padding: 20px 0;">Paid</td>
-                <td style="padding: 20px 0; text-align: right;">$120.00</td>
+              <tr>
+                <td>Dec 14, 2025</td>
+                <td>INV-9821-ARCH</td>
+                <td>Paid</td>
+                <td>$120.00</td>
               </tr>
 
-              <tr style="border-bottom: 1px solid var(--outline-soft);">
-                <td style="padding: 20px 0;">Dec 14, 2024</td>
-                <td style="padding: 20px 0;">INV-7431-ARCH</td>
-                <td style="padding: 20px 0;">Paid</td>
-                <td style="padding: 20px 0; text-align: right;">$120.00</td>
+              <tr>
+                <td>Dec 14, 2024</td>
+                <td>INV-7431-ARCH</td>
+                <td>Paid</td>
+                <td>$120.00</td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
+      </section>
+
     </div>
   </div>
 </section>
