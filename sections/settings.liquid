@@ -1,206 +1,78 @@
-<section class="px-margin-mobile md:px-margin-desktop py-24 md:py-32 bg-surface">
-  <div class="max-w-[1000px] mx-auto">
-
-    <header class="mb-20">
-      <span class="block uppercase tracking-[0.2em] text-label-md text-on-surface-variant mb-8">
-        Member Access
-      </span>
-
-      <h1 class="font-headline-xl text-headline-xl md:text-[80px] leading-[0.95] tracking-[-0.04em] mb-6">
-        Account Settings
-      </h1>
-
-      <p class="text-body-lg text-on-surface-variant max-w-2xl">
-        Manage your archival membership, curated preferences, billing history, and digital residence.
+<section class="ziyu-section">
+  <div class="ziyu-container" style="max-width: 1000px;">
+    <div style="margin-bottom: 80px;">
+      <span class="ziyu-label">Member Settings</span>
+      <h1 class="ziyu-h1">Account Settings</h1>
+      <p class="ziyu-body-lg" style="margin-top: 28px;">
+        Manage your archive membership, preferences, billing records, and digital residence.
       </p>
-    </header>
-
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-
-      <aside class="md:col-span-3 mb-12 md:mb-0">
-        <nav class="flex flex-col gap-6 sticky top-32 text-label-md uppercase tracking-[0.15em]">
-          <a class="text-primary border-l-2 border-primary pl-4 py-1" href="#profile">Profile</a>
-          <a class="text-on-surface-variant/60 hover:text-primary pl-4 py-1 transition-colors" href="#security">Security</a>
-          <a class="text-on-surface-variant/60 hover:text-primary pl-4 py-1 transition-colors" href="#membership">Membership</a>
-          <a class="text-on-surface-variant/60 hover:text-primary pl-4 py-1 transition-colors" href="#billing">Billing</a>
-          <a class="text-on-surface-variant/60 hover:text-primary pl-4 py-1 transition-colors" href="#notifications">Newsletter</a>
-        </nav>
-      </aside>
-
-      <div class="md:col-span-9 space-y-24">
-
-        <section class="scroll-mt-32" id="profile">
-          <h2 class="text-label-md text-on-surface-variant uppercase tracking-[0.2em] mb-10">
-            Personal Identity
-          </h2>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="flex flex-col gap-2">
-              <label class="text-label-md opacity-40 uppercase tracking-[0.15em]">Display Name</label>
-              <input class="bg-transparent border-0 border-b border-outline-variant/30 py-2 text-body-md focus:border-primary transition-colors" placeholder="Enter your name" type="text" value="Ziyu Member">
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label class="text-label-md opacity-40 uppercase tracking-[0.15em]">Email Address</label>
-              <input class="bg-transparent border-0 border-b border-outline-variant/30 py-2 text-body-md focus:border-primary transition-colors" placeholder="your@email.com" type="email" value="hello@ziyu.dev">
-            </div>
-
-            <div class="md:col-span-2 flex flex-col gap-2">
-              <label class="text-label-md opacity-40 uppercase tracking-[0.15em]">Biography</label>
-              <textarea class="bg-transparent border-0 border-b border-outline-variant/30 py-2 text-body-md focus:border-primary transition-colors resize-none" placeholder="A brief word on your philosophy..." rows="2">Collector of quiet moments and digital artifacts.</textarea>
-            </div>
-          </div>
-        </section>
-
-        <section class="scroll-mt-32" id="security">
-          <h2 class="text-label-md text-on-surface-variant uppercase tracking-[0.2em] mb-10">
-            Security & Access
-          </h2>
-
-          <div class="space-y-8">
-            <div class="flex justify-between items-center py-4 border-b border-outline-variant/10 gap-8">
-              <div>
-                <h4 class="text-body-lg mb-1">Account Password</h4>
-                <p class="text-body-md text-on-surface-variant">Manage your login credentials.</p>
-              </div>
-
-              <button class="text-label-md uppercase tracking-[0.15em] border border-primary/20 px-4 py-2 hover:bg-primary hover:text-on-primary transition-all">
-                Change Password
-              </button>
-            </div>
-
-            <div class="flex justify-between items-center py-4 border-b border-outline-variant/10 gap-8">
-              <div>
-                <h4 class="text-body-lg mb-1">Two-Factor Authentication</h4>
-                <p class="text-body-md text-on-surface-variant">Add an extra layer of security.</p>
-              </div>
-
-              <button class="text-label-md uppercase tracking-[0.15em] border border-primary/20 px-4 py-2 hover:bg-primary hover:text-on-primary transition-all">
-                Enable 2FA
-              </button>
-            </div>
-          </div>
-        </section>
-
-        <section class="scroll-mt-32" id="membership">
-          <h2 class="text-label-md text-on-surface-variant uppercase tracking-[0.2em] mb-10">
-            Active Membership
-          </h2>
-
-          <div class="bg-surface-container-low p-8 md:p-12 border border-outline-variant/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 rounded-2xl">
-            <div>
-              <span class="inline-block bg-primary text-on-primary text-[10px] px-3 py-1 mb-4 uppercase tracking-[0.2em]">
-                The Archive Plus
-              </span>
-
-              <h3 class="font-headline-md text-headline-md mb-2">
-                Annual Benefactor
-              </h3>
-
-              <p class="text-body-md text-on-surface-variant">
-                Next renewal: December 14, 2026
-              </p>
-            </div>
-
-            <div class="flex flex-col md:items-end gap-2">
-              <p class="font-headline-md text-headline-md">
-                $120.00 <span class="text-body-md opacity-40">/ yr</span>
-              </p>
-
-              <button class="text-label-md uppercase tracking-[0.15em] text-primary hover:underline underline-offset-4">
-                Change Plan
-              </button>
-            </div>
-          </div>
-        </section>
-
-        <section class="scroll-mt-32" id="notifications">
-          <h2 class="text-label-md text-on-surface-variant uppercase tracking-[0.2em] mb-10">
-            Curation & Correspondence
-          </h2>
-
-          <div class="space-y-10">
-            <div class="flex justify-between items-start gap-6 border-b border-outline-variant/10 pb-10">
-              <div>
-                <h4 class="text-body-lg mb-1">Philosophy & Reflections</h4>
-                <p class="text-body-md text-on-surface-variant">Weekly essays on intentional living and digital wellness.</p>
-              </div>
-
-              <label class="relative inline-flex items-center cursor-pointer">
-                <input checked class="sr-only peer" type="checkbox">
-                <div class="w-12 h-6 bg-surface-container-highest rounded-full peer peer-checked:bg-primary after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-full"></div>
-              </label>
-            </div>
-
-            <div class="flex justify-between items-start gap-6 border-b border-outline-variant/10 pb-10">
-              <div>
-                <h4 class="text-body-lg mb-1">Project Updates</h4>
-                <p class="text-body-md text-on-surface-variant">Early access updates and behind-the-scenes logs.</p>
-              </div>
-
-              <label class="relative inline-flex items-center cursor-pointer">
-                <input class="sr-only peer" type="checkbox">
-                <div class="w-12 h-6 bg-surface-container-highest rounded-full peer peer-checked:bg-primary after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-full"></div>
-              </label>
-            </div>
-
-            <div class="flex justify-between items-start gap-6 border-b border-outline-variant/10 pb-10">
-              <div>
-                <h4 class="text-body-lg mb-1">Store Releases</h4>
-                <p class="text-body-md text-on-surface-variant">New artifact alerts and store-only correspondence.</p>
-              </div>
-
-              <label class="relative inline-flex items-center cursor-pointer">
-                <input checked class="sr-only peer" type="checkbox">
-                <div class="w-12 h-6 bg-surface-container-highest rounded-full peer peer-checked:bg-primary after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-full"></div>
-              </label>
-            </div>
-          </div>
-        </section>
-
-        <section class="scroll-mt-32" id="billing">
-          <h2 class="text-label-md text-on-surface-variant uppercase tracking-[0.2em] mb-10">
-            Billing Records
-          </h2>
-
-          <div class="overflow-x-auto">
-            <table class="w-full text-left">
-              <thead>
-                <tr class="border-b border-primary/10">
-                  <th class="text-label-md uppercase tracking-[0.15em] py-4 opacity-40">Date</th>
-                  <th class="text-label-md uppercase tracking-[0.15em] py-4 opacity-40">Invoice</th>
-                  <th class="text-label-md uppercase tracking-[0.15em] py-4 opacity-40">Status</th>
-                  <th class="text-label-md uppercase tracking-[0.15em] py-4 opacity-40 text-right">Amount</th>
-                </tr>
-              </thead>
-
-              <tbody class="text-body-md">
-                <tr class="border-b border-outline-variant/10">
-                  <td class="py-6">Dec 14, 2025</td>
-                  <td class="py-6">INV-9821-ARCH</td>
-                  <td class="py-6">
-                    <span class="bg-primary/5 text-primary text-[10px] px-2 py-0.5 rounded-full uppercase tracking-[0.15em]">Paid</span>
-                  </td>
-                  <td class="py-6 text-right">$120.00</td>
-                </tr>
-
-                <tr class="border-b border-outline-variant/10">
-                  <td class="py-6">Dec 14, 2024</td>
-                  <td class="py-6">INV-7431-ARCH</td>
-                  <td class="py-6">
-                    <span class="bg-primary/5 text-primary text-[10px] px-2 py-0.5 rounded-full uppercase tracking-[0.15em]">Paid</span>
-                  </td>
-                  <td class="py-6 text-right">$120.00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-      </div>
-
     </div>
 
+    <div class="ziyu-timeline">
+      <div class="ziyu-timeline-item">
+        <span class="ziyu-label">Profile</span>
+        <div class="ziyu-grid-2">
+          <label>
+            <span class="ziyu-label ziyu-label--muted">Display Name</span>
+            <input value="Ziyu Member" style="width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--outline-soft); padding: 12px 0; outline: none;">
+          </label>
+
+          <label>
+            <span class="ziyu-label ziyu-label--muted">Email</span>
+            <input value="hello@ziyu.dev" style="width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--outline-soft); padding: 12px 0; outline: none;">
+          </label>
+        </div>
+      </div>
+
+      <div class="ziyu-timeline-item">
+        <span class="ziyu-label">Security</span>
+        <div>
+          <h2 class="ziyu-h3">Account Password</h2>
+          <p class="ziyu-body-lg" style="margin-top: 12px;">Manage your login credentials and account access.</p>
+          <button class="ziyu-button ziyu-button--ghost" style="margin-top: 24px;">Change Password</button>
+        </div>
+      </div>
+
+      <div class="ziyu-timeline-item">
+        <span class="ziyu-label">Membership</span>
+        <div class="ziyu-card" style="padding: 36px;">
+          <span class="ziyu-status">The Archive Plus</span>
+          <h2 class="ziyu-h3" style="margin-top: 22px;">Annual Benefactor</h2>
+          <p class="ziyu-body-lg" style="margin-top: 12px;">Next renewal: December 14, 2026</p>
+        </div>
+      </div>
+
+      <div class="ziyu-timeline-item">
+        <span class="ziyu-label">Billing</span>
+        <div>
+          <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+              <tr style="border-bottom: 1px solid var(--outline-soft);">
+                <th style="text-align: left; padding: 16px 0;">Date</th>
+                <th style="text-align: left; padding: 16px 0;">Invoice</th>
+                <th style="text-align: left; padding: 16px 0;">Status</th>
+                <th style="text-align: right; padding: 16px 0;">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--outline-soft);">
+                <td style="padding: 20px 0;">Dec 14, 2025</td>
+                <td style="padding: 20px 0;">INV-9821-ARCH</td>
+                <td style="padding: 20px 0;">Paid</td>
+                <td style="padding: 20px 0; text-align: right;">$120.00</td>
+              </tr>
+
+              <tr style="border-bottom: 1px solid var(--outline-soft);">
+                <td style="padding: 20px 0;">Dec 14, 2024</td>
+                <td style="padding: 20px 0;">INV-7431-ARCH</td>
+                <td style="padding: 20px 0;">Paid</td>
+                <td style="padding: 20px 0; text-align: right;">$120.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
