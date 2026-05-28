@@ -5,16 +5,32 @@
     </a>
 
     <div class="ziyu-nav">
-      <a href="/">Home</a>
-      <a href="/pages/projects">Projects</a>
-      <a href="/pages/journal">Journal</a>
-      <a href="/pages/support">Support</a>
-      <a href="/pages/store">Store</a>
-      <a href="/pages/community">Community</a>
+      <a href="/" class="{% if request.path == '/' %}is-active{% endif %}">Home</a>
+      <a href="/pages/projects" class="{% if request.path contains '/pages/projects' %}is-active{% endif %}">Projects</a>
+      <a href="/pages/journal" class="{% if request.path contains '/pages/journal' %}is-active{% endif %}">Journal</a>
+      <a href="/pages/support" class="{% if request.path contains '/pages/support' %}is-active{% endif %}">Support</a>
+      <a href="/pages/store" class="{% if request.path contains '/pages/store' %}is-active{% endif %}">Store</a>
+      <a href="/pages/community" class="{% if request.path contains '/pages/community' %}is-active{% endif %}">Community</a>
     </div>
 
     <a href="/pages/support" class="ziyu-button ziyu-header__button">
       Support the Future
     </a>
+
+    <button class="ziyu-menu-button" aria-label="Open menu" onclick="document.body.classList.toggle('ziyu-menu-open')">
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+
+  <div class="ziyu-mobile-menu">
+    <a href="/">Home</a>
+    <a href="/pages/projects">Projects</a>
+    <a href="/pages/journal">Journal</a>
+    <a href="/pages/support">Support</a>
+    <a href="/pages/store">Store</a>
+    <a href="/pages/community">Community</a>
+    <a href="/pages/archive">Archive</a>
+    <a href="/pages/philosophy">Philosophy</a>
+  </div>
 </header>
