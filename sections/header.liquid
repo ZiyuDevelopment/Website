@@ -1,15 +1,15 @@
-<header class="zd-header" data-header>
+<header class="zd-header">
   <div class="zd-header__inner">
 
-    <a href="{{ routes.root_url }}" class="zd-header__brand" aria-label="{{ shop.name }}">
-      <span class="zd-header__mark">Z</span>
-      <span class="zd-header__brand-text">
-        <span class="zd-header__brand-main">ZIYU</span>
-        <span class="zd-header__brand-sub">DEVELOPMENT</span>
+    <a href="{{ routes.root_url }}" class="zd-logo">
+      <span class="zd-logo__mark">Z</span>
+      <span>
+        <strong>ZIYU</strong>
+        <small>DEVELOPMENT</small>
       </span>
     </a>
 
-    <nav class="zd-header__nav" aria-label="Main navigation">
+    <nav class="zd-nav">
       <a href="{{ routes.root_url }}">Home</a>
       <a href="/pages/philosophy">Philosophy</a>
       <a href="/pages/projects">Projects</a>
@@ -18,46 +18,29 @@
       <a href="/pages/community">Community</a>
     </nav>
 
-    <div class="zd-header__actions">
-      <a href="{{ routes.search_url }}" class="zd-header__icon" aria-label="Search">
-        {% render 'icon-search' %}
+    <div class="zd-actions">
+      <a href="{{ routes.search_url }}" aria-label="Search">⌕</a>
+      <a href="{{ routes.account_url }}" aria-label="Account">◎</a>
+      <a href="{{ routes.cart_url }}" aria-label="Cart">
+        Bag
+        <span>{{ cart.item_count }}</span>
       </a>
-
-      <a href="/pages/updates" class="zd-header__icon" aria-label="Notifications">
-        {% render 'icon-bell' %}
-      </a>
-
-      <a href="{{ routes.account_url }}" class="zd-header__icon" aria-label="Account">
-        {% render 'icon-account' %}
-      </a>
-
-      <a href="{{ routes.cart_url }}" class="zd-header__icon zd-header__cart" aria-label="Cart">
-        {% render 'icon-cart' %}
-        <span class="zd-header__cart-count">
-          {{ cart.item_count }}
-        </span>
-      </a>
-
-      <a href="/pages/support" class="zd-header__cta">
-        Support the Mission
-      </a>
+      <a class="zd-cta" href="/pages/support">Support the Mission</a>
     </div>
 
-    <button class="zd-header__menu-button" type="button" data-menu-open aria-label="Open menu">
-      <span></span>
-      <span></span>
-      <span></span>
+    <button class="zd-menu-btn" data-menu-open aria-label="Open menu">
+      <span></span><span></span><span></span>
     </button>
 
   </div>
 
-  <div class="zd-mobile-menu" data-mobile-menu>
-    <div class="zd-mobile-menu__top">
+  <div class="zd-mobile" data-mobile-menu>
+    <div class="zd-mobile__top">
       <span>Menu</span>
-      <button type="button" data-menu-close aria-label="Close menu">×</button>
+      <button data-menu-close aria-label="Close menu">×</button>
     </div>
 
-    <nav class="zd-mobile-menu__nav">
+    <nav class="zd-mobile__nav">
       <a href="{{ routes.root_url }}">Home</a>
       <a href="/pages/start-here">Start Here</a>
       <a href="/pages/philosophy">Philosophy</a>
@@ -70,8 +53,6 @@
       <a href="/pages/contact">Contact</a>
     </nav>
 
-    <a href="/pages/support" class="zd-mobile-menu__cta">
-      Support the Mission
-    </a>
+    <a class="zd-mobile__cta" href="/pages/support">Support the Mission</a>
   </div>
 </header>

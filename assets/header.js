@@ -1,23 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const openButton = document.querySelector("[data-menu-open]");
-  const closeButton = document.querySelector("[data-menu-close]");
-  const mobileMenu = document.querySelector("[data-mobile-menu]");
+  const open = document.querySelector("[data-menu-open]");
+  const close = document.querySelector("[data-menu-close]");
+  const menu = document.querySelector("[data-mobile-menu]");
 
-  if (!openButton || !closeButton || !mobileMenu) return;
+  if (!open || !close || !menu) return;
 
-  openButton.addEventListener("click", () => {
-    mobileMenu.classList.add("is-open");
+  open.addEventListener("click", () => {
+    menu.classList.add("is-open");
     document.body.style.overflow = "hidden";
   });
 
-  closeButton.addEventListener("click", () => {
-    mobileMenu.classList.remove("is-open");
+  close.addEventListener("click", () => {
+    menu.classList.remove("is-open");
     document.body.style.overflow = "";
   });
 
-  mobileMenu.querySelectorAll("a").forEach((link) => {
+  menu.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
-      mobileMenu.classList.remove("is-open");
+      menu.classList.remove("is-open");
       document.body.style.overflow = "";
     });
   });
