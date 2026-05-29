@@ -1,10 +1,10 @@
-<div class="zd-cart-drawer" data-cart-drawer>
+<div class="zd-cart-drawer" data-cart-drawer aria-hidden="true">
   <div class="zd-cart-drawer__overlay" data-cart-close></div>
 
   <aside class="zd-cart-drawer__panel">
     <div class="zd-cart-drawer__header">
       <h2>Your Cart</h2>
-      <button type="button" data-cart-close aria-label="Close cart">×</button>
+      <button type="button" data-cart-close>×</button>
     </div>
 
     <div class="zd-cart-drawer__body" data-cart-drawer-body>
@@ -12,14 +12,8 @@
         {% for item in cart.items %}
           <div class="zd-cart-drawer__item">
             {% if item.image %}
-              <img
-                src="{{ item.image | image_url: width: 180 }}"
-                alt="{{ item.product.title | escape }}"
-                width="180"
-                height="180"
-              >
+              <img src="{{ item.image | image_url: width: 180 }}" alt="{{ item.product.title | escape }}" width="180" height="180">
             {% endif %}
-
             <div>
               <h3>{{ item.product.title }}</h3>
               <p>{{ item.quantity }} × {{ item.final_price | money }}</p>
@@ -37,7 +31,7 @@
     <div class="zd-cart-drawer__footer">
       <div class="zd-cart-drawer__subtotal">
         <span>Subtotal</span>
-        <strong data-cart-subtotal>{{ cart.total_price | money }}</strong>
+        <strong>{{ cart.total_price | money }}</strong>
       </div>
 
       <a href="{{ routes.cart_url }}" class="zd-cart-drawer__view">View Cart</a>

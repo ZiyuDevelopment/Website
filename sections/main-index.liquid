@@ -1,7 +1,7 @@
-<main class="zd-home-body">
+<main class="zd-home">
 
   <section class="zd-home-hero">
-    <div class="zd-home-hero__text">
+    <div class="zd-home-hero__copy">
       <h1>Technology designed to help people live intentionally.</h1>
       <p>
         We create digital tools that prioritize your presence over your attention.
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div class="zd-home-hero__image">
+    <div class="zd-home-hero__media">
       <img
         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw1hukl8UXFjdA4WOaVRJK6Lmt-QD2v5227-Gh0-tcbpkbvb_ey3doCZDsqS3IdlByVWvLxDCPyfW3MJ6o_kuOQjPVDtfuR62UMFhnYv2GZN2PmlNmcc5zZnW4lutNggb9lulmhqZLdbS4s-bC_v4LaUFTz57jH3x9IP6tHblwASvH4Mk87CRk5_Hs5hNnoIxg7VVSe_7lkIoQmvtehChRqdA8ynPOOwfUn3E0ijpC9r7GnhbG3b2yDrwcGPXhPfM1_ZJAzF1EnTGa"
         alt="Goal Grower app interface"
@@ -29,7 +29,7 @@
   <section class="zd-home-problem">
     <p class="zd-home-eyebrow">The Current State</p>
     <h2>Modern technology is designed to keep us consuming.</h2>
-    <div></div>
+    <span></span>
     <p>
       The apps we use every day are built on the attention economy. They are optimized
       for scrolls, clicks, and notifications — measurements that rarely align with a
@@ -58,21 +58,26 @@
   </section>
 
   <section class="zd-home-showcase">
-    <div>
+    <div class="zd-home-showcase__copy">
       <h2>Growth visualized through intentional systems.</h2>
       <p>
-        Goal Grower turns your abstract ambitions into a living, digital ecosystem.
-        Each goal you set is represented by progress that grows as you commit time
-        to your craft in the real world.
+        Goal Grower turns your abstract ambitions into a living digital ecosystem.
+        Each goal you set becomes visual progress that grows as you commit time
+        to real life.
       </p>
 
-      <ul>
-        <li><strong>Goal Plants</strong><br>Visual progress that evolves with your consistency.</li>
-        <li><strong>Shared Gardens</strong><br>Collaborative spaces for families and friends to grow together.</li>
-      </ul>
+      <div class="zd-home-feature">
+        <strong>Goal Plants</strong>
+        <p>Visual progress that evolves with your consistency.</p>
+      </div>
+
+      <div class="zd-home-feature">
+        <strong>Shared Gardens</strong>
+        <p>Collaborative spaces for families and friends to grow together.</p>
+      </div>
     </div>
 
-    <div class="zd-home-showcase__image">
+    <div class="zd-home-showcase__media">
       <img
         src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXBqx__juZ1V6bLldDEqDZWZyIWEuR2p2l1_oqHrabLNvZ8AonUDtG9v89p1d3q3lu3-7ulUBECnUtgszRoVylDEAXomDdrXKe4WIR_Jye-2XqsHWUhN5CWHS18eYC-g4R6zcdXGUuo8YwDn76lc3FN50f7Ry8Hmj2xPf1YDU1ZEZJuzdVu-iLJQoQDmBu8WcdbFytHpOR221X2rbNnwDFVRkxZNU1zmRmyeHnmrm48QzX4dT4KC9GEwbUHRNBi-5iiWtP1FYYby-a"
         alt="Digital garden visual"
@@ -84,7 +89,7 @@
   </section>
 
   <section class="zd-home-founder">
-    <div class="zd-home-founder__image">
+    <div class="zd-home-founder__media">
       <img
         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfJ5gXjUxTMVBS-ym5kq6bmIz9O-Z5Xito4H6j8nA0cFqGmWLPY4CwkuN8-J9ij2CeeG5JDAChWDVxLziQpHFVdDSOb9hVxhtz_baU2aSGBe1iwEoTDYQ-USB1mSv1b2Ll4eF26v2zuXpBPE9moCdzWuIG5dwjH8icMEeyHw8uoDSgSGwfXMxJe0nyn-K11Q9TaXiU3Vn4d6QXv9l4b3vupuBlNWOJpTxLVMdNCw23J-xb3t2tWors4673NY7I7y01PFr_2mMlfnx7"
         alt="Founder story"
@@ -94,14 +99,16 @@
       >
     </div>
 
-    <div>
+    <div class="zd-home-founder__copy">
       <h2>Built by one, for the many.</h2>
       <p>
         Ziyu Development started with a simple question: why does technology make
-        us feel busy but unaccomplished? This is a personal mission to build tools
-        that honor time, attention, learning, and real growth.
+        us feel busy but unaccomplished?
       </p>
-      <p>Every line of code and every pixel is crafted independently.</p>
+      <p>
+        This is a personal mission to build tools that honor time, attention,
+        learning, and real growth.
+      </p>
       <a href="/pages/founder-journey">Read the Founder Journey →</a>
     </div>
   </section>
@@ -168,7 +175,7 @@
         <a href="/pages/support">Support the Future</a>
       </article>
 
-      <article class="featured">
+      <article class="zd-home-card-featured">
         <span>Most Helpful</span>
         <h3>Advocate</h3>
         <p>Early supporter</p>
@@ -232,11 +239,11 @@
 
 {% schema %}
 {
-  "name": "Homepage Body",
+  "name": "Homepage",
   "settings": [],
   "presets": [
     {
-      "name": "Homepage Body"
+      "name": "Homepage"
     }
   ]
 }
