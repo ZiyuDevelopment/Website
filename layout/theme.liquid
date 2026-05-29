@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page_title }}{% if shop.name %} | {{ shop.name }}{% endif %}</title>
 
-    {{ content_for_header }}
     {{ 'header.css' | asset_url | stylesheet_tag }}
+    {{ 'footer.css' | asset_url | stylesheet_tag }}
+    {{ 'home.css' | asset_url | stylesheet_tag }}
+    {{ 'page-start-here.css' | asset_url | stylesheet_tag }}
+
+
+    {{ content_for_header }}
 
     <link rel="stylesheet" href="{{ 'base.css' | asset_url }}">
     <script src="{{ 'theme.js' | asset_url }}" defer></script>

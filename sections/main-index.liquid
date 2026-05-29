@@ -1,0 +1,343 @@
+<main class="zd-home">
+
+  <section class="zd-hero">
+    <div class="zd-hero__content">
+      <p class="zd-eyebrow">Thoughtful technology for intentional living</p>
+
+      <h1>
+        Building a better life through
+        <span>thoughtful technology.</span>
+      </h1>
+
+      <p class="zd-hero__text">
+        Ziyu Development creates apps, products, and ideas that help people
+        focus, grow, read better, block distractions, and build a more intentional life.
+      </p>
+
+      <div class="zd-hero__actions">
+        <a href="/pages/projects" class="zd-btn zd-btn--primary">Explore the Projects</a>
+        <a href="/pages/philosophy" class="zd-btn zd-btn--secondary">Read the Philosophy</a>
+      </div>
+    </div>
+
+    <div class="zd-hero__image-wrap">
+      {% if section.settings.hero_image %}
+        <img
+          src="{{ section.settings.hero_image | image_url: width: 1400 }}"
+          alt="Intentional workspace with notebook and coffee"
+          width="1400"
+          height="1000"
+          loading="eager"
+        >
+      {% else %}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'zd-placeholder-svg' }}
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="zd-principles">
+    <div class="zd-principles__card">
+      <article>
+        <span>01</span>
+        <h3>Focus Over Noise</h3>
+        <p>Apps should help people live better, not keep them trapped forever.</p>
+      </article>
+
+      <article>
+        <span>02</span>
+        <h3>Designed for Life</h3>
+        <p>Every project connects back to real habits, real choices, and real growth.</p>
+      </article>
+
+      <article>
+        <span>03</span>
+        <h3>Clean Information</h3>
+        <p>Books, ideas, and tools should build people up instead of wasting attention.</p>
+      </article>
+
+      <article>
+        <span>04</span>
+        <h3>Built With Intention</h3>
+        <p>We build slowly, clearly, and with a purpose behind every product.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="zd-section">
+    <div class="zd-section__head">
+      <div>
+        <p class="zd-eyebrow">The ecosystem</p>
+        <h2>Projects built for a better life.</h2>
+      </div>
+
+      <a href="/pages/projects">View all projects →</a>
+    </div>
+
+    <div class="zd-project-grid">
+
+      <a href="/pages/goal-grower" class="zd-project-card zd-project-card--large">
+        <div class="zd-project-card__image">
+          {% if section.settings.goal_grower_image %}
+            <img
+              src="{{ section.settings.goal_grower_image | image_url: width: 900 }}"
+              alt="Goal Grower app"
+              width="900"
+              height="700"
+              loading="lazy"
+            >
+          {% else %}
+            {{ 'product-1' | placeholder_svg_tag: 'zd-placeholder-svg' }}
+          {% endif %}
+        </div>
+
+        <div class="zd-project-card__body">
+          <span>Goal Grower</span>
+          <h3>Grow your goals like a garden.</h3>
+          <p>Track habits, build consistency, and grow visual progress through meaningful goals.</p>
+        </div>
+      </a>
+
+      <a href="/pages/myjourney" class="zd-project-card">
+        <div class="zd-project-card__image">
+          {% if section.settings.myjourney_image %}
+            <img
+              src="{{ section.settings.myjourney_image | image_url: width: 700 }}"
+              alt="MyJourney app"
+              width="700"
+              height="520"
+              loading="lazy"
+            >
+          {% else %}
+            {{ 'lifestyle-2' | placeholder_svg_tag: 'zd-placeholder-svg' }}
+          {% endif %}
+        </div>
+
+        <div class="zd-project-card__body">
+          <span>MyJourney</span>
+          <h3>A life-building system.</h3>
+          <p>Plan, reflect, and build a better life one step at a time.</p>
+        </div>
+      </a>
+
+      <a href="/pages/blokkr" class="zd-project-card zd-project-card--dark">
+        <div class="zd-project-card__image">
+          {% if section.settings.blokkr_image %}
+            <img
+              src="{{ section.settings.blokkr_image | image_url: width: 700 }}"
+              alt="Blokkr app"
+              width="700"
+              height="520"
+              loading="lazy"
+            >
+          {% else %}
+            {{ 'collection-1' | placeholder_svg_tag: 'zd-placeholder-svg' }}
+          {% endif %}
+        </div>
+
+        <div class="zd-project-card__body">
+          <span>Blokkr</span>
+          <h3>Protect your attention.</h3>
+          <p>Block distractions, schedule focus time, and reclaim your day.</p>
+        </div>
+      </a>
+
+      <a href="/pages/kindlitt" class="zd-project-card">
+        <div class="zd-project-card__image">
+          {% if section.settings.kindlitt_image %}
+            <img
+              src="{{ section.settings.kindlitt_image | image_url: width: 700 }}"
+              alt="Kindlitt reading app"
+              width="700"
+              height="520"
+              loading="lazy"
+            >
+          {% else %}
+            {{ 'collection-2' | placeholder_svg_tag: 'zd-placeholder-svg' }}
+          {% endif %}
+        </div>
+
+        <div class="zd-project-card__body">
+          <span>Kindlitt</span>
+          <h3>Clean books and better information.</h3>
+          <p>Find stories and resources that are worth your attention.</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="zd-section zd-split">
+    <div>
+      <p class="zd-eyebrow">Physical products</p>
+      <h2>Tools for focus, study, and everyday growth.</h2>
+
+      <p>
+        The store is not random merch. It is a curated collection of physical tools
+        that support the same mission as the apps: better focus, better habits,
+        and a more intentional life.
+      </p>
+
+      <a href="/collections/all" class="zd-btn zd-btn--primary">Shop Products</a>
+    </div>
+
+    <div class="zd-product-preview">
+      <div class="zd-product-preview__item">
+        {% if section.settings.product_image_1 %}
+          <img
+            src="{{ section.settings.product_image_1 | image_url: width: 600 }}"
+            alt="Focus journal product"
+            width="600"
+            height="600"
+            loading="lazy"
+          >
+        {% else %}
+          {{ 'product-2' | placeholder_svg_tag: 'zd-placeholder-svg' }}
+        {% endif %}
+      </div>
+
+      <div class="zd-product-preview__item">
+        {% if section.settings.product_image_2 %}
+          <img
+            src="{{ section.settings.product_image_2 | image_url: width: 600 }}"
+            alt="Desk tools product"
+            width="600"
+            height="600"
+            loading="lazy"
+          >
+        {% else %}
+          {{ 'product-3' | placeholder_svg_tag: 'zd-placeholder-svg' }}
+        {% endif %}
+      </div>
+
+      <div class="zd-product-preview__item">
+        {% if section.settings.product_image_3 %}
+          <img
+            src="{{ section.settings.product_image_3 | image_url: width: 600 }}"
+            alt="Books and reading product"
+            width="600"
+            height="600"
+            loading="lazy"
+          >
+        {% else %}
+          {{ 'collection-3' | placeholder_svg_tag: 'zd-placeholder-svg' }}
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="zd-section zd-roadmap-preview">
+    <div>
+      <p class="zd-eyebrow">Build in public</p>
+      <h2>Follow the progress as each project becomes real.</h2>
+    </div>
+
+    <div class="zd-roadmap-list">
+      <article>
+        <span>Now</span>
+        <h3>Designing the ecosystem</h3>
+        <p>Building the brand, Shopify site, app direction, and visual system.</p>
+      </article>
+
+      <article>
+        <span>Next</span>
+        <h3>Goal Grower prototype</h3>
+        <p>Creating the first version of the goal tracking and accountability experience.</p>
+      </article>
+
+      <article>
+        <span>Later</span>
+        <h3>MyJourney, Blokkr, and Kindlitt</h3>
+        <p>Expanding the ecosystem into life design, focus, and clean reading.</p>
+      </article>
+    </div>
+
+    <a href="/pages/roadmap" class="zd-btn zd-btn--secondary">View Roadmap</a>
+  </section>
+
+  <section class="zd-section zd-support-banner">
+    <div>
+      <p class="zd-eyebrow">Support the mission</p>
+      <h2>Help build technology that respects real life.</h2>
+
+      <p>
+        Support helps fund design, development, testing, servers, content,
+        and future apps made to help people grow instead of scroll endlessly.
+      </p>
+    </div>
+
+    <a href="/pages/support" class="zd-btn zd-btn--light">Support the Mission</a>
+  </section>
+
+  <section class="zd-section zd-newsletter">
+    <p class="zd-eyebrow">Join the journey</p>
+    <h2>Get updates from the build.</h2>
+    <p>Receive project updates, product drops, app previews, and founder notes.</p>
+
+    {% form 'customer', class: 'zd-newsletter__form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+
+      <input
+        type="email"
+        name="contact[email]"
+        placeholder="Email address"
+        required
+      >
+
+      <button type="submit">Join</button>
+    {% endform %}
+  </section>
+
+</main>
+
+{% schema %}
+{
+  "name": "Ziyu Homepage",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "image_picker",
+      "id": "goal_grower_image",
+      "label": "Goal Grower image"
+    },
+    {
+      "type": "image_picker",
+      "id": "myjourney_image",
+      "label": "MyJourney image"
+    },
+    {
+      "type": "image_picker",
+      "id": "blokkr_image",
+      "label": "Blokkr image"
+    },
+    {
+      "type": "image_picker",
+      "id": "kindlitt_image",
+      "label": "Kindlitt image"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_1",
+      "label": "Product image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_2",
+      "label": "Product image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_3",
+      "label": "Product image 3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ziyu Homepage"
+    }
+  ]
+}
+{% endschema %}

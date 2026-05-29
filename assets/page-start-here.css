@@ -1,0 +1,230 @@
+.zd-start-page {
+  background:
+    radial-gradient(circle at top left, rgba(166, 137, 102, 0.16), transparent 34%),
+    #f7f1e8;
+  color: #171512;
+  font-family: Inter, Arial, sans-serif;
+  padding: 18px 0 88px;
+}
+
+.zd-start-hero {
+  width: min(1380px, calc(100% - 32px));
+  margin: 0 auto;
+  min-height: 520px;
+  background: #fbf7ef;
+  border: 1px solid rgba(23, 21, 18, 0.14);
+  border-radius: 22px;
+  padding: clamp(42px, 7vw, 92px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 24px 80px rgba(45, 35, 22, 0.1);
+}
+
+.zd-start-eyebrow {
+  margin: 0;
+  color: #4f5f3d;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.zd-start-hero h1,
+.zd-start-section h2,
+.zd-start-paths h2 {
+  margin: 24px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+.zd-start-hero h1 {
+  font-size: clamp(54px, 7vw, 110px);
+  max-width: 980px;
+}
+
+.zd-start-hero p {
+  max-width: 740px;
+  color: #665f55;
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.zd-start-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.zd-start-btn {
+  min-height: 50px;
+  padding: 0 25px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.zd-start-btn--primary {
+  background: #2f3a25;
+  color: white;
+}
+
+.zd-start-btn--secondary {
+  border: 1px solid rgba(23, 21, 18, 0.18);
+  color: #171512;
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.zd-start-grid {
+  width: min(1380px, calc(100% - 48px));
+  margin: 36px auto 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.zd-start-card {
+  background: #fbf7ef;
+  border: 1px solid rgba(23, 21, 18, 0.14);
+  border-radius: 18px;
+  padding: 30px;
+  min-height: 280px;
+  color: #171512;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.zd-start-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 50px rgba(45, 35, 22, 0.1);
+}
+
+.zd-start-card--dark {
+  background: #202319;
+  color: #fbf7ef;
+}
+
+.zd-start-card span {
+  color: #a68966;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.zd-start-card h2 {
+  margin: 16px 0 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.zd-start-card p {
+  color: inherit;
+  opacity: 0.72;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.zd-start-section,
+.zd-start-paths {
+  width: min(1380px, calc(100% - 48px));
+  margin: 88px auto 0;
+}
+
+.zd-start-section {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.zd-start-section h2,
+.zd-start-paths h2 {
+  font-size: clamp(42px, 5vw, 76px);
+}
+
+.zd-start-section > p {
+  color: #665f55;
+  font-size: 18px;
+  line-height: 1.9;
+  margin: 44px 0 0;
+}
+
+.zd-start-path-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.zd-start-path-grid a {
+  background: #fbf7ef;
+  border: 1px solid rgba(23, 21, 18, 0.14);
+  border-radius: 16px;
+  padding: 26px;
+  color: #171512;
+  text-decoration: none;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.zd-start-path-grid a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 50px rgba(45, 35, 22, 0.1);
+}
+
+.zd-start-path-grid strong {
+  display: block;
+  margin-bottom: 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.zd-start-path-grid span {
+  display: block;
+  color: #665f55;
+  line-height: 1.7;
+}
+
+@media (max-width: 1050px) {
+  .zd-start-grid,
+  .zd-start-path-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .zd-start-section {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .zd-start-section > p {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .zd-start-grid,
+  .zd-start-path-grid {
+    grid-template-columns: 1fr;
+    width: calc(100% - 28px);
+  }
+
+  .zd-start-section,
+  .zd-start-paths {
+    width: calc(100% - 28px);
+  }
+
+  .zd-start-hero {
+    width: calc(100% - 28px);
+    border-radius: 16px;
+  }
+}
