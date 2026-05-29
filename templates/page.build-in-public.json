@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-build-in-public"
+    }
+  },
+  "order": ["main"]
+}
