@@ -64,6 +64,8 @@
 
       {% form 'product', product %}
 
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
         {% unless product.has_only_default_variant %}
 
           <div class="zd-product-variants">

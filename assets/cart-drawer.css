@@ -1,0 +1,148 @@
+.zd-cart-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: none;
+}
+
+.zd-cart-drawer.is-open {
+  display: block;
+}
+
+.zd-cart-drawer__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(23, 21, 18, 0.34);
+  backdrop-filter: blur(4px);
+}
+
+.zd-cart-drawer__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(460px, 100%);
+  height: 100%;
+  background: #fbf7ef;
+  border-left: 1px solid rgba(23, 21, 18, 0.14);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -24px 0 80px rgba(45, 35, 22, 0.18);
+}
+
+.zd-cart-drawer__header {
+  min-height: 82px;
+  padding: 0 24px;
+  border-bottom: 1px solid rgba(23, 21, 18, 0.14);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.zd-cart-drawer__header h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  font-weight: 400;
+}
+
+.zd-cart-drawer__header button {
+  border: 0;
+  background: transparent;
+  font-size: 36px;
+  cursor: pointer;
+  color: #171512;
+}
+
+.zd-cart-drawer__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 22px;
+}
+
+.zd-cart-drawer__item {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(23, 21, 18, 0.12);
+}
+
+.zd-cart-drawer__item img {
+  width: 86px;
+  height: 86px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #efe2cf;
+}
+
+.zd-cart-drawer__item h3 {
+  margin: 0 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.zd-cart-drawer__item p {
+  margin: 0;
+  color: #665f55;
+}
+
+.zd-cart-drawer__empty {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 32px;
+}
+
+.zd-cart-drawer__empty h3 {
+  margin: 0 0 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  font-weight: 400;
+}
+
+.zd-cart-drawer__empty p {
+  color: #665f55;
+  line-height: 1.7;
+}
+
+.zd-cart-drawer__footer {
+  border-top: 1px solid rgba(23, 21, 18, 0.14);
+  padding: 22px;
+  display: grid;
+  gap: 12px;
+}
+
+.zd-cart-drawer__subtotal {
+  display: flex;
+  justify-content: space-between;
+  color: #171512;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.zd-cart-drawer__view,
+.zd-cart-drawer__checkout,
+.zd-cart-drawer__continue {
+  min-height: 50px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.zd-cart-drawer__checkout {
+  background: #2f3a25;
+  color: white;
+}
+
+.zd-cart-drawer__view {
+  border: 1px solid rgba(23, 21, 18, 0.16);
+  color: #171512;
+}
+
+.zd-cart-drawer__continue {
+  color: #665f55;
+}

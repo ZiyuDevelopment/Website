@@ -31,6 +31,7 @@
     {{ 'page-beta.css' | asset_url | stylesheet_tag }}
     {{ 'page-about.css' | asset_url | stylesheet_tag }}
     {{ 'page-build-in-public.css' | asset_url | stylesheet_tag }}
+    {{ 'page.css' | asset_url | stylesheet_tag }}
 
     {{ content_for_header }}
 
@@ -48,5 +49,7 @@
     {% section 'footer' %}
     <script src="{{ 'header.js' | asset_url }}" defer></script>
     <script src="{{ 'faq.js' | asset_url }}" defer></script>
+    {% render 'cart-drawer' %}
+  <script src="{{ 'cart-drawer.js' | asset_url }}" defer></script>
   </body>
 </html>

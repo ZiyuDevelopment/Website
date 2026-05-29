@@ -1,0 +1,92 @@
+.zd-page {
+  background:
+    radial-gradient(circle at top left, rgba(166, 137, 102, 0.16), transparent 34%),
+    #f7f1e8;
+  color: #171512;
+  font-family: Inter, Arial, sans-serif;
+  padding: 18px 0 88px;
+}
+
+.zd-page-hero,
+.zd-page-content {
+  width: min(1040px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.zd-page-hero {
+  min-height: 360px;
+  background: #fbf7ef;
+  border: 1px solid rgba(23, 21, 18, 0.14);
+  border-radius: 22px;
+  padding: clamp(42px, 7vw, 76px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 24px 80px rgba(45, 35, 22, 0.1);
+}
+
+.zd-page-eyebrow {
+  margin: 0;
+  color: #4f5f3d;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.zd-page-hero h1 {
+  margin: 24px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(50px, 7vw, 104px);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 0.96;
+}
+
+.zd-page-content {
+  margin-top: 44px;
+  background: #fbf7ef;
+  border: 1px solid rgba(23, 21, 18, 0.14);
+  border-radius: 22px;
+  padding: clamp(32px, 5vw, 62px);
+  color: #2b2925;
+  font-size: 18px;
+  line-height: 1.85;
+}
+
+.zd-page-content h2,
+.zd-page-content h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  color: #171512;
+  letter-spacing: -0.03em;
+}
+
+.zd-page-content h2 {
+  font-size: 42px;
+  margin-top: 48px;
+}
+
+.zd-page-content h3 {
+  font-size: 30px;
+  margin-top: 34px;
+}
+
+.zd-page-content a {
+  color: #2f3a25;
+  font-weight: 900;
+}
+
+.zd-page-content ul,
+.zd-page-content ol {
+  padding-left: 24px;
+}
+
+@media (max-width: 640px) {
+  .zd-page-hero,
+  .zd-page-content {
+    width: calc(100% - 28px);
+    border-radius: 16px;
+    padding: 38px 24px;
+  }
+}
