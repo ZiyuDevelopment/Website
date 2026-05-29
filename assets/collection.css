@@ -1,0 +1,226 @@
+.zd-collection-page {
+  background:
+    radial-gradient(circle at top left, rgba(166, 137, 102, 0.16), transparent 34%),
+    #f7f1e8;
+  color: #171512;
+  font-family: Inter, Arial, sans-serif;
+  padding: 18px 0 88px;
+}
+
+.zd-collection-hero,
+.zd-collection-categories,
+.zd-collection-grid {
+  width: min(1380px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.zd-collection-hero {
+  min-height: 440px;
+  background: #fbf7ef;
+  border: 1px solid rgba(23, 21, 18, 0.14);
+  border-radius: 22px;
+  padding: clamp(42px, 7vw, 92px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 24px 80px rgba(45, 35, 22, 0.1);
+}
+
+.zd-collection-eyebrow,
+.zd-product-card__type {
+  margin: 0;
+  color: #4f5f3d;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.zd-collection-hero h1 {
+  max-width: 1040px;
+  margin: 24px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(54px, 7vw, 110px);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 0.96;
+}
+
+.zd-collection-hero p {
+  max-width: 760px;
+  color: #665f55;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.zd-collection-categories {
+  margin-top: 34px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.zd-collection-categories a {
+  min-height: 42px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(23, 21, 18, 0.16);
+  background: rgba(255, 255, 255, 0.32);
+  color: #171512;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.zd-collection-categories a:hover {
+  background: #2f3a25;
+  color: #fbf7ef;
+}
+
+.zd-collection-grid {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.zd-product-card {
+  background: #fbf7ef;
+  border: 1px solid rgba(23, 21, 18, 0.14);
+  border-radius: 18px;
+  overflow: hidden;
+  color: #171512;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.zd-product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(45, 35, 22, 0.11);
+}
+
+.zd-product-card__image {
+  background: #efe2cf;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.zd-product-card__image img,
+.zd-product-placeholder {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.zd-product-card__body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.zd-product-card h2 {
+  margin: 12px 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.zd-product-card__description {
+  color: #665f55;
+  line-height: 1.7;
+  margin: 0 0 24px;
+}
+
+.zd-product-card__bottom {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid rgba(23, 21, 18, 0.12);
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+}
+
+.zd-product-card__bottom span {
+  font-weight: 900;
+}
+
+.zd-product-card__bottom strong {
+  color: #2f3a25;
+}
+
+.zd-empty-collection {
+  grid-column: 1 / -1;
+  background: #fbf7ef;
+  border: 1px solid rgba(23, 21, 18, 0.14);
+  border-radius: 22px;
+  padding: 58px;
+  text-align: center;
+}
+
+.zd-empty-collection h2 {
+  margin: 0 0 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 5vw, 72px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.zd-empty-collection p {
+  max-width: 640px;
+  margin: 0 auto 28px;
+  color: #665f55;
+  line-height: 1.8;
+}
+
+.zd-empty-collection a {
+  min-height: 50px;
+  padding: 0 25px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  background: #2f3a25;
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+@media (max-width: 1120px) {
+  .zd-collection-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 780px) {
+  .zd-collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .zd-collection-hero,
+  .zd-collection-categories,
+  .zd-collection-grid {
+    width: calc(100% - 28px);
+  }
+
+  .zd-collection-hero {
+    border-radius: 16px;
+    padding: 38px 24px;
+  }
+
+  .zd-collection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .zd-empty-collection {
+    padding: 38px 24px;
+  }
+}

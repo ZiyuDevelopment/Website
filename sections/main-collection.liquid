@@ -1,0 +1,84 @@
+<main class="zd-collection-page">
+
+  <section class="zd-collection-hero">
+    <p class="zd-collection-eyebrow">Store</p>
+
+    <h1>
+      {% if collection.title != blank %}
+        {{ collection.title }}
+      {% else %}
+        Curated tools for intentional living.
+      {% endif %}
+    </h1>
+
+    <p>
+      Journals, desk tools, books, apparel, digital products, and physical items
+      that support focus, growth, learning, and intentional living.
+    </p>
+  </section>
+
+  <section class="zd-collection-categories">
+    <a href="/collections/all">All</a>
+    <a href="/collections/journals">Journals</a>
+    <a href="/collections/desk-tools">Desk Tools</a>
+    <a href="/collections/books">Books</a>
+    <a href="/collections/apparel">Apparel</a>
+    <a href="/collections/digital-products">Digital Products</a>
+  </section>
+
+  <section class="zd-collection-grid">
+    {% if collection.products.size > 0 %}
+      {% for product in collection.products %}
+        <a href="{{ product.url }}" class="zd-product-card">
+          <div class="zd-product-card__image">
+            {% if product.featured_image %}
+              <img
+                src="{{ product.featured_image | image_url: width: 800 }}"
+                alt="{{ product.featured_image.alt | escape }}"
+                width="800"
+                height="800"
+                loading="lazy"
+              >
+            {% else %}
+              {{ 'product-1' | placeholder_svg_tag: 'zd-product-placeholder' }}
+            {% endif %}
+          </div>
+
+          <div class="zd-product-card__body">
+            <p class="zd-product-card__type">
+              {{ product.type | default: 'Ziyu Product' }}
+            </p>
+
+            <h2>{{ product.title }}</h2>
+
+            <p class="zd-product-card__description">
+              {{ product.description | strip_html | truncate: 110 }}
+            </p>
+
+            <div class="zd-product-card__bottom">
+              <span>{{ product.price | money }}</span>
+              <strong>View →</strong>
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    {% else %}
+      <div class="zd-empty-collection">
+        <h2>Products are coming soon.</h2>
+        <p>
+          This collection is being prepared. Check back later for journals,
+          desk tools, books, apparel, and digital products.
+        </p>
+        <a href="/pages/support">Support the Mission</a>
+      </div>
+    {% endif %}
+  </section>
+
+</main>
+
+{% schema %}
+{
+  "name": "Main Collection",
+  "settings": []
+}
+{% endschema %}

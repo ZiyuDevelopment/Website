@@ -1,0 +1,78 @@
+<main class="zd-blog-page">
+
+  <section class="zd-blog-hero">
+    <p class="zd-blog-eyebrow">Journal</p>
+
+    <h1>Notes on building, focus, books, and intentional living.</h1>
+
+    <p>
+      Follow the process behind Ziyu Development: app progress, founder notes,
+      product ideas, reading reflections, and thoughts on building a better life.
+    </p>
+  </section>
+
+  <section class="zd-blog-categories">
+    <a href="/blogs/journal/tagged/building">Building</a>
+    <a href="/blogs/journal/tagged/intentional-living">Intentional Living</a>
+    <a href="/blogs/journal/tagged/technology">Technology</a>
+    <a href="/blogs/journal/tagged/books">Books</a>
+    <a href="/blogs/journal/tagged/founder-notes">Founder Notes</a>
+    <a href="/blogs/journal/tagged/study-abroad">Study Abroad</a>
+  </section>
+
+  <section class="zd-blog-grid">
+    {% if blog.articles.size > 0 %}
+      {% for article in blog.articles %}
+        <a href="{{ article.url }}" class="zd-blog-card">
+          <div class="zd-blog-card__image">
+            {% if article.image %}
+              <img
+                src="{{ article.image | image_url: width: 900 }}"
+                alt="{{ article.title | escape }}"
+                width="900"
+                height="650"
+                loading="lazy"
+              >
+            {% else %}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'zd-blog-placeholder' }}
+            {% endif %}
+          </div>
+
+          <div class="zd-blog-card__body">
+            <p class="zd-blog-card__meta">
+              {{ article.published_at | date: "%b %d, %Y" }}
+              {% if article.tags.size > 0 %}
+                · {{ article.tags.first }}
+              {% endif %}
+            </p>
+
+            <h2>{{ article.title }}</h2>
+
+            <p>
+              {{ article.excerpt_or_content | strip_html | truncate: 140 }}
+            </p>
+
+            <span>Read Article →</span>
+          </div>
+        </a>
+      {% endfor %}
+    {% else %}
+      <div class="zd-blog-empty">
+        <h2>The journal is coming soon.</h2>
+        <p>
+          This is where build notes, founder updates, essays, reading reflections,
+          and project progress will live.
+        </p>
+        <a href="/pages/projects">Explore Projects</a>
+      </div>
+    {% endif %}
+  </section>
+
+</main>
+
+{% schema %}
+{
+  "name": "Main Blog",
+  "settings": []
+}
+{% endschema %}
