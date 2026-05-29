@@ -1,292 +1,252 @@
-<main class="zd-home">
+<main class="zd-home-new">
+  <div class="zd-grain"></div>
 
-  <section class="zd-hero">
-    <div class="zd-hero__content">
-      <p class="zd-eyebrow">Thoughtful technology for intentional living</p>
-
-      <h1>
-        Building a better life through
-        <span>thoughtful technology.</span>
-      </h1>
-
-      <p class="zd-hero__text">
-        Ziyu Development creates apps, products, and ideas that help people
-        focus, grow, read better, block distractions, and build a more intentional life.
+  <section class="zd-new-hero">
+    <div class="zd-new-hero__copy">
+      <h1>Technology designed to help people live intentionally.</h1>
+      <p>
+        We create digital tools that prioritize your presence over your attention.
+        Ziyu Development is a craft studio dedicated to apps that foster real-life
+        focus and personal growth.
       </p>
 
-      <div class="zd-hero__actions">
-        <a href="/pages/projects" class="zd-btn zd-btn--primary">Explore the Projects</a>
-        <a href="/pages/philosophy" class="zd-btn zd-btn--secondary">Read the Philosophy</a>
+      <div class="zd-new-actions">
+        <a href="/pages/support" class="zd-new-btn zd-new-btn--primary">Support the Future</a>
+        <a href="/pages/goal-grower" class="zd-new-btn zd-new-btn--secondary">Explore Goal Grower</a>
       </div>
     </div>
 
-    <div class="zd-hero__image-wrap">
+    <div class="zd-new-hero__image">
       {% if section.settings.hero_image %}
-        <img
-          src="{{ section.settings.hero_image | image_url: width: 1400 }}"
-          alt="Intentional workspace with notebook and coffee"
-          width="1400"
-          height="1000"
-          loading="eager"
-        >
+        <img src="{{ section.settings.hero_image | image_url: width: 1200 }}" alt="Goal Grower app preview" width="1200" height="1400" loading="eager">
       {% else %}
-        {{ 'lifestyle-1' | placeholder_svg_tag: 'zd-placeholder-svg' }}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'zd-new-placeholder' }}
       {% endif %}
     </div>
   </section>
 
-  <section class="zd-principles">
-    <div class="zd-principles__card">
-      <article>
-        <span>01</span>
-        <h3>Focus Over Noise</h3>
-        <p>Apps should help people live better, not keep them trapped forever.</p>
-      </article>
+  <section class="zd-new-problem">
+    <p class="zd-new-eyebrow">The Current State</p>
+    <h2>Modern technology is designed to keep us consuming.</h2>
+    <div class="zd-new-line"></div>
+    <p>
+      The apps we use every day are built on the attention economy. They are
+      optimized for scrolls, clicks, and notifications — measurements that rarely
+      align with a fulfilling life. We believe there is a better way to build.
+    </p>
+  </section>
 
-      <article>
-        <span>02</span>
-        <h3>Designed for Life</h3>
-        <p>Every project connects back to real habits, real choices, and real growth.</p>
-      </article>
+  <section class="zd-new-values">
+    <article>
+      <span>✦</span>
+      <h3>Intentional Technology</h3>
+      <p>Tools that serve as quiet companions, respecting your boundaries and helping you disconnect from the screen.</p>
+    </article>
 
-      <article>
-        <span>03</span>
-        <h3>Clean Information</h3>
-        <p>Books, ideas, and tools should build people up instead of wasting attention.</p>
-      </article>
+    <article>
+      <span>✦</span>
+      <h3>Real-Life Growth</h3>
+      <p>Digital milestones that translate into physical progress. If it does not help you in the real world, we do not build it.</p>
+    </article>
 
-      <article>
-        <span>04</span>
-        <h3>Built With Intention</h3>
-        <p>We build slowly, clearly, and with a purpose behind every product.</p>
-      </article>
+    <article>
+      <span>✦</span>
+      <h3>Human Connection</h3>
+      <p>Features designed to bridge the gap between people, focusing on shared gardens and collective focus.</p>
+    </article>
+  </section>
+
+  <section class="zd-new-showcase">
+    <div class="zd-new-showcase__copy">
+      <h2>Growth visualized through intentional systems.</h2>
+      <p>
+        Goal Grower turns your abstract ambitions into a living digital ecosystem.
+        Each goal you set is represented by progress that grows as you commit time
+        to your craft in the real world.
+      </p>
+
+      <div class="zd-new-check">
+        <strong>Goal Plants</strong>
+        <span>Visual progress that evolves with your consistency.</span>
+      </div>
+
+      <div class="zd-new-check">
+        <strong>Shared Gardens</strong>
+        <span>Collaborative spaces for families and friends to grow together.</span>
+      </div>
+
+      <a href="/pages/goal-grower" class="zd-new-text-link">View Goal Grower →</a>
+    </div>
+
+    <div class="zd-new-showcase__image">
+      {% if section.settings.showcase_image %}
+        <img src="{{ section.settings.showcase_image | image_url: width: 1200 }}" alt="Digital garden preview" width="1200" height="800" loading="lazy">
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'zd-new-placeholder' }}
+      {% endif %}
     </div>
   </section>
 
-  <section class="zd-section">
-    <div class="zd-section__head">
+  <section class="zd-new-founder">
+    <div class="zd-new-founder__image">
+      {% if section.settings.founder_image %}
+        <img src="{{ section.settings.founder_image | image_url: width: 900 }}" alt="Founder story" width="900" height="1200" loading="lazy">
+      {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'zd-new-placeholder' }}
+      {% endif %}
+    </div>
+
+    <div class="zd-new-founder__copy">
+      <h2>Built by one, for the many.</h2>
+      <p>
+        Ziyu Development started with a simple question: why does technology make
+        us feel so busy but so unaccomplished? This site is a public record of
+        building tools that honor time, attention, learning, and real growth.
+      </p>
+      <p>
+        Every project is part of a larger mission to reclaim digital life, one
+        intentional interaction at a time.
+      </p>
+
+      <a href="/pages/founder-journey" class="zd-new-btn zd-new-btn--light">Read Founder Journey</a>
+    </div>
+  </section>
+
+  <section class="zd-new-progress">
+    <div class="zd-new-section-head">
       <div>
-        <p class="zd-eyebrow">The ecosystem</p>
-        <h2>Projects built for a better life.</h2>
+        <p class="zd-new-eyebrow">The Journey</p>
+        <h2>Development Progress</h2>
       </div>
-
-      <a href="/pages/projects">View all projects →</a>
+      <a href="/pages/roadmap">View full roadmap →</a>
     </div>
 
-    <div class="zd-project-grid">
-
-      <a href="/pages/goal-grower" class="zd-project-card zd-project-card--large">
-        <div class="zd-project-card__image">
-          {% if section.settings.goal_grower_image %}
-            <img
-              src="{{ section.settings.goal_grower_image | image_url: width: 900 }}"
-              alt="Goal Grower app"
-              width="900"
-              height="700"
-              loading="lazy"
-            >
-          {% else %}
-            {{ 'product-1' | placeholder_svg_tag: 'zd-placeholder-svg' }}
-          {% endif %}
-        </div>
-
-        <div class="zd-project-card__body">
-          <span>Goal Grower</span>
-          <h3>Grow your goals like a garden.</h3>
-          <p>Track habits, build consistency, and grow visual progress through meaningful goals.</p>
-        </div>
-      </a>
-
-      <a href="/pages/myjourney" class="zd-project-card">
-        <div class="zd-project-card__image">
-          {% if section.settings.myjourney_image %}
-            <img
-              src="{{ section.settings.myjourney_image | image_url: width: 700 }}"
-              alt="MyJourney app"
-              width="700"
-              height="520"
-              loading="lazy"
-            >
-          {% else %}
-            {{ 'lifestyle-2' | placeholder_svg_tag: 'zd-placeholder-svg' }}
-          {% endif %}
-        </div>
-
-        <div class="zd-project-card__body">
-          <span>MyJourney</span>
-          <h3>A life-building system.</h3>
-          <p>Plan, reflect, and build a better life one step at a time.</p>
-        </div>
-      </a>
-
-      <a href="/pages/blokkr" class="zd-project-card zd-project-card--dark">
-        <div class="zd-project-card__image">
-          {% if section.settings.blokkr_image %}
-            <img
-              src="{{ section.settings.blokkr_image | image_url: width: 700 }}"
-              alt="Blokkr app"
-              width="700"
-              height="520"
-              loading="lazy"
-            >
-          {% else %}
-            {{ 'collection-1' | placeholder_svg_tag: 'zd-placeholder-svg' }}
-          {% endif %}
-        </div>
-
-        <div class="zd-project-card__body">
-          <span>Blokkr</span>
-          <h3>Protect your attention.</h3>
-          <p>Block distractions, schedule focus time, and reclaim your day.</p>
-        </div>
-      </a>
-
-      <a href="/pages/kindlitt" class="zd-project-card">
-        <div class="zd-project-card__image">
-          {% if section.settings.kindlitt_image %}
-            <img
-              src="{{ section.settings.kindlitt_image | image_url: width: 700 }}"
-              alt="Kindlitt reading app"
-              width="700"
-              height="520"
-              loading="lazy"
-            >
-          {% else %}
-            {{ 'collection-2' | placeholder_svg_tag: 'zd-placeholder-svg' }}
-          {% endif %}
-        </div>
-
-        <div class="zd-project-card__body">
-          <span>Kindlitt</span>
-          <h3>Clean books and better information.</h3>
-          <p>Find stories and resources that are worth your attention.</p>
-        </div>
-      </a>
-
-    </div>
-  </section>
-
-  <section class="zd-section zd-split">
-    <div>
-      <p class="zd-eyebrow">Physical products</p>
-      <h2>Tools for focus, study, and everyday growth.</h2>
-
-      <p>
-        The store is not random merch. It is a curated collection of physical tools
-        that support the same mission as the apps: better focus, better habits,
-        and a more intentional life.
-      </p>
-
-      <a href="/collections/all" class="zd-btn zd-btn--primary">Shop Products</a>
-    </div>
-
-    <div class="zd-product-preview">
-      <div class="zd-product-preview__item">
-        {% if section.settings.product_image_1 %}
-          <img
-            src="{{ section.settings.product_image_1 | image_url: width: 600 }}"
-            alt="Focus journal product"
-            width="600"
-            height="600"
-            loading="lazy"
-          >
-        {% else %}
-          {{ 'product-2' | placeholder_svg_tag: 'zd-placeholder-svg' }}
-        {% endif %}
-      </div>
-
-      <div class="zd-product-preview__item">
-        {% if section.settings.product_image_2 %}
-          <img
-            src="{{ section.settings.product_image_2 | image_url: width: 600 }}"
-            alt="Desk tools product"
-            width="600"
-            height="600"
-            loading="lazy"
-          >
-        {% else %}
-          {{ 'product-3' | placeholder_svg_tag: 'zd-placeholder-svg' }}
-        {% endif %}
-      </div>
-
-      <div class="zd-product-preview__item">
-        {% if section.settings.product_image_3 %}
-          <img
-            src="{{ section.settings.product_image_3 | image_url: width: 600 }}"
-            alt="Books and reading product"
-            width="600"
-            height="600"
-            loading="lazy"
-          >
-        {% else %}
-          {{ 'collection-3' | placeholder_svg_tag: 'zd-placeholder-svg' }}
-        {% endif %}
-      </div>
-    </div>
-  </section>
-
-  <section class="zd-section zd-roadmap-preview">
-    <div>
-      <p class="zd-eyebrow">Build in public</p>
-      <h2>Follow the progress as each project becomes real.</h2>
-    </div>
-
-    <div class="zd-roadmap-list">
+    <div class="zd-new-progress-scroll">
       <article>
+        <i style="width: 100%;"></i>
         <span>Now</span>
-        <h3>Designing the ecosystem</h3>
-        <p>Building the brand, Shopify site, app direction, and visual system.</p>
+        <h3>Website Foundation</h3>
+        <p>Building the brand, pages, store structure, and project ecosystem.</p>
       </article>
 
       <article>
+        <i style="width: 60%;"></i>
         <span>Next</span>
-        <h3>Goal Grower prototype</h3>
-        <p>Creating the first version of the goal tracking and accountability experience.</p>
+        <h3>Goal Grower MVP</h3>
+        <p>Creating goal tracking, visual growth, and early user testing.</p>
       </article>
 
       <article>
+        <i style="width: 35%;"></i>
         <span>Later</span>
-        <h3>MyJourney, Blokkr, and Kindlitt</h3>
-        <p>Expanding the ecosystem into life design, focus, and clean reading.</p>
+        <h3>MyJourney</h3>
+        <p>Planning, reflection, growth areas, and journey mapping.</p>
+      </article>
+
+      <article>
+        <i style="width: 25%;"></i>
+        <span>Future</span>
+        <h3>Blokkr + Kindlitt</h3>
+        <p>Focus protection, clean reading, and intentional information tools.</p>
       </article>
     </div>
-
-    <a href="/pages/roadmap" class="zd-btn zd-btn--secondary">View Roadmap</a>
   </section>
 
-  <section class="zd-section zd-support-banner">
-    <div>
-      <p class="zd-eyebrow">Support the mission</p>
-      <h2>Help build technology that respects real life.</h2>
-
+  <section class="zd-new-support">
+    <div class="zd-new-support__intro">
+      <h2>Help build the future of intentional technology.</h2>
       <p>
-        Support helps fund design, development, testing, servers, content,
-        and future apps made to help people grow instead of scroll endlessly.
+        Ziyu Development is funded by people who believe technology should help
+        people grow instead of keeping them stuck.
       </p>
     </div>
 
-    <a href="/pages/support" class="zd-btn zd-btn--light">Support the Mission</a>
+    <div class="zd-new-support-grid">
+      <article>
+        <h3>Observer</h3>
+        <p>Free</p>
+        <ul>
+          <li>Public dev logs</li>
+          <li>Community access</li>
+          <li>Intentional updates</li>
+        </ul>
+        <a href="/pages/beta">Join for Free</a>
+      </article>
+
+      <article>
+        <h3>Supporter</h3>
+        <p>Shop or share</p>
+        <ul>
+          <li>Support through products</li>
+          <li>Join waitlists</li>
+          <li>Share the mission</li>
+        </ul>
+        <a href="/pages/support">Support the Future</a>
+      </article>
+
+      <article class="zd-new-support-card--featured">
+        <span>Most Helpful</span>
+        <h3>Advocate</h3>
+        <p>Early supporter</p>
+        <ul>
+          <li>Beta interest</li>
+          <li>Feature feedback</li>
+          <li>Community involvement</li>
+        </ul>
+        <a href="/pages/community">Become an Advocate</a>
+      </article>
+
+      <article>
+        <h3>Visionary</h3>
+        <p>Long-term support</p>
+        <ul>
+          <li>Help shape future apps</li>
+          <li>Support physical products</li>
+          <li>Follow the full roadmap</li>
+        </ul>
+        <a href="/pages/roadmap">Shape the Future</a>
+      </article>
+    </div>
   </section>
 
-  <section class="zd-section zd-newsletter">
-    <p class="zd-eyebrow">Join the journey</p>
-    <h2>Get updates from the build.</h2>
-    <p>Receive project updates, product drops, app previews, and founder notes.</p>
+  <section class="zd-new-journal">
+    <div class="zd-new-section-head">
+      <h2>Journal</h2>
+      <a href="/blogs/journal">Read all entries →</a>
+    </div>
 
-    {% form 'customer', class: 'zd-newsletter__form' %}
-      <input type="hidden" name="contact[tags]" value="newsletter">
+    <div class="zd-new-journal-grid">
+      {% assign journal_blog = blogs.journal %}
+      {% if journal_blog.articles.size > 0 %}
+        {% for article in journal_blog.articles limit: 2 %}
+          <a href="{{ article.url }}" class="zd-new-journal-card">
+            {% if article.image %}
+              <img src="{{ article.image | image_url: width: 900 }}" alt="{{ article.title | escape }}" width="900" height="600" loading="lazy">
+            {% else %}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'zd-new-placeholder' }}
+            {% endif %}
+            <span>{{ article.tags.first | default: 'Journal' }}</span>
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.excerpt_or_content | strip_html | truncate: 120 }}</p>
+          </a>
+        {% endfor %}
+      {% else %}
+        <a href="/blogs/journal" class="zd-new-journal-card">
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'zd-new-placeholder' }}
+          <span>Thought</span>
+          <h3>The Case for Digital Stillness</h3>
+          <p>Why we need to reintroduce friction into our digital interactions.</p>
+        </a>
 
-      <input
-        type="email"
-        name="contact[email]"
-        placeholder="Email address"
-        required
-      >
-
-      <button type="submit">Join</button>
-    {% endform %}
+        <a href="/blogs/journal" class="zd-new-journal-card">
+          {{ 'collection-1' | placeholder_svg_tag: 'zd-new-placeholder' }}
+          <span>Process</span>
+          <h3>Crafting the Goal Grower UI</h3>
+          <p>Designing a visual system that mirrors slow but steady progress.</p>
+        </a>
+      {% endif %}
+    </div>
   </section>
-
 </main>
 
 {% schema %}
@@ -300,38 +260,13 @@
     },
     {
       "type": "image_picker",
-      "id": "goal_grower_image",
-      "label": "Goal Grower image"
+      "id": "showcase_image",
+      "label": "Goal Grower showcase image"
     },
     {
       "type": "image_picker",
-      "id": "myjourney_image",
-      "label": "MyJourney image"
-    },
-    {
-      "type": "image_picker",
-      "id": "blokkr_image",
-      "label": "Blokkr image"
-    },
-    {
-      "type": "image_picker",
-      "id": "kindlitt_image",
-      "label": "Kindlitt image"
-    },
-    {
-      "type": "image_picker",
-      "id": "product_image_1",
-      "label": "Product image 1"
-    },
-    {
-      "type": "image_picker",
-      "id": "product_image_2",
-      "label": "Product image 2"
-    },
-    {
-      "type": "image_picker",
-      "id": "product_image_3",
-      "label": "Product image 3"
+      "id": "founder_image",
+      "label": "Founder image"
     }
   ],
   "presets": [
