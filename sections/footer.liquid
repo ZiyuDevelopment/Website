@@ -1,35 +1,5 @@
 <footer class="zd-footer">
 
-  <section class="zd-footer__top">
-    <div>
-      <a href="{{ routes.root_url }}" class="zd-footer__logo">
-        <span class="zd-footer__mark">Z</span>
-        <span>
-          <strong>ZIYU</strong>
-          <small>DEVELOPMENT</small>
-        </span>
-      </a>
-
-      <h2>Building technology for intentional living.</h2>
-
-      <p>
-        Apps, products, writing, and community designed to help people focus,
-        grow, read better, block distractions, and build better lives.
-      </p>
-    </div>
-
-    <div class="zd-footer__newsletter">
-      <h3>Join the journey</h3>
-      <p>Project updates, founder notes, product drops, and early access.</p>
-
-      {% form 'customer', class: 'zd-footer__form' %}
-        <input type="hidden" name="contact[tags]" value="newsletter">
-        <input type="email" name="contact[email]" placeholder="Email address" required>
-        <button type="submit">Join</button>
-      {% endform %}
-    </div>
-  </section>
-
   <section class="zd-footer__links">
 
     <div>

@@ -3,20 +3,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.querySelector("[data-menu-close]");
   const menu = document.querySelector("[data-mobile-menu]");
 
-  if (!openBtn || !closeBtn || !menu) {
-    console.warn("Mobile menu elements missing");
-    return;
+  if (!openBtn || !closeBtn || !menu) return;
+
+  function openMenu() {
+    menu.classList.add("is-open");
+    document.body.classList.add("zd-menu-open");
   }
 
-  const openMenu = () => {
-    menu.classList.add("is-open");
-    document.body.classList.add("menu-open");
-  };
-
-  const closeMenu = () => {
+  function closeMenu() {
     menu.classList.remove("is-open");
-    document.body.classList.remove("menu-open");
-  };
+    document.body.classList.remove("zd-menu-open");
+  }
 
   openBtn.addEventListener("click", openMenu);
   closeBtn.addEventListener("click", closeMenu);
