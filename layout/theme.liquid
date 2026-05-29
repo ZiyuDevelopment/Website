@@ -22,6 +22,8 @@
     {{ 'collection.css' | asset_url | stylesheet_tag }}
     {{ 'product.css' | asset_url | stylesheet_tag }}
     {{ 'blog.css' | asset_url | stylesheet_tag }}
+    {{ 'article.css' | asset_url | stylesheet_tag }}
+    {{ 'page-faq.css' | asset_url | stylesheet_tag }}
 
     {{ content_for_header }}
 
@@ -38,5 +40,6 @@
 
     {% section 'footer' %}
     <script src="{{ 'header.js' | asset_url }}" defer></script>
+    <script src="{{ 'faq.js' | asset_url }}" defer></script>
   </body>
 </html>
