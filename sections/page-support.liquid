@@ -1,0 +1,267 @@
+<main class="zd-support-page">
+
+  <section class="zd-support-hero">
+
+    <p class="zd-support-eyebrow">
+      Support the Mission
+    </p>
+
+    <h1>
+      Help build technology that helps people live better.
+    </h1>
+
+    <p>
+      Every app, product, article, and experiment on this site is being
+      built by a solo developer with a long-term vision:
+      creating tools that help people focus, grow, learn, read,
+      and become more intentional.
+    </p>
+
+    <div class="zd-support-actions">
+
+      <a href="#support-options" class="zd-support-btn zd-support-btn--primary">
+        Support the Mission
+      </a>
+
+      <a href="/pages/projects" class="zd-support-btn zd-support-btn--secondary">
+        Explore Projects
+      </a>
+
+    </div>
+
+  </section>
+
+  <section class="zd-support-why">
+
+    <div>
+      <p class="zd-support-eyebrow">
+        Why support matters
+      </p>
+
+      <h2>
+        Building meaningful software takes time.
+      </h2>
+    </div>
+
+    <div>
+      <p>
+        Support helps fund development tools,
+        hosting, testing devices, design work,
+        software licenses, infrastructure,
+        and the time required to turn ideas
+        into products people can actually use.
+      </p>
+
+      <p>
+        Instead of chasing addictive engagement,
+        these projects are designed around
+        helping people improve their lives.
+      </p>
+    </div>
+
+  </section>
+
+  <section id="support-options" class="zd-support-options">
+
+    <div class="zd-support-section-head">
+      <p class="zd-support-eyebrow">
+        Ways to help
+      </p>
+
+      <h2>
+        Choose the option that fits you.
+      </h2>
+    </div>
+
+    <div class="zd-support-grid">
+
+      <article>
+        <span>01</span>
+        <h3>Buy Products</h3>
+
+        <p>
+          Purchasing journals, merchandise,
+          books, and future products directly
+          supports development.
+        </p>
+
+        <a href="/collections/all">
+          Shop Products →
+        </a>
+      </article>
+
+      <article>
+        <span>02</span>
+        <h3>Join Early Access</h3>
+
+        <p>
+          Test apps before launch and help shape
+          future features.
+        </p>
+
+        <a href="#newsletter">
+          Join Waitlists →
+        </a>
+      </article>
+
+      <article>
+        <span>03</span>
+        <h3>Share the Projects</h3>
+
+        <p>
+          Tell friends, family, students,
+          creators, and communities about
+          the mission.
+        </p>
+
+        <a href="/pages/community">
+          Join Community →
+        </a>
+      </article>
+
+      <article>
+        <span>04</span>
+        <h3>Direct Support</h3>
+
+        <p>
+          Future sponsorship and donation
+          options will help accelerate development.
+        </p>
+
+        <a href="#">
+          Coming Soon
+        </a>
+      </article>
+
+    </div>
+
+  </section>
+
+  <section class="zd-support-roadmap">
+
+    <p class="zd-support-eyebrow">
+      What support helps build
+    </p>
+
+    <h2>
+      The ecosystem.
+    </h2>
+
+    <div class="zd-support-roadmap-grid">
+
+      <article>
+        <h3>Goal Grower</h3>
+        <p>Visual goal and habit tracking.</p>
+      </article>
+
+      <article>
+        <h3>MyJourney</h3>
+        <p>Personal life operating system.</p>
+      </article>
+
+      <article>
+        <h3>Blokkr</h3>
+        <p>Distraction blocking and focus.</p>
+      </article>
+
+      <article>
+        <h3>Kindlitt</h3>
+        <p>Clean books and reading discovery.</p>
+      </article>
+
+      <article>
+        <h3>Future Apps</h3>
+        <p>New experiments and tools.</p>
+      </article>
+
+      <article>
+        <h3>Physical Products</h3>
+        <p>Journals, desk tools, books, and more.</p>
+      </article>
+
+    </div>
+
+  </section>
+
+  <section class="zd-support-founder">
+
+    <div>
+
+      <p class="zd-support-eyebrow">
+        The Founder
+      </p>
+
+      <h2>
+        Why I am building this.
+      </h2>
+
+      <p>
+        Ziyu Development started with a simple idea:
+        technology should help people become better,
+        not consume more.
+      </p>
+
+      <p>
+        Every project is part of a larger vision
+        to help people focus on what matters most.
+      </p>
+
+      <a href="/pages/founder-journey">
+        Read the Founder Journey →
+      </a>
+
+    </div>
+
+  </section>
+
+  <section id="newsletter" class="zd-support-newsletter">
+
+    <p class="zd-support-eyebrow">
+      Stay Updated
+    </p>
+
+    <h2>
+      Follow the build.
+    </h2>
+
+    <p>
+      Receive updates, launch announcements,
+      product releases, and project progress.
+    </p>
+
+    {% form 'customer', class: 'zd-support-form' %}
+
+      <input
+        type="hidden"
+        name="contact[tags]"
+        value="newsletter"
+      >
+
+      <input
+        type="email"
+        name="contact[email]"
+        placeholder="Email address"
+        required
+      >
+
+      <button type="submit">
+        Join
+      </button>
+
+    {% endform %}
+
+  </section>
+
+</main>
+
+{% schema %}
+{
+  "name": "Support Page",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Support Page"
+    }
+  ]
+}
+{% endschema %}
