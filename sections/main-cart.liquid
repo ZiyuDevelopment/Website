@@ -1,0 +1,108 @@
+<main class="zd-cart-page">
+
+  <section class="zd-cart-hero">
+    <p class="zd-cart-eyebrow">Cart</p>
+    <h1>Your selected tools.</h1>
+    <p>Review your items before checkout.</p>
+  </section>
+
+  <section class="zd-cart-layout">
+
+    {% if cart.item_count > 0 %}
+
+      <form action="{{ routes.cart_url }}" method="post" class="zd-cart-items">
+
+        {% for item in cart.items %}
+          <article class="zd-cart-item">
+
+            <a href="{{ item.url }}" class="zd-cart-item__image">
+              {% if item.image %}
+                <img
+                  src="{{ item.image | image_url: width: 400 }}"
+                  alt="{{ item.product.title | escape }}"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                >
+              {% else %}
+                {{ 'product-1' | placeholder_svg_tag: 'zd-cart-placeholder' }}
+              {% endif %}
+            </a>
+
+            <div class="zd-cart-item__info">
+              <a href="{{ item.url }}">
+                <h2>{{ item.product.title }}</h2>
+              </a>
+
+              {% unless item.product.has_only_default_variant %}
+                <p>{{ item.variant.title }}</p>
+              {% endunless %}
+
+              <p class="zd-cart-price">{{ item.final_line_price | money }}</p>
+
+              <label for="Quantity-{{ item.index | plus: 1 }}">Quantity</label>
+              <input
+                id="Quantity-{{ item.index | plus: 1 }}"
+                type="number"
+                name="updates[]"
+                value="{{ item.quantity }}"
+                min="0"
+              >
+            </div>
+
+          </article>
+        {% endfor %}
+
+        <div class="zd-cart-buttons">
+          <button type="submit" name="update">Update Cart</button>
+          <button type="submit" name="checkout">Checkout</button>
+        </div>
+
+      </form>
+
+      <aside class="zd-cart-summary">
+        <h2>Order Summary</h2>
+
+        <div class="zd-cart-summary-row">
+          <span>Subtotal</span>
+          <strong>{{ cart.total_price | money }}</strong>
+        </div>
+
+        <p>
+          Shipping, discounts, and taxes are calculated at checkout.
+        </p>
+
+        <form action="{{ routes.cart_url }}" method="post">
+          <button type="submit" name="checkout">Checkout</button>
+        </form>
+
+        <a href="/collections/all">Continue Shopping</a>
+      </aside>
+
+    {% else %}
+
+      <div class="zd-cart-empty">
+        <h2>Your cart is empty.</h2>
+        <p>
+          Explore curated products that support focus, growth, reading,
+          and intentional living.
+        </p>
+
+        <div class="zd-cart-empty__links">
+          <a href="/collections/all">Shop Products</a>
+          <a href="/pages/projects">Explore Projects</a>
+        </div>
+      </div>
+
+    {% endif %}
+
+  </section>
+
+</main>
+
+{% schema %}
+{
+  "name": "Main Cart",
+  "settings": []
+}
+{% endschema %}

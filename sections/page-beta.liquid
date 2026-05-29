@@ -1,0 +1,97 @@
+<main class="zd-beta-page">
+
+  <section class="zd-beta-hero">
+    <p class="zd-beta-eyebrow">Beta Access</p>
+
+    <h1>Join early and help shape the apps.</h1>
+
+    <p>
+      Sign up for early updates, beta testing opportunities, launch news,
+      and behind-the-scenes progress for Goal Grower, MyJourney, Blokkr, Kindlitt,
+      and future projects.
+    </p>
+
+    <div class="zd-beta-actions">
+      <a href="#waitlist" class="zd-beta-btn zd-beta-btn--primary">Join Waitlist</a>
+      <a href="/pages/projects" class="zd-beta-btn zd-beta-btn--secondary">Explore Projects</a>
+    </div>
+  </section>
+
+  <section class="zd-beta-grid">
+    <article>
+      <span>01</span>
+      <h2>Goal Grower</h2>
+      <p>Test goal tracking, visual plant growth, accountability, and shared gardens.</p>
+    </article>
+
+    <article>
+      <span>02</span>
+      <h2>MyJourney</h2>
+      <p>Help shape planning, reflection, habits, reviews, and life-direction tools.</p>
+    </article>
+
+    <article class="zd-beta-card--dark">
+      <span>03</span>
+      <h2>Blokkr</h2>
+      <p>Test distraction blocking, focus sessions, schedules, and attention reports.</p>
+    </article>
+
+    <article>
+      <span>04</span>
+      <h2>Kindlitt</h2>
+      <p>Help shape clean book discovery, reading lists, and recommendation features.</p>
+    </article>
+  </section>
+
+  <section class="zd-beta-info">
+    <div>
+      <p class="zd-beta-eyebrow">What beta testers do</p>
+      <h2>Early feedback makes the products better.</h2>
+    </div>
+
+    <div class="zd-beta-info-list">
+      <p>Beta testers may get access to prototypes, app previews, feedback forms, usability tests, and early product updates.</p>
+      <p>You do not need to be technical. The most useful feedback is often simple: what felt clear, what felt confusing, and what would make the product more useful.</p>
+    </div>
+  </section>
+
+  <section id="waitlist" class="zd-beta-form-section">
+    <p class="zd-beta-eyebrow">Join the list</p>
+    <h2>Choose the projects you care about.</h2>
+
+    {% form 'customer', class: 'zd-beta-form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter, beta-waitlist">
+
+      <label for="BetaEmail">Email address</label>
+      <input id="BetaEmail" type="email" name="contact[email]" placeholder="you@example.com" required>
+
+      <label for="BetaProject">Project interest</label>
+      <select id="BetaProject" name="contact[project_interest]">
+        <option>All projects</option>
+        <option>Goal Grower</option>
+        <option>MyJourney</option>
+        <option>Blokkr</option>
+        <option>Kindlitt</option>
+        <option>Physical products</option>
+      </select>
+
+      <label for="BetaMessage">Why are you interested?</label>
+      <textarea id="BetaMessage" name="contact[body]" rows="5" placeholder="Tell me what you want to test or help with."></textarea>
+
+      <button type="submit">Join Beta Waitlist</button>
+    {% endform %}
+  </section>
+
+</main>
+
+{% schema %}
+{
+  "name": "Beta Page",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Beta Page"
+    }
+  ]
+}
+{% endschema %}

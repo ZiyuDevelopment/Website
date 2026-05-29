@@ -1,0 +1,125 @@
+<main class="zd-search-page">
+
+  <section class="zd-search-hero">
+    <p class="zd-search-eyebrow">Search</p>
+
+    <h1>Find projects, products, articles, and pages.</h1>
+
+    <form action="{{ routes.search_url }}" method="get" role="search" class="zd-search-form">
+      <input
+        type="search"
+        name="q"
+        value="{{ search.terms | escape }}"
+        placeholder="Search Ziyu Development..."
+      >
+
+      <input type="hidden" name="type" value="product,article,page">
+
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <section class="zd-search-results">
+
+    {% if search.performed %}
+
+      <div class="zd-search-heading">
+        <p class="zd-search-eyebrow">Results</p>
+
+        <h2>
+          {% if search.results_count > 0 %}
+            {{ search.results_count }} result{% if search.results_count != 1 %}s{% endif %} for “{{ search.terms }}”
+          {% else %}
+            No results for “{{ search.terms }}”
+          {% endif %}
+        </h2>
+      </div>
+
+      {% if search.results_count > 0 %}
+        <div class="zd-search-grid">
+          {% for item in search.results %}
+            <a href="{{ item.url }}" class="zd-search-card">
+
+              <div class="zd-search-card__image">
+                {% if item.object_type == 'product' and item.featured_image %}
+                  <img
+                    src="{{ item.featured_image | image_url: width: 700 }}"
+                    alt="{{ item.title | escape }}"
+                    width="700"
+                    height="520"
+                    loading="lazy"
+                  >
+                {% elsif item.object_type == 'article' and item.image %}
+                  <img
+                    src="{{ item.image | image_url: width: 700 }}"
+                    alt="{{ item.title | escape }}"
+                    width="700"
+                    height="520"
+                    loading="lazy"
+                  >
+                {% else %}
+                  {{ 'lifestyle-1' | placeholder_svg_tag: 'zd-search-placeholder' }}
+                {% endif %}
+              </div>
+
+              <div class="zd-search-card__body">
+                <p class="zd-search-card__type">
+                  {{ item.object_type }}
+                </p>
+
+                <h3>{{ item.title }}</h3>
+
+                <p>
+                  {{ item.content | strip_html | truncate: 130 }}
+                </p>
+
+                <span>Open →</span>
+              </div>
+
+            </a>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="zd-search-empty">
+          <h2>Try searching something else.</h2>
+          <p>
+            Search for projects like Goal Grower, MyJourney, Blokkr, Kindlitt,
+            or topics like focus, books, goals, products, or support.
+          </p>
+
+          <div class="zd-search-empty__links">
+            <a href="/pages/projects">View Projects</a>
+            <a href="/collections/all">Shop Products</a>
+            <a href="/blogs/journal">Read Journal</a>
+          </div>
+        </div>
+      {% endif %}
+
+    {% else %}
+
+      <div class="zd-search-empty">
+        <h2>Start with a search.</h2>
+        <p>
+          Look for apps, articles, products, support pages, or anything connected
+          to the Ziyu Development ecosystem.
+        </p>
+
+        <div class="zd-search-empty__links">
+          <a href="/pages/projects">View Projects</a>
+          <a href="/collections/all">Shop Products</a>
+          <a href="/blogs/journal">Read Journal</a>
+        </div>
+      </div>
+
+    {% endif %}
+
+  </section>
+
+</main>
+
+{% schema %}
+{
+  "name": "Main Search",
+  "settings": []
+}
+{% endschema %}
