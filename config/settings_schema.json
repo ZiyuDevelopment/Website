@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Ziyu Development custom Shopify theme."
+      }
+    ]
+  }
+]

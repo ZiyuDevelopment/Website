@@ -1,36 +1,45 @@
-<header class="ziyu-header">
-  <nav class="ziyu-header__inner">
-    <a href="/" class="ziyu-logo">
-      Ziyu Development
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="{{ routes.root_url }}" class="brand">
+      <span class="brand-mark">♧</span>
+      <span>
+        <span class="brand-text">ZIYU</span>
+        <span class="brand-small">DEVELOPMENT</span>
+      </span>
     </a>
 
-    <div class="ziyu-nav">
-      <a href="/" class="{% if request.path == '/' %}is-active{% endif %}">Home</a>
-      <a href="/pages/projects" class="{% if request.path contains '/pages/projects' %}is-active{% endif %}">Projects</a>
-      <a href="/pages/journal" class="{% if request.path contains '/pages/journal' %}is-active{% endif %}">Journal</a>
-      <a href="/pages/support" class="{% if request.path contains '/pages/support' %}is-active{% endif %}">Support</a>
-      <a href="/pages/store" class="{% if request.path contains '/pages/store' %}is-active{% endif %}">Store</a>
-      <a href="/pages/community" class="{% if request.path contains '/pages/community' %}is-active{% endif %}">Community</a>
+    <nav class="nav">
+      <a class="is-active" href="{{ routes.root_url }}">Home</a>
+      <a href="/pages/philosophy">Philosophy</a>
+      <a href="/pages/projects">Projects</a>
+      <a href="/blogs/journal">Journal</a>
+      <a href="/pages/roadmap">Roadmap</a>
+      <a href="/pages/community">Community</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Search">⌕</button>
+      <button class="icon-btn" aria-label="Notifications">♢</button>
+      <a class="icon-btn" href="{{ routes.account_url }}" aria-label="Account">◎</a>
+      <a class="icon-btn" href="{{ routes.cart_url }}" aria-label="Cart">♧</a>
+      <a class="btn btn-primary" href="/pages/support">Support the Mission</a>
     </div>
 
-    <a href="/pages/support" class="ziyu-button ziyu-header__button">
-      Support the Future
-    </a>
+    <button class="icon-btn mobile-menu-btn" data-menu-open aria-label="Open menu">☰</button>
+  </div>
 
-    <button class="ziyu-menu-button" aria-label="Open menu" onclick="document.body.classList.toggle('ziyu-menu-open')">
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
-
-  <div class="ziyu-mobile-menu">
-    <a href="/">Home</a>
-    <a href="/pages/projects">Projects</a>
-    <a href="/pages/journal">Journal</a>
-    <a href="/pages/support">Support</a>
-    <a href="/pages/store">Store</a>
-    <a href="/pages/community">Community</a>
-    <a href="/pages/archive">Archive</a>
+  <div class="mobile-menu" data-mobile-menu>
+    <button class="icon-btn" data-menu-close aria-label="Close menu">×</button>
+    <a href="{{ routes.root_url }}">Home</a>
     <a href="/pages/philosophy">Philosophy</a>
+    <a href="/pages/projects">Projects</a>
+    <a href="/blogs/journal">Journal</a>
+    <a href="/pages/roadmap">Roadmap</a>
+    <a href="/pages/community">Community</a>
+    <a href="/collections/all">Store</a>
+    <a href="/pages/faq">FAQ</a>
+    <a href="/pages/contact">Contact</a>
+    <br>
+    <a class="btn btn-primary" href="/pages/support">Support the Mission</a>
   </div>
 </header>
