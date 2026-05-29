@@ -1,0 +1,148 @@
+<main class="zd-community-page">
+
+  <section class="zd-community-hero">
+    <p class="zd-community-eyebrow">Community</p>
+
+    <h1>Build a better life with people moving in the same direction.</h1>
+
+    <p>
+      The Ziyu Development community is for people who care about focus, growth,
+      thoughtful technology, reading, discipline, creativity, and intentional living.
+    </p>
+
+    <div class="zd-community-actions">
+      <a href="#join" class="zd-community-btn zd-community-btn--primary">Join the Community</a>
+      <a href="/pages/projects" class="zd-community-btn zd-community-btn--secondary">Explore Projects</a>
+    </div>
+  </section>
+
+  <section class="zd-community-intro">
+    <div>
+      <p class="zd-community-eyebrow">Why join</p>
+      <h2>This is more than following a product launch.</h2>
+    </div>
+
+    <p>
+      The goal is to create a place where early users, supporters, testers,
+      readers, and builders can help shape tools that make real life better.
+      Community feedback will help decide what gets built, improved, and launched.
+    </p>
+  </section>
+
+  <section class="zd-community-grid">
+    <article>
+      <span>01</span>
+      <h3>Beta Testing</h3>
+      <p>Try early versions of Goal Grower, MyJourney, Blokkr, Kindlitt, and future apps.</p>
+    </article>
+
+    <article>
+      <span>02</span>
+      <h3>Feedback</h3>
+      <p>Share what works, what feels confusing, and what would make the products better.</p>
+    </article>
+
+    <article>
+      <span>03</span>
+      <h3>Challenges</h3>
+      <p>Join focus, reading, goal, and self-improvement challenges with other members.</p>
+    </article>
+
+    <article>
+      <span>04</span>
+      <h3>Supporters</h3>
+      <p>Follow the build and help support the development of intentional technology.</p>
+    </article>
+  </section>
+
+  <section class="zd-community-paths">
+    <div class="zd-community-section-head">
+      <p class="zd-community-eyebrow">Community paths</p>
+      <h2>Choose how you want to be involved.</h2>
+    </div>
+
+    <div class="zd-community-path-grid">
+      <a href="/pages/beta">
+        <strong>Become a Beta Tester</strong>
+        <span>Test apps early and help shape the experience.</span>
+      </a>
+
+      <a href="/pages/support">
+        <strong>Support the Mission</strong>
+        <span>Help fund design, development, testing, and launches.</span>
+      </a>
+
+      <a href="/blogs/journal">
+        <strong>Read the Journal</strong>
+        <span>Follow founder notes, devlogs, and intentional living articles.</span>
+      </a>
+
+      <a href="/pages/roadmap">
+        <strong>Follow the Roadmap</strong>
+        <span>See what is being built now, next, and later.</span>
+      </a>
+
+      <a href="/pages/contact">
+        <strong>Send Feedback</strong>
+        <span>Share ideas, issues, suggestions, and collaboration requests.</span>
+      </a>
+
+      <a href="/collections/all">
+        <strong>Support Through Products</strong>
+        <span>Buy journals, desk tools, apparel, and future digital products.</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="join" class="zd-community-join">
+    <div>
+      <p class="zd-community-eyebrow">Join early</p>
+      <h2>Become part of the beginning.</h2>
+      <p>
+        Join the email list to get community updates, beta opportunities,
+        project progress, product drops, and founder notes.
+      </p>
+    </div>
+
+    {% form 'customer', class: 'zd-community-form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter, community">
+
+      <input
+        type="email"
+        name="contact[email]"
+        placeholder="Email address"
+        required
+      >
+
+      <button type="submit">Join</button>
+    {% endform %}
+  </section>
+
+  <section class="zd-community-support">
+    <div>
+      <p class="zd-community-eyebrow">Help it grow</p>
+      <h2>Support the mission behind the community.</h2>
+      <p>
+        This community exists to help build products that respect people’s time,
+        focus, and growth. Support helps turn the vision into real tools.
+      </p>
+    </div>
+
+    <a href="/pages/support" class="zd-community-btn zd-community-btn--light">
+      Support the Mission
+    </a>
+  </section>
+
+</main>
+
+{% schema %}
+{
+  "name": "Community Page",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Community Page"
+    }
+  ]
+}
+{% endschema %}
