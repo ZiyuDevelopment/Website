@@ -1,0 +1,204 @@
+<main class="zd-kind-page">
+
+  <section class="zd-kind-hero">
+    <div class="zd-kind-hero__copy">
+      <p class="zd-kind-eyebrow">Reading + clean information</p>
+
+      <h1>Kindlitt</h1>
+
+      <p>
+        A reading and discovery platform for clean books, curated lists,
+        meaningful recommendations, and information that builds people up.
+      </p>
+
+      <div class="zd-kind-actions">
+        <a href="#waitlist" class="zd-kind-btn zd-kind-btn--primary">Join Waitlist</a>
+        <a href="/pages/support" class="zd-kind-btn zd-kind-btn--secondary">Support This Project</a>
+      </div>
+    </div>
+
+    <div class="zd-kind-hero__visual">
+      {% if section.settings.hero_image %}
+        <img
+          src="{{ section.settings.hero_image | image_url: width: 1200 }}"
+          alt="Kindlitt reading preview"
+          width="1200"
+          height="900"
+          loading="eager"
+        >
+      {% else %}
+        {{ 'collection-2' | placeholder_svg_tag: 'zd-kind-placeholder' }}
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="zd-kind-purpose">
+    <div>
+      <p class="zd-kind-eyebrow">Why it exists</p>
+      <h2>What you read shapes what you become.</h2>
+    </div>
+
+    <p>
+      Kindlitt exists to help people find books and information that are worth
+      their attention. Instead of endless feeds and random recommendations,
+      it focuses on thoughtful discovery, clean content, and better reading habits.
+    </p>
+  </section>
+
+  <section class="zd-kind-features">
+    <div class="zd-kind-section-head">
+      <p class="zd-kind-eyebrow">Core features</p>
+      <h2>A calmer way to discover what to read.</h2>
+    </div>
+
+    <div class="zd-kind-feature-grid">
+      <article>
+        <span>01</span>
+        <h3>Curated Books</h3>
+        <p>Find books organized by purpose, mood, values, audience, and topic.</p>
+      </article>
+
+      <article>
+        <span>02</span>
+        <h3>Clean Reading</h3>
+        <p>Help readers find content that aligns with the kind of media they want.</p>
+      </article>
+
+      <article>
+        <span>03</span>
+        <h3>Reading Lists</h3>
+        <p>Create and follow lists for growth, learning, faith, focus, and creativity.</p>
+      </article>
+
+      <article>
+        <span>04</span>
+        <h3>Recommendations</h3>
+        <p>Discover books through thoughtful suggestions instead of noisy algorithms.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="zd-kind-showcase">
+    <div class="zd-kind-showcase__copy">
+      <p class="zd-kind-eyebrow">Experience</p>
+      <h2>Less endless scrolling. More meaningful reading.</h2>
+
+      <p>
+        Kindlitt is designed to feel more like a calm reading room than a content feed.
+        It helps people choose what they consume with more intention.
+      </p>
+
+      <ul>
+        <li>Curated book lists</li>
+        <li>Clean content guidance</li>
+        <li>Reading recommendations</li>
+        <li>Book collections</li>
+        <li>Community reading suggestions</li>
+      </ul>
+    </div>
+
+    <div class="zd-kind-showcase__image">
+      {% if section.settings.showcase_image %}
+        <img
+          src="{{ section.settings.showcase_image | image_url: width: 1200 }}"
+          alt="Kindlitt reading environment"
+          width="1200"
+          height="850"
+          loading="lazy"
+        >
+      {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'zd-kind-placeholder' }}
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="zd-kind-roadmap">
+    <div>
+      <p class="zd-kind-eyebrow">Roadmap</p>
+      <h2>What Kindlitt becomes over time.</h2>
+    </div>
+
+    <div class="zd-kind-roadmap-grid">
+      <article>
+        <span>Phase 1</span>
+        <h3>Book discovery</h3>
+        <p>Build a clean book discovery system with curated lists and categories.</p>
+      </article>
+
+      <article>
+        <span>Phase 2</span>
+        <h3>Reading profiles</h3>
+        <p>Allow users to save books, build lists, and track reading interests.</p>
+      </article>
+
+      <article>
+        <span>Phase 3</span>
+        <h3>Community lists</h3>
+        <p>Let readers suggest, review, and organize meaningful book collections.</p>
+      </article>
+
+      <article>
+        <span>Phase 4</span>
+        <h3>Content guidance</h3>
+        <p>Help users make informed decisions about what books fit their values.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="zd-kind-support">
+    <div>
+      <p class="zd-kind-eyebrow">Support the mission</p>
+      <h2>Help build better ways to discover books.</h2>
+
+      <p>
+        Support helps fund design, development, research, testing, and the work
+        needed to build a thoughtful reading and recommendation platform.
+      </p>
+    </div>
+
+    <a href="/pages/support" class="zd-kind-btn zd-kind-btn--light">Support the Mission</a>
+  </section>
+
+  <section id="waitlist" class="zd-kind-waitlist">
+    <p class="zd-kind-eyebrow">Early access</p>
+    <h2>Join the Kindlitt waitlist.</h2>
+    <p>Get updates, early access opportunities, and launch news.</p>
+
+    {% form 'customer', class: 'zd-kind-form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter, kindlitt-waitlist">
+
+      <input
+        type="email"
+        name="contact[email]"
+        placeholder="Email address"
+        required
+      >
+
+      <button type="submit">Join Waitlist</button>
+    {% endform %}
+  </section>
+
+</main>
+
+{% schema %}
+{
+  "name": "Kindlitt Page",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "image_picker",
+      "id": "showcase_image",
+      "label": "Showcase image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kindlitt Page"
+    }
+  ]
+}
+{% endschema %}

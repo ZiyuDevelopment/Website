@@ -1,8 +1,206 @@
+<main class="zd-blokkr-page">
+
+  <section class="zd-blokkr-hero">
+    <div class="zd-blokkr-hero__copy">
+      <p class="zd-blokkr-eyebrow">Focus tool</p>
+
+      <h1>Blokkr</h1>
+
+      <p>
+        A distraction-blocking app designed to help people protect their attention,
+        block time-wasting apps, and create space for deep work, study, prayer,
+        reading, and real life.
+      </p>
+
+      <div class="zd-blokkr-actions">
+        <a href="#waitlist" class="zd-blokkr-btn zd-blokkr-btn--primary">Join Waitlist</a>
+        <a href="/pages/support" class="zd-blokkr-btn zd-blokkr-btn--secondary">Support This Project</a>
+      </div>
+    </div>
+
+    <div class="zd-blokkr-hero__visual">
+      {% if section.settings.hero_image %}
+        <img
+          src="{{ section.settings.hero_image | image_url: width: 1200 }}"
+          alt="Blokkr app preview"
+          width="1200"
+          height="900"
+          loading="eager"
+        >
+      {% else %}
+        {{ 'collection-1' | placeholder_svg_tag: 'zd-blokkr-placeholder' }}
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="zd-blokkr-problem">
+    <div>
+      <p class="zd-blokkr-eyebrow">The problem</p>
+      <h2>Your attention is constantly being pulled away.</h2>
+    </div>
+
+    <p>
+      Blokkr is built for people who want help creating boundaries with their phone.
+      Instead of relying only on willpower, it gives users a system for blocking
+      distractions and protecting focused time.
+    </p>
+  </section>
+
+  <section class="zd-blokkr-features">
+    <div class="zd-blokkr-section-head">
+      <p class="zd-blokkr-eyebrow">Core features</p>
+      <h2>Protect your focus before distractions win.</h2>
+    </div>
+
+    <div class="zd-blokkr-feature-grid">
+      <article>
+        <span>01</span>
+        <h3>App Blocking</h3>
+        <p>Block distracting apps during study, work, scripture study, or focus sessions.</p>
+      </article>
+
+      <article>
+        <span>02</span>
+        <h3>Focus Sessions</h3>
+        <p>Start intentional blocks of time for deep work, reading, prayer, or learning.</p>
+      </article>
+
+      <article>
+        <span>03</span>
+        <h3>Schedules</h3>
+        <p>Create recurring focus windows so your phone follows your priorities.</p>
+      </article>
+
+      <article>
+        <span>04</span>
+        <h3>Reports</h3>
+        <p>See how much time you protected and how your focus improves over time.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="zd-blokkr-showcase">
+    <div class="zd-blokkr-showcase__image">
+      {% if section.settings.showcase_image %}
+        <img
+          src="{{ section.settings.showcase_image | image_url: width: 1200 }}"
+          alt="Blokkr focus workspace preview"
+          width="1200"
+          height="850"
+          loading="lazy"
+        >
+      {% else %}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'zd-blokkr-placeholder' }}
+      {% endif %}
+    </div>
+
+    <div class="zd-blokkr-showcase__copy">
+      <p class="zd-blokkr-eyebrow">Experience</p>
+      <h2>Less scrolling. More living.</h2>
+
+      <p>
+        Blokkr helps users create intentional distance from distracting apps.
+        The goal is not to make people use another app more. The goal is to help
+        them use their life better.
+      </p>
+
+      <ul>
+        <li>Block selected apps</li>
+        <li>Create focus schedules</li>
+        <li>Start deep work sessions</li>
+        <li>Track protected time</li>
+        <li>Build better attention habits</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="zd-blokkr-roadmap">
+    <div>
+      <p class="zd-blokkr-eyebrow">Roadmap</p>
+      <h2>What Blokkr becomes over time.</h2>
+    </div>
+
+    <div class="zd-blokkr-roadmap-grid">
+      <article>
+        <span>Phase 1</span>
+        <h3>Basic blocking</h3>
+        <p>Select distracting apps and block them during focus sessions.</p>
+      </article>
+
+      <article>
+        <span>Phase 2</span>
+        <h3>Focus schedules</h3>
+        <p>Create recurring routines for school, work, sleep, and personal growth.</p>
+      </article>
+
+      <article>
+        <span>Phase 3</span>
+        <h3>Focus reports</h3>
+        <p>View protected time, patterns, and improvements over weeks and months.</p>
+      </article>
+
+      <article>
+        <span>Phase 4</span>
+        <h3>Ecosystem connection</h3>
+        <p>Connect focus time with MyJourney goals and Goal Grower progress.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="zd-blokkr-support">
+    <div>
+      <p class="zd-blokkr-eyebrow">Support the mission</p>
+      <h2>Help build tools that protect attention.</h2>
+
+      <p>
+        Support helps fund the development of tools that push against distraction
+        and help people return to real life.
+      </p>
+    </div>
+
+    <a href="/pages/support" class="zd-blokkr-btn zd-blokkr-btn--light">Support the Mission</a>
+  </section>
+
+  <section id="waitlist" class="zd-blokkr-waitlist">
+    <p class="zd-blokkr-eyebrow">Early access</p>
+    <h2>Join the Blokkr waitlist.</h2>
+    <p>Get updates, beta access opportunities, and launch news.</p>
+
+    {% form 'customer', class: 'zd-blokkr-form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter, blokkr-waitlist">
+
+      <input
+        type="email"
+        name="contact[email]"
+        placeholder="Email address"
+        required
+      >
+
+      <button type="submit">Join Waitlist</button>
+    {% endform %}
+  </section>
+
+</main>
+
+{% schema %}
 {
-  "sections": {
-    "main": {
-      "type": "page-blokkr"
+  "name": "Blokkr Page",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "image_picker",
+      "id": "showcase_image",
+      "label": "Showcase image"
     }
-  },
-  "order": ["main"]
+  ],
+  "presets": [
+    {
+      "name": "Blokkr Page"
+    }
+  ]
 }
+{% endschema %}
