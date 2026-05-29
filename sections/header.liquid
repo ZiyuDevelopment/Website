@@ -1,0 +1,77 @@
+<header class="zd-header" data-header>
+  <div class="zd-header__inner">
+
+    <a href="{{ routes.root_url }}" class="zd-header__brand" aria-label="{{ shop.name }}">
+      <span class="zd-header__mark">Z</span>
+      <span class="zd-header__brand-text">
+        <span class="zd-header__brand-main">ZIYU</span>
+        <span class="zd-header__brand-sub">DEVELOPMENT</span>
+      </span>
+    </a>
+
+    <nav class="zd-header__nav" aria-label="Main navigation">
+      <a href="{{ routes.root_url }}">Home</a>
+      <a href="/pages/philosophy">Philosophy</a>
+      <a href="/pages/projects">Projects</a>
+      <a href="/blogs/journal">Journal</a>
+      <a href="/pages/roadmap">Roadmap</a>
+      <a href="/pages/community">Community</a>
+    </nav>
+
+    <div class="zd-header__actions">
+      <a href="{{ routes.search_url }}" class="zd-header__icon" aria-label="Search">
+        {% render 'icon-search' %}
+      </a>
+
+      <a href="/pages/updates" class="zd-header__icon" aria-label="Notifications">
+        {% render 'icon-bell' %}
+      </a>
+
+      <a href="{{ routes.account_url }}" class="zd-header__icon" aria-label="Account">
+        {% render 'icon-account' %}
+      </a>
+
+      <a href="{{ routes.cart_url }}" class="zd-header__icon zd-header__cart" aria-label="Cart">
+        {% render 'icon-cart' %}
+        <span class="zd-header__cart-count">
+          {{ cart.item_count }}
+        </span>
+      </a>
+
+      <a href="/pages/support" class="zd-header__cta">
+        Support the Mission
+      </a>
+    </div>
+
+    <button class="zd-header__menu-button" type="button" data-menu-open aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+  <div class="zd-mobile-menu" data-mobile-menu>
+    <div class="zd-mobile-menu__top">
+      <span>Menu</span>
+      <button type="button" data-menu-close aria-label="Close menu">×</button>
+    </div>
+
+    <nav class="zd-mobile-menu__nav">
+      <a href="{{ routes.root_url }}">Home</a>
+      <a href="/pages/start-here">Start Here</a>
+      <a href="/pages/philosophy">Philosophy</a>
+      <a href="/pages/projects">Projects</a>
+      <a href="/blogs/journal">Journal</a>
+      <a href="/pages/roadmap">Roadmap</a>
+      <a href="/pages/community">Community</a>
+      <a href="/collections/all">Store</a>
+      <a href="/pages/faq">FAQ</a>
+      <a href="/pages/contact">Contact</a>
+    </nav>
+
+    <a href="/pages/support" class="zd-mobile-menu__cta">
+      Support the Mission
+    </a>
+  </div>
+</header>

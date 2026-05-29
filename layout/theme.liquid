@@ -6,6 +6,7 @@
     <title>{{ page_title }}{% if shop.name %} | {{ shop.name }}{% endif %}</title>
 
     {{ content_for_header }}
+    {{ 'header.css' | asset_url | stylesheet_tag }}
 
     <link rel="stylesheet" href="{{ 'base.css' | asset_url }}">
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
@@ -19,5 +20,6 @@
     </main>
 
     {% section 'footer' %}
+    <script src="{{ 'header.js' | asset_url }}" defer></script>
   </body>
 </html>
