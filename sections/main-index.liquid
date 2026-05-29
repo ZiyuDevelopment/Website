@@ -1,8 +1,7 @@
-<main class="zd-home-new">
-  <div class="zd-grain"></div>
+<main class="zd-home-body">
 
-  <section class="zd-new-hero">
-    <div class="zd-new-hero__copy">
+  <section class="zd-home-hero">
+    <div class="zd-home-hero__text">
       <h1>Technology designed to help people live intentionally.</h1>
       <p>
         We create digital tools that prioritize your presence over your attention.
@@ -10,33 +9,35 @@
         focus and personal growth.
       </p>
 
-      <div class="zd-new-actions">
-        <a href="/pages/support" class="zd-new-btn zd-new-btn--primary">Support the Future</a>
-        <a href="/pages/goal-grower" class="zd-new-btn zd-new-btn--secondary">Explore Goal Grower</a>
+      <div class="zd-home-actions">
+        <a href="/pages/support" class="zd-home-btn zd-home-btn--primary">Support the Future</a>
+        <a href="/pages/goal-grower" class="zd-home-btn zd-home-btn--secondary">Explore Goal Grower</a>
       </div>
     </div>
 
-    <div class="zd-new-hero__image">
-      {% if section.settings.hero_image %}
-        <img src="{{ section.settings.hero_image | image_url: width: 1200 }}" alt="Goal Grower app preview" width="1200" height="1400" loading="eager">
-      {% else %}
-        {{ 'lifestyle-1' | placeholder_svg_tag: 'zd-new-placeholder' }}
-      {% endif %}
+    <div class="zd-home-hero__image">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw1hukl8UXFjdA4WOaVRJK6Lmt-QD2v5227-Gh0-tcbpkbvb_ey3doCZDsqS3IdlByVWvLxDCPyfW3MJ6o_kuOQjPVDtfuR62UMFhnYv2GZN2PmlNmcc5zZnW4lutNggb9lulmhqZLdbS4s-bC_v4LaUFTz57jH3x9IP6tHblwASvH4Mk87CRk5_Hs5hNnoIxg7VVSe_7lkIoQmvtehChRqdA8ynPOOwfUn3E0ijpC9r7GnhbG3b2yDrwcGPXhPfM1_ZJAzF1EnTGa"
+        alt="Goal Grower app interface"
+        width="900"
+        height="1100"
+        loading="eager"
+      >
     </div>
   </section>
 
-  <section class="zd-new-problem">
-    <p class="zd-new-eyebrow">The Current State</p>
+  <section class="zd-home-problem">
+    <p class="zd-home-eyebrow">The Current State</p>
     <h2>Modern technology is designed to keep us consuming.</h2>
-    <div class="zd-new-line"></div>
+    <div></div>
     <p>
-      The apps we use every day are built on the attention economy. They are
-      optimized for scrolls, clicks, and notifications — measurements that rarely
-      align with a fulfilling life. We believe there is a better way to build.
+      The apps we use every day are built on the attention economy. They are optimized
+      for scrolls, clicks, and notifications — measurements that rarely align with a
+      fulfilling life. We believe there is a better way to build.
     </p>
   </section>
 
-  <section class="zd-new-values">
+  <section class="zd-home-values">
     <article>
       <span>✦</span>
       <h3>Intentional Technology</h3>
@@ -56,104 +57,87 @@
     </article>
   </section>
 
-  <section class="zd-new-showcase">
-    <div class="zd-new-showcase__copy">
+  <section class="zd-home-showcase">
+    <div>
       <h2>Growth visualized through intentional systems.</h2>
       <p>
-        Goal Grower turns your abstract ambitions into a living digital ecosystem.
+        Goal Grower turns your abstract ambitions into a living, digital ecosystem.
         Each goal you set is represented by progress that grows as you commit time
         to your craft in the real world.
       </p>
 
-      <div class="zd-new-check">
-        <strong>Goal Plants</strong>
-        <span>Visual progress that evolves with your consistency.</span>
-      </div>
-
-      <div class="zd-new-check">
-        <strong>Shared Gardens</strong>
-        <span>Collaborative spaces for families and friends to grow together.</span>
-      </div>
-
-      <a href="/pages/goal-grower" class="zd-new-text-link">View Goal Grower →</a>
+      <ul>
+        <li><strong>Goal Plants</strong><br>Visual progress that evolves with your consistency.</li>
+        <li><strong>Shared Gardens</strong><br>Collaborative spaces for families and friends to grow together.</li>
+      </ul>
     </div>
 
-    <div class="zd-new-showcase__image">
-      {% if section.settings.showcase_image %}
-        <img src="{{ section.settings.showcase_image | image_url: width: 1200 }}" alt="Digital garden preview" width="1200" height="800" loading="lazy">
-      {% else %}
-        {{ 'product-1' | placeholder_svg_tag: 'zd-new-placeholder' }}
-      {% endif %}
+    <div class="zd-home-showcase__image">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXBqx__juZ1V6bLldDEqDZWZyIWEuR2p2l1_oqHrabLNvZ8AonUDtG9v89p1d3q3lu3-7ulUBECnUtgszRoVylDEAXomDdrXKe4WIR_Jye-2XqsHWUhN5CWHS18eYC-g4R6zcdXGUuo8YwDn76lc3FN50f7Ry8Hmj2xPf1YDU1ZEZJuzdVu-iLJQoQDmBu8WcdbFytHpOR221X2rbNnwDFVRkxZNU1zmRmyeHnmrm48QzX4dT4KC9GEwbUHRNBi-5iiWtP1FYYby-a"
+        alt="Digital garden visual"
+        width="900"
+        height="600"
+        loading="lazy"
+      >
     </div>
   </section>
 
-  <section class="zd-new-founder">
-    <div class="zd-new-founder__image">
-      {% if section.settings.founder_image %}
-        <img src="{{ section.settings.founder_image | image_url: width: 900 }}" alt="Founder story" width="900" height="1200" loading="lazy">
-      {% else %}
-        {{ 'lifestyle-2' | placeholder_svg_tag: 'zd-new-placeholder' }}
-      {% endif %}
+  <section class="zd-home-founder">
+    <div class="zd-home-founder__image">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfJ5gXjUxTMVBS-ym5kq6bmIz9O-Z5Xito4H6j8nA0cFqGmWLPY4CwkuN8-J9ij2CeeG5JDAChWDVxLziQpHFVdDSOb9hVxhtz_baU2aSGBe1iwEoTDYQ-USB1mSv1b2Ll4eF26v2zuXpBPE9moCdzWuIG5dwjH8icMEeyHw8uoDSgSGwfXMxJe0nyn-K11Q9TaXiU3Vn4d6QXv9l4b3vupuBlNWOJpTxLVMdNCw23J-xb3t2tWors4673NY7I7y01PFr_2mMlfnx7"
+        alt="Founder story"
+        width="800"
+        height="1000"
+        loading="lazy"
+      >
     </div>
 
-    <div class="zd-new-founder__copy">
+    <div>
       <h2>Built by one, for the many.</h2>
       <p>
         Ziyu Development started with a simple question: why does technology make
-        us feel so busy but so unaccomplished? This site is a public record of
-        building tools that honor time, attention, learning, and real growth.
+        us feel busy but unaccomplished? This is a personal mission to build tools
+        that honor time, attention, learning, and real growth.
       </p>
-      <p>
-        Every project is part of a larger mission to reclaim digital life, one
-        intentional interaction at a time.
-      </p>
-
-      <a href="/pages/founder-journey" class="zd-new-btn zd-new-btn--light">Read Founder Journey</a>
+      <p>Every line of code and every pixel is crafted independently.</p>
+      <a href="/pages/founder-journey">Read the Founder Journey →</a>
     </div>
   </section>
 
-  <section class="zd-new-progress">
-    <div class="zd-new-section-head">
+  <section class="zd-home-progress">
+    <div class="zd-home-section-head">
       <div>
-        <p class="zd-new-eyebrow">The Journey</p>
+        <p class="zd-home-eyebrow">The Journey</p>
         <h2>Development Progress</h2>
       </div>
-      <a href="/pages/roadmap">View full roadmap →</a>
+      <a href="/pages/roadmap">View roadmap →</a>
     </div>
 
-    <div class="zd-new-progress-scroll">
+    <div class="zd-home-progress-grid">
       <article>
-        <i style="width: 100%;"></i>
         <span>Now</span>
         <h3>Website Foundation</h3>
-        <p>Building the brand, pages, store structure, and project ecosystem.</p>
+        <p>The brand, Shopify structure, project pages, and store foundation are being completed.</p>
       </article>
 
       <article>
-        <i style="width: 60%;"></i>
         <span>Next</span>
         <h3>Goal Grower MVP</h3>
-        <p>Creating goal tracking, visual growth, and early user testing.</p>
+        <p>Goal creation, visual progress, habit tracking, and early tester feedback.</p>
       </article>
 
       <article>
-        <i style="width: 35%;"></i>
-        <span>Later</span>
-        <h3>MyJourney</h3>
-        <p>Planning, reflection, growth areas, and journey mapping.</p>
-      </article>
-
-      <article>
-        <i style="width: 25%;"></i>
         <span>Future</span>
-        <h3>Blokkr + Kindlitt</h3>
-        <p>Focus protection, clean reading, and intentional information tools.</p>
+        <h3>Connected Ecosystem</h3>
+        <p>MyJourney, Blokkr, Kindlitt, physical products, and community support.</p>
       </article>
     </div>
   </section>
 
-  <section class="zd-new-support">
-    <div class="zd-new-support__intro">
+  <section class="zd-home-support">
+    <div class="zd-home-support__intro">
       <h2>Help build the future of intentional technology.</h2>
       <p>
         Ziyu Development is funded by people who believe technology should help
@@ -161,14 +145,14 @@
       </p>
     </div>
 
-    <div class="zd-new-support-grid">
+    <div class="zd-home-support-grid">
       <article>
         <h3>Observer</h3>
         <p>Free</p>
         <ul>
           <li>Public dev logs</li>
           <li>Community access</li>
-          <li>Intentional updates</li>
+          <li>Project updates</li>
         </ul>
         <a href="/pages/beta">Join for Free</a>
       </article>
@@ -184,7 +168,7 @@
         <a href="/pages/support">Support the Future</a>
       </article>
 
-      <article class="zd-new-support-card--featured">
+      <article class="featured">
         <span>Most Helpful</span>
         <h3>Advocate</h3>
         <p>Early supporter</p>
@@ -200,78 +184,59 @@
         <h3>Visionary</h3>
         <p>Long-term support</p>
         <ul>
-          <li>Help shape future apps</li>
+          <li>Shape future apps</li>
           <li>Support physical products</li>
-          <li>Follow the full roadmap</li>
+          <li>Follow the roadmap</li>
         </ul>
         <a href="/pages/roadmap">Shape the Future</a>
       </article>
     </div>
   </section>
 
-  <section class="zd-new-journal">
-    <div class="zd-new-section-head">
+  <section class="zd-home-journal">
+    <div class="zd-home-section-head">
       <h2>Journal</h2>
       <a href="/blogs/journal">Read all entries →</a>
     </div>
 
-    <div class="zd-new-journal-grid">
-      {% assign journal_blog = blogs.journal %}
-      {% if journal_blog.articles.size > 0 %}
-        {% for article in journal_blog.articles limit: 2 %}
-          <a href="{{ article.url }}" class="zd-new-journal-card">
-            {% if article.image %}
-              <img src="{{ article.image | image_url: width: 900 }}" alt="{{ article.title | escape }}" width="900" height="600" loading="lazy">
-            {% else %}
-              {{ 'lifestyle-1' | placeholder_svg_tag: 'zd-new-placeholder' }}
-            {% endif %}
-            <span>{{ article.tags.first | default: 'Journal' }}</span>
-            <h3>{{ article.title }}</h3>
-            <p>{{ article.excerpt_or_content | strip_html | truncate: 120 }}</p>
-          </a>
-        {% endfor %}
-      {% else %}
-        <a href="/blogs/journal" class="zd-new-journal-card">
-          {{ 'lifestyle-1' | placeholder_svg_tag: 'zd-new-placeholder' }}
-          <span>Thought</span>
-          <h3>The Case for Digital Stillness</h3>
-          <p>Why we need to reintroduce friction into our digital interactions.</p>
-        </a>
+    <div class="zd-home-journal-grid">
+      <a href="/blogs/journal" class="zd-home-journal-card">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuhXzVSI73xYBnnQI_XQVYG6WUHz0Fd-ei6tyuzbgkMyBrPw4pZ7hikSN9wFs2HuMHy2eCfWaRfkB2tiFmDqmV2elHZ8e9xPm_NeVBuOmKbJb2Ht9phIOPnrykYaOukQHD6Ix-9YdUfMGBQFxguF3MduL-Z7xCzYeQyub3DBR6pr7cIbjldxBq2nGKskNqXGoDwGyYiIGyscA6po72Ejf772oscwCUTFPhoLSse_mSFng4-lgaK_P2a3qBny2Do1rwXyt0mjOlhTiL"
+          alt="Journal workspace"
+          width="900"
+          height="600"
+          loading="lazy"
+        >
+        <span>Thought</span>
+        <h3>The Case for Digital Stillness</h3>
+        <p>Why we need to reintroduce friction into our digital interactions.</p>
+      </a>
 
-        <a href="/blogs/journal" class="zd-new-journal-card">
-          {{ 'collection-1' | placeholder_svg_tag: 'zd-new-placeholder' }}
-          <span>Process</span>
-          <h3>Crafting the Goal Grower UI</h3>
-          <p>Designing a visual system that mirrors slow but steady progress.</p>
-        </a>
-      {% endif %}
+      <a href="/blogs/journal" class="zd-home-journal-card">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR79wmQTfOXK8zRQPmwVPS3MGcdQTn8ZyZasEJaTpNMoE7pDQmhsZVsv-O3jto0Dk71ie4JIIoipyVPFwiG9wKiQoJuHLNGDo3b4nYcgrkiaR4Zk7oZBRaaAY7WBeqh9xnJVSPz2PglVLEhkblqSYSFXnPMnF1Uygg529Y5tIljqQfPr-QlY4aXFZvXHkBPWDwSGeY8a17OIL_w6pHAG7b_gLM79fv7RdA-LL9smUqJ0lnLW679BRQ_loa3Yu-GIjQhIIuQAYeBc4d"
+          alt="Goal Grower UI process"
+          width="900"
+          height="600"
+          loading="lazy"
+        >
+        <span>Process</span>
+        <h3>Crafting the Goal Grower UI</h3>
+        <p>Designing a visual system that mirrors slow, steady progress.</p>
+      </a>
     </div>
   </section>
+
 </main>
 
 {% schema %}
 {
-  "name": "Ziyu Homepage",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "hero_image",
-      "label": "Hero image"
-    },
-    {
-      "type": "image_picker",
-      "id": "showcase_image",
-      "label": "Goal Grower showcase image"
-    },
-    {
-      "type": "image_picker",
-      "id": "founder_image",
-      "label": "Founder image"
-    }
-  ],
+  "name": "Homepage Body",
+  "settings": [],
   "presets": [
     {
-      "name": "Ziyu Homepage"
+      "name": "Homepage Body"
     }
   ]
 }
