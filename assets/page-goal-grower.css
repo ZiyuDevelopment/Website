@@ -1,0 +1,299 @@
+.zd-gg-page {
+  background:
+    radial-gradient(circle at top left, rgba(166, 137, 102, 0.16), transparent 34%),
+    #f7f1e8;
+  color: #171512;
+  font-family: Inter, Arial, sans-serif;
+  padding: 18px 0 88px;
+}
+
+.zd-gg-hero {
+  width: min(1380px, calc(100% - 32px));
+  margin: 0 auto;
+  min-height: 620px;
+  background: #fbf7ef;
+  border: 1px solid rgba(23, 21, 18, 0.14);
+  border-radius: 22px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  box-shadow: 0 24px 80px rgba(45, 35, 22, 0.1);
+}
+
+.zd-gg-hero__copy {
+  padding: clamp(42px, 7vw, 86px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.zd-gg-eyebrow {
+  margin: 0;
+  color: #4f5f3d;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.zd-gg-hero h1,
+.zd-gg-problem h2,
+.zd-gg-section-head h2,
+.zd-gg-showcase h2,
+.zd-gg-roadmap h2,
+.zd-gg-support h2,
+.zd-gg-waitlist h2 {
+  margin: 24px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+.zd-gg-hero h1 {
+  font-size: clamp(58px, 8vw, 124px);
+}
+
+.zd-gg-hero p,
+.zd-gg-problem > p,
+.zd-gg-showcase p,
+.zd-gg-support p,
+.zd-gg-waitlist p {
+  color: #665f55;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.zd-gg-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.zd-gg-btn {
+  min-height: 50px;
+  padding: 0 25px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.zd-gg-btn--primary {
+  background: #2f3a25;
+  color: white;
+}
+
+.zd-gg-btn--secondary {
+  border: 1px solid rgba(23, 21, 18, 0.18);
+  color: #171512;
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.zd-gg-btn--light {
+  background: #fbf7ef;
+  color: #171512;
+}
+
+.zd-gg-hero__visual {
+  background: #efe2cf;
+  min-height: 620px;
+}
+
+.zd-gg-hero__visual img,
+.zd-gg-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+.zd-gg-problem,
+.zd-gg-features,
+.zd-gg-showcase,
+.zd-gg-roadmap,
+.zd-gg-support,
+.zd-gg-waitlist {
+  width: min(1380px, calc(100% - 48px));
+  margin: 88px auto 0;
+}
+
+.zd-gg-problem {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 72px;
+}
+
+.zd-gg-problem h2,
+.zd-gg-section-head h2,
+.zd-gg-showcase h2,
+.zd-gg-roadmap h2,
+.zd-gg-support h2,
+.zd-gg-waitlist h2 {
+  font-size: clamp(42px, 5vw, 76px);
+}
+
+.zd-gg-feature-grid,
+.zd-gg-roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.zd-gg-feature-grid article,
+.zd-gg-roadmap-grid article {
+  background: #fbf7ef;
+  border: 1px solid rgba(23, 21, 18, 0.14);
+  border-radius: 18px;
+  padding: 30px;
+}
+
+.zd-gg-feature-grid span,
+.zd-gg-roadmap-grid span {
+  color: #a68966;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.zd-gg-feature-grid h3,
+.zd-gg-roadmap-grid h3 {
+  margin: 16px 0 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 28px;
+}
+
+.zd-gg-feature-grid p,
+.zd-gg-roadmap-grid p {
+  margin: 0;
+  color: #665f55;
+  line-height: 1.7;
+}
+
+.zd-gg-showcase {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 58px;
+  align-items: center;
+}
+
+.zd-gg-showcase__image {
+  background: #efe2cf;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(23, 21, 18, 0.14);
+  box-shadow: 0 18px 60px rgba(45, 35, 22, 0.1);
+}
+
+.zd-gg-showcase__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zd-gg-showcase ul {
+  margin: 24px 0 0;
+  padding-left: 20px;
+  color: #665f55;
+  line-height: 1.9;
+}
+
+.zd-gg-support {
+  background: linear-gradient(135deg, #2f3a25, #596947);
+  color: #fbf7ef;
+  border-radius: 22px;
+  padding: 58px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 42px;
+}
+
+.zd-gg-support .zd-gg-eyebrow {
+  color: #dfcfb8;
+}
+
+.zd-gg-support p {
+  max-width: 720px;
+  color: rgba(251, 247, 239, 0.82);
+}
+
+.zd-gg-waitlist {
+  max-width: 820px;
+  text-align: center;
+}
+
+.zd-gg-form {
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.zd-gg-form input {
+  min-height: 52px;
+  border-radius: 10px;
+  border: 1px solid rgba(23, 21, 18, 0.16);
+  background: #fffaf2;
+  padding: 0 18px;
+}
+
+.zd-gg-form button {
+  border: 0;
+  border-radius: 10px;
+  background: #2f3a25;
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+@media (max-width: 1050px) {
+  .zd-gg-hero,
+  .zd-gg-problem,
+  .zd-gg-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .zd-gg-feature-grid,
+  .zd-gg-roadmap-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .zd-gg-support {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .zd-gg-hero,
+  .zd-gg-problem,
+  .zd-gg-features,
+  .zd-gg-showcase,
+  .zd-gg-roadmap,
+  .zd-gg-support,
+  .zd-gg-waitlist {
+    width: calc(100% - 28px);
+  }
+
+  .zd-gg-hero {
+    border-radius: 16px;
+  }
+
+  .zd-gg-hero__copy,
+  .zd-gg-support {
+    padding: 38px 24px;
+  }
+
+  .zd-gg-feature-grid,
+  .zd-gg-roadmap-grid,
+  .zd-gg-form {
+    grid-template-columns: 1fr;
+  }
+}

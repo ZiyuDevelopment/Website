@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "page-projects"
+      "type": "page-goal-grower"
     }
   },
   "order": ["main"]

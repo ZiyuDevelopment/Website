@@ -1,0 +1,252 @@
+<main class="zd-projects-page">
+
+  <section class="zd-projects-hero">
+    <div>
+      <p class="zd-projects-eyebrow">Projects</p>
+
+      <h1>Apps and systems for a better life.</h1>
+
+      <p>
+        Explore the growing Ziyu Development ecosystem: apps for goals,
+        life design, focus, reading, and intentional living.
+      </p>
+
+      <div class="zd-projects-actions">
+        <a href="/pages/goal-grower" class="zd-projects-btn zd-projects-btn--primary">
+          Start with Goal Grower
+        </a>
+
+        <a href="/pages/roadmap" class="zd-projects-btn zd-projects-btn--secondary">
+          View Roadmap
+        </a>
+      </div>
+    </div>
+
+    <div class="zd-projects-hero-card">
+      <span>Current Focus</span>
+      <h2>Building the first version of the intentional living ecosystem.</h2>
+      <p>
+        Goal Grower is the flagship project, but it connects to a larger future:
+        MyJourney, Blokkr, Kindlitt, and more focused tools.
+      </p>
+    </div>
+  </section>
+
+  <section class="zd-projects-map">
+    <p class="zd-projects-eyebrow">How it connects</p>
+
+    <div class="zd-projects-map-grid">
+      <article>
+        <span>01</span>
+        <h3>Grow</h3>
+        <p>Goal Grower helps users build goals and habits visually.</p>
+      </article>
+
+      <article>
+        <span>02</span>
+        <h3>Reflect</h3>
+        <p>MyJourney helps users plan, review, and shape a better life.</p>
+      </article>
+
+      <article>
+        <span>03</span>
+        <h3>Focus</h3>
+        <p>Blokkr protects attention by blocking distraction loops.</p>
+      </article>
+
+      <article>
+        <span>04</span>
+        <h3>Read</h3>
+        <p>Kindlitt helps people find books and information worth their time.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="zd-projects-list">
+
+    <a href="/pages/goal-grower" class="zd-projects-feature zd-projects-feature--large">
+      <div class="zd-projects-image">
+        {% if section.settings.goal_grower_image %}
+          <img
+            src="{{ section.settings.goal_grower_image | image_url: width: 1200 }}"
+            alt="Goal Grower project"
+            width="1200"
+            height="800"
+            loading="lazy"
+          >
+        {% else %}
+          {{ 'product-1' | placeholder_svg_tag: 'zd-projects-placeholder' }}
+        {% endif %}
+      </div>
+
+      <div class="zd-projects-feature-content">
+        <div class="zd-projects-status">Flagship · In Development</div>
+        <h2>Goal Grower</h2>
+        <p>
+          A goal and habit tracking app where progress grows visually.
+          Built around consistency, accountability, shared gardens, and real-life growth.
+        </p>
+        <span class="zd-projects-link">View Project →</span>
+      </div>
+    </a>
+
+    <a href="/pages/myjourney" class="zd-projects-feature">
+      <div class="zd-projects-image">
+        {% if section.settings.myjourney_image %}
+          <img
+            src="{{ section.settings.myjourney_image | image_url: width: 900 }}"
+            alt="MyJourney project"
+            width="900"
+            height="620"
+            loading="lazy"
+          >
+        {% else %}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'zd-projects-placeholder' }}
+        {% endif %}
+      </div>
+
+      <div class="zd-projects-feature-content">
+        <div class="zd-projects-status">Life System · Planned</div>
+        <h2>MyJourney</h2>
+        <p>
+          A personal journey system for planning goals, reflecting on progress,
+          tracking habits, and building a better life step by step.
+        </p>
+        <span class="zd-projects-link">View Project →</span>
+      </div>
+    </a>
+
+    <a href="/pages/blokkr" class="zd-projects-feature zd-projects-feature--dark">
+      <div class="zd-projects-image">
+        {% if section.settings.blokkr_image %}
+          <img
+            src="{{ section.settings.blokkr_image | image_url: width: 900 }}"
+            alt="Blokkr project"
+            width="900"
+            height="620"
+            loading="lazy"
+          >
+        {% else %}
+          {{ 'collection-1' | placeholder_svg_tag: 'zd-projects-placeholder' }}
+        {% endif %}
+      </div>
+
+      <div class="zd-projects-feature-content">
+        <div class="zd-projects-status">Focus Tool · Planned</div>
+        <h2>Blokkr</h2>
+        <p>
+          A distraction-blocking app designed to protect focus, schedule deep work,
+          and help users regain control over their attention.
+        </p>
+        <span class="zd-projects-link">View Project →</span>
+      </div>
+    </a>
+
+    <a href="/pages/kindlitt" class="zd-projects-feature">
+      <div class="zd-projects-image">
+        {% if section.settings.kindlitt_image %}
+          <img
+            src="{{ section.settings.kindlitt_image | image_url: width: 900 }}"
+            alt="Kindlitt project"
+            width="900"
+            height="620"
+            loading="lazy"
+          >
+        {% else %}
+          {{ 'collection-2' | placeholder_svg_tag: 'zd-projects-placeholder' }}
+        {% endif %}
+      </div>
+
+      <div class="zd-projects-feature-content">
+        <div class="zd-projects-status">Reading · Planned</div>
+        <h2>Kindlitt</h2>
+        <p>
+          A reading and information platform for clean books, curated lists,
+          thoughtful recommendations, and better information habits.
+        </p>
+        <span class="zd-projects-link">View Project →</span>
+      </div>
+    </a>
+
+    <a href="/pages/current-experiments" class="zd-projects-feature zd-projects-feature--wide">
+      <div class="zd-projects-image">
+        {% if section.settings.experiments_image %}
+          <img
+            src="{{ section.settings.experiments_image | image_url: width: 1200 }}"
+            alt="Current experiments"
+            width="1200"
+            height="700"
+            loading="lazy"
+          >
+        {% else %}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'zd-projects-placeholder' }}
+        {% endif %}
+      </div>
+
+      <div class="zd-projects-feature-content">
+        <div class="zd-projects-status">Labs · Future Ideas</div>
+        <h2>Current Experiments</h2>
+        <p>
+          Smaller prototypes, early ideas, and future concepts that may become
+          part of the Ziyu Development ecosystem.
+        </p>
+        <span class="zd-projects-link">View Experiments →</span>
+      </div>
+    </a>
+
+  </section>
+
+  <section class="zd-projects-cta">
+    <div>
+      <p class="zd-projects-eyebrow">Support the mission</p>
+      <h2>Help these projects become real.</h2>
+      <p>
+        Support helps fund design, development, testing, servers, products,
+        and the time needed to build thoughtful technology.
+      </p>
+    </div>
+
+    <a href="/pages/support" class="zd-projects-btn zd-projects-btn--light">
+      Support the Mission
+    </a>
+  </section>
+
+</main>
+
+{% schema %}
+{
+  "name": "Projects Page",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "goal_grower_image",
+      "label": "Goal Grower image"
+    },
+    {
+      "type": "image_picker",
+      "id": "myjourney_image",
+      "label": "MyJourney image"
+    },
+    {
+      "type": "image_picker",
+      "id": "blokkr_image",
+      "label": "Blokkr image"
+    },
+    {
+      "type": "image_picker",
+      "id": "kindlitt_image",
+      "label": "Kindlitt image"
+    },
+    {
+      "type": "image_picker",
+      "id": "experiments_image",
+      "label": "Experiments image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Projects Page"
+    }
+  ]
+}
+{% endschema %}
