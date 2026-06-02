@@ -1,102 +1,92 @@
 <footer class="zd-footer">
+  <div class="zd-footer__inner">
 
-  <section class="zd-footer__top">
-    <div>
-      <a href="{{ routes.root_url }}" class="zd-footer__logo">
-        <span class="zd-footer__mark">Z</span>
-        <span>
-          <strong>ZIYU</strong>
-          <small>DEVELOPMENT</small>
-        </span>
-      </a>
+    <div class="zd-footer__main">
 
-      <h2>Building technology for intentional living.</h2>
+      <div class="zd-footer__brand">
+        <a href="{{ routes.root_url }}" class="zd-footer__logo">
+          <span class="zd-footer__mark">Z</span>
+          <span>
+            <strong>ZIYU</strong>
+            <small>DEVELOPMENT</small>
+          </span>
+        </a>
 
-      <p>
-        Apps, products, writing, and community designed to help people focus,
-        grow, read better, block distractions, and build better lives.
-      </p>
+        <div class="zd-footer__contact">
+          <a href="mailto:ziyudevelopment@gmail.com">ziyudevelopment@gmail.com</a>
+          <span>Rexburg, Idaho, United States</span>
+        </div>
+
+        <div class="zd-footer__socials" aria-label="Social links">
+          <a href="#" aria-label="GitHub">GH</a>
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="YouTube">YT</a>
+          <a href="#" aria-label="Discord">DC</a>
+        </div>
+      </div>
+
+      <div class="zd-footer__links">
+
+        <div class="zd-footer__column">
+          <h3>Explore</h3>
+          <a href="{{ routes.root_url }}">Home</a>
+          <a href="/pages/start-here">Start Here</a>
+          <a href="/pages/philosophy">Philosophy</a>
+          <a href="/pages/projects">Projects</a>
+          <a href="/blogs/journal">Journal</a>
+          <a href="/pages/roadmap">Roadmap</a>
+          <a href="/pages/community">Community</a>
+        </div>
+
+        <div class="zd-footer__column">
+          <h3>Projects</h3>
+          <a href="/pages/goal-grower">Goal Grower</a>
+          <a href="/pages/myjourney">MyJourney</a>
+          <a href="/pages/blokkr">Blokkr</a>
+          <a href="/pages/kindlitt">Kindlitt</a>
+          <a href="/pages/current-experiments">Current Experiments</a>
+          <a href="/pages/beta">Beta Access</a>
+        </div>
+
+        <div class="zd-footer__column">
+          <h3>Store</h3>
+          <a href="/collections/all">All Products</a>
+          <a href="/collections/journals">Journals</a>
+          <a href="/collections/desk-tools">Desk Tools</a>
+          <a href="/collections/books">Books</a>
+          <a href="/collections/apparel">Apparel</a>
+          <a href="/collections/digital-products">Digital Products</a>
+        </div>
+
+        <div class="zd-footer__column">
+          <h3>Support</h3>
+          <a href="/pages/support">Support the Mission</a>
+          <a href="/pages/faq">FAQ</a>
+          <a href="/pages/contact">Contact</a>
+          <a href="/pages/community">Community</a>
+          <a href="/pages/roadmap">Roadmap</a>
+        </div>
+
+        <div class="zd-footer__column">
+          <h3>Company</h3>
+          <a href="/pages/founder-journey">Founder Journey</a>
+          <a href="/pages/about">About</a>
+          <a href="/pages/build-in-public">Build in Public</a>
+          <a href="/policies/privacy-policy">Privacy Policy</a>
+          <a href="/policies/terms-of-service">Terms of Service</a>
+          <a href="/policies/refund-policy">Refund Policy</a>
+          <a href="/policies/shipping-policy">Shipping Policy</a>
+          <a href="/pages/legal-notice">Legal Notice</a>
+          <a href="/pages/cookie-policy">Cookie Policy</a>
+        </div>
+
+      </div>
     </div>
 
-    <div class="zd-footer__newsletter">
-      <h3>Join the journey</h3>
-      <p>Project updates, founder notes, product drops, and early access.</p>
-
-      {% form 'customer', class: 'zd-footer__form' %}
-        <input type="hidden" name="contact[tags]" value="newsletter">
-        <input type="email" name="contact[email]" placeholder="Email address" required>
-        <button type="submit">Join</button>
-      {% endform %}
-    </div>
-  </section>
-
-  <section class="zd-footer__links">
-
-    <div>
-      <h4>Explore</h4>
-      <a href="{{ routes.root_url }}">Home</a>
-      <a href="/pages/start-here">Start Here</a>
-      <a href="/pages/philosophy">Philosophy</a>
-      <a href="/pages/projects">Projects</a>
-      <a href="/blogs/journal">Journal</a>
-      <a href="/pages/roadmap">Roadmap</a>
-      <a href="/pages/community">Community</a>
+    <div class="zd-footer__bottom">
+      <p>© {{ 'now' | date: '%Y' }} Ziyu Development. All rights reserved.</p>
+      <p>Building intentional technology for real life.</p>
     </div>
 
-    <div>
-      <h4>Projects</h4>
-      <a href="/pages/goal-grower">Goal Grower</a>
-      <a href="/pages/myjourney">MyJourney</a>
-      <a href="/pages/blokkr">Blokkr</a>
-      <a href="/pages/kindlitt">Kindlitt</a>
-      <a href="/pages/current-experiments">Current Experiments</a>
-      <a href="/pages/beta">Beta Access</a>
-    </div>
-
-    <div>
-      <h4>Store</h4>
-      <a href="/collections/all">All Products</a>
-      <a href="/collections/journals">Journals</a>
-      <a href="/collections/desk-tools">Desk Tools</a>
-      <a href="/collections/books">Books</a>
-      <a href="/collections/apparel">Apparel</a>
-      <a href="/collections/digital-products">Digital Products</a>
-    </div>
-
-    <div>
-      <h4>Support</h4>
-      <a href="/pages/support">Support the Mission</a>
-      <a href="/pages/faq">FAQ</a>
-      <a href="/pages/contact">Contact</a>
-      <a href="/pages/community">Community</a>
-      <a href="/pages/roadmap">Roadmap</a>
-    </div>
-
-    <div class="footer-column">
-  <h3>Company</h3>
-
-  <a href="/pages/founder-journey">Founder Journey</a>
-  <a href="/pages/about">About</a>
-  <a href="/pages/build-in-public">Build in Public</a>
-  <a href="/pages/privacy-policy">Privacy Policy</a>
-  <a href="/pages/terms-of-service">Terms of Service</a>
-  <a href="/pages/refund-policy">Refund Policy</a>
-  <a href="/pages/shipping-policy">Shipping Policy</a>
-  <a href="/pages/legal-notice">Legal Notice</a>
-
-</div>
-
-  </section>
-
-  <section class="zd-footer__bottom">
-    <p>© {{ 'now' | date: '%Y' }} Ziyu Development. All rights reserved.</p>
-
-    <div>
-      <a href="#">GitHub</a>
-      <a href="#">Instagram</a>
-      <a href="#">YouTube</a>
-      <a href="#">Discord</a>
-    </div>
-  </section>
-
+  </div>
 </footer>

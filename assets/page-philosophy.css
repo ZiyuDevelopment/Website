@@ -1,67 +1,67 @@
-.zd-philosophy-page {
-  background:
-    radial-gradient(circle at top left, rgba(166, 137, 102, 0.16), transparent 34%),
-    #f7f1e8;
-  color: #171512;
-  font-family: Inter, Arial, sans-serif;
-  padding: 18px 0 88px;
+.zd-philosophy {
+  background: #fbf9f4;
+  color: #1b1c19;
+  font-family: "Hanken Grotesk", Inter, Arial, sans-serif;
+  overflow-x: hidden;
 }
 
-.zd-philosophy-hero,
-.zd-philosophy-split,
-.zd-philosophy-principles,
-.zd-philosophy-products,
-.zd-philosophy-vision {
-  width: min(1380px, calc(100% - 48px));
-  margin: 88px auto 0;
+.zd-philosophy h1,
+.zd-philosophy h2,
+.zd-philosophy h3 {
+  font-family: "EB Garamond", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.035em;
 }
 
 .zd-philosophy-hero {
-  margin-top: 0;
-  min-height: 620px;
-  background: #fbf7ef;
-  border: 1px solid rgba(23, 21, 18, 0.14);
-  border-radius: 22px;
-  padding: clamp(42px, 7vw, 92px);
+  position: relative;
+  min-height: calc(100vh - 64px);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: 0 24px 80px rgba(45, 35, 22, 0.1);
+  align-items: center;
+  overflow: hidden;
+  background: #fbf9f4;
 }
 
-.zd-philosophy-eyebrow {
-  margin: 0;
-  color: #4f5f3d;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 11px;
-  font-weight: 900;
+.zd-philosophy-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
-.zd-philosophy-hero h1,
-.zd-philosophy-split h2,
-.zd-philosophy-section-head h2,
-.zd-philosophy-products h2,
-.zd-philosophy-vision h2 {
-  margin: 24px 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 0.98;
+.zd-philosophy-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zd-philosophy-hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #fbf9f4 0%, rgba(251,249,244,.94) 36%, rgba(251,249,244,.58) 58%, rgba(251,249,244,.08) 100%);
+}
+
+.zd-philosophy-hero__content {
+  position: relative;
+  z-index: 2;
+  width: min(1280px, calc(100% - 96px));
+  margin: 0 auto;
 }
 
 .zd-philosophy-hero h1 {
-  max-width: 1080px;
-  font-size: clamp(58px, 8vw, 124px);
+  max-width: 760px;
+  margin: 0 0 28px;
+  font-size: clamp(58px, 7vw, 108px);
+  line-height: .98;
 }
 
-.zd-philosophy-hero p,
-.zd-philosophy-text p,
-.zd-philosophy-vision p {
-  max-width: 760px;
-  color: #665f55;
-  font-size: 18px;
-  line-height: 1.8;
+.zd-philosophy-hero p {
+  max-width: 530px;
+  margin: 0;
+  color: #4e453c;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .zd-philosophy-actions {
@@ -71,80 +71,121 @@
   margin-top: 34px;
 }
 
-.zd-philosophy-btn {
-  min-height: 50px;
-  padding: 0 25px;
-  border-radius: 9px;
+.zd-philosophy-actions a,
+.zd-philosophy-roadmap {
+  min-height: 42px;
+  padding: 0 24px;
+  border-radius: 999px;
   display: inline-flex;
   align-items: center;
   text-decoration: none;
+  font-size: 12px;
   font-weight: 800;
 }
 
-.zd-philosophy-btn--primary {
-  background: #2f3a25;
+.zd-philosophy-actions a:first-child,
+.zd-philosophy-roadmap {
+  background: #705838;
   color: white;
 }
 
-.zd-philosophy-btn--secondary {
-  border: 1px solid rgba(23, 21, 18, 0.18);
-  color: #171512;
-  background: rgba(255, 255, 255, 0.36);
+.zd-philosophy-actions a:last-child {
+  border: 1px solid #80756b;
+  color: #705838;
+  background: transparent;
 }
 
-.zd-philosophy-btn--light {
-  background: #fbf7ef;
-  color: #171512;
+.zd-philosophy-eyebrow {
+  margin: 0 0 18px;
+  color: #705838;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font-size: 10px;
+  font-weight: 800;
 }
 
-.zd-philosophy-split,
-.zd-philosophy-products {
+.zd-philosophy-split {
+  background: #ffffff;
+  padding: 120px max(48px, calc((100vw - 1280px) / 2));
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 72px;
-  align-items: start;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 110px;
 }
 
 .zd-philosophy-split h2,
 .zd-philosophy-section-head h2,
 .zd-philosophy-products h2,
 .zd-philosophy-vision h2 {
-  font-size: clamp(42px, 5vw, 76px);
+  margin: 0;
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1.08;
+}
+
+.zd-philosophy-split p,
+.zd-philosophy-vision p {
+  margin: 0 0 22px;
+  color: #4e453c;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.zd-philosophy-principles {
+  width: min(1280px, calc(100% - 96px));
+  margin: 0 auto;
+  padding: 130px 0;
+}
+
+.zd-philosophy-section-head {
+  max-width: 760px;
+  margin: 0 auto 72px;
+  text-align: center;
 }
 
 .zd-philosophy-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-top: 32px;
+  gap: 24px;
 }
 
 .zd-philosophy-grid article {
-  background: #fbf7ef;
-  border: 1px solid rgba(23, 21, 18, 0.14);
-  border-radius: 18px;
-  padding: 30px;
+  background: #fbf9f4;
+  border: 1px solid #d1c4b8;
+  padding: 38px 34px;
+  min-height: 250px;
 }
 
 .zd-philosophy-grid span {
-  color: #a68966;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 11px;
-  font-weight: 900;
+  display: block;
+  margin-bottom: 38px;
+  color: rgba(112, 88, 56, .18);
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 42px;
+  line-height: 1;
 }
 
 .zd-philosophy-grid h3 {
-  margin: 16px 0 12px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  font-size: 30px;
+  margin: 0 0 16px;
+  font-family: "Hanken Grotesk", Inter, Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 .zd-philosophy-grid p {
   margin: 0;
-  color: #665f55;
-  line-height: 1.7;
+  color: #4e453c;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.zd-philosophy-products {
+  background: #f5f3ee;
+  padding: 125px max(48px, calc((100vw - 1280px) / 2));
+}
+
+.zd-philosophy-products__head {
+  max-width: 760px;
+  margin-bottom: 58px;
 }
 
 .zd-philosophy-product-list {
@@ -153,73 +194,114 @@
 }
 
 .zd-philosophy-product-list a {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 24px;
-  border-radius: 16px;
-  background: #fbf7ef;
-  border: 1px solid rgba(23, 21, 18, 0.14);
-  color: #171512;
+  background: #ffffff;
+  color: #1b1c19;
   text-decoration: none;
+  padding: 28px 34px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
 }
 
-.zd-philosophy-product-list strong {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 26px;
-  font-weight: 400;
+.zd-philosophy-product-list a:hover {
+  background: #705838;
+  color: #ffffff;
+}
+
+.zd-philosophy-product-list h3 {
+  margin: 0;
+  display: inline-block;
+  width: 180px;
+  font-family: "Hanken Grotesk", Inter, Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.zd-philosophy-product-list p {
+  margin: 0;
+  display: inline-block;
+  color: inherit;
+  opacity: .78;
+  font-size: 15px;
+  line-height: 1.5;
 }
 
 .zd-philosophy-product-list span {
-  color: #665f55;
+  font-size: 24px;
 }
 
 .zd-philosophy-vision {
-  background: linear-gradient(135deg, #2f3a25, #596947);
-  color: #fbf7ef;
-  border-radius: 22px;
-  padding: 58px;
+  width: min(1280px, calc(100% - 96px));
+  margin: 0 auto;
+  padding: 130px 0;
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 90px;
+  align-items: center;
 }
 
-.zd-philosophy-vision .zd-philosophy-eyebrow {
-  color: #dfcfb8;
+.zd-philosophy-vision__image {
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #f0eee9;
 }
 
-.zd-philosophy-vision p {
-  color: rgba(251, 247, 239, 0.82);
+.zd-philosophy-vision__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-@media (max-width: 1050px) {
+.zd-philosophy-roadmap {
+  margin-top: 28px;
+}
+
+@media (max-width: 980px) {
   .zd-philosophy-split,
-  .zd-philosophy-products {
+  .zd-philosophy-vision {
     grid-template-columns: 1fr;
+    gap: 52px;
   }
 
   .zd-philosophy-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .zd-philosophy-product-list a {
-    flex-direction: column;
-  }
 }
 
 @media (max-width: 640px) {
-  .zd-philosophy-hero,
-  .zd-philosophy-split,
-  .zd-philosophy-principles,
-  .zd-philosophy-products,
-  .zd-philosophy-vision {
-    width: calc(100% - 28px);
+  .zd-philosophy-hero {
+    min-height: auto;
+    padding: 95px 0;
   }
 
-  .zd-philosophy-hero,
+  .zd-philosophy-hero__content,
+  .zd-philosophy-principles,
   .zd-philosophy-vision {
-    border-radius: 16px;
-    padding: 38px 24px;
+    width: calc(100% - 32px);
+  }
+
+  .zd-philosophy-hero h1 {
+    font-size: 54px;
+  }
+
+  .zd-philosophy-split,
+  .zd-philosophy-products {
+    padding: 80px 24px;
   }
 
   .zd-philosophy-grid {
     grid-template-columns: 1fr;
+  }
+
+  .zd-philosophy-product-list a {
+    grid-template-columns: 1fr auto;
+  }
+
+  .zd-philosophy-product-list h3,
+  .zd-philosophy-product-list p {
+    display: block;
+    width: auto;
   }
 }

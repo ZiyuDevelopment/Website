@@ -14,13 +14,18 @@
 
 .zd-home-hero {
   width: min(1280px, calc(100% - 48px));
-  min-height: 820px;
   margin: 0 auto;
-  padding: 96px 0 72px;
+
+  min-height: calc(100vh - 64px);
+  height: calc(100vh - 64px);
+  max-height: calc(100vh - 64px);
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: center;
+
+  padding: 0;
 }
 
 .zd-home-hero h1 {
@@ -66,10 +71,11 @@
 }
 
 .zd-home-hero__media {
-  aspect-ratio: 4 / 5;
+  height: min(75vh, 700px);
+  max-height: 700px;
+
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(41, 24, 1, 0.18);
 }
 
 .zd-home-hero__media img,
@@ -363,7 +369,13 @@
   .zd-home-hero,
   .zd-home-showcase,
   .zd-home-founder {
+    height: auto;
+    min-height: auto;
+
     grid-template-columns: 1fr;
+    gap: 40px;
+
+    padding: 48px 0 72px;
   }
 
   .zd-home-values,
