@@ -67,17 +67,30 @@
   font-weight: 900;
 }
 
+.zds-hero__actions a {
+  min-height: 50px;
+  padding: 0 30px;
+}
+
 .zds-hero__actions a:first-child,
 .zds-featured a,
 .zds-merch a,
 .zds-why a {
   background: var(--green-dark);
   color: white;
+  border: 1px solid var(--green-dark);
+  box-shadow: 0 14px 34px rgba(47, 58, 37, 0.18);
+}
+
+.zds-hero__actions a:first-child:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 46px rgba(47, 58, 37, 0.24);
 }
 
 .zds-hero__actions a:last-child,
 .zds-product a {
-  border: 1px solid var(--line);
+  background: transparent;
+  border: var(--zd-border);
   color: var(--ink);
 }
 

@@ -1,0 +1,144 @@
+<main class="zd-journal-products">
+
+  <section class="zdjp-hero">
+    <p class="zdjp-eyebrow">Journal Products</p>
+    <h1>Tools for reflection, planning, and intentional growth.</h1>
+    <p>
+      Explore journals, planners, digital templates, and reflection products designed to support real-life progress.
+    </p>
+
+    <div class="zdjp-actions">
+      <a href="/collections/all">Shop All Products</a>
+      <a href="/pages/support">Support Development</a>
+    </div>
+  </section>
+
+  <section class="zdjp-feature">
+    <div>
+      <p class="zdjp-eyebrow">Featured Collection</p>
+      <h2>Built for people who want to think clearly and grow on purpose.</h2>
+      <p>
+        These products are made to help you slow down, organize your thoughts, track progress,
+        and build a better life with more intention.
+      </p>
+    </div>
+
+    <div class="zdjp-feature__card">
+      <span>Best Starting Point</span>
+      <h3>Focus Journal</h3>
+      <p>A simple journal system for goals, reflection, planning, and weekly reset.</p>
+      <a href="/collections/all">View Products</a>
+    </div>
+  </section>
+
+  <section class="zdjp-grid">
+    <article>
+      <span>01</span>
+      <h3>Reflection Journals</h3>
+      <p>For processing thoughts, documenting growth, and remembering what matters.</p>
+    </article>
+
+    <article>
+      <span>02</span>
+      <h3>Goal Planners</h3>
+      <p>For turning big goals into clear steps, habits, and weekly progress.</p>
+    </article>
+
+    <article>
+      <span>03</span>
+      <h3>Digital Templates</h3>
+      <p>Printable or digital tools for planning, studying, tracking, and organizing life.</p>
+    </article>
+
+    <article class="zdjp-card-dark">
+      <span>04</span>
+      <h3>Support Products</h3>
+      <p>Products that help fund Ziyu Development, Goal Grower, and future apps.</p>
+    </article>
+  </section>
+
+  <section class="zdjp-products">
+    <div class="zdjp-section-head">
+      <p class="zdjp-eyebrow">Shop Journal Products</p>
+      <h2>Start with something simple.</h2>
+    </div>
+
+    <div class="zdjp-product-grid">
+      {% assign shown_products = collections.all.products | where: "type", "Journal" %}
+
+      {% for product in shown_products limit: 8 %}
+        <article class="zdjp-product">
+          <a href="{{ product.url }}" class="zdjp-product__image">
+            {% if product.featured_image %}
+              <img
+                src="{{ product.featured_image | image_url: width: 600 }}"
+                alt="{{ product.featured_image.alt | escape }}"
+                width="600"
+                height="600"
+                loading="lazy"
+              >
+            {% else %}
+              <div class="zdjp-placeholder">Z</div>
+            {% endif %}
+          </a>
+
+          <div class="zdjp-product__body">
+            <p>{{ product.type | default: 'Journal Product' }}</p>
+            <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+            <span>{{ product.price | money }}</span>
+          </div>
+        </article>
+      {% else %}
+        {% for product in collections.all.products limit: 8 %}
+          <article class="zdjp-product">
+            <a href="{{ product.url }}" class="zdjp-product__image">
+              {% if product.featured_image %}
+                <img
+                  src="{{ product.featured_image | image_url: width: 600 }}"
+                  alt="{{ product.featured_image.alt | escape }}"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                >
+              {% else %}
+                <div class="zdjp-placeholder">Z</div>
+              {% endif %}
+            </a>
+
+            <div class="zdjp-product__body">
+              <p>{{ product.type | default: 'Ziyu Product' }}</p>
+              <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+              <span>{{ product.price | money }}</span>
+            </div>
+          </article>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="zdjp-cta">
+    <p class="zdjp-eyebrow">Build With Intention</p>
+    <h2>Every product supports the mission.</h2>
+    <p>
+      Purchases help fund app development, testing, design, hosting, and future Ziyu projects.
+    </p>
+
+    <div class="zdjp-actions">
+      <a href="/collections/all">Shop All Products</a>
+      <a href="/pages/projects">View Projects</a>
+    </div>
+  </section>
+
+</main>
+
+{% schema %}
+{
+  "name": "Journal Products Page",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Journal Products Page"
+    }
+  ]
+}
+{% endschema %}

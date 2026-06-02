@@ -1,50 +1,63 @@
-<main class="zd-all-products">
+<main class="zd-market">
 
-  <section class="zdap-hero">
-    <p class="zdap-eyebrow">Ziyu Store</p>
-    <h1>Products that help fund intentional technology.</h1>
+  <section class="zdm-hero">
+    <p class="zdm-eyebrow">Ziyu Marketplace</p>
+    <h1>Products, merch, and support items for intentional technology.</h1>
     <p>
-      Browse digital tools, support items, merchandise, and curated products connected
-      to Ziyu Development and apps like Goal Grower.
+      Browse products connected to Ziyu Development, Goal Grower, future apps,
+      and the mission to build better tools for real life.
     </p>
   </section>
 
-  <section class="zdap-toolbar">
-    <div>
-      <span>{{ collection.products_count }} products</span>
-      <p>Every purchase helps support development, testing, design, hosting, and launch costs.</p>
+  <section class="zdm-tools">
+    <input type="search" id="zdmSearch" placeholder="Search products...">
+
+    <div class="zdm-filters">
+      <button data-filter="all" class="is-active">All</button>
+      <button data-filter="app">Apps</button>
+      <button data-filter="digital">Digital</button>
+      <button data-filter="merch">Merch</button>
+      <button data-filter="support">Support</button>
+      <button data-filter="beta">Beta</button>
     </div>
 
-    <div class="zdap-toolbar__links">
-      <a href="/pages/store">Store Overview</a>
-      <a href="/pages/support">Support Development</a>
-    </div>
+    <select id="zdmSort">
+      <option value="default">Sort: Featured</option>
+      <option value="az">A–Z</option>
+      <option value="price-low">Price: Low to High</option>
+      <option value="price-high">Price: High to Low</option>
+    </select>
   </section>
 
-  <section class="zdap-grid">
-    {% paginate collection.products by 24 %}
+  <section class="zdm-grid" id="zdmGrid">
+    {% paginate collection.products by 48 %}
       {% for product in collection.products %}
-        <article class="zdap-card">
-          <a href="{{ product.url }}" class="zdap-card__image">
+        <article
+          class="zdm-card"
+          data-title="{{ product.title | escape | downcase }}"
+          data-price="{{ product.price }}"
+          data-tags="{{ product.tags | join: ' ' | downcase }}"
+        >
+          <a href="{{ product.url }}" class="zdm-card__image">
             {% if product.featured_image %}
               <img
-                src="{{ product.featured_image | image_url: width: 900 }}"
+                src="{{ product.featured_image | image_url: width: 600 }}"
                 alt="{{ product.featured_image.alt | escape }}"
-                width="900"
-                height="900"
+                width="600"
+                height="600"
                 loading="lazy"
               >
             {% else %}
-              <div class="zdap-card__placeholder">
-                <span>Z</span>
-              </div>
+              <div class="zdm-placeholder">Z</div>
             {% endif %}
           </a>
 
-          <div class="zdap-card__body">
-            <p class="zdap-card__type">
+          <div class="zdm-card__body">
+            <p class="zdm-card__type">
               {% if product.type != blank %}
                 {{ product.type }}
+              {% elsif product.tags.size > 0 %}
+                {{ product.tags.first }}
               {% else %}
                 Ziyu Product
               {% endif %}
@@ -54,27 +67,20 @@
               <a href="{{ product.url }}">{{ product.title }}</a>
             </h2>
 
-            {% if product.description != blank %}
-              <p class="zdap-card__desc">
-                {{ product.description | strip_html | truncate: 110 }}
-              </p>
-            {% endif %}
+            <p class="zdm-card__desc">
+              {{ product.description | strip_html | truncate: 75 }}
+            </p>
 
-            <div class="zdap-card__bottom">
+            <div class="zdm-card__bottom">
               <span>{{ product.price | money }}</span>
-              <a href="{{ product.url }}">View Product</a>
+              <a href="{{ product.url }}">View</a>
             </div>
           </div>
         </article>
-      {% else %}
-        <div class="zdap-empty">
-          <h2>No products yet.</h2>
-          <p>Add products to this collection in Shopify Admin.</p>
-        </div>
       {% endfor %}
 
       {% if paginate.pages > 1 %}
-        <nav class="zdap-pagination">
+        <nav class="zdm-pagination">
           {{ paginate | default_pagination }}
         </nav>
       {% endif %}
@@ -83,13 +89,59 @@
 
 </main>
 
+<script>
+  const search = document.getElementById("zdmSearch");
+  const sort = document.getElementById("zdmSort");
+  const buttons = document.querySelectorAll(".zdm-filters button");
+  const grid = document.getElementById("zdmGrid");
+
+  function filterProducts() {
+    const query = search.value.toLowerCase();
+    const active = document.querySelector(".zdm-filters .is-active").dataset.filter;
+    const cards = Array.from(document.querySelectorAll(".zdm-card"));
+
+    cards.forEach(card => {
+      const title = card.dataset.title;
+      const tags = card.dataset.tags;
+      const matchesSearch = title.includes(query) || tags.includes(query);
+      const matchesFilter = active === "all" || tags.includes(active);
+
+      card.style.display = matchesSearch && matchesFilter ? "" : "none";
+    });
+  }
+
+  function sortProducts() {
+    const cards = Array.from(document.querySelectorAll(".zdm-card"));
+
+    cards.sort((a, b) => {
+      if (sort.value === "az") return a.dataset.title.localeCompare(b.dataset.title);
+      if (sort.value === "price-low") return Number(a.dataset.price) - Number(b.dataset.price);
+      if (sort.value === "price-high") return Number(b.dataset.price) - Number(a.dataset.price);
+      return 0;
+    });
+
+    cards.forEach(card => grid.appendChild(card));
+  }
+
+  search.addEventListener("input", filterProducts);
+  sort.addEventListener("change", sortProducts);
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      buttons.forEach(btn => btn.classList.remove("is-active"));
+      button.classList.add("is-active");
+      filterProducts();
+    });
+  });
+</script>
+
 {% schema %}
 {
-  "name": "All Products Collection",
+  "name": "All Products Marketplace",
   "settings": [],
   "presets": [
     {
-      "name": "All Products Collection"
+      "name": "All Products Marketplace"
     }
   ]
 }
