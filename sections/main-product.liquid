@@ -1,211 +1,178 @@
 <main class="zd-product-page">
 
-  <section class="zd-product">
+  <section class="zdpd-hero">
 
-    <div class="zd-product-gallery">
-
-      {% if product.images.size > 0 %}
-
-        <div class="zd-product-main-image">
-
+    <div class="zdpd-gallery">
+      {% if product.featured_image %}
+        <div class="zdpd-main-image">
           <img
-            src="{{ product.featured_image | image_url: width: 1400 }}"
-            alt="{{ product.title }}"
-            width="1400"
-            height="1400"
+            src="{{ product.featured_image | image_url: width: 1200 }}"
+            alt="{{ product.featured_image.alt | escape }}"
+            width="1200"
+            height="1200"
           >
-
         </div>
-
-        {% if product.images.size > 1 %}
-
-          <div class="zd-product-thumbnails">
-
-            {% for image in product.images %}
-
-              <img
-                src="{{ image | image_url: width: 300 }}"
-                alt="{{ image.alt }}"
-                width="300"
-                height="300"
-              >
-
-            {% endfor %}
-
-          </div>
-
-        {% endif %}
-
       {% else %}
-
-        {{ 'product-1' | placeholder_svg_tag: 'zd-product-placeholder' }}
-
+        <div class="zdpd-placeholder">
+          <span>Z</span>
+        </div>
       {% endif %}
 
+      {% if product.images.size > 1 %}
+        <div class="zdpd-thumbs">
+          {% for image in product.images limit: 4 %}
+            <img
+              src="{{ image | image_url: width: 240 }}"
+              alt="{{ image.alt | escape }}"
+              width="240"
+              height="240"
+              loading="lazy"
+            >
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
 
-    <div class="zd-product-info">
-
-      <p class="zd-product-type">
-        {{ product.type }}
+    <div class="zdpd-info">
+      <p class="zdpd-eyebrow">
+        {% if product.type != blank %}
+          {{ product.type }}
+        {% else %}
+          Ziyu Product
+        {% endif %}
       </p>
 
-      <h1>
-        {{ product.title }}
-      </h1>
+      <h1>{{ product.title }}</h1>
 
-      <div class="zd-product-price">
+      <div class="zdpd-price">
         {{ product.price | money }}
       </div>
 
-      <div class="zd-product-description">
-        {{ product.description }}
-      </div>
+      {% if product.description != blank %}
+        <div class="zdpd-description">
+          {{ product.description }}
+        </div>
+      {% endif %}
 
-      {% form 'product', product %}
-
-      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-
-        {% unless product.has_only_default_variant %}
-
-          <div class="zd-product-variants">
-
+      {% form 'product', product, class: 'zdpd-form' %}
+        {% if product.has_only_default_variant == false %}
+          <div class="zdpd-options">
             {% for option in product.options_with_values %}
+              <label for="Option-{{ forloop.index0 }}">
+                {{ option.name }}
+              </label>
 
-              <label>{{ option.name }}</label>
-
-              <select name="options[{{ option.name }}]">
-
+              <select
+                id="Option-{{ forloop.index0 }}"
+                name="options[{{ option.name | escape }}]"
+              >
                 {% for value in option.values %}
-
-                  <option>{{ value }}</option>
-
+                  <option
+                    value="{{ value | escape }}"
+                    {% if option.selected_value == value %}selected{% endif %}
+                  >
+                    {{ value }}
+                  </option>
                 {% endfor %}
-
               </select>
-
             {% endfor %}
-
           </div>
+        {% endif %}
 
-        {% endunless %}
+        <input
+          type="hidden"
+          name="id"
+          value="{{ product.selected_or_first_available_variant.id }}"
+        >
 
-        <div class="zd-product-buy">
-
+        <div class="zdpd-quantity">
+          <label for="Quantity-{{ section.id }}">Quantity</label>
           <input
+            id="Quantity-{{ section.id }}"
             type="number"
             name="quantity"
             value="1"
             min="1"
           >
-
-          <button type="submit">
-            Add to Cart
-          </button>
-
         </div>
 
+        <button
+          type="submit"
+          name="add"
+          class="zdpd-add"
+          {% unless product.available %}disabled{% endunless %}
+        >
+          {% if product.available %}
+            Add to Cart
+          {% else %}
+            Sold Out
+          {% endif %}
+        </button>
       {% endform %}
 
-      <div class="zd-product-benefits">
-
-        <div>
-          <strong>Thoughtfully Curated</strong>
-          <span>Selected to support intentional living.</span>
-        </div>
-
-        <div>
-          <strong>Supports Development</strong>
-          <span>Purchases help fund future apps and projects.</span>
-        </div>
-
-        <div>
-          <strong>Part of the Ecosystem</strong>
-          <span>Connected to the Ziyu Development mission.</span>
-        </div>
-
+      <div class="zdpd-note">
+        <span>Why this matters</span>
+        <p>
+          Purchases help support Ziyu Development, Goal Grower testing, product design,
+          hosting, tools, and future app development.
+        </p>
       </div>
-
     </div>
 
   </section>
 
-  <section class="zd-product-story">
-
+  <section class="zdpd-details">
     <div>
-      <p class="zd-product-eyebrow">
-        Why this exists
-      </p>
-
-      <h2>
-        Products should support a better life.
-      </h2>
+      <p class="zdpd-eyebrow">Product Philosophy</p>
+      <h2>Built to support intentional technology.</h2>
     </div>
 
     <div>
-
       <p>
-        Every item in the store is chosen because it supports focus,
-        growth, learning, reading, creativity, or intentional living.
+        Ziyu products help fund and support apps designed for focus, growth,
+        reflection, and real-life improvement.
       </p>
-
       <p>
-        Purchases also directly support the development of Goal Grower,
-        MyJourney, Blokkr, Kindlitt, and future projects.
+        Whether this is a digital product, merchandise item, or support purchase,
+        it helps move the mission forward.
       </p>
-
     </div>
-
   </section>
 
-  <section class="zd-related-products">
-
-    <div class="zd-related-header">
-
-      <p class="zd-product-eyebrow">
-        Related Products
-      </p>
-
-      <h2>
-        You might also like
-      </h2>
-
+  <section class="zdpd-related">
+    <div class="zdpd-section-head">
+      <p class="zdpd-eyebrow">More from Ziyu</p>
+      <h2>Keep exploring.</h2>
     </div>
 
-    <div class="zd-related-grid">
+    <div class="zdpd-related-grid">
+      <a href="/pages/store">
+        <span>Store</span>
+        <h3>Browse all products</h3>
+      </a>
 
-      {% assign related_products = collections.all.products | limit: 4 %}
+      <a href="/pages/support">
+        <span>Support</span>
+        <h3>Support development</h3>
+      </a>
 
-      {% for product in related_products %}
-
-        <a href="{{ product.url }}" class="zd-related-card">
-
-          {% if product.featured_image %}
-            <img
-              src="{{ product.featured_image | image_url: width: 600 }}"
-              alt="{{ product.title }}"
-              width="600"
-              height="600"
-            >
-          {% endif %}
-
-          <h3>{{ product.title }}</h3>
-
-          <span>{{ product.price | money }}</span>
-
-        </a>
-
-      {% endfor %}
-
+      <a href="/pages/projects">
+        <span>Projects</span>
+        <h3>Explore the apps</h3>
+      </a>
     </div>
-
   </section>
 
 </main>
 
 {% schema %}
 {
-  "name": "Main Product",
-  "settings": []
+  "name": "Ziyu Product Page",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Ziyu Product Page"
+    }
+  ]
 }
 {% endschema %}

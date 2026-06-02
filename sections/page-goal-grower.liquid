@@ -1,182 +1,174 @@
-<main class="zd-gg-page">
+<main class="zd-goal-grower">
 
-  <section class="zd-gg-hero">
-    <div class="zd-gg-hero__copy">
-      <p class="zd-gg-eyebrow">Flagship project</p>
+  <section class="zdg-hero zdg-hero--product">
 
-      <h1>Goal Grower</h1>
-
-      <p>
-        A goal and habit tracking app where your progress grows visually.
-        Build consistency, invite accountability, and turn personal growth
-        into something you can actually see.
-      </p>
-
-      <div class="zd-gg-actions">
-        <a href="#waitlist" class="zd-gg-btn zd-gg-btn--primary">Join Waitlist</a>
-        <a href="/pages/support" class="zd-gg-btn zd-gg-btn--secondary">Support This Project</a>
-      </div>
+  <div class="zdg-hero__visual">
+    <div class="zdg-phone">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNmmfCsH2wkKIic1auKPW9U9px3FVZtc9LKraKWSOVU6ex-77Ra4N9ArmC91U7voWHzjVAR7GWjxbzDldalUW56ATsYZ4IMMOqj_EvmOVbu7vzE8VmLxzawVN4OENpQegKAN2O6SNzBOGbw7nUEutD7cHFn5nrpqVjPq-89J5cHZcgzT-TKogLWfxOaf8hT-ltJ9uxFx0wxkWMfbPaqTU_N8mz2EcNgX5441KZhjkDI1b8jzr1TDZx2xsdVtV6IrvT0-ZtXbyLc2ro"
+        alt="Goal Grower app preview"
+        width="700"
+        height="900"
+      >
     </div>
 
-    <div class="zd-gg-hero__visual">
-      {% if section.settings.hero_image %}
-        <img
-          src="{{ section.settings.hero_image | image_url: width: 1200 }}"
-          alt="Goal Grower app preview"
-          width="1200"
-          height="900"
-          loading="eager"
-        >
-      {% else %}
-        {{ 'product-1' | placeholder_svg_tag: 'zd-gg-placeholder' }}
-      {% endif %}
+    <div class="zdg-plant-card">
+      <span>Shared Garden</span>
+      <strong>3 goals growing together</strong>
     </div>
-  </section>
+  </div>
 
-  <section class="zd-gg-problem">
-    <div>
-      <p class="zd-gg-eyebrow">The problem</p>
-      <h2>Most goal apps track progress, but they do not make growth feel alive.</h2>
-    </div>
-
+  <div class="zdg-hero__copy">
+    <p class="zdg-eyebrow">Goal Grower</p>
+    <h1>A garden for your goals.</h1>
     <p>
-      People start with motivation, but lose momentum when goals feel abstract,
-      lonely, or hidden inside boring checklists. Goal Grower is built to make
-      progress more visible, emotional, and connected to real life.
+      Goal Grower turns habits and big goals into plants. Water your goals,
+      keep them alive, and grow alongside people in shared gardens.
+    </p>
+
+    <div class="zdg-status-chips">
+      <span>In Production</span>
+      <span>Shared Gardens Available</span>
+      <span>Beta Testers Needed</span>
+    </div>
+
+    <div class="zdg-actions">
+      <a href="/pages/support">Support Development</a>
+      <a href="/pages/community">Become a Beta Tester</a>
+    </div>
+  </div>
+
+</section>
+
+  <section class="zdg-problem">
+    <p class="zdg-eyebrow">The Problem</p>
+    <h2>Most goal trackers feel like chores.</h2>
+    <p>
+      Goal Grower turns progress into something visual, emotional, and fun.
+      Instead of checking boxes forever, users grow a living garden that reflects
+      the goals they are building in real life.
     </p>
   </section>
 
-  <section class="zd-gg-features">
-    <div class="zd-gg-section-head">
-      <p class="zd-gg-eyebrow">How it works</p>
-      <h2>Growth becomes visible.</h2>
-    </div>
+  <section class="zdg-feature-grid">
 
-    <div class="zd-gg-feature-grid">
-      <article>
-        <span>01</span>
-        <h3>Create a goal</h3>
-        <p>Set a meaningful goal with a clear habit, target, or daily action.</p>
-      </article>
-
-      <article>
-        <span>02</span>
-        <h3>Plant it</h3>
-        <p>Each goal becomes a visual plant that represents your progress.</p>
-      </article>
-
-      <article>
-        <span>03</span>
-        <h3>Log progress</h3>
-        <p>Track completion, quantity, notes, and streaks over time.</p>
-      </article>
-
-      <article>
-        <span>04</span>
-        <h3>Grow together</h3>
-        <p>Share accountability with friends or family through shared gardens.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="zd-gg-showcase">
-    <div class="zd-gg-showcase__image">
-      {% if section.settings.showcase_image %}
-        <img
-          src="{{ section.settings.showcase_image | image_url: width: 1200 }}"
-          alt="Goal Grower features"
-          width="1200"
-          height="850"
-          loading="lazy"
-        >
-      {% else %}
-        {{ 'lifestyle-1' | placeholder_svg_tag: 'zd-gg-placeholder' }}
-      {% endif %}
-    </div>
-
-    <div class="zd-gg-showcase__copy">
-      <p class="zd-gg-eyebrow">Core experience</p>
-      <h2>Your garden becomes a reflection of your life.</h2>
+    <article class="zdg-feature zdg-feature--large">
+      <span>01</span>
+      <h3>Every goal becomes a plant.</h3>
       <p>
-        Instead of opening an app just to check boxes, users return to see what
-        their consistency is becoming. Every plant, garden, and growth state
-        represents effort over time.
+        Create goals or habits and watch each one become part of your personal garden.
+        Your progress is represented through growth, watering, and plant health.
       </p>
+    </article>
 
-      <ul>
-        <li>Visual progress gardens</li>
-        <li>Daily goal logging</li>
-        <li>Habit streaks and reflection</li>
-        <li>Shared accountability</li>
-        <li>Private and public goal options</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="zd-gg-roadmap">
-    <div>
-      <p class="zd-gg-eyebrow">Roadmap</p>
-      <h2>What is being built first.</h2>
-    </div>
-
-    <div class="zd-gg-roadmap-grid">
-      <article>
-        <span>Phase 1</span>
-        <h3>Core goal tracking</h3>
-        <p>Create goals, log daily progress, and view plant growth states.</p>
-      </article>
-
-      <article>
-        <span>Phase 2</span>
-        <h3>Accountability</h3>
-        <p>Invite accountability partners and share selected goal progress.</p>
-      </article>
-
-      <article>
-        <span>Phase 3</span>
-        <h3>Shared gardens</h3>
-        <p>Build shared spaces where friends and family can grow together.</p>
-      </article>
-
-      <article>
-        <span>Phase 4</span>
-        <h3>Public launch</h3>
-        <p>Open the app to early users, testers, and supporters.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="zd-gg-support">
-    <div>
-      <p class="zd-gg-eyebrow">Why support matters</p>
-      <h2>Help Goal Grower become a real app.</h2>
+    <article class="zdg-feature">
+      <span>02</span>
+      <h3>Water your goals.</h3>
       <p>
-        Support helps fund development tools, design work, testing,
-        hosting, assets, and the time needed to turn the prototype into
-        a polished product.
+        When you make progress, you water the plant. If you stop showing up,
+        the plant starts to fade and needs attention.
+      </p>
+    </article>
+
+    <article class="zdg-feature zdg-feature--dark">
+      <span>03</span>
+      <h3>Shared gardens.</h3>
+      <p>
+        Create a shared garden with other people who are also working toward goals,
+        habits, or commitments together.
+      </p>
+    </article>
+
+    <article class="zdg-feature">
+      <span>04</span>
+      <h3>Built for accountability.</h3>
+      <p>
+        Shared gardens make goal tracking social without turning it into pressure,
+        competition, or another noisy feed.
+      </p>
+    </article>
+
+  </section>
+
+  <section class="zdg-status">
+    <div>
+      <p class="zdg-eyebrow">Current Status</p>
+      <h2>Goal Grower is still growing.</h2>
+      <p>
+        The app is in production and needs testing before App Store launch.
+        Shared gardens can already be used, and Ziyu Development is looking for
+        beta testers to help improve the experience.
       </p>
     </div>
 
-    <a href="/pages/support" class="zd-gg-btn zd-gg-btn--light">Support the Mission</a>
+    <div class="zdg-status__cards">
+      <article>
+        <span>Available Now</span>
+        <h3>Shared Gardens</h3>
+        <p>Start testing shared accountability gardens with other users.</p>
+      </article>
+
+      <article>
+        <span>In Progress</span>
+        <h3>App Store Testing</h3>
+        <p>Preparing the app for testing, feedback, polish, and launch readiness.</p>
+      </article>
+
+      <article>
+        <span>Needed</span>
+        <h3>Beta Testers</h3>
+        <p>Help find bugs, improve the design, and shape the public version.</p>
+      </article>
+    </div>
   </section>
 
-  <section id="waitlist" class="zd-gg-waitlist">
-    <p class="zd-gg-eyebrow">Early access</p>
-    <h2>Join the Goal Grower waitlist.</h2>
-    <p>Get updates, beta access opportunities, and launch news.</p>
+  <section class="zdg-flow">
+    <div class="zdg-section-head">
+      <p class="zdg-eyebrow">How It Works</p>
+      <h2>A simple growth loop.</h2>
+    </div>
 
-    {% form 'customer', class: 'zd-gg-form' %}
-      <input type="hidden" name="contact[tags]" value="newsletter, goal-grower-waitlist">
+    <div class="zdg-flow-list">
+      <article>
+        <span>Step 01</span>
+        <h3>Create a goal.</h3>
+        <p>Choose a habit, big goal, or commitment you want to grow over time.</p>
+      </article>
 
-      <input
-        type="email"
-        name="contact[email]"
-        placeholder="Email address"
-        required
-      >
+      <article>
+        <span>Step 02</span>
+        <h3>Plant it.</h3>
+        <p>Your goal becomes a plant in your personal garden.</p>
+      </article>
 
-      <button type="submit">Join Waitlist</button>
-    {% endform %}
+      <article>
+        <span>Step 03</span>
+        <h3>Water it.</h3>
+        <p>Log progress to keep the plant healthy and growing.</p>
+      </article>
+
+      <article>
+        <span>Step 04</span>
+        <h3>Grow together.</h3>
+        <p>Create shared gardens with people working on goals with you.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="zdg-community">
+    <div>
+      <p class="zdg-eyebrow">Community</p>
+      <h2>Help shape the garden before launch.</h2>
+      <p>
+        Beta testers help make Goal Grower better by testing real usage, shared
+        gardens, plant health, onboarding, reminders, and the overall goal flow.
+      </p>
+
+      <div class="zdg-actions">
+        <a href="/pages/community">Join the Community</a>
+        <a href="/pages/support">Support Development</a>
+      </div>
+    </div>
   </section>
 
 </main>
@@ -184,18 +176,7 @@
 {% schema %}
 {
   "name": "Goal Grower Page",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "hero_image",
-      "label": "Hero image"
-    },
-    {
-      "type": "image_picker",
-      "id": "showcase_image",
-      "label": "Showcase image"
-    }
-  ],
+  "settings": [],
   "presets": [
     {
       "name": "Goal Grower Page"

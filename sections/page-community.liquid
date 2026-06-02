@@ -1,136 +1,171 @@
-<main class="zd-community-page">
+<main class="zd-community">
 
-  <section class="zd-community-hero">
-    <p class="zd-community-eyebrow">Community</p>
-
-    <h1>Build a better life with people moving in the same direction.</h1>
-
-    <p>
-      The Ziyu Development community is for people who care about focus, growth,
-      thoughtful technology, reading, discipline, creativity, and intentional living.
-    </p>
-
-    <div class="zd-community-actions">
-      <a href="#join" class="zd-community-btn zd-community-btn--primary">Join the Community</a>
-      <a href="/pages/projects" class="zd-community-btn zd-community-btn--secondary">Explore Projects</a>
-    </div>
-  </section>
-
-  <section class="zd-community-intro">
+  <section class="zdc-hero">
     <div>
-      <p class="zd-community-eyebrow">Why join</p>
-      <h2>This is more than following a product launch.</h2>
-    </div>
-
-    <p>
-      The goal is to create a place where early users, supporters, testers,
-      readers, and builders can help shape tools that make real life better.
-      Community feedback will help decide what gets built, improved, and launched.
-    </p>
-  </section>
-
-  <section class="zd-community-grid">
-    <article>
-      <span>01</span>
-      <h3>Beta Testing</h3>
-      <p>Try early versions of Goal Grower, MyJourney, Blokkr, Kindlitt, and future apps.</p>
-    </article>
-
-    <article>
-      <span>02</span>
-      <h3>Feedback</h3>
-      <p>Share what works, what feels confusing, and what would make the products better.</p>
-    </article>
-
-    <article>
-      <span>03</span>
-      <h3>Challenges</h3>
-      <p>Join focus, reading, goal, and self-improvement challenges with other members.</p>
-    </article>
-
-    <article>
-      <span>04</span>
-      <h3>Supporters</h3>
-      <p>Follow the build and help support the development of intentional technology.</p>
-    </article>
-  </section>
-
-  <section class="zd-community-paths">
-    <div class="zd-community-section-head">
-      <p class="zd-community-eyebrow">Community paths</p>
-      <h2>Choose how you want to be involved.</h2>
-    </div>
-
-    <div class="zd-community-path-grid">
-      <a href="/pages/beta">
-        <strong>Become a Beta Tester</strong>
-        <span>Test apps early and help shape the experience.</span>
-      </a>
-
-      <a href="/pages/support">
-        <strong>Support the Mission</strong>
-        <span>Help fund design, development, testing, and launches.</span>
-      </a>
-
-      <a href="/blogs/journal">
-        <strong>Read the Journal</strong>
-        <span>Follow founder notes, devlogs, and intentional living articles.</span>
-      </a>
-
-      <a href="/pages/roadmap">
-        <strong>Follow the Roadmap</strong>
-        <span>See what is being built now, next, and later.</span>
-      </a>
-
-      <a href="/pages/contact">
-        <strong>Send Feedback</strong>
-        <span>Share ideas, issues, suggestions, and collaboration requests.</span>
-      </a>
-
-      <a href="/collections/all">
-        <strong>Support Through Products</strong>
-        <span>Buy journals, desk tools, apparel, and future digital products.</span>
-      </a>
-    </div>
-  </section>
-
-  <section id="join" class="zd-community-join">
-    <div>
-      <p class="zd-community-eyebrow">Join early</p>
-      <h2>Become part of the beginning.</h2>
+      <p class="zdc-eyebrow">Community</p>
+      <h1>Build the future of intentional technology together.</h1>
       <p>
-        Join the email list to get community updates, beta opportunities,
-        project progress, product drops, and founder notes.
+        Join beta testing, support development, share ideas, and help shape the next
+        generation of Ziyu Development products.
       </p>
     </div>
+  </section>
 
-    {% form 'customer', class: 'zd-community-form' %}
-      <input type="hidden" name="contact[tags]" value="newsletter, community">
+  <section class="zdc-filter">
+    <button class="is-active">All</button>
+    <button>Beta Testing</button>
+    <button>Goal Grower</button>
+    <button>Supporters</button>
+    <button>Builders</button>
+    <button>Project Ideas</button>
+  </section>
 
-      <input
-        type="email"
-        name="contact[email]"
-        placeholder="Email address"
-        required
+  <section class="zdc-editorial-grid">
+
+    <article class="zdc-feature">
+      <div class="zdc-feature__image">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy8PqhjFtpri2ZM64Qlf-pkMAANZMhwMV1ntCMqDVRseQPFlWm-ZEvU_mUhHpNQgHYeJ4WgMJ1FSXYSJpKMbK4qiF2SMKQO3ijl7XiMftXBkcTJnQ2_ZnoOffKU5KY3JxI7UBkYmTrRN8LGj9klXDXPO4YWrSUI8ibidnDYfT1rnsHBWKMS7HmOZfeg9mjI6oMx-0GS25nFmWo9zhhAMHehCOAxg0_KFXXWeC6jTTC_lpA9VeBtNz7Tt52RYTklm-9zZI2dDJ6uRNx"
+          alt="Community collaboration"
+          width="1200"
+          height="700"
+        >
+      </div>
+
+      <div class="zdc-meta">
+        <span>Goal Grower</span>
+        <time>Now Testing</time>
+      </div>
+
+      <h2>Shared Gardens are live.</h2>
+      <p>
+        Goal Grower’s first community feature is available for testing. Create
+        accountability gardens, grow goals together, and help shape future releases.
+      </p>
+    </article>
+
+    <aside class="zdc-signup">
+      <p class="zdc-eyebrow">Beta Community</p>
+      <h3>Join the early testing group.</h3>
+      <p>
+        Get updates, test new features, report bugs, and help decide what Goal Grower
+        should become next.
+      </p>
+
+      <form>
+        <input type="email" placeholder="Email address">
+        <button type="submit">Request Beta Access</button>
+      </form>
+    </aside>
+
+    <article class="zdc-card">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNmmfCsH2wkKIic1auKPW9U9px3FVZtc9LKraKWSOVU6ex-77Ra4N9ArmC91U7voWHzjVAR7GWjxbzDldalUW56ATsYZ4IMMOqj_EvmOVbu7vzE8VmLxzawVN4OENpQegKAN2O6SNzBOGbw7nUEutD7cHFn5nrpqVjPq-89J5cHZcgzT-TKogLWfxOaf8hT-ltJ9uxFx0wxkWMfbPaqTU_N8mz2EcNgX5441KZhjkDI1b8jzr1TDZx2xsdVtV6IrvT0-ZtXbyLc2ro"
+        alt="Beta testing"
+        width="700"
+        height="700"
       >
+      <div class="zdc-meta">
+        <span>Beta Testing</span>
+        <time>Open</time>
+      </div>
+      <h3>Become a Beta Tester</h3>
+      <p>Test apps early and help shape the experience before public launch.</p>
+    </article>
 
-      <button type="submit">Join</button>
-    {% endform %}
+    <article class="zdc-card">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNmmfCsH2wkKIic1auKPW9U9px3FVZtc9LKraKWSOVU6ex-77Ra4N9ArmC91U7voWHzjVAR7GWjxbzDldalUW56ATsYZ4IMMOqj_EvmOVbu7vzE8VmLxzawVN4OENpQegKAN2O6SNzBOGbw7nUEutD7cHFn5nrpqVjPq-89J5cHZcgzT-TKogLWfxOaf8hT-ltJ9uxFx0wxkWMfbPaqTU_N8mz2EcNgX5441KZhjkDI1b8jzr1TDZx2xsdVtV6IrvT0-ZtXbyLc2ro"
+        alt="Support development"
+        width="700"
+        height="700"
+      >
+      <div class="zdc-meta">
+        <span>Support</span>
+        <time>Active</time>
+      </div>
+      <h3>Support Development</h3>
+      <p>Help fund testing, tools, design, hosting, app store costs, and development time.</p>
+    </article>
+
+    <article class="zdc-card">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNmmfCsH2wkKIic1auKPW9U9px3FVZtc9LKraKWSOVU6ex-77Ra4N9ArmC91U7voWHzjVAR7GWjxbzDldalUW56ATsYZ4IMMOqj_EvmOVbu7vzE8VmLxzawVN4OENpQegKAN2O6SNzBOGbw7nUEutD7cHFn5nrpqVjPq-89J5cHZcgzT-TKogLWfxOaf8hT-ltJ9uxFx0wxkWMfbPaqTU_N8mz2EcNgX5441KZhjkDI1b8jzr1TDZx2xsdVtV6IrvT0-ZtXbyLc2ro"
+        alt="Pitch an idea"
+        width="700"
+        height="700"
+      >
+      <div class="zdc-meta">
+        <span>Ideas</span>
+        <time>Submit</time>
+      </div>
+      <h3>Pitch an Idea</h3>
+      <p>Share an app, website, automation, design, or product idea for Ziyu to build.</p>
+    </article>
+
   </section>
 
-  <section class="zd-community-support">
-    <div>
-      <p class="zd-community-eyebrow">Help it grow</p>
-      <h2>Support the mission behind the community.</h2>
+  <section class="zdc-divider">
+    <span></span>
+  </section>
+
+  <section class="zdc-updates">
+    <div class="zdc-updates__intro">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNmmfCsH2wkKIic1auKPW9U9px3FVZtc9LKraKWSOVU6ex-77Ra4N9ArmC91U7voWHzjVAR7GWjxbzDldalUW56ATsYZ4IMMOqj_EvmOVbu7vzE8VmLxzawVN4OENpQegKAN2O6SNzBOGbw7nUEutD7cHFn5nrpqVjPq-89J5cHZcgzT-TKogLWfxOaf8hT-ltJ9uxFx0wxkWMfbPaqTU_N8mz2EcNgX5441KZhjkDI1b8jzr1TDZx2xsdVtV6IrvT0-ZtXbyLc2ro"
+        alt="Community updates"
+        width="700"
+        height="500"
+      >
+      <h2>Community Updates</h2>
       <p>
-        This community exists to help build products that respect people’s time,
-        focus, and growth. Support helps turn the vision into real tools.
+        Progress notes, beta updates, feature changes, and the real process of building
+        Ziyu Development in public.
       </p>
     </div>
 
-    <a href="/pages/support" class="zd-community-btn zd-community-btn--light">
-      Support the Mission
-    </a>
+    <div class="zdc-update-list">
+      <article>
+        <div>
+          <span>Community #014</span>
+          <time>Now</time>
+        </div>
+        <h3>Shared Gardens released for testing</h3>
+        <p>Goal Grower’s accountability garden system is ready for early community feedback.</p>
+      </article>
+
+      <article>
+        <div>
+          <span>Community #013</span>
+          <time>Next</time>
+        </div>
+        <h3>New goal types in development</h3>
+        <p>Testing more flexible tracking for habits, big goals, quantity goals, and deadlines.</p>
+      </article>
+
+      <article>
+        <div>
+          <span>Community #012</span>
+          <time>Soon</time>
+        </div>
+        <h3>App Store testing preparation</h3>
+        <p>Preparing feedback flows, onboarding, bug tracking, and launch-readiness checks.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="zdc-cta">
+    <p class="zdc-eyebrow">Join Early</p>
+    <h2>Become part of the beginning.</h2>
+    <p>
+      Help test Goal Grower, support the mission, or pitch the next project for Ziyu
+      Development to create.
+    </p>
+
+    <div class="zdc-actions">
+      <a href="/pages/beta">Become a Beta Tester</a>
+      <a href="/pages/support">Support Development</a>
+    </div>
   </section>
 
 </main>

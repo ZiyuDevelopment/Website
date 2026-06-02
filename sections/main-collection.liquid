@@ -1,84 +1,96 @@
-<main class="zd-collection-page">
+<main class="zd-all-products">
 
-  <section class="zd-collection-hero">
-    <p class="zd-collection-eyebrow">Store</p>
-
-    <h1>
-      {% if collection.title != blank %}
-        {{ collection.title }}
-      {% else %}
-        Curated tools for intentional living.
-      {% endif %}
-    </h1>
-
+  <section class="zdap-hero">
+    <p class="zdap-eyebrow">Ziyu Store</p>
+    <h1>Products that help fund intentional technology.</h1>
     <p>
-      Journals, desk tools, books, apparel, digital products, and physical items
-      that support focus, growth, learning, and intentional living.
+      Browse digital tools, support items, merchandise, and curated products connected
+      to Ziyu Development and apps like Goal Grower.
     </p>
   </section>
 
-  <section class="zd-collection-categories">
-    <a href="/collections/all">All</a>
-    <a href="/collections/journals">Journals</a>
-    <a href="/collections/desk-tools">Desk Tools</a>
-    <a href="/collections/books">Books</a>
-    <a href="/collections/apparel">Apparel</a>
-    <a href="/collections/digital-products">Digital Products</a>
+  <section class="zdap-toolbar">
+    <div>
+      <span>{{ collection.products_count }} products</span>
+      <p>Every purchase helps support development, testing, design, hosting, and launch costs.</p>
+    </div>
+
+    <div class="zdap-toolbar__links">
+      <a href="/pages/store">Store Overview</a>
+      <a href="/pages/support">Support Development</a>
+    </div>
   </section>
 
-  <section class="zd-collection-grid">
-    {% if collection.products.size > 0 %}
+  <section class="zdap-grid">
+    {% paginate collection.products by 24 %}
       {% for product in collection.products %}
-        <a href="{{ product.url }}" class="zd-product-card">
-          <div class="zd-product-card__image">
+        <article class="zdap-card">
+          <a href="{{ product.url }}" class="zdap-card__image">
             {% if product.featured_image %}
               <img
-                src="{{ product.featured_image | image_url: width: 800 }}"
+                src="{{ product.featured_image | image_url: width: 900 }}"
                 alt="{{ product.featured_image.alt | escape }}"
-                width="800"
-                height="800"
+                width="900"
+                height="900"
                 loading="lazy"
               >
             {% else %}
-              {{ 'product-1' | placeholder_svg_tag: 'zd-product-placeholder' }}
+              <div class="zdap-card__placeholder">
+                <span>Z</span>
+              </div>
             {% endif %}
-          </div>
+          </a>
 
-          <div class="zd-product-card__body">
-            <p class="zd-product-card__type">
-              {{ product.type | default: 'Ziyu Product' }}
+          <div class="zdap-card__body">
+            <p class="zdap-card__type">
+              {% if product.type != blank %}
+                {{ product.type }}
+              {% else %}
+                Ziyu Product
+              {% endif %}
             </p>
 
-            <h2>{{ product.title }}</h2>
+            <h2>
+              <a href="{{ product.url }}">{{ product.title }}</a>
+            </h2>
 
-            <p class="zd-product-card__description">
-              {{ product.description | strip_html | truncate: 110 }}
-            </p>
+            {% if product.description != blank %}
+              <p class="zdap-card__desc">
+                {{ product.description | strip_html | truncate: 110 }}
+              </p>
+            {% endif %}
 
-            <div class="zd-product-card__bottom">
+            <div class="zdap-card__bottom">
               <span>{{ product.price | money }}</span>
-              <strong>View →</strong>
+              <a href="{{ product.url }}">View Product</a>
             </div>
           </div>
-        </a>
+        </article>
+      {% else %}
+        <div class="zdap-empty">
+          <h2>No products yet.</h2>
+          <p>Add products to this collection in Shopify Admin.</p>
+        </div>
       {% endfor %}
-    {% else %}
-      <div class="zd-empty-collection">
-        <h2>Products are coming soon.</h2>
-        <p>
-          This collection is being prepared. Check back later for journals,
-          desk tools, books, apparel, and digital products.
-        </p>
-        <a href="/pages/support">Support the Mission</a>
-      </div>
-    {% endif %}
+
+      {% if paginate.pages > 1 %}
+        <nav class="zdap-pagination">
+          {{ paginate | default_pagination }}
+        </nav>
+      {% endif %}
+    {% endpaginate %}
   </section>
 
 </main>
 
 {% schema %}
 {
-  "name": "Main Collection",
-  "settings": []
+  "name": "All Products Collection",
+  "settings": [],
+  "presets": [
+    {
+      "name": "All Products Collection"
+    }
+  ]
 }
 {% endschema %}

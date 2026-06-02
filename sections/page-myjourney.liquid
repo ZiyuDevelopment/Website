@@ -1,180 +1,152 @@
-<main class="zd-mj-page">
+<main class="zd-myjourney">
 
-  <section class="zd-mj-hero">
-    <div class="zd-mj-hero__copy">
-      <p class="zd-mj-eyebrow">Life system</p>
-
-      <h1>MyJourney</h1>
-
+  <section class="zdmj-hero">
+    <div class="zdmj-hero__copy">
+      <p class="zdmj-eyebrow">MyJourney</p>
+      <h1>A personal archive for the life you are becoming.</h1>
       <p>
-        A personal life-building app for planning, reflecting, tracking habits,
-        setting direction, and becoming better one intentional step at a time.
+        MyJourney is a reflective app concept for documenting growth, memories,
+        milestones, lessons, goals, and the story of who you are becoming over time.
       </p>
 
-      <div class="zd-mj-actions">
-        <a href="#waitlist" class="zd-mj-btn zd-mj-btn--primary">Join Waitlist</a>
-        <a href="/pages/roadmap" class="zd-mj-btn zd-mj-btn--secondary">View Roadmap</a>
+      <div class="zdmj-actions">
+        <a href="/pages/support">Support Development</a>
+        <a href="/pages/community">Follow Progress</a>
       </div>
     </div>
 
-    <div class="zd-mj-hero__visual">
-      {% if section.settings.hero_image %}
-        <img
-          src="{{ section.settings.hero_image | image_url: width: 1200 }}"
-          alt="MyJourney app preview"
-          width="1200"
-          height="900"
-          loading="eager"
-        >
-      {% else %}
-        {{ 'lifestyle-2' | placeholder_svg_tag: 'zd-mj-placeholder' }}
-      {% endif %}
+    <div class="zdmj-hero__visual">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNmmfCsH2wkKIic1auKPW9U9px3FVZtc9LKraKWSOVU6ex-77Ra4N9ArmC91U7voWHzjVAR7GWjxbzDldalUW56ATsYZ4IMMOqj_EvmOVbu7vzE8VmLxzawVN4OENpQegKAN2O6SNzBOGbw7nUEutD7cHFn5nrpqVjPq-89J5cHZcgzT-TKogLWfxOaf8hT-ltJ9uxFx0wxkWMfbPaqTU_N8mz2EcNgX5441KZhjkDI1b8jzr1TDZx2xsdVtV6IrvT0-ZtXbyLc2ro"
+        alt="MyJourney reflective archive preview"
+        width="1000"
+        height="700"
+      >
+
+      <div class="zdmj-floating-note">
+        <span>Memory Archive</span>
+        <strong>Document the moments that shape you.</strong>
+      </div>
     </div>
   </section>
 
-  <section class="zd-mj-purpose">
-    <div>
-      <p class="zd-mj-eyebrow">The purpose</p>
-      <h2>A place to organize the journey of becoming who you want to be.</h2>
-    </div>
-
+  <section class="zdmj-intro">
+    <p class="zdmj-eyebrow">The Idea</p>
+    <h2>Your life should not disappear into scattered notes, photos, and forgotten thoughts.</h2>
     <p>
-      MyJourney is designed for people who want their goals, routines, reflections,
-      and personal growth to connect in one calm system. Instead of only tracking
-      tasks, it helps users understand where they are going and why it matters.
+      MyJourney is designed as a calm digital space for remembering what matters:
+      where you have been, what you have learned, what you are building, and who
+      you are trying to become.
     </p>
   </section>
 
-  <section class="zd-mj-features">
-    <div class="zd-mj-section-head">
-      <p class="zd-mj-eyebrow">Core features</p>
-      <h2>Plan, reflect, grow, repeat.</h2>
-    </div>
-
-    <div class="zd-mj-feature-grid">
-      <article>
-        <span>01</span>
-        <h3>Daily Planning</h3>
-        <p>Choose what matters today and connect it to your larger direction.</p>
-      </article>
-
-      <article>
-        <span>02</span>
-        <h3>Reflections</h3>
-        <p>Review your days, weeks, and seasons so growth becomes visible.</p>
-      </article>
-
-      <article>
-        <span>03</span>
-        <h3>Habit Systems</h3>
-        <p>Track routines that support the life you are trying to build.</p>
-      </article>
-
-      <article>
-        <span>04</span>
-        <h3>Life Areas</h3>
-        <p>Organize growth around school, faith, fitness, language, work, and more.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="zd-mj-showcase">
-    <div class="zd-mj-showcase__copy">
-      <p class="zd-mj-eyebrow">Experience</p>
-      <h2>Your life should feel connected, not scattered.</h2>
+  <section class="zdmj-grid">
+    <article class="zdmj-card zdmj-card--wide">
+      <span>01</span>
+      <h3>Chronological life archive.</h3>
       <p>
-        MyJourney gives users a central place to see goals, habits, reflections,
-        values, and progress together. It is built to feel calm, human, and useful
-        instead of overwhelming.
+        Save milestones, memories, study abroad experiences, spiritual insights,
+        personal growth notes, and meaningful moments in one organized timeline.
       </p>
+    </article>
 
-      <ul>
-        <li>Daily and weekly planning</li>
-        <li>Personal growth areas</li>
-        <li>Reflection prompts</li>
-        <li>Progress history</li>
-        <li>Journey milestones</li>
-      </ul>
-    </div>
-
-    <div class="zd-mj-showcase__image">
-      {% if section.settings.showcase_image %}
-        <img
-          src="{{ section.settings.showcase_image | image_url: width: 1200 }}"
-          alt="MyJourney lifestyle preview"
-          width="1200"
-          height="850"
-          loading="lazy"
-        >
-      {% else %}
-        {{ 'lifestyle-1' | placeholder_svg_tag: 'zd-mj-placeholder' }}
-      {% endif %}
-    </div>
-  </section>
-
-  <section class="zd-mj-roadmap">
-    <div>
-      <p class="zd-mj-eyebrow">Roadmap</p>
-      <h2>What MyJourney becomes over time.</h2>
-    </div>
-
-    <div class="zd-mj-roadmap-grid">
-      <article>
-        <span>Phase 1</span>
-        <h3>Personal dashboard</h3>
-        <p>A calm home base for goals, habits, notes, and daily direction.</p>
-      </article>
-
-      <article>
-        <span>Phase 2</span>
-        <h3>Reflection system</h3>
-        <p>Daily, weekly, and monthly prompts to help users learn from life.</p>
-      </article>
-
-      <article>
-        <span>Phase 3</span>
-        <h3>Journey map</h3>
-        <p>A visual path showing progress, milestones, seasons, and growth.</p>
-      </article>
-
-      <article>
-        <span>Phase 4</span>
-        <h3>Integrated ecosystem</h3>
-        <p>Connect MyJourney with Goal Grower, Blokkr, Kindlitt, and future tools.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="zd-mj-support">
-    <div>
-      <p class="zd-mj-eyebrow">Support the mission</p>
-      <h2>Help build tools for becoming better.</h2>
+    <article class="zdmj-card">
+      <span>02</span>
+      <h3>Reflection-first design.</h3>
       <p>
-        Support helps fund design, development, testing, and the time needed
-        to build a thoughtful life system instead of another noisy productivity app.
+        Built for thoughtful writing, not endless posting. A place to slow down,
+        process life, and preserve lessons.
+      </p>
+    </article>
+
+    <article class="zdmj-card zdmj-card--dark">
+      <span>03</span>
+      <h3>Growth you can look back on.</h3>
+      <p>
+        Track who you were, what changed, and how your goals, beliefs, and skills
+        developed over time.
+      </p>
+    </article>
+
+    <article class="zdmj-card">
+      <span>04</span>
+      <h3>Private by default.</h3>
+      <p>
+        MyJourney is imagined as a personal sanctuary before it is anything social.
+      </p>
+    </article>
+  </section>
+
+  <section class="zdmj-timeline">
+    <div class="zdmj-section-head">
+      <p class="zdmj-eyebrow">How It Works</p>
+      <h2>A calm structure for personal history.</h2>
+    </div>
+
+    <div class="zdmj-timeline-list">
+      <article>
+        <span>Capture</span>
+        <h3>Write the moment.</h3>
+        <p>Save an experience, thought, lesson, photo, or milestone while it still feels clear.</p>
+      </article>
+
+      <article>
+        <span>Connect</span>
+        <h3>Link it to your growth.</h3>
+        <p>Attach entries to goals, seasons, places, people, projects, or life chapters.</p>
+      </article>
+
+      <article>
+        <span>Reflect</span>
+        <h3>Return to it later.</h3>
+        <p>Look back and see patterns, progress, blessings, lessons, and identity formation.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="zdmj-status">
+    <div>
+      <p class="zdmj-eyebrow">Project Status</p>
+      <h2>MyJourney is part of the Ziyu ecosystem.</h2>
+      <p>
+        Goal Grower is the main project being built right now, but MyJourney is part
+        of the larger vision: apps that help people grow, reflect, focus, and live intentionally.
       </p>
     </div>
 
-    <a href="/pages/support" class="zd-mj-btn zd-mj-btn--light">Support the Mission</a>
+    <div class="zdmj-status-list">
+      <article>
+        <span>Concept</span>
+        <h3>Product direction</h3>
+        <p>Defining the structure, purpose, and user experience.</p>
+      </article>
+
+      <article>
+        <span>Future</span>
+        <h3>Personal archive</h3>
+        <p>Designed to become a central place for memories and growth documentation.</p>
+      </article>
+
+      <article>
+        <span>Connected</span>
+        <h3>Ziyu ecosystem</h3>
+        <p>Fits alongside Goal Grower, Blokkr, KindLitt, and future intentional tools.</p>
+      </article>
+    </div>
   </section>
 
-  <section id="waitlist" class="zd-mj-waitlist">
-    <p class="zd-mj-eyebrow">Early access</p>
-    <h2>Join the MyJourney waitlist.</h2>
-    <p>Get updates, beta access opportunities, and launch news.</p>
+  <section class="zdmj-cta">
+    <p class="zdmj-eyebrow">Follow the Journey</p>
+    <h2>Help shape intentional technology from the beginning.</h2>
+    <p>
+      Support Ziyu Development, follow the roadmap, or join the community as new projects
+      move from concept to real products.
+    </p>
 
-    {% form 'customer', class: 'zd-mj-form' %}
-      <input type="hidden" name="contact[tags]" value="newsletter, myjourney-waitlist">
-
-      <input
-        type="email"
-        name="contact[email]"
-        placeholder="Email address"
-        required
-      >
-
-      <button type="submit">Join Waitlist</button>
-    {% endform %}
+    <div class="zdmj-actions">
+      <a href="/pages/projects">View All Projects</a>
+      <a href="/pages/support">Support Development</a>
+    </div>
   </section>
 
 </main>
@@ -182,18 +154,7 @@
 {% schema %}
 {
   "name": "MyJourney Page",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "hero_image",
-      "label": "Hero image"
-    },
-    {
-      "type": "image_picker",
-      "id": "showcase_image",
-      "label": "Showcase image"
-    }
-  ],
+  "settings": [],
   "presets": [
     {
       "name": "MyJourney Page"

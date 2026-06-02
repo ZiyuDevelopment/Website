@@ -1,203 +1,177 @@
-<main class="zd-kind-page">
+<main class="zd-kindlitt">
 
-  <section class="zd-kind-hero">
-    <div class="zd-kind-hero__copy">
-      <p class="zd-kind-eyebrow">Reading + clean information</p>
-
-      <h1>Kindlitt</h1>
-
+  <section class="zdk-hero">
+    <div class="zdk-hero__copy">
+      <p class="zdk-eyebrow">KindLitt</p>
+      <h1>A calmer reading space for deep learning.</h1>
       <p>
-        A reading and discovery platform for clean books, curated lists,
-        meaningful recommendations, and information that builds people up.
+        KindLitt is a reading-focused app concept designed for people who want to
+        slow down, read more intentionally, and turn books into real understanding.
       </p>
 
-      <div class="zd-kind-actions">
-        <a href="#waitlist" class="zd-kind-btn zd-kind-btn--primary">Join Waitlist</a>
-        <a href="/pages/support" class="zd-kind-btn zd-kind-btn--secondary">Support This Project</a>
+      <div class="zdk-status-chips">
+        <span>Reading Tool</span>
+        <span>Concept Stage</span>
+        <span>Ziyu Ecosystem</span>
+      </div>
+
+      <div class="zdk-actions">
+        <a href="/pages/support">Support Development</a>
+        <a href="/pages/projects">View Projects</a>
       </div>
     </div>
 
-    <div class="zd-kind-hero__visual">
-      {% if section.settings.hero_image %}
-        <img
-          src="{{ section.settings.hero_image | image_url: width: 1200 }}"
-          alt="Kindlitt reading preview"
-          width="1200"
-          height="900"
-          loading="eager"
-        >
-      {% else %}
-        {{ 'collection-2' | placeholder_svg_tag: 'zd-kind-placeholder' }}
-      {% endif %}
+    <div class="zdk-hero__visual">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNmmfCsH2wkKIic1auKPW9U9px3FVZtc9LKraKWSOVU6ex-77Ra4N9ArmC91U7voWHzjVAR7GWjxbzDldalUW56ATsYZ4IMMOqj_EvmOVbu7vzE8VmLxzawVN4OENpQegKAN2O6SNzBOGbw7nUEutD7cHFn5nrpqVjPq-89J5cHZcgzT-TKogLWfxOaf8hT-ltJ9uxFx0wxkWMfbPaqTU_N8mz2EcNgX5441KZhjkDI1b8jzr1TDZx2xsdVtV6IrvT0-ZtXbyLc2ro"
+        alt="KindLitt reading environment preview"
+        width="1000"
+        height="900"
+      >
+
+      <div class="zdk-floating-note">
+        <span>Reading Mode</span>
+        <strong>Less scrolling. More understanding.</strong>
+      </div>
     </div>
   </section>
 
-  <section class="zd-kind-purpose">
-    <div>
-      <p class="zd-kind-eyebrow">Why it exists</p>
-      <h2>What you read shapes what you become.</h2>
-    </div>
-
+  <section class="zdk-intro">
+    <p class="zdk-eyebrow">The Problem</p>
+    <h2>Reading should not feel like another feed.</h2>
     <p>
-      Kindlitt exists to help people find books and information that are worth
-      their attention. Instead of endless feeds and random recommendations,
-      it focuses on thoughtful discovery, clean content, and better reading habits.
+      KindLitt is designed around quiet attention. Instead of overwhelming readers
+      with noise, streak pressure, or endless recommendations, it creates a calmer
+      space for reading, notes, reflection, and retention.
     </p>
   </section>
 
-  <section class="zd-kind-features">
-    <div class="zd-kind-section-head">
-      <p class="zd-kind-eyebrow">Core features</p>
-      <h2>A calmer way to discover what to read.</h2>
-    </div>
-
-    <div class="zd-kind-feature-grid">
-      <article>
-        <span>01</span>
-        <h3>Curated Books</h3>
-        <p>Find books organized by purpose, mood, values, audience, and topic.</p>
-      </article>
-
-      <article>
-        <span>02</span>
-        <h3>Clean Reading</h3>
-        <p>Help readers find content that aligns with the kind of media they want.</p>
-      </article>
-
-      <article>
-        <span>03</span>
-        <h3>Reading Lists</h3>
-        <p>Create and follow lists for growth, learning, faith, focus, and creativity.</p>
-      </article>
-
-      <article>
-        <span>04</span>
-        <h3>Recommendations</h3>
-        <p>Discover books through thoughtful suggestions instead of noisy algorithms.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="zd-kind-showcase">
-    <div class="zd-kind-showcase__copy">
-      <p class="zd-kind-eyebrow">Experience</p>
-      <h2>Less endless scrolling. More meaningful reading.</h2>
-
+  <section class="zdk-grid">
+    <article class="zdk-card zdk-card--wide">
+      <span>01</span>
+      <h3>Read with intention.</h3>
       <p>
-        Kindlitt is designed to feel more like a calm reading room than a content feed.
-        It helps people choose what they consume with more intention.
+        KindLitt is imagined as a focused reading environment where the interface
+        fades back and the book, notes, and ideas become the center.
       </p>
+    </article>
 
-      <ul>
-        <li>Curated book lists</li>
-        <li>Clean content guidance</li>
-        <li>Reading recommendations</li>
-        <li>Book collections</li>
-        <li>Community reading suggestions</li>
-      </ul>
-    </div>
-
-    <div class="zd-kind-showcase__image">
-      {% if section.settings.showcase_image %}
-        <img
-          src="{{ section.settings.showcase_image | image_url: width: 1200 }}"
-          alt="Kindlitt reading environment"
-          width="1200"
-          height="850"
-          loading="lazy"
-        >
-      {% else %}
-        {{ 'lifestyle-2' | placeholder_svg_tag: 'zd-kind-placeholder' }}
-      {% endif %}
-    </div>
-  </section>
-
-  <section class="zd-kind-roadmap">
-    <div>
-      <p class="zd-kind-eyebrow">Roadmap</p>
-      <h2>What Kindlitt becomes over time.</h2>
-    </div>
-
-    <div class="zd-kind-roadmap-grid">
-      <article>
-        <span>Phase 1</span>
-        <h3>Book discovery</h3>
-        <p>Build a clean book discovery system with curated lists and categories.</p>
-      </article>
-
-      <article>
-        <span>Phase 2</span>
-        <h3>Reading profiles</h3>
-        <p>Allow users to save books, build lists, and track reading interests.</p>
-      </article>
-
-      <article>
-        <span>Phase 3</span>
-        <h3>Community lists</h3>
-        <p>Let readers suggest, review, and organize meaningful book collections.</p>
-      </article>
-
-      <article>
-        <span>Phase 4</span>
-        <h3>Content guidance</h3>
-        <p>Help users make informed decisions about what books fit their values.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="zd-kind-support">
-    <div>
-      <p class="zd-kind-eyebrow">Support the mission</p>
-      <h2>Help build better ways to discover books.</h2>
-
+    <article class="zdk-card">
+      <span>02</span>
+      <h3>Capture what matters.</h3>
       <p>
-        Support helps fund design, development, research, testing, and the work
-        needed to build a thoughtful reading and recommendation platform.
+        Save quotes, thoughts, questions, vocabulary, and insights without breaking
+        the rhythm of reading.
+      </p>
+    </article>
+
+    <article class="zdk-card zdk-card--dark">
+      <span>03</span>
+      <h3>Turn books into growth.</h3>
+      <p>
+        The goal is not just finishing books. It is understanding, remembering, and
+        letting ideas change how you live.
+      </p>
+    </article>
+
+    <article class="zdk-card">
+      <span>04</span>
+      <h3>Designed for deep work.</h3>
+      <p>
+        KindLitt fits the Ziyu mission: calmer digital tools that support real-life
+        learning, reflection, and focus.
+      </p>
+    </article>
+  </section>
+
+  <section class="zdk-flow">
+    <div class="zdk-section-head">
+      <p class="zdk-eyebrow">How It Could Work</p>
+      <h2>A gentle reading loop.</h2>
+    </div>
+
+    <div class="zdk-flow-list">
+      <article>
+        <span>Step 01</span>
+        <h3>Choose what to read.</h3>
+        <p>Start with a book, article, scripture, essay, or learning resource.</p>
+      </article>
+
+      <article>
+        <span>Step 02</span>
+        <h3>Read in a calmer space.</h3>
+        <p>Use a simple focused interface designed to reduce distractions.</p>
+      </article>
+
+      <article>
+        <span>Step 03</span>
+        <h3>Save the insight.</h3>
+        <p>Capture notes, quotes, vocabulary, and thoughts as you read.</p>
+      </article>
+
+      <article>
+        <span>Step 04</span>
+        <h3>Review and apply.</h3>
+        <p>Return to what you learned and connect ideas to real goals and life.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="zdk-status">
+    <div>
+      <p class="zdk-eyebrow">Project Status</p>
+      <h2>KindLitt is part of the future Ziyu ecosystem.</h2>
+      <p>
+        Goal Grower is the main project being built right now. KindLitt is a future
+        reading and learning tool concept connected to the same mission of intentional
+        technology.
       </p>
     </div>
 
-    <a href="/pages/support" class="zd-kind-btn zd-kind-btn--light">Support the Mission</a>
+    <div class="zdk-status-list">
+      <article>
+        <span>Concept</span>
+        <h3>Reading sanctuary</h3>
+        <p>A calm space for reading, notes, highlights, and reflection.</p>
+      </article>
+
+      <article>
+        <span>Future</span>
+        <h3>Learning archive</h3>
+        <p>A system for saving insights and connecting books to real growth.</p>
+      </article>
+
+      <article>
+        <span>Connected</span>
+        <h3>Ziyu ecosystem</h3>
+        <p>Designed to support Goal Grower, MyJourney, Blokkr, and future apps.</p>
+      </article>
+    </div>
   </section>
 
-  <section id="waitlist" class="zd-kind-waitlist">
-    <p class="zd-kind-eyebrow">Early access</p>
-    <h2>Join the Kindlitt waitlist.</h2>
-    <p>Get updates, early access opportunities, and launch news.</p>
+  <section class="zdk-cta">
+    <p class="zdk-eyebrow">Support the Mission</p>
+    <h2>Help build tools for deeper reading and better focus.</h2>
+    <p>
+      Support Ziyu Development, follow the roadmap, or join the community as projects
+      move from concept to real products.
+    </p>
 
-    {% form 'customer', class: 'zd-kind-form' %}
-      <input type="hidden" name="contact[tags]" value="newsletter, kindlitt-waitlist">
-
-      <input
-        type="email"
-        name="contact[email]"
-        placeholder="Email address"
-        required
-      >
-
-      <button type="submit">Join Waitlist</button>
-    {% endform %}
+    <div class="zdk-actions">
+      <a href="/pages/support">Support Development</a>
+      <a href="/pages/community">Join the Community</a>
+    </div>
   </section>
 
 </main>
 
 {% schema %}
 {
-  "name": "Kindlitt Page",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "hero_image",
-      "label": "Hero image"
-    },
-    {
-      "type": "image_picker",
-      "id": "showcase_image",
-      "label": "Showcase image"
-    }
-  ],
+  "name": "KindLitt Page",
+  "settings": [],
   "presets": [
     {
-      "name": "Kindlitt Page"
+      "name": "KindLitt Page"
     }
   ]
 }

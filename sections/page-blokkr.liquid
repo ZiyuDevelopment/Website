@@ -1,183 +1,166 @@
-<main class="zd-blokkr-page">
+<main class="zd-blokkr">
 
-  <section class="zd-blokkr-hero">
-    <div class="zd-blokkr-hero__copy">
-      <p class="zd-blokkr-eyebrow">Focus tool</p>
+  <section class="zdb-hero">
+    <div class="zdb-hero__visual">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNmmfCsH2wkKIic1auKPW9U9px3FVZtc9LKraKWSOVU6ex-77Ra4N9ArmC91U7voWHzjVAR7GWjxbzDldalUW56ATsYZ4IMMOqj_EvmOVbu7vzE8VmLxzawVN4OENpQegKAN2O6SNzBOGbw7nUEutD7cHFn5nrpqVjPq-89J5cHZcgzT-TKogLWfxOaf8hT-ltJ9uxFx0wxkWMfbPaqTU_N8mz2EcNgX5441KZhjkDI1b8jzr1TDZx2xsdVtV6IrvT0-ZtXbyLc2ro"
+        alt="Blokkr focus environment preview"
+        width="1000"
+        height="900"
+      >
 
-      <h1>Blokkr</h1>
-
-      <p>
-        A distraction-blocking app designed to help people protect their attention,
-        block time-wasting apps, and create space for deep work, study, prayer,
-        reading, and real life.
-      </p>
-
-      <div class="zd-blokkr-actions">
-        <a href="#waitlist" class="zd-blokkr-btn zd-blokkr-btn--primary">Join Waitlist</a>
-        <a href="/pages/support" class="zd-blokkr-btn zd-blokkr-btn--secondary">Support This Project</a>
+      <div class="zdb-floating-note">
+        <span>Focus Shield</span>
+        <strong>Block the noise before it takes over.</strong>
       </div>
     </div>
 
-    <div class="zd-blokkr-hero__visual">
-      {% if section.settings.hero_image %}
-        <img
-          src="{{ section.settings.hero_image | image_url: width: 1200 }}"
-          alt="Blokkr app preview"
-          width="1200"
-          height="900"
-          loading="eager"
-        >
-      {% else %}
-        {{ 'collection-1' | placeholder_svg_tag: 'zd-blokkr-placeholder' }}
-      {% endif %}
+    <div class="zdb-hero__copy">
+      <p class="zdb-eyebrow">Blokkr</p>
+      <h1>A quiet barrier between you and distraction.</h1>
+      <p>
+        Blokkr is a focus app concept designed to protect attention, reduce digital
+        friction, and help users stay present with the work that matters.
+      </p>
+
+      <div class="zdb-status-chips">
+        <span>Focus Tool</span>
+        <span>Concept Stage</span>
+        <span>Ziyu Ecosystem</span>
+      </div>
+
+      <div class="zdb-actions">
+        <a href="/pages/support">Support Development</a>
+        <a href="/pages/projects">View Projects</a>
+      </div>
     </div>
   </section>
 
-  <section class="zd-blokkr-problem">
-    <div>
-      <p class="zd-blokkr-eyebrow">The problem</p>
-      <h2>Your attention is constantly being pulled away.</h2>
-    </div>
-
+  <section class="zdb-intro">
+    <p class="zdb-eyebrow">The Problem</p>
+    <h2>Attention is constantly being pulled away.</h2>
     <p>
-      Blokkr is built for people who want help creating boundaries with their phone.
-      Instead of relying only on willpower, it gives users a system for blocking
-      distractions and protecting focused time.
+      Most apps compete to keep people inside them. Blokkr is designed around the
+      opposite goal: helping people create boundaries, avoid distraction loops, and
+      return to deep work without fighting their phone all day.
     </p>
   </section>
 
-  <section class="zd-blokkr-features">
-    <div class="zd-blokkr-section-head">
-      <p class="zd-blokkr-eyebrow">Core features</p>
-      <h2>Protect your focus before distractions win.</h2>
-    </div>
-
-    <div class="zd-blokkr-feature-grid">
-      <article>
-        <span>01</span>
-        <h3>App Blocking</h3>
-        <p>Block distracting apps during study, work, scripture study, or focus sessions.</p>
-      </article>
-
-      <article>
-        <span>02</span>
-        <h3>Focus Sessions</h3>
-        <p>Start intentional blocks of time for deep work, reading, prayer, or learning.</p>
-      </article>
-
-      <article>
-        <span>03</span>
-        <h3>Schedules</h3>
-        <p>Create recurring focus windows so your phone follows your priorities.</p>
-      </article>
-
-      <article>
-        <span>04</span>
-        <h3>Reports</h3>
-        <p>See how much time you protected and how your focus improves over time.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="zd-blokkr-showcase">
-    <div class="zd-blokkr-showcase__image">
-      {% if section.settings.showcase_image %}
-        <img
-          src="{{ section.settings.showcase_image | image_url: width: 1200 }}"
-          alt="Blokkr focus workspace preview"
-          width="1200"
-          height="850"
-          loading="lazy"
-        >
-      {% else %}
-        {{ 'lifestyle-1' | placeholder_svg_tag: 'zd-blokkr-placeholder' }}
-      {% endif %}
-    </div>
-
-    <div class="zd-blokkr-showcase__copy">
-      <p class="zd-blokkr-eyebrow">Experience</p>
-      <h2>Less scrolling. More living.</h2>
-
+  <section class="zdb-grid">
+    <article class="zdb-card zdb-card--wide">
+      <span>01</span>
+      <h3>Block distraction before it starts.</h3>
       <p>
-        Blokkr helps users create intentional distance from distracting apps.
-        The goal is not to make people use another app more. The goal is to help
-        them use their life better.
+        Blokkr is imagined as a focus barrier that helps interrupt automatic habits,
+        app switching, and attention leaks before they become a lost hour.
       </p>
+    </article>
 
-      <ul>
-        <li>Block selected apps</li>
-        <li>Create focus schedules</li>
-        <li>Start deep work sessions</li>
-        <li>Track protected time</li>
-        <li>Build better attention habits</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="zd-blokkr-roadmap">
-    <div>
-      <p class="zd-blokkr-eyebrow">Roadmap</p>
-      <h2>What Blokkr becomes over time.</h2>
-    </div>
-
-    <div class="zd-blokkr-roadmap-grid">
-      <article>
-        <span>Phase 1</span>
-        <h3>Basic blocking</h3>
-        <p>Select distracting apps and block them during focus sessions.</p>
-      </article>
-
-      <article>
-        <span>Phase 2</span>
-        <h3>Focus schedules</h3>
-        <p>Create recurring routines for school, work, sleep, and personal growth.</p>
-      </article>
-
-      <article>
-        <span>Phase 3</span>
-        <h3>Focus reports</h3>
-        <p>View protected time, patterns, and improvements over weeks and months.</p>
-      </article>
-
-      <article>
-        <span>Phase 4</span>
-        <h3>Ecosystem connection</h3>
-        <p>Connect focus time with MyJourney goals and Goal Grower progress.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="zd-blokkr-support">
-    <div>
-      <p class="zd-blokkr-eyebrow">Support the mission</p>
-      <h2>Help build tools that protect attention.</h2>
-
+    <article class="zdb-card">
+      <span>02</span>
+      <h3>Reduce digital friction.</h3>
       <p>
-        Support helps fund the development of tools that push against distraction
-        and help people return to real life.
+        The goal is not complicated productivity. The goal is simple protection for
+        your attention when you are trying to work, study, create, or rest.
+      </p>
+    </article>
+
+    <article class="zdb-card zdb-card--dark">
+      <span>03</span>
+      <h3>Built for intentional focus.</h3>
+      <p>
+        Blokkr supports the Ziyu philosophy: technology should help people return
+        to real life stronger, not disappear into endless screens.
+      </p>
+    </article>
+
+    <article class="zdb-card">
+      <span>04</span>
+      <h3>Calm, not controlling.</h3>
+      <p>
+        Instead of aggressive lockouts or shame-based productivity, Blokkr would use
+        gentle structure, clear boundaries, and intentional design.
+      </p>
+    </article>
+  </section>
+
+  <section class="zdb-flow">
+    <div class="zdb-section-head">
+      <p class="zdb-eyebrow">How It Could Work</p>
+      <h2>A simple system for protecting focus.</h2>
+    </div>
+
+    <div class="zdb-flow-list">
+      <article>
+        <span>Step 01</span>
+        <h3>Choose your focus session.</h3>
+        <p>Select what you are trying to protect: study, work, writing, prayer, reading, or rest.</p>
+      </article>
+
+      <article>
+        <span>Step 02</span>
+        <h3>Set the boundary.</h3>
+        <p>Decide which apps, sites, or habits should stay outside the session.</p>
+      </article>
+
+      <article>
+        <span>Step 03</span>
+        <h3>Stay inside the work.</h3>
+        <p>Blokkr helps reduce the urge to switch, scroll, or escape when focus gets uncomfortable.</p>
+      </article>
+
+      <article>
+        <span>Step 04</span>
+        <h3>Return with intention.</h3>
+        <p>When the session ends, you re-enter your digital space with more awareness.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="zdb-status">
+    <div>
+      <p class="zdb-eyebrow">Project Status</p>
+      <h2>Blokkr is part of the future Ziyu ecosystem.</h2>
+      <p>
+        Goal Grower is the main project being built right now. Blokkr is a future
+        focus tool concept that supports the same mission: intentional technology
+        for real-life growth.
       </p>
     </div>
 
-    <a href="/pages/support" class="zd-blokkr-btn zd-blokkr-btn--light">Support the Mission</a>
+    <div class="zdb-status-list">
+      <article>
+        <span>Concept</span>
+        <h3>Focus barrier</h3>
+        <p>A tool for protecting attention from distraction loops.</p>
+      </article>
+
+      <article>
+        <span>Future</span>
+        <h3>Digital boundaries</h3>
+        <p>A calmer way to block distractions without making productivity feel harsh.</p>
+      </article>
+
+      <article>
+        <span>Connected</span>
+        <h3>Ziyu ecosystem</h3>
+        <p>Designed to support Goal Grower, MyJourney, KindLitt, and future apps.</p>
+      </article>
+    </div>
   </section>
 
-  <section id="waitlist" class="zd-blokkr-waitlist">
-    <p class="zd-blokkr-eyebrow">Early access</p>
-    <h2>Join the Blokkr waitlist.</h2>
-    <p>Get updates, beta access opportunities, and launch news.</p>
+  <section class="zdb-cta">
+    <p class="zdb-eyebrow">Support the Mission</p>
+    <h2>Help build tools that protect attention.</h2>
+    <p>
+      Support Ziyu Development, follow the roadmap, or join the community as projects
+      move from concept to real products.
+    </p>
 
-    {% form 'customer', class: 'zd-blokkr-form' %}
-      <input type="hidden" name="contact[tags]" value="newsletter, blokkr-waitlist">
-
-      <input
-        type="email"
-        name="contact[email]"
-        placeholder="Email address"
-        required
-      >
-
-      <button type="submit">Join Waitlist</button>
-    {% endform %}
+    <div class="zdb-actions">
+      <a href="/pages/support">Support Development</a>
+      <a href="/pages/community">Join the Community</a>
+    </div>
   </section>
 
 </main>
@@ -185,18 +168,7 @@
 {% schema %}
 {
   "name": "Blokkr Page",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "hero_image",
-      "label": "Hero image"
-    },
-    {
-      "type": "image_picker",
-      "id": "showcase_image",
-      "label": "Showcase image"
-    }
-  ],
+  "settings": [],
   "presets": [
     {
       "name": "Blokkr Page"
