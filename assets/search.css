@@ -60,7 +60,7 @@
 
 .zd-search-form input {
   min-height: 54px;
-  border-radius: 10px;
+  border-radius: var(--zd-card-radius);
   border: 1px solid rgba(23, 21, 18, 0.16);
   background: #fffaf2;
   color: #171512;
@@ -70,7 +70,7 @@
 
 .zd-search-form button {
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--zd-card-radius);
   background: #2f3a25;
   color: white;
   font-weight: 900;
@@ -199,7 +199,7 @@
 
   .zd-search-hero,
   .zd-search-empty {
-    border-radius: 16px;
+    border-radius: var(--zd-card-radius);
     padding: 38px 24px;
   }
 

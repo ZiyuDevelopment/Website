@@ -86,7 +86,7 @@
   .zd-page-hero,
   .zd-page-content {
     width: calc(100% - 28px);
-    border-radius: 16px;
+    border-radius: var(--zd-card-radius);
     padding: 38px 24px;
   }
 }

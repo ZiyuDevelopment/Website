@@ -78,7 +78,7 @@
 @media (max-width: 640px) {
   .zd-404-hero {
     width: calc(100% - 28px);
-    border-radius: 16px;
+    border-radius: var(--zd-card-radius);
     padding: 38px 24px;
   }
 }

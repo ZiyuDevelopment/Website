@@ -101,7 +101,7 @@
 .zd-contact-form textarea {
   width: 100%;
   border: 1px solid rgba(23, 21, 18, 0.16);
-  border-radius: 10px;
+  border-radius: var(--zd-card-radius);
   background: #fffaf2;
   color: #171512;
   padding: 14px 16px;
@@ -111,7 +111,7 @@
 .zd-contact-form button {
   min-height: 52px;
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--zd-card-radius);
   background: #2f3a25;
   color: white;
   font-weight: 900;
@@ -120,7 +120,7 @@
 
 .zd-contact-success {
   padding: 16px;
-  border-radius: 10px;
+  border-radius: var(--zd-card-radius);
   background: rgba(79, 95, 61, 0.12);
   color: #2f3a25;
   font-weight: 800;
@@ -186,7 +186,7 @@
   .zd-contact-cta,
   .zd-contact-card,
   .zd-contact-form-wrap {
-    border-radius: 16px;
+    border-radius: var(--zd-card-radius);
     padding: 38px 24px;
   }
 }

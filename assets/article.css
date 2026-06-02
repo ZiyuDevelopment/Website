@@ -81,7 +81,7 @@
   align-self: start;
   background: #fbf7ef;
   border: 1px solid rgba(23, 21, 18, 0.14);
-  border-radius: 16px;
+  border-radius: var(--zd-card-radius);
   padding: 22px;
 }
 
@@ -198,7 +198,7 @@
 
 .zd-article-form input {
   min-height: 52px;
-  border-radius: 10px;
+  border-radius: var(--zd-card-radius);
   border: 1px solid rgba(251, 247, 239, 0.24);
   background: rgba(255, 255, 255, 0.08);
   color: white;
@@ -211,7 +211,7 @@
 
 .zd-article-form button {
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--zd-card-radius);
   background: #fbf7ef;
   color: #171512;
   font-weight: 900;
@@ -293,7 +293,7 @@
 
   .zd-article-hero,
   .zd-article-cta {
-    border-radius: 16px;
+    border-radius: var(--zd-card-radius);
     padding: 38px 24px;
   }
 

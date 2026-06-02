@@ -154,7 +154,7 @@
   justify-content: space-between;
   gap: 24px;
   padding: 24px;
-  border-radius: 16px;
+  border-radius: var(--zd-card-radius);
   background: #fbf7ef;
   border: 1px solid rgba(23,21,18,.14);
   color: #171512;
@@ -218,7 +218,7 @@
 
   .zd-about-hero,
   .zd-about-cta {
-    border-radius: 16px;
+    border-radius: var(--zd-card-radius);
     padding: 38px 24px;
   }
 

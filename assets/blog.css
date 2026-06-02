@@ -191,7 +191,7 @@
   }
 
   .zd-blog-hero {
-    border-radius: 16px;
+    border-radius: var(--zd-card-radius);
     padding: 38px 24px;
   }
 

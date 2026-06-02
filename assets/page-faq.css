@@ -192,7 +192,7 @@
   .zd-faq-hero,
   .zd-faq-cta,
   .zd-faq-group {
-    border-radius: 16px;
+    border-radius: var(--zd-card-radius);
     padding: 38px 24px;
   }
 

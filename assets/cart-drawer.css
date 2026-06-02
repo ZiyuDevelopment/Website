@@ -21,13 +21,13 @@
   right: 0;
   width: min(460px, 100%);
   height: 100%;
-  background: #fbf9f4;
+  background: var(--paper);
   border-left: 1px solid #d1c4b8;
   box-shadow: -24px 0 80px rgba(41, 24, 1, 0.18);
   display: flex;
   flex-direction: column;
-  color: #1b1c19;
-  font-family: "Hanken Grotesk", Inter, Arial, sans-serif;
+  color: var(--ink);
+  font-family: var(--zd-font-body);
 }
 
 .zd-cart-drawer__header {
@@ -41,7 +41,7 @@
 
 .zd-cart-drawer__header h2 {
   margin: 0;
-  font-family: "EB Garamond", Georgia, serif;
+  font-family: var(--zd-font-display);
   font-size: 34px;
   font-weight: 500;
 }
@@ -49,7 +49,7 @@
 .zd-cart-drawer__header button {
   border: 0;
   background: transparent;
-  color: #705838;
+  color: var(--green);
   font-size: 32px;
   cursor: pointer;
 }
@@ -66,13 +66,13 @@
 }
 
 .zd-cart-drawer__empty h3 {
-  font-family: "EB Garamond", Georgia, serif;
+  font-family: var(--zd-font-display);
   font-size: 30px;
   margin: 0 0 12px;
 }
 
 .zd-cart-drawer__empty p {
-  color: #4e453c;
+  color: var(--muted);
   line-height: 1.6;
 }
 
@@ -88,7 +88,7 @@
   width: 86px;
   height: 86px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: var(--zd-card-radius);
 }
 
 .zd-cart-drawer__footer {
@@ -116,15 +116,15 @@
 }
 
 .zd-cart-drawer__checkout {
-  background: #705838;
+  background: var(--green);
   color: white;
 }
 
 .zd-cart-drawer__view {
   border: 1px solid #80756b;
-  color: #705838;
+  color: var(--green);
 }
 
 .zd-cart-drawer__continue {
-  color: #4e453c;
+  color: var(--muted);
 }

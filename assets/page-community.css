@@ -199,7 +199,7 @@
 
 .zd-community-form input {
   min-height: 52px;
-  border-radius: 10px;
+  border-radius: var(--zd-card-radius);
   border: 1px solid rgba(23, 21, 18, 0.16);
   background: #fffaf2;
   padding: 0 18px;
@@ -207,7 +207,7 @@
 
 .zd-community-form button {
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--zd-card-radius);
   background: #2f3a25;
   color: white;
   font-weight: 900;
@@ -264,7 +264,7 @@
   .zd-community-hero,
   .zd-community-join,
   .zd-community-support {
-    border-radius: 16px;
+    border-radius: var(--zd-card-radius);
     padding: 38px 24px;
   }
 

@@ -169,7 +169,7 @@
 .zd-start-path-grid a {
   background: #fbf7ef;
   border: 1px solid rgba(23, 21, 18, 0.14);
-  border-radius: 16px;
+  border-radius: var(--zd-card-radius);
   padding: 26px;
   color: #171512;
   text-decoration: none;
@@ -225,6 +225,6 @@
 
   .zd-start-hero {
     width: calc(100% - 28px);
-    border-radius: 16px;
+    border-radius: var(--zd-card-radius);
   }
 }

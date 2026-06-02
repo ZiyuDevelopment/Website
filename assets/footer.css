@@ -1,22 +1,22 @@
 .zd-footer {
   background:
-    radial-gradient(circle at top left, rgba(112, 88, 56, 0.08), transparent 34%),
-    #fbf9f4;
-  border-top: 1px solid rgba(209, 196, 184, 0.72);
-  color: #1b1c19;
-  font-family: "Hanken Grotesk", Inter, Arial, sans-serif;
+    radial-gradient(circle at top left, rgba(166, 137, 102, 0.1), transparent 34%),
+    var(--paper);
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-family: var(--zd-font-body);
   padding: 76px 0 34px;
   overflow-x: hidden;
 }
 
 .zd-footer__inner {
-  width: min(1320px, calc(100% - 48px));
+  width: var(--zd-page-width-wide);
   margin: 0 auto;
 }
 
 .zd-footer__main {
-  border-top: 1px solid rgba(209, 196, 184, 0.72);
-  border-bottom: 1px solid rgba(209, 196, 184, 0.72);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   padding: 56px 0;
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -32,7 +32,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: #1b1c19;
+  color: var(--ink);
   text-decoration: none;
   margin-bottom: 22px;
 }
@@ -40,19 +40,19 @@
 .zd-footer__mark {
   width: 34px;
   height: 34px;
-  border: 1px solid #705838;
+  border: 1px solid var(--green);
   border-radius: 50%;
   display: grid;
   place-items: center;
-  color: #705838;
-  font-family: "EB Garamond", Georgia, serif;
+  color: var(--green);
+  font-family: var(--zd-font-display);
   font-size: 18px;
 }
 
 .zd-footer__logo strong {
   display: block;
-  font-family: "EB Garamond", Georgia, serif;
-  letter-spacing: 0.14em;
+  font-family: var(--zd-font-display);
+  letter-spacing: var(--zd-letter-wide);
   font-size: 20px;
   line-height: 1;
 }
@@ -60,30 +60,30 @@
 .zd-footer__logo small {
   display: block;
   margin-top: 3px;
-  color: #5f564d;
-  letter-spacing: 0.18em;
+  color: var(--muted);
+  letter-spacing: var(--zd-letter-extra-wide);
   font-size: 8px;
   line-height: 1;
 }
 
 .zd-footer__brand p {
   margin: 0 0 20px;
-  color: #5f564d;
-  font-size: 15px;
-  line-height: 1.75;
+  color: var(--muted);
+  font-size: var(--zd-text-sm);
+  line-height: var(--zd-line-relaxed);
 }
 
 .zd-footer__contact {
   display: grid;
   gap: 8px;
   margin: 22px 0;
-  color: #5f564d;
-  font-size: 14px;
-  line-height: 1.5;
+  color: var(--muted);
+  font-size: var(--zd-text-sm);
+  line-height: var(--zd-line-normal);
 }
 
 .zd-footer__contact a {
-  color: #705838;
+  color: var(--green);
   text-decoration: none;
   font-weight: 700;
 }
@@ -98,11 +98,11 @@
 .zd-footer__socials a {
   width: 34px;
   height: 34px;
-  border: 1px solid rgba(112, 88, 56, 0.35);
+  border: 1px solid var(--line);
   border-radius: 50%;
   display: grid;
   place-items: center;
-  color: #705838;
+  color: var(--green);
   text-decoration: none;
   font-size: 11px;
   font-weight: 900;
@@ -111,9 +111,9 @@
 }
 
 .zd-footer__socials a:hover {
-  background: #705838;
-  color: #ffffff;
-  border-color: #705838;
+  background: var(--green);
+  color: white;
+  border-color: var(--green);
 }
 
 .zd-footer__links {
@@ -128,24 +128,25 @@
 
 .zd-footer__column h3 {
   margin: 0 0 22px;
-  color: #1b1c19;
+  color: var(--ink);
   text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: 12px;
+  letter-spacing: var(--zd-letter-extra-wide);
+  font-family: var(--zd-font-body);
+  font-size: var(--zd-text-xs);
   font-weight: 900;
 }
 
 .zd-footer__column a {
   display: block;
   margin-bottom: 13px;
-  color: #5f564d;
+  color: var(--muted);
   text-decoration: none;
-  font-size: 15px;
+  font-size: var(--zd-text-sm);
   line-height: 1.35;
 }
 
 .zd-footer__column a:hover {
-  color: #705838;
+  color: var(--green);
 }
 
 .zd-footer__bottom {
@@ -153,8 +154,8 @@
   display: flex;
   justify-content: space-between;
   gap: 24px;
-  color: #5f564d;
-  font-size: 14px;
+  color: var(--muted);
+  font-size: var(--zd-text-sm);
 }
 
 .zd-footer__bottom p {
@@ -177,8 +178,12 @@
 }
 
 @media (max-width: 760px) {
+  .zd-footer {
+    padding-top: 54px;
+  }
+
   .zd-footer__inner {
-    width: calc(100% - 32px);
+    width: var(--zd-page-width);
   }
 
   .zd-footer__main {
