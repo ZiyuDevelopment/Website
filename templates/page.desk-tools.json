@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "page-journal-products"
+      "type": "page-desk-tools"
     }
   },
   "order": ["main"]

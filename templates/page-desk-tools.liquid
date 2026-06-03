@@ -1,0 +1,92 @@
+<main class="zd-collection-page">
+
+  <section class="zdcp-hero">
+    <p class="zdcp-eyebrow">Desk Tools</p>
+    <h1>Workspace tools for focus, building, and deep work.</h1>
+    <p>Curated desk products, focus tools, and work accessories that support intentional productivity.</p>
+
+    <div class="zdcp-actions">
+      <a href="/collections/all">Shop All Products</a>
+      <a href="/pages/projects">View Projects</a>
+    </div>
+  </section>
+
+  <section class="zdcp-feature">
+    <div>
+      <p class="zdcp-eyebrow">Workspace Collection</p>
+      <h2>Products for people building things with focus.</h2>
+      <p>Desk tools should support attention, comfort, and clean work rhythms instead of adding clutter.</p>
+    </div>
+
+    <div class="zdcp-feature-card">
+      <span>Workspace Focus</span>
+      <h3>Clean Desk System</h3>
+      <p>Simple products for organizing your workspace and protecting your attention.</p>
+      <a href="/collections/all">View Products</a>
+    </div>
+  </section>
+
+  <section class="zdcp-grid">
+    <article>
+      <span>01</span>
+      <h3>Focus Tools</h3>
+      <p>Products that make it easier to stay in deep work.</p>
+    </article>
+
+    <article>
+      <span>02</span>
+      <h3>Desk Organization</h3>
+      <p>Simple tools for making your workspace feel clearer and calmer.</p>
+    </article>
+
+    <article>
+      <span>03</span>
+      <h3>Creator Setup</h3>
+      <p>Items for coding, designing, writing, studying, and building projects.</p>
+    </article>
+
+    <article class="zdcp-dark">
+      <span>04</span>
+      <h3>Support Development</h3>
+      <p>Purchases help fund Ziyu Development projects and app testing.</p>
+    </article>
+  </section>
+
+  <section class="zdcp-products">
+    <div class="zdcp-section-head">
+      <p class="zdcp-eyebrow">Shop Desk Tools</p>
+      <h2>Curated workspace products.</h2>
+    </div>
+
+    <div class="zdcp-product-grid">
+      {% for product in collections.all.products %}
+        {% if product.tags contains 'desk' or product.type == 'Desk Tool' %}
+          <article class="zdcp-product">
+            <a href="{{ product.url }}" class="zdcp-product-image">
+              {% if product.featured_image %}
+                <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.featured_image.alt | escape }}" width="600" height="600" loading="lazy">
+              {% else %}
+                <div class="zdcp-placeholder">Z</div>
+              {% endif %}
+            </a>
+
+            <div class="zdcp-product-body">
+              <p>{{ product.type | default: 'Desk Tool' }}</p>
+              <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+              <span>{{ product.price | money }}</span>
+            </div>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+</main>
+
+{% schema %}
+{
+  "name": "Desk Tools Page",
+  "settings": [],
+  "presets": [{ "name": "Desk Tools Page" }]
+}
+{% endschema %}
