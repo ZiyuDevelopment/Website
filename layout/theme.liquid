@@ -36,7 +36,7 @@
     {{ 'page-current-experiments.css' | asset_url | stylesheet_tag }}
     {{ 'journal-products.css' | asset_url | stylesheet_tag }}
     {{ 'collection-pages.css' | asset_url | stylesheet_tag }}
-
+  {{ 'goal-grower.css' | asset_url | stylesheet_tag }}
 
     {{ content_for_header }}
 
@@ -57,5 +57,6 @@
     {% render 'cart-drawer' %}
   <script src="{{ 'cart-drawer.js' | asset_url }}" defer></script>
   <script src="{{ 'page-roadmap.js' | asset_url }}" defer></script>
+  <script src="{{ 'goal-grower.js' | asset_url }}" defer></script>
   </body>
 </html>

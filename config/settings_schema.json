@@ -1,10 +1,26 @@
 [
   {
-    "name": "Theme settings",
+    "name": "theme_info",
+    "theme_name": "Goal Grower Custom",
+    "theme_version": "1.0.0",
+    "theme_author": "Ziyu Development",
+    "theme_documentation_url": "https://shopify.dev/docs",
+    "theme_support_url": "https://shopify.dev/docs"
+  },
+  {
+    "name": "Goal Grower",
     "settings": [
       {
-        "type": "paragraph",
-        "content": "Ziyu Development custom Shopify theme."
+        "type": "color",
+        "id": "goal_grower_primary",
+        "label": "Primary green",
+        "default": "#263b2b"
+      },
+      {
+        "type": "color",
+        "id": "goal_grower_background",
+        "label": "Background cream",
+        "default": "#fbfaf4"
       }
     ]
   }

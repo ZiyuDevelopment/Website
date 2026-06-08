@@ -3,8 +3,8 @@
     "header": {
       "type": "goal-grower-header"
     },
-    "home": {
-      "type": "goal-grower-home"
+    "store": {
+      "type": "goal-grower-store"
     },
     "footer": {
       "type": "goal-grower-footer"
@@ -12,7 +12,7 @@
   },
   "order": [
     "header",
-    "home",
+    "store",
     "footer"
   ]
 }

@@ -1,249 +1,388 @@
-<main class="zd-home">
+<section class="gg-fintech-home">
+  <style>
+    .gg-fintech-home {
+      padding: 6rem 1.5rem;
+      background: linear-gradient(135deg, var(--color-base-background-1), var(--color-base-background-2));
+    }
 
-  <section class="zd-home-hero">
-    <div class="zd-home-hero__copy">
-      <h1>Technology designed to help people live intentionally.</h1>
-      <p>
-        We create digital tools that prioritize your presence over your attention.
-        Ziyu Development is a craft studio dedicated to apps that foster real-life
-        focus and personal growth.
-      </p>
+    .gg-container {
+      max-width: 1250px;
+      margin: 0 auto;
+    }
 
-      <div class="zd-home-actions">
-        <a href="/pages/support" class="zd-home-btn zd-home-btn--primary">Support the Future</a>
-        <a href="/pages/goal-grower" class="zd-home-btn zd-home-btn--secondary">Explore Goal Grower</a>
-      </div>
-    </div>
+    /* HERO */
+    .gg-hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
 
-    <div class="zd-home-hero__media">
-      <img
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw1hukl8UXFjdA4WOaVRJK6Lmt-QD2v5227-Gh0-tcbpkbvb_ey3doCZDsqS3IdlByVWvLxDCPyfW3MJ6o_kuOQjPVDtfuR62UMFhnYv2GZN2PmlNmcc5zZnW4lutNggb9lulmhqZLdbS4s-bC_v4LaUFTz57jH3x9IP6tHblwASvH4Mk87CRk5_Hs5hNnoIxg7VVSe_7lkIoQmvtehChRqdA8ynPOOwfUn3E0ijpC9r7GnhbG3b2yDrwcGPXhPfM1_ZJAzF1EnTGa"
-        alt="Goal Grower app interface"
-        width="900"
-        height="1100"
-        loading="eager"
-      >
-    </div>
-  </section>
+    @media (max-width: 900px) {
+      .gg-hero {
+        grid-template-columns: 1fr;
+      }
+    }
 
-  <section class="zd-home-problem">
-    <p class="zd-home-eyebrow">The Current State</p>
-    <h2>Modern technology is designed to keep us consuming.</h2>
-    <span></span>
-    <p>
-      The apps we use every day are built on the attention economy. They are optimized
-      for scrolls, clicks, and notifications — measurements that rarely align with a
-      fulfilling life. We believe there is a better way to build.
-    </p>
-  </section>
+    .gg-hero-title {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--color-foreground);
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
 
-  <section class="zd-home-values">
-    <article>
-      <span>✦</span>
-      <h3>Intentional Technology</h3>
-      <p>Tools that serve as quiet companions, respecting your boundaries and helping you disconnect from the screen.</p>
-    </article>
+    .gg-hero-sub {
+      font-size: 1.2rem;
+      color: var(--color-foreground-subdued);
+      margin-bottom: 2rem;
+      max-width: 550px;
+      line-height: 1.6;
+    }
 
-    <article>
-      <span>✦</span>
-      <h3>Real-Life Growth</h3>
-      <p>Digital milestones that translate into physical progress. If it does not help you in the real world, we do not build it.</p>
-    </article>
+    .gg-btn-primary,
+    .gg-btn-secondary {
+      display: inline-block;
+      padding: 1rem 1.8rem;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s ease;
+      font-size: 1rem;
+    }
 
-    <article>
-      <span>✦</span>
-      <h3>Human Connection</h3>
-      <p>Features designed to bridge the gap between people, focusing on shared gardens and collective focus.</p>
-    </article>
-  </section>
+    .gg-btn-primary {
+      background: var(--color-accent);
+      color: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
 
-  <section class="zd-home-showcase">
-    <div class="zd-home-showcase__copy">
-      <h2>Growth visualized through intentional systems.</h2>
-      <p>
-        Goal Grower turns your abstract ambitions into a living digital ecosystem.
-        Each goal you set becomes visual progress that grows as you commit time
-        to real life.
-      </p>
+    .gg-btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
 
-      <div class="zd-home-feature">
-        <strong>Goal Plants</strong>
-        <p>Visual progress that evolves with your consistency.</p>
-      </div>
+    .gg-btn-secondary {
+      background: var(--color-base-background-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-foreground);
+    }
 
-      <div class="zd-home-feature">
-        <strong>Shared Gardens</strong>
-        <p>Collaborative spaces for families and friends to grow together.</p>
-      </div>
-    </div>
+    .gg-btn-secondary:hover {
+      background: var(--color-base-background-3);
+      transform: translateY(-2px);
+    }
 
-    <div class="zd-home-showcase__media">
-      <img
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXBqx__juZ1V6bLldDEqDZWZyIWEuR2p2l1_oqHrabLNvZ8AonUDtG9v89p1d3q3lu3-7ulUBECnUtgszRoVylDEAXomDdrXKe4WIR_Jye-2XqsHWUhN5CWHS18eYC-g4R6zcdXGUuo8YwDn76lc3FN50f7Ry8Hmj2xPf1YDU1ZEZJuzdVu-iLJQoQDmBu8WcdbFytHpOR221X2rbNnwDFVRkxZNU1zmRmyeHnmrm48QzX4dT4KC9GEwbUHRNBi-5iiWtP1FYYby-a"
-        alt="Digital garden visual"
-        width="900"
-        height="600"
-        loading="lazy"
-      >
-    </div>
-  </section>
+    /* HERO VISUAL */
+    .gg-hero-visual {
+      background: var(--color-base-background-1);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    }
 
-  <section class="zd-home-founder">
-    <div class="zd-home-founder__media">
-      <img
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfJ5gXjUxTMVBS-ym5kq6bmIz9O-Z5Xito4H6j8nA0cFqGmWLPY4CwkuN8-J9ij2CeeG5JDAChWDVxLziQpHFVdDSOb9hVxhtz_baU2aSGBe1iwEoTDYQ-USB1mSv1b2Ll4eF26v2zuXpBPE9moCdzWuIG5dwjH8icMEeyHw8uoDSgSGwfXMxJe0nyn-K11Q9TaXiU3Vn4d6QXv9l4b3vupuBlNWOJpTxLVMdNCw23J-xb3t2tWors4673NY7I7y01PFr_2mMlfnx7"
-        alt="Founder story"
-        width="800"
-        height="1000"
-        loading="lazy"
-      >
-    </div>
+    .gg-plant-card {
+      background: var(--color-base-background-2);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
 
-    <div class="zd-home-founder__copy">
-      <h2>Built by one, for the many.</h2>
-      <p>
-        Ziyu Development started with a simple question: why does technology make
-        us feel busy but unaccomplished?
-      </p>
-      <p>
-        This is a personal mission to build tools that honor time, attention,
-        learning, and real growth.
-      </p>
-      <a href="/pages/founder-journey">Read the Founder Journey →</a>
-    </div>
-  </section>
+    .gg-plant-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--color-foreground);
+    }
 
-  <section class="zd-home-progress">
-    <div class="zd-home-section-head">
+    .gg-bar {
+      height: 10px;
+      border-radius: 999px;
+      background: var(--color-base-background-3);
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+
+    .gg-bar-fill {
+      height: 100%;
+      background: var(--color-accent);
+      border-radius: 999px;
+    }
+
+    /* CARD SECTIONS */
+    .gg-card {
+      background: var(--color-base-background-1);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-top: 4rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+    }
+
+    .gg-section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--color-foreground);
+    }
+
+    .gg-section-sub {
+      font-size: 1.05rem;
+      color: var(--color-foreground-subdued);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* SUPPORT GRID */
+    .gg-support-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .gg-support-card {
+      border: 1px solid var(--color-border);
+      background: var(--color-base-background-2);
+      border-radius: 14px;
+      padding: 1.5rem;
+      transition: 0.2s ease;
+    }
+
+    .gg-support-card:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-3px);
+    }
+
+    .gg-support-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--color-foreground);
+    }
+
+    .gg-support-desc {
+      font-size: 1rem;
+      color: var(--color-foreground-subdued);
+      line-height: 1.5;
+    }
+
+    /* PRODUCTS */
+    .gg-products-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .gg-product-card {
+      border: 1px solid var(--color-border);
+      background: var(--color-base-background-1);
+      border-radius: 14px;
+      padding: 1rem;
+      transition: 0.2s ease;
+    }
+
+    .gg-product-card:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-3px);
+    }
+
+    .gg-product-title {
+      font-weight: 600;
+      margin-top: 0.75rem;
+      color: var(--color-foreground);
+      font-size: 1.05rem;
+    }
+
+    .gg-product-price {
+      font-size: 1rem;
+      color: var(--color-foreground-subdued);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ROADMAP */
+    .gg-roadmap-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .gg-roadmap-item {
+      font-size: 1.05rem;
+      color: var(--color-foreground-subdued);
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .gg-roadmap-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.4rem;
+      width: 10px;
+      height: 10px;
+      background: var(--color-accent);
+      border-radius: 999px;
+    }
+
+    /* FOUNDER */
+    .gg-founder {
+      margin-top: 4rem;
+      padding: 2.5rem;
+      border-radius: 16px;
+      background: var(--color-base-background-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .gg-founder-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--color-foreground);
+    }
+
+    .gg-founder-text {
+      font-size: 1.05rem;
+      color: var(--color-foreground-subdued);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+  </style>
+
+  <div class="gg-container">
+
+    <!-- HERO -->
+    <div class="gg-hero">
       <div>
-        <p class="zd-home-eyebrow">The Journey</p>
-        <h2>Development Progress</h2>
+        <h1 class="gg-hero-title">Grow Better Habits. Build a Better Life.</h1>
+        <p class="gg-hero-sub">
+          Goal Grower turns your habits into living plants. Beta access is always free — support development through donations or workspace tools.
+        </p>
+
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="#beta" class="gg-btn-primary">Join Free Beta</a>
+          <a href="#support" class="gg-btn-secondary">Support the Project</a>
+        </div>
       </div>
-      <a href="/pages/roadmap">View roadmap →</a>
+
+      <!-- HERO VISUAL -->
+      <div class="gg-hero-visual">
+        <div class="gg-plant-card">
+          <div class="gg-plant-title">Read 10 minutes</div>
+          <div class="gg-bar"><div class="gg-bar-fill" style="width: 30%;"></div></div>
+        </div>
+
+        <div class="gg-plant-card">
+          <div class="gg-plant-title">Stretch before bed</div>
+          <div class="gg-bar"><div class="gg-bar-fill" style="width: 60%;"></div></div>
+        </div>
+
+        <div class="gg-plant-card">
+          <div class="gg-plant-title">Morning walk</div>
+          <div class="gg-bar"><div class="gg-bar-fill" style="width: 100%;"></div></div>
+        </div>
+      </div>
     </div>
 
-    <div class="zd-home-progress-grid">
-      <article>
-        <span>Now</span>
-        <h3>Website Foundation</h3>
-        <p>The brand, Shopify structure, project pages, and store foundation are being completed.</p>
-      </article>
+    <!-- EMAIL SIGNUP -->
+    <div class="gg-card" id="beta">
+      <div class="gg-section-title">Get Free Beta Access</div>
+      <div class="gg-section-sub">No payment required. Just updates and early access.</div>
 
-      <article>
-        <span>Next</span>
-        <h3>Goal Grower MVP</h3>
-        <p>Goal creation, visual progress, habit tracking, and early tester feedback.</p>
-      </article>
-
-      <article>
-        <span>Future</span>
-        <h3>Connected Ecosystem</h3>
-        <p>MyJourney, Blokkr, Kindlitt, physical products, and community support.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="zd-home-support">
-    <div class="zd-home-support__intro">
-      <h2>Help build the future of intentional technology.</h2>
-      <p>
-        Ziyu Development is funded by people who believe technology should help
-        people grow instead of keeping them stuck.
-      </p>
+      {% form 'customer', id: 'beta-form' %}
+        <input type="email" name="contact[email]" placeholder="you@example.com" required style="padding:1rem; width:100%; border-radius:12px; border:1px solid var(--color-border); margin-bottom:1rem;">
+        <input type="hidden" name="contact[tags]" value="goal-grower-beta">
+        <button class="gg-btn-primary" type="submit">Join Beta List</button>
+      {% endform %}
     </div>
 
-    <div class="zd-home-support-grid">
-      <article>
-        <h3>Observer</h3>
-        <p>Free</p>
-        <ul>
-          <li>Public dev logs</li>
-          <li>Community access</li>
-          <li>Project updates</li>
-        </ul>
-        <a href="/pages/beta">Join for Free</a>
-      </article>
+    <!-- SUPPORT -->
+    <div class="gg-card" id="support">
+      <div class="gg-section-title">Support the Project</div>
+      <div class="gg-section-sub">Beta is free. Support helps fund development.</div>
 
-      <article>
-        <h3>Supporter</h3>
-        <p>Shop or share</p>
-        <ul>
-          <li>Support through products</li>
-          <li>Join waitlists</li>
-          <li>Share the mission</li>
-        </ul>
-        <a href="/pages/support">Support the Future</a>
-      </article>
+      <div class="gg-support-grid">
+        <div class="gg-support-card">
+          <div class="gg-support-name">Seed Supporter ($5–$10)</div>
+          <div class="gg-support-desc">Helps cover hosting + basic tools.</div>
+        </div>
 
-      <article class="zd-home-card-featured">
-        <span>Most Helpful</span>
-        <h3>Advocate</h3>
-        <p>Early supporter</p>
-        <ul>
-          <li>Beta interest</li>
-          <li>Feature feedback</li>
-          <li>Community involvement</li>
-        </ul>
-        <a href="/pages/community">Become an Advocate</a>
-      </article>
+        <div class="gg-support-card">
+          <div class="gg-support-name">Sprout Supporter ($15–$25)</div>
+          <div class="gg-support-desc">Funds UI design + plant animations.</div>
+        </div>
 
-      <article>
-        <h3>Visionary</h3>
-        <p>Long-term support</p>
-        <ul>
-          <li>Shape future apps</li>
-          <li>Support physical products</li>
-          <li>Follow the roadmap</li>
-        </ul>
-        <a href="/pages/roadmap">Shape the Future</a>
-      </article>
-    </div>
-  </section>
+        <div class="gg-support-card">
+          <div class="gg-support-name">Bloom Supporter ($30–$50)</div>
+          <div class="gg-support-desc">Supports feature development like Shared Gardens.</div>
+        </div>
 
-  <section class="zd-home-journal">
-    <div class="zd-home-section-head">
-      <h2>Journal</h2>
-      <a href="/blogs/journal">Read all entries →</a>
+        <div class="gg-support-card">
+          <div class="gg-support-name">Garden Supporter ($60+)</div>
+          <div class="gg-support-desc">Helps fund future ZIYU apps.</div>
+        </div>
+      </div>
+
+      {% assign support_product = all_products['support-goal-grower'] %}
+      {% if support_product %}
+        <a href="{{ support_product.url }}" class="gg-btn-secondary" style="margin-top:2rem; display:inline-block;">Choose Support Level</a>
+      {% endif %}
     </div>
 
-    <div class="zd-home-journal-grid">
-      <a href="/blogs/journal" class="zd-home-journal-card">
-        <img
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuhXzVSI73xYBnnQI_XQVYG6WUHz0Fd-ei6tyuzbgkMyBrPw4pZ7hikSN9wFs2HuMHy2eCfWaRfkB2tiFmDqmV2elHZ8e9xPm_NeVBuOmKbJb2Ht9phIOPnrykYaOukQHD6Ix-9YdUfMGBQFxguF3MduL-Z7xCzYeQyub3DBR6pr7cIbjldxBq2nGKskNqXGoDwGyYiIGyscA6po72Ejf772oscwCUTFPhoLSse_mSFng4-lgaK_P2a3qBny2Do1rwXyt0mjOlhTiL"
-          alt="Journal workspace"
-          width="900"
-          height="600"
-          loading="lazy"
-        >
-        <span>Thought</span>
-        <h3>The Case for Digital Stillness</h3>
-        <p>Why we need to reintroduce friction into our digital interactions.</p>
-      </a>
+    <!-- PRODUCTS -->
+    <div class="gg-card">
+      <div class="gg-section-title">Workspace Tools</div>
+      <div class="gg-section-sub">Support development by buying desk + computer products.</div>
 
-      <a href="/blogs/journal" class="zd-home-journal-card">
-        <img
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR79wmQTfOXK8zRQPmwVPS3MGcdQTn8ZyZasEJaTpNMoE7pDQmhsZVsv-O3jto0Dk71ie4JIIoipyVPFwiG9wKiQoJuHLNGDo3b4nYcgrkiaR4Zk7oZBRaaAY7WBeqh9xnJVSPz2PglVLEhkblqSYSFXnPMnF1Uygg529Y5tIljqQfPr-QlY4aXFZvXHkBPWDwSGeY8a17OIL_w6pHAG7b_gLM79fv7RdA-LL9smUqJ0lnLW679BRQ_loa3Yu-GIjQhIIuQAYeBc4d"
-          alt="Goal Grower UI process"
-          width="900"
-          height="600"
-          loading="lazy"
-        >
-        <span>Process</span>
-        <h3>Crafting the Goal Grower UI</h3>
-        <p>Designing a visual system that mirrors slow, steady progress.</p>
-      </a>
+      {% assign workspace = collections['workspace-tools'] %}
+      {% if workspace.products_count > 0 %}
+        <div class="gg-products-grid">
+          {% for product in workspace.products limit: 4 %}
+            <div class="gg-product-card">
+              <a href="{{ product.url }}">
+                <img src="{{ product.featured_image | img_url: '400x' }}" style="width:100%; border-radius:12px;">
+              </a>
+              <div class="gg-product-title">{{ product.title }}</div>
+              <div class="gg-product-price">{{ product.price | money }}</div>
+              <a href="{{ product.url }}" class="gg-btn-secondary">View Product</a>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
-  </section>
 
-</main>
+    <!-- ROADMAP -->
+    <div class="gg-card">
+      <div class="gg-section-title">Roadmap</div>
+      <ul class="gg-roadmap-list">
+        <li class="gg-roadmap-item">Building core habit → plant system</li>
+        <li class="gg-roadmap-item">Private beta for supporters</li>
+        <li class="gg-roadmap-item">Shared Gardens + reflections</li>
+        <li class="gg-roadmap-item">Mobile app + public launch</li>
+      </ul>
+    </div>
+
+    <!-- FOUNDER -->
+    <div class="gg-founder">
+      <div class="gg-founder-title">Hi, I’m Avery.</div>
+      <div class="gg-founder-text">
+        I’m building Goal Grower as a calm, visual habit app. Beta will always be free — support simply helps me build faster and create more tools in the ZIYU ecosystem.
+      </div>
+    </div>
+
+  </div>
+</section>
 
 {% schema %}
 {
-  "name": "Homepage",
+  "name": "Goal Grower Fintech Homepage",
   "settings": [],
   "presets": [
     {
-      "name": "Homepage"
+      "name": "Goal Grower Fintech Homepage"
     }
   ]
 }

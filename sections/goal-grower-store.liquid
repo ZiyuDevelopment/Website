@@ -1,0 +1,104 @@
+<main class="gg-page">
+  <section class="gg-subpage-hero">
+    <p class="gg-eyebrow">Goal Grower Store</p>
+    <h1>Products that help fund the app.</h1>
+    <p>
+      Merch, planning tools, desk items, and focus-friendly products that support
+      Goal Grower development.
+    </p>
+  </section>
+
+  <section class="gg-store-feature">
+    <div>
+      <p class="gg-eyebrow">Why the store exists</p>
+      <h2>Every purchase helps keep the project growing.</h2>
+      <p>
+        The store is not separate from the app. It helps fund testing, design,
+        development tools, app store costs, and future features.
+      </p>
+    </div>
+
+    <div class="gg-fund-card gg-light-card">
+      <h3>Store categories</h3>
+      <div><span>01</span><p>Goal Grower merch</p></div>
+      <div><span>02</span><p>Journals and planning tools</p></div>
+      <div><span>03</span><p>Desk and focus accessories</p></div>
+      <div><span>04</span><p>Student-built project support items</p></div>
+    </div>
+  </section>
+
+  <section class="gg-store">
+    <div class="gg-section-heading">
+      <p class="gg-eyebrow">Shop by category</p>
+      <h2>Choose the kind of support that fits you.</h2>
+    </div>
+
+    <div class="gg-store-grid">
+      <a href="/collections/goal-grower" class="gg-product-card">
+        <div class="gg-product-image"></div>
+        <span>Merch</span>
+        <h3>Goal Grower apparel</h3>
+        <p>Shirts, hoodies, stickers, and simple merch.</p>
+      </a>
+
+      <a href="/collections/stationery" class="gg-product-card">
+        <div class="gg-product-image"></div>
+        <span>Stationery</span>
+        <h3>Journals and planners</h3>
+        <p>Tools for thinking, planning, and tracking goals offline.</p>
+      </a>
+
+      <a href="/collections/tech" class="gg-product-card">
+        <div class="gg-product-image"></div>
+        <span>Tech</span>
+        <h3>Desk accessories</h3>
+        <p>Small products that support calmer routines.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="gg-store-products">
+    <div class="gg-section-heading">
+      <p class="gg-eyebrow">Products</p>
+      <h2>Featured items</h2>
+    </div>
+
+    {% if collections.all.products.size > 0 %}
+      <div class="gg-real-product-grid">
+        {% for product in collections.all.products limit: 8 %}
+          <a href="{{ product.url }}" class="gg-real-product-card">
+            {% if product.featured_image %}
+              <img
+                src="{{ product.featured_image | image_url: width: 600 }}"
+                alt="{{ product.featured_image.alt | escape }}"
+                loading="lazy"
+              >
+            {% else %}
+              <div class="gg-product-image"></div>
+            {% endif %}
+
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.price | money }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="gg-empty-store">
+        <h3>No products added yet.</h3>
+        <p>Add products in Shopify and they will appear here automatically.</p>
+      </div>
+    {% endif %}
+  </section>
+</main>
+
+{% schema %}
+{
+  "name": "Goal Grower Store",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Goal Grower Store"
+    }
+  ]
+}
+{% endschema %}
