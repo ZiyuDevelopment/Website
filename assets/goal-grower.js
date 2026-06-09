@@ -28,22 +28,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
   revealItems.forEach((item) => revealObserver.observe(item));
 
-  const overlapCards = document.querySelectorAll(".gg-overlap-card");
+  const story = document.querySelector(".gg-overlap-story");
+  const stage = document.querySelector(".gg-overlap-stage");
+  const cards = document.querySelectorAll(".gg-overlap-card");
 
   function animateOverlapCards() {
-    const topOffset = window.innerWidth < 650 ? 84 : 92;
+    if (!story || !stage || !cards.length) return;
 
-    overlapCards.forEach((card, index) => {
-      const rect = card.getBoundingClientRect();
-      const progress = Math.min(Math.max((topOffset - rect.top) / 520, 0), 1);
+    const isMobile = window.innerWidth < 650;
+    const stickyTop = isMobile ? 84 : 92;
 
-      const scale = 1 - progress * 0.055;
-      const lift = progress * -24;
-      const rotate = progress * (index % 2 === 0 ? -0.45 : 0.45);
-      const opacity = 1 - progress * 0.04;
+    const storyRect = story.getBoundingClientRect();
+    const stageRect = stage.getBoundingClientRect();
 
-      card.style.transform = `translateY(${lift}px) scale(${scale}) rotate(${rotate}deg)`;
-      card.style.opacity = opacity;
+    const totalScroll = stage.offsetHeight - window.innerHeight;
+    const currentScroll = Math.min(
+      Math.max(-stageRect.top + stickyTop, 0),
+      totalScroll
+    );
+
+    const progress = totalScroll > 0 ? currentScroll / totalScroll : 0;
+    const cardCount = cards.length;
+
+    cards.forEach((card, index) => {
+      const start = index / cardCount;
+      const end = (index + 1) / cardCount;
+      const local = Math.min(Math.max((progress - start) / (end - start), 0), 1);
+
+      const stackOffset = index * (isMobile ? 14 : 18);
+      const compress = local * (isMobile ? 42 : 56);
+      const scale = 1 - local * 0.045;
+      const rotate = local * (index % 2 === 0 ? -0.35 : 0.35);
+
+      if (index === 0) {
+        card.style.transform = `translateY(${local * -18}px) scale(${scale}) rotate(${rotate}deg)`;
+      } else {
+        const pullUp = local * -(isMobile ? 56 : 72);
+        card.style.transform = `translateY(${pullUp - stackOffset - compress}px) scale(${scale}) rotate(${rotate}deg)`;
+      }
     });
   }
 

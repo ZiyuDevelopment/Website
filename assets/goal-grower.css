@@ -402,8 +402,8 @@ body {
 
 .gg-overlap-story {
   background: #edf3f1;
-  padding: 8vw 4vw 12vw;
-  overflow: clip;
+  padding: 8vw 4vw 6vw;
+  overflow: hidden;
 }
 
 .gg-overlap-intro {
@@ -427,15 +427,16 @@ body {
 
 .gg-overlap-stage {
   position: relative;
-  height: 420vh;
+  height: 250vh;
 }
 
 .gg-overlap-card {
   position: sticky;
   top: 92px;
-  height: 78vh;
+  height: 72vh;
   border-radius: 54px;
   padding: clamp(2rem, 6vw, 5rem);
+  margin-bottom: 4vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -446,7 +447,7 @@ body {
 }
 
 .gg-overlap-card + .gg-overlap-card {
-  margin-top: -56vh;
+  margin-top: 0;
 }
 
 .gg-overlap-card:nth-child(1) {
@@ -1184,19 +1185,20 @@ body {
     padding: 5rem 1rem 7rem;
   }
 
-  .gg-overlap-stage {
-    height: 360vh;
-  }
+.gg-overlap-stage {
+  height: 250vh;
+}
 
-  .gg-overlap-card {
-    top: 84px;
-    height: 68vh;
-    border-radius: 32px;
-  }
+.gg-overlap-card {
+  top: 84px;
+  height: 66vh;
+  border-radius: 32px;
+  margin-bottom: 4vh;
+}
 
-  .gg-overlap-card + .gg-overlap-card {
-    margin-top: -48vh;
-  }
+.gg-overlap-card + .gg-overlap-card {
+  margin-top: 0;
+}
 
   .gg-overlap-card h2 {
     font-size: clamp(3.4rem, 18vw, 6rem);
