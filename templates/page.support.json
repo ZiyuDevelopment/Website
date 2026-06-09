@@ -1,8 +1,8 @@
 {
   "sections": {
-    "main": {
-      "type": "page-support"
+    "support": {
+      "type": "gg-support"
     }
   },
-  "order": ["main"]
+  "order": ["support"]
 }

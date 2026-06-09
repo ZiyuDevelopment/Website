@@ -1,8 +1,11 @@
 {
   "sections": {
-    "main": {
-      "type": "main-index"
+    "home": {
+      "type": "gg-home",
+      "settings": {}
     }
   },
-  "order": ["main"]
+  "order": [
+    "home"
+  ]
 }

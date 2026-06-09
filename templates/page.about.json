@@ -1,8 +1,8 @@
 {
   "sections": {
-    "main": {
-      "type": "page-about"
+    "about": {
+      "type": "gg-about"
     }
   },
-  "order": ["main"]
+  "order": ["about"]
 }

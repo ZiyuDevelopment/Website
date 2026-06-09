@@ -1,0 +1,39 @@
+<section class="gg-page-hero">
+  <div class="gg-container">
+    <span class="gg-badge">Contact</span>
+    <h1>Have an idea, question, or bug?</h1>
+    <p>
+      Reach out about Goal Grower, beta testing, support, collaborations, or app feedback.
+    </p>
+  </div>
+</section>
+
+<section class="gg-page-section">
+  <div class="gg-container gg-contact-card">
+    {% form 'contact' %}
+      {% if form.posted_successfully? %}
+        <p class="gg-success">Thanks! Your message was sent.</p>
+      {% endif %}
+
+      {{ form.errors | default_errors }}
+
+      <label>Name</label>
+      <input type="text" name="contact[name]" required>
+
+      <label>Email</label>
+      <input type="email" name="contact[email]" required>
+
+      <label>Message</label>
+      <textarea name="contact[body]" rows="6" required></textarea>
+
+      <button type="submit" class="gg-btn">Send Message</button>
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Goal Grower Contact",
+  "settings": []
+}
+{% endschema %}

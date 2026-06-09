@@ -2,61 +2,33 @@
 <html lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page_title }}{% if shop.name %} | {{ shop.name }}{% endif %}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    {{ 'header.css' | asset_url | stylesheet_tag }}
-    {{ 'footer.css' | asset_url | stylesheet_tag }}
-    {{ 'home.css' | asset_url | stylesheet_tag }}
-    {{ 'page-start-here.css' | asset_url | stylesheet_tag }}
-    {{ 'page-projects.css' | asset_url | stylesheet_tag }}
-    {{ 'page-goal-grower.css' | asset_url | stylesheet_tag }}
-    {{ 'page-myjourney.css' | asset_url | stylesheet_tag }}
-    {{ 'page-blokkr.css' | asset_url | stylesheet_tag }}
-    {{ 'page-kindlitt.css' | asset_url | stylesheet_tag }}
-    {{ 'page-support.css' | asset_url | stylesheet_tag }}
-    {{ 'page-philosophy.css' | asset_url | stylesheet_tag }}
-    {{ 'page-roadmap.css' | asset_url | stylesheet_tag }}
-    {{ 'page-community.css' | asset_url | stylesheet_tag }}
-    {{ 'page-founder-journey.css' | asset_url | stylesheet_tag }}
-    {{ 'collection.css' | asset_url | stylesheet_tag }}
-    {{ 'product.css' | asset_url | stylesheet_tag }}
-    {{ 'blog.css' | asset_url | stylesheet_tag }}
-    {{ 'article.css' | asset_url | stylesheet_tag }}
-    {{ 'page-faq.css' | asset_url | stylesheet_tag }}
-    {{ 'page-contact.css' | asset_url | stylesheet_tag }}
-    {{ 'search.css' | asset_url | stylesheet_tag }}
-    {{ 'cart.css' | asset_url | stylesheet_tag }}
-    {{ '404.css' | asset_url | stylesheet_tag }}
-    {{ 'page-beta.css' | asset_url | stylesheet_tag }}
-    {{ 'page-about.css' | asset_url | stylesheet_tag }}
-    {{ 'page-build-in-public.css' | asset_url | stylesheet_tag }}
-    {{ 'page.css' | asset_url | stylesheet_tag }}
-    {{ 'page-store.css' | asset_url | stylesheet_tag }}
-    {{ 'page-current-experiments.css' | asset_url | stylesheet_tag }}
-    {{ 'journal-products.css' | asset_url | stylesheet_tag }}
-    {{ 'collection-pages.css' | asset_url | stylesheet_tag }}
-  {{ 'goal-grower.css' | asset_url | stylesheet_tag }}
+    <title>
+      {{ page_title }}
+      {% if current_tags %} – tagged "{{ current_tags | join: ', ' }}"{% endif %}
+      {% if current_page != 1 %} – Page {{ current_page }}{% endif %}
+      {% unless page_title contains shop.name %} – {{ shop.name }}{% endunless %}
+    </title>
 
     {{ content_for_header }}
 
-    <link rel="stylesheet" href="{{ 'base.css' | asset_url }}">
-    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+    {{ 'goal-grower.css' | asset_url | stylesheet_tag }}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    {% section 'header' %}
+    {% section 'gg-header' %}
 
     <main id="MainContent">
       {{ content_for_layout }}
     </main>
-<script src="{{ 'goal-grower.js' | asset_url }}" defer></script>
-    {% section 'footer' %}
-    <script src="{{ 'header.js' | asset_url }}" defer></script>
-    <script src="{{ 'faq.js' | asset_url }}" defer></script>
-    {% render 'cart-drawer' %}
-  <script src="{{ 'cart-drawer.js' | asset_url }}" defer></script>
-  <script src="{{ 'page-roadmap.js' | asset_url }}" defer></script>
-  
+
+    {% section 'gg-footer' %}
+
+    <script src="{{ 'goal-grower.js' | asset_url }}" defer></script>
   </body>
 </html>
