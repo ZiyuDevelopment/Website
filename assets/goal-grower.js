@@ -8,20 +8,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const cards = document.querySelectorAll(".gg-stack-card");
+  const revealItems = document.querySelectorAll(
+    ".gg-stack-card, .gg-feature-card, .growth-stage"
+  );
 
   const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
+    entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
         }
       });
     },
-    {
-      threshold: 0.25
-    }
+    { threshold: 0.2 }
   );
 
-  cards.forEach((card) => observer.observe(card));
+  revealItems.forEach(item => observer.observe(item));
 });
