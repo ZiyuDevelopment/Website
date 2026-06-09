@@ -17,26 +17,42 @@
     </div>
 
     <div class="gg-phone-showcase reveal">
-      <div class="gg-android-phone main-phone">
-        <div class="gg-phone-camera"></div>
-        <div class="gg-phone-screen">
-          {{ 'images/gg-exercise-more-before-placed-garden-view.png' | asset_url | image_tag: loading: 'eager', alt: 'Goal Grower garden screen' }}
-        </div>
-      </div>
 
-      <div class="gg-mini-phone phone-float-one">
-        <div class="gg-phone-camera small"></div>
-        <div class="gg-phone-screen">
-          {{ 'images/gg-exercise-more-only-goal-list-view.png' | asset_url | image_tag: loading: 'lazy', alt: 'Goal Grower goals screen' }}
-        </div>
-      </div>
+  <div class="gg-android-phone main-phone">
+    <div class="gg-phone-camera"></div>
 
-      <div class="gg-human-note">
-        <strong>Small actions become visible.</strong>
-        <span>Water goals. Grow plants. Return tomorrow.</span>
-      </div>
+    <div class="gg-phone-screen">
+      {{
+        'gg-exercise-more-before-placed-garden-view.png'
+        | asset_url
+        | image_tag:
+          loading: 'eager',
+          alt: 'Goal Grower Garden Screen',
+          widths: '400,600,800'
+      }}
     </div>
   </div>
+
+  <div class="gg-mini-phone phone-float-one">
+    <div class="gg-phone-camera small"></div>
+
+    <div class="gg-phone-screen">
+      {{
+        'gg-exercise-more-only-goal-list-view.png'
+        | asset_url
+        | image_tag:
+          loading: 'lazy',
+          alt: 'Goal Grower Goals Screen'
+      }}
+    </div>
+  </div>
+
+  <div class="gg-human-note">
+    <strong>Small actions become visible.</strong>
+    <span>Water goals. Grow plants. Return tomorrow.</span>
+  </div>
+
+</div>
 </section>
 
 <section class="gg-section gg-story">
@@ -96,38 +112,68 @@
 </section>
 
 <section class="gg-section gg-screenshots" id="screenshots">
+
   <div class="gg-container">
+
     <div class="gg-section-heading reveal">
-      <span class="gg-kicker">App preview</span>
-      <h2>See how Goal Grower works.</h2>
+      <span class="gg-kicker">App Preview</span>
+
+      <h2>Built for real goals.</h2>
+
       <p>
-        Create goals, water progress, view details, and build a garden that reflects your effort.
+        Create goals, track progress, build gardens, and stay motivated
+        through visual growth.
       </p>
     </div>
 
     <div class="gg-phone-grid">
+
       <div class="gg-android-phone reveal">
         <div class="gg-phone-camera"></div>
+
         <div class="gg-phone-screen">
-          {{ 'images/gg-no-goals-yet.png' | asset_url | image_tag: loading: 'lazy', alt: 'Goal Grower no goals screen' }}
+          {{
+            'gg-no-goals-yet.png'
+            | asset_url
+            | image_tag:
+              loading: 'lazy',
+              alt: 'No Goals Yet Screen'
+          }}
         </div>
       </div>
 
       <div class="gg-android-phone reveal">
         <div class="gg-phone-camera"></div>
+
         <div class="gg-phone-screen">
-          {{ 'images/gg-add-goal-saving-read-more-view.png' | asset_url | image_tag: loading: 'lazy', alt: 'Goal Grower add goal screen' }}
+          {{
+            'gg-add-goal-saving-read-more-view.png'
+            | asset_url
+            | image_tag:
+              loading: 'lazy',
+              alt: 'Add Goal Screen'
+          }}
         </div>
       </div>
 
       <div class="gg-android-phone reveal">
         <div class="gg-phone-camera"></div>
+
         <div class="gg-phone-screen">
-          {{ 'images/gg-exercise-more-goal-details-view.png' | asset_url | image_tag: loading: 'lazy', alt: 'Goal Grower goal details screen' }}
+          {{
+            'gg-exercise-more-goal-details-view.png'
+            | asset_url
+            | image_tag:
+              loading: 'lazy',
+              alt: 'Goal Details Screen'
+          }}
         </div>
       </div>
+
     </div>
+
   </div>
+
 </section>
 
 <section class="gg-section gg-products-section">
