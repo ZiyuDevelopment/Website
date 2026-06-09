@@ -408,7 +408,7 @@ body {
 
 .gg-overlap-intro {
   max-width: 980px;
-  padding: 0 2vw 5rem;
+  padding: 0 2vw 6rem;
 }
 
 .gg-overlap-intro h2 {
@@ -425,32 +425,67 @@ body {
   max-width: 720px;
 }
 
-.gg-overlap-scroll {
+.gg-overlap-stage {
   position: relative;
-  height: 390vh;
-}
-
-.gg-overlap-sticky {
-  position: sticky;
-  top: 110px;
-  height: 72vh;
-  padding-top: 5vh;
 }
 
 .gg-overlap-card {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 64vh;
+  position: sticky;
+  height: 68vh;
   border-radius: 42px;
   padding: clamp(1.8rem, 4vw, 3.6rem);
+  margin-bottom: 14vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
   box-shadow: 0 30px 80px rgba(17, 22, 26, 0.22);
-  transform-origin: center top;
-  will-change: transform;
+}
+
+.gg-overlap-card:nth-child(1) {
+  top: 92px;
+  z-index: 1;
+}
+
+.gg-overlap-card:nth-child(2) {
+  top: 122px;
+  z-index: 2;
+}
+
+.gg-overlap-card:nth-child(3) {
+  top: 152px;
+  z-index: 3;
+}
+
+.gg-overlap-card:nth-child(4) {
+  top: 182px;
+  z-index: 4;
+  margin-bottom: 0;
+}
+
+.gg-overlap-dark {
+  background: #11161a;
+  color: white;
+}
+
+.gg-overlap-charcoal {
+  background: #383f42;
+  color: white;
+}
+
+.gg-overlap-green {
+  background: #dfeada;
+  color: var(--gg-dark);
+}
+
+.gg-overlap-paper {
+  background: var(--gg-paper);
+  color: var(--gg-dark);
+}
+
+.gg-overlap-card .gg-eyebrow {
+  color: inherit;
+  opacity: 0.7;
 }
 
 .gg-overlap-card h2 {
@@ -459,6 +494,11 @@ body {
   letter-spacing: -0.075em;
   margin: 0;
   max-width: 980px;
+}
+
+.gg-overlap-card h2 span {
+  display: block;
+  opacity: 0.44;
 }
 
 .gg-overlap-card > p:last-child {
@@ -470,20 +510,36 @@ body {
 }
 
 @media screen and (max-width: 650px) {
-  .gg-overlap-scroll {
-    height: 370vh;
+  .gg-overlap-story {
+    padding: 5rem 1rem 3rem;
   }
 
-  .gg-overlap-sticky {
-    top: 92px;
-    height: 68vh;
-    padding-top: 3vh;
+  .gg-overlap-intro {
+    padding-bottom: 3.5rem;
   }
 
   .gg-overlap-card {
-    height: 58vh;
+    height: 62vh;
     border-radius: 28px;
     padding: 1.4rem;
+    margin-bottom: 12vh;
+  }
+
+  .gg-overlap-card:nth-child(1) {
+    top: 84px;
+  }
+
+  .gg-overlap-card:nth-child(2) {
+    top: 108px;
+  }
+
+  .gg-overlap-card:nth-child(3) {
+    top: 132px;
+  }
+
+  .gg-overlap-card:nth-child(4) {
+    top: 156px;
+    margin-bottom: 0;
   }
 
   .gg-overlap-card h2 {
@@ -494,40 +550,6 @@ body {
   .gg-overlap-card > p:last-child {
     font-size: 0.95rem;
     line-height: 1.55;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .gg-overlap-story {
-    padding: 5rem 1rem 3rem;
-  }
-
-  .gg-overlap-intro {
-    padding-bottom: 3.5rem;
-  }
-
-  .gg-overlap-scroll {
-    height: 400vh;
-  }
-
-  .gg-overlap-sticky {
-    top: 84px;
-    height: 70vh;
-  }
-
-  .gg-overlap-card {
-    border-radius: 32px;
-    padding: 1.6rem;
-  }
-
-  .gg-overlap-card h2 {
-    font-size: clamp(2.6rem, 13vw, 4.8rem);
-    line-height: 0.95;
-  }
-
-  .gg-overlap-card > p:last-child {
-    font-size: 0.98rem;
-    line-height: 1.6;
   }
 }
 

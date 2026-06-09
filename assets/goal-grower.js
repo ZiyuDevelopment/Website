@@ -31,43 +31,4 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     revealItems.forEach((item) => item.classList.add("gg-visible"));
   }
-
-  const scrollArea = document.querySelector(".gg-overlap-scroll");
-  const cards = Array.from(document.querySelectorAll(".gg-overlap-card"));
-
-  function clamp(value, min, max) {
-    return Math.min(Math.max(value, min), max);
-  }
-
-  function animateOverlapCards() {
-    if (!scrollArea || cards.length === 0) return;
-
-    const rect = scrollArea.getBoundingClientRect();
-    const total = rect.height - window.innerHeight;
-    const scrolled = clamp(-rect.top, 0, total);
-    const progress = total > 0 ? scrolled / total : 0;
-
-    const isMobile = window.innerWidth < 650;
-    const startGap = isMobile ? 86 : 118;
-    const stackGap = isMobile ? 26 : 38;
-    const segment = 1 / cards.length;
-
-    cards.forEach((card, index) => {
-      const cardStart = index * segment;
-      const cardProgress = clamp((progress - cardStart) / segment, 0, 1);
-
-      const startY = index * startGap;
-      const endY = index * stackGap;
-
-      const y = startY + (endY - startY) * cardProgress;
-      const scale = 1 - cardProgress * 0.025;
-      const rotate = cardProgress * (index % 2 === 0 ? -0.2 : 0.2);
-
-      card.style.transform = `translateY(${y}px) scale(${scale}) rotate(${rotate}deg)`;
-    });
-  }
-
-  window.addEventListener("scroll", animateOverlapCards, { passive: true });
-  window.addEventListener("resize", animateOverlapCards);
-  animateOverlapCards();
 });
