@@ -1,27 +1,31 @@
 <footer class="gg-footer">
   <div class="gg-footer-grid">
     <div>
-      <a href="/" class="gg-logo gg-footer-logo">
-        <span class="gg-logo-mark"><span class="gg-leaf-icon"></span></span>
-        <span>Goal Grower</span>
+      <a class="gg-logo gg-footer-logo" href="{{ routes.root_url }}">
+        <span class="gg-logo-mark">
+          <span class="gg-leaf-icon"></span>
+        </span>
+        <span>{{ shop.name }}</span>
       </a>
+
       <p>
-        A visual goal tracker that turns consistency into something you can care about.
+        A visual goal tracker that turns habits, big goals, and shared progress
+        into a living garden.
       </p>
     </div>
 
     <div>
       <h3>Explore</h3>
-      <a href="/">Home</a>
+      <a href="{{ routes.root_url }}">Home</a>
       <a href="/pages/about">About</a>
-      <a href="/collections/all">Store</a>
+      <a href="{{ routes.collections_url }}">Store</a>
       <a href="/pages/support">Support</a>
     </div>
 
     <div>
       <h3>Account</h3>
-      <a href="/cart">Cart</a>
-      <a href="/account">Profile</a>
+      <a href="{{ routes.cart_url }}">Cart</a>
+      <a href="{{ routes.account_url }}">Profile</a>
       <a href="/pages/contact">Contact</a>
       <a href="/policies/privacy-policy">Privacy</a>
     </div>
@@ -35,7 +39,7 @@
   </div>
 
   <div class="gg-footer-bottom">
-    <p>© {{ 'now' | date: '%Y' }} Goal Grower. All rights reserved.</p>
+    <p>© {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
   </div>
 </footer>
 
@@ -43,6 +47,10 @@
 {
   "name": "Goal Grower Footer",
   "settings": [],
-  "presets": [{ "name": "Goal Grower Footer" }]
+  "presets": [
+    {
+      "name": "Goal Grower Footer"
+    }
+  ]
 }
 {% endschema %}

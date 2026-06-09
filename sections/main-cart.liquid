@@ -1,104 +1,59 @@
-<main class="zd-cart-page">
-
-  <section class="zd-cart-hero">
-    <p class="zd-cart-eyebrow">Cart</p>
-    <h1>Your selected tools.</h1>
+<section class="gg-page-hero">
+  <div class="gg-container">
+    <span class="gg-kicker">Cart</span>
+    <h1>Your cart</h1>
     <p>Review your items before checkout.</p>
-  </section>
+  </div>
+</section>
 
-  <section class="zd-cart-layout">
-
+<section class="gg-page-section">
+  <div class="gg-container">
     {% if cart.item_count > 0 %}
+      <form action="{{ routes.cart_url }}" method="post" novalidate class="gg-cart-form">
+        <div class="gg-cart-items">
+          {% for item in cart.items %}
+            <div class="gg-cart-item">
+              <div class="gg-cart-image">
+                {% if item.image %}
+                  {{ item.image | image_url: width: 220 | image_tag: loading: 'lazy', alt: item.product.title }}
+                {% endif %}
+              </div>
 
-      <form action="{{ routes.cart_url }}" method="post" class="zd-cart-items">
-
-        {% for item in cart.items %}
-          <article class="zd-cart-item">
-
-            <a href="{{ item.url }}" class="zd-cart-item__image">
-              {% if item.image %}
-                <img
-                  src="{{ item.image | image_url: width: 400 }}"
-                  alt="{{ item.product.title | escape }}"
-                  width="400"
-                  height="400"
-                  loading="lazy"
-                >
-              {% else %}
-                {{ 'product-1' | placeholder_svg_tag: 'zd-cart-placeholder' }}
-              {% endif %}
-            </a>
-
-            <div class="zd-cart-item__info">
-              <a href="{{ item.url }}">
-                <h2>{{ item.product.title }}</h2>
-              </a>
-
-              {% unless item.product.has_only_default_variant %}
+              <div class="gg-cart-info">
+                <h3>{{ item.product.title }}</h3>
                 <p>{{ item.variant.title }}</p>
-              {% endunless %}
+                <p>{{ item.final_line_price | money }}</p>
 
-              <p class="zd-cart-price">{{ item.final_line_price | money }}</p>
-
-              <label for="Quantity-{{ item.index | plus: 1 }}">Quantity</label>
-              <input
-                id="Quantity-{{ item.index | plus: 1 }}"
-                type="number"
-                name="updates[]"
-                value="{{ item.quantity }}"
-                min="0"
-              >
+                <label for="Quantity-{{ item.index | plus: 1 }}">Quantity</label>
+                <input
+                  id="Quantity-{{ item.index | plus: 1 }}"
+                  type="number"
+                  name="updates[]"
+                  value="{{ item.quantity }}"
+                  min="0"
+                >
+              </div>
             </div>
-
-          </article>
-        {% endfor %}
-
-        <div class="zd-cart-buttons">
-          <button type="submit" name="update">Update Cart</button>
-          <button type="submit" name="checkout">Checkout</button>
+          {% endfor %}
         </div>
 
+        <div class="gg-cart-summary">
+          <h2>Total</h2>
+          <p>{{ cart.total_price | money }}</p>
+
+          <button type="submit" name="update" class="gg-btn-outline">Update Cart</button>
+          <button type="submit" name="checkout" class="gg-btn">Checkout</button>
+        </div>
       </form>
-
-      <aside class="zd-cart-summary">
-        <h2>Order Summary</h2>
-
-        <div class="zd-cart-summary-row">
-          <span>Subtotal</span>
-          <strong>{{ cart.total_price | money }}</strong>
-        </div>
-
-        <p>
-          Shipping, discounts, and taxes are calculated at checkout.
-        </p>
-
-        <form action="{{ routes.cart_url }}" method="post">
-          <button type="submit" name="checkout">Checkout</button>
-        </form>
-
-        <a href="/collections/all">Continue Shopping</a>
-      </aside>
-
     {% else %}
-
-      <div class="zd-cart-empty">
+      <div class="gg-empty-state">
         <h2>Your cart is empty.</h2>
-        <p>
-          Explore curated products that support focus, growth, reading,
-          and intentional living.
-        </p>
-
-        <div class="zd-cart-empty__links">
-          <a href="/collections/all">Shop Products</a>
-          <a href="/pages/projects">Explore Projects</a>
-        </div>
+        <p>Visit the store to support Goal Grower development.</p>
+        <a href="{{ routes.collections_url }}" class="gg-btn">Visit Store</a>
       </div>
-
     {% endif %}
-
-  </section>
-
-</main>
+  </div>
+</section>
 
 {% schema %}
 {

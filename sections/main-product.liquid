@@ -1,178 +1,65 @@
-<main class="zd-product-page">
-
-  <section class="zdpd-hero">
-
-    <div class="zdpd-gallery">
+<section class="gg-page-section gg-product-page">
+  <div class="gg-container gg-product-layout">
+    <div class="gg-product-gallery">
       {% if product.featured_image %}
-        <div class="zdpd-main-image">
-          <img
-            src="{{ product.featured_image | image_url: width: 1200 }}"
-            alt="{{ product.featured_image.alt | escape }}"
-            width="1200"
-            height="1200"
-          >
-        </div>
+        {{ product.featured_image | image_url: width: 1000 | image_tag: loading: 'eager', alt: product.title }}
       {% else %}
-        <div class="zdpd-placeholder">
-          <span>Z</span>
-        </div>
-      {% endif %}
-
-      {% if product.images.size > 1 %}
-        <div class="zdpd-thumbs">
-          {% for image in product.images limit: 4 %}
-            <img
-              src="{{ image | image_url: width: 240 }}"
-              alt="{{ image.alt | escape }}"
-              width="240"
-              height="240"
-              loading="lazy"
-            >
-          {% endfor %}
-        </div>
+        <div class="gg-product-placeholder large"></div>
       {% endif %}
     </div>
 
-    <div class="zdpd-info">
-      <p class="zdpd-eyebrow">
-        {% if product.type != blank %}
-          {{ product.type }}
-        {% else %}
-          Ziyu Product
-        {% endif %}
-      </p>
-
+    <div class="gg-product-details">
+      <span class="gg-kicker">Goal Grower Store</span>
       <h1>{{ product.title }}</h1>
 
-      <div class="zdpd-price">
+      <div class="gg-product-price">
         {{ product.price | money }}
       </div>
 
       {% if product.description != blank %}
-        <div class="zdpd-description">
+        <div class="gg-product-description">
           {{ product.description }}
         </div>
       {% endif %}
 
-      {% form 'product', product, class: 'zdpd-form' %}
-        {% if product.has_only_default_variant == false %}
-          <div class="zdpd-options">
-            {% for option in product.options_with_values %}
-              <label for="Option-{{ forloop.index0 }}">
-                {{ option.name }}
-              </label>
+      {% form 'product', product %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
-              <select
-                id="Option-{{ forloop.index0 }}"
-                name="options[{{ option.name | escape }}]"
+        {% unless product.has_only_default_variant %}
+          <label for="ProductVariant">Choose an option</label>
+          <select id="ProductVariant" name="id">
+            {% for variant in product.variants %}
+              <option
+                value="{{ variant.id }}"
+                {% if variant == product.selected_or_first_available_variant %}selected{% endif %}
+                {% unless variant.available %}disabled{% endunless %}
               >
-                {% for value in option.values %}
-                  <option
-                    value="{{ value | escape }}"
-                    {% if option.selected_value == value %}selected{% endif %}
-                  >
-                    {{ value }}
-                  </option>
-                {% endfor %}
-              </select>
+                {{ variant.title }} - {{ variant.price | money }}
+              </option>
             {% endfor %}
-          </div>
-        {% endif %}
-
-        <input
-          type="hidden"
-          name="id"
-          value="{{ product.selected_or_first_available_variant.id }}"
-        >
-
-        <div class="zdpd-quantity">
-          <label for="Quantity-{{ section.id }}">Quantity</label>
-          <input
-            id="Quantity-{{ section.id }}"
-            type="number"
-            name="quantity"
-            value="1"
-            min="1"
-          >
-        </div>
+          </select>
+        {% endunless %}
 
         <button
           type="submit"
           name="add"
-          class="zdpd-add"
-          {% unless product.available %}disabled{% endunless %}
+          class="gg-btn"
+          {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
         >
-          {% if product.available %}
+          {% if product.selected_or_first_available_variant.available %}
             Add to Cart
           {% else %}
             Sold Out
           {% endif %}
         </button>
       {% endform %}
-
-      <div class="zdpd-note">
-        <span>Why this matters</span>
-        <p>
-          Purchases help support Ziyu Development, Goal Grower testing, product design,
-          hosting, tools, and future app development.
-        </p>
-      </div>
     </div>
-
-  </section>
-
-  <section class="zdpd-details">
-    <div>
-      <p class="zdpd-eyebrow">Product Philosophy</p>
-      <h2>Built to support intentional technology.</h2>
-    </div>
-
-    <div>
-      <p>
-        Ziyu products help fund and support apps designed for focus, growth,
-        reflection, and real-life improvement.
-      </p>
-      <p>
-        Whether this is a digital product, merchandise item, or support purchase,
-        it helps move the mission forward.
-      </p>
-    </div>
-  </section>
-
-  <section class="zdpd-related">
-    <div class="zdpd-section-head">
-      <p class="zdpd-eyebrow">More from Ziyu</p>
-      <h2>Keep exploring.</h2>
-    </div>
-
-    <div class="zdpd-related-grid">
-      <a href="/pages/store">
-        <span>Store</span>
-        <h3>Browse all products</h3>
-      </a>
-
-      <a href="/pages/support">
-        <span>Support</span>
-        <h3>Support development</h3>
-      </a>
-
-      <a href="/pages/projects">
-        <span>Projects</span>
-        <h3>Explore the apps</h3>
-      </a>
-    </div>
-  </section>
-
-</main>
+  </div>
+</section>
 
 {% schema %}
 {
-  "name": "Ziyu Product Page",
-  "settings": [],
-  "presets": [
-    {
-      "name": "Ziyu Product Page"
-    }
-  ]
+  "name": "Main Product",
+  "settings": []
 }
 {% endschema %}

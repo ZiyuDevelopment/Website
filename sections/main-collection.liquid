@@ -1,148 +1,49 @@
-<main class="zd-market">
+<section class="gg-page-hero">
+  <div class="gg-container">
+    <span class="gg-kicker">Store</span>
+    <h1>{{ collection.title | default: 'Support Store' }}</h1>
 
-  <section class="zdm-hero">
-    <p class="zdm-eyebrow">Ziyu Marketplace</p>
-    <h1>Products, merch, and support items for intentional technology.</h1>
-    <p>
-      Browse products connected to Ziyu Development, Goal Grower, future apps,
-      and the mission to build better tools for real life.
-    </p>
-  </section>
+    {% if collection.description != blank %}
+      <p>{{ collection.description }}</p>
+    {% else %}
+      <p>Products and support items that help fund Goal Grower development.</p>
+    {% endif %}
+  </div>
+</section>
 
-  <section class="zdm-tools">
-    <input type="search" id="zdmSearch" placeholder="Search products...">
-
-    <div class="zdm-filters">
-      <button data-filter="all" class="is-active">All</button>
-      <button data-filter="app">Apps</button>
-      <button data-filter="digital">Digital</button>
-      <button data-filter="merch">Merch</button>
-      <button data-filter="support">Support</button>
-      <button data-filter="beta">Beta</button>
-    </div>
-
-    <select id="zdmSort">
-      <option value="default">Sort: Featured</option>
-      <option value="az">A–Z</option>
-      <option value="price-low">Price: Low to High</option>
-      <option value="price-high">Price: High to Low</option>
-    </select>
-  </section>
-
-  <section class="zdm-grid" id="zdmGrid">
-    {% paginate collection.products by 48 %}
-      {% for product in collection.products %}
-        <article
-          class="zdm-card"
-          data-title="{{ product.title | escape | downcase }}"
-          data-price="{{ product.price }}"
-          data-tags="{{ product.tags | join: ' ' | downcase }}"
-        >
-          <a href="{{ product.url }}" class="zdm-card__image">
-            {% if product.featured_image %}
-              <img
-                src="{{ product.featured_image | image_url: width: 600 }}"
-                alt="{{ product.featured_image.alt | escape }}"
-                width="600"
-                height="600"
-                loading="lazy"
-              >
-            {% else %}
-              <div class="zdm-placeholder">Z</div>
-            {% endif %}
-          </a>
-
-          <div class="zdm-card__body">
-            <p class="zdm-card__type">
-              {% if product.type != blank %}
-                {{ product.type }}
-              {% elsif product.tags.size > 0 %}
-                {{ product.tags.first }}
+<section class="gg-page-section">
+  <div class="gg-container">
+    {% if collection.products_count > 0 %}
+      <div class="gg-product-grid">
+        {% for product in collection.products %}
+          <a class="gg-product-card" href="{{ product.url }}">
+            <div class="gg-product-image">
+              {% if product.featured_image %}
+                {{ product.featured_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title }}
               {% else %}
-                Ziyu Product
+                <div class="gg-product-placeholder"></div>
               {% endif %}
-            </p>
-
-            <h2>
-              <a href="{{ product.url }}">{{ product.title }}</a>
-            </h2>
-
-            <p class="zdm-card__desc">
-              {{ product.description | strip_html | truncate: 75 }}
-            </p>
-
-            <div class="zdm-card__bottom">
-              <span>{{ product.price | money }}</span>
-              <a href="{{ product.url }}">View</a>
             </div>
-          </div>
-        </article>
-      {% endfor %}
 
-      {% if paginate.pages > 1 %}
-        <nav class="zdm-pagination">
-          {{ paginate | default_pagination }}
-        </nav>
-      {% endif %}
-    {% endpaginate %}
-  </section>
-
-</main>
-
-<script>
-  const search = document.getElementById("zdmSearch");
-  const sort = document.getElementById("zdmSort");
-  const buttons = document.querySelectorAll(".zdm-filters button");
-  const grid = document.getElementById("zdmGrid");
-
-  function filterProducts() {
-    const query = search.value.toLowerCase();
-    const active = document.querySelector(".zdm-filters .is-active").dataset.filter;
-    const cards = Array.from(document.querySelectorAll(".zdm-card"));
-
-    cards.forEach(card => {
-      const title = card.dataset.title;
-      const tags = card.dataset.tags;
-      const matchesSearch = title.includes(query) || tags.includes(query);
-      const matchesFilter = active === "all" || tags.includes(active);
-
-      card.style.display = matchesSearch && matchesFilter ? "" : "none";
-    });
-  }
-
-  function sortProducts() {
-    const cards = Array.from(document.querySelectorAll(".zdm-card"));
-
-    cards.sort((a, b) => {
-      if (sort.value === "az") return a.dataset.title.localeCompare(b.dataset.title);
-      if (sort.value === "price-low") return Number(a.dataset.price) - Number(b.dataset.price);
-      if (sort.value === "price-high") return Number(b.dataset.price) - Number(a.dataset.price);
-      return 0;
-    });
-
-    cards.forEach(card => grid.appendChild(card));
-  }
-
-  search.addEventListener("input", filterProducts);
-  sort.addEventListener("change", sortProducts);
-
-  buttons.forEach(button => {
-    button.addEventListener("click", () => {
-      buttons.forEach(btn => btn.classList.remove("is-active"));
-      button.classList.add("is-active");
-      filterProducts();
-    });
-  });
-</script>
+            <div class="gg-product-info">
+              <h3>{{ product.title }}</h3>
+              <p>{{ product.price | money }}</p>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="gg-empty-state">
+        <h2>No products yet.</h2>
+        <p>Add products in Shopify admin and they will appear here.</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
 
 {% schema %}
 {
-  "name": "All Products Marketplace",
-  "settings": [],
-  "presets": [
-    {
-      "name": "All Products Marketplace"
-    }
-  ]
+  "name": "Main Collection",
+  "settings": []
 }
 {% endschema %}
