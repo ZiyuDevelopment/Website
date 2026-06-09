@@ -408,7 +408,7 @@ body {
 
 .gg-overlap-intro {
   max-width: 980px;
-  padding: 0 2vw 5rem;
+  padding: 0 2vw 6rem;
 }
 
 .gg-overlap-intro h2 {
@@ -427,16 +427,16 @@ body {
 
 .gg-overlap-stage {
   position: relative;
-  height: 250vh;
+  height: 380vh;
 }
 
 .gg-overlap-card {
   position: sticky;
   top: 92px;
-  height: 72vh;
+  height: 76vh;
   border-radius: 54px;
   padding: clamp(2rem, 6vw, 5rem);
-  margin-bottom: 4vh;
+  margin-bottom: 8vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -450,21 +450,10 @@ body {
   margin-top: 0;
 }
 
-.gg-overlap-card:nth-child(1) {
-  z-index: 1;
-}
-
-.gg-overlap-card:nth-child(2) {
-  z-index: 2;
-}
-
-.gg-overlap-card:nth-child(3) {
-  z-index: 3;
-}
-
-.gg-overlap-card:nth-child(4) {
-  z-index: 4;
-}
+.gg-overlap-card:nth-child(1) { z-index: 1; }
+.gg-overlap-card:nth-child(2) { z-index: 2; }
+.gg-overlap-card:nth-child(3) { z-index: 3; }
+.gg-overlap-card:nth-child(4) { z-index: 4; }
 
 .gg-overlap-card::after {
   content: "";
@@ -504,11 +493,11 @@ body {
 }
 
 .gg-overlap-card h2 {
-  font-size: clamp(4.4rem, 11vw, 11rem);
-  line-height: 0.86;
-  letter-spacing: -0.09em;
+  font-size: clamp(3.7rem, 9.6vw, 9.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.085em;
   margin: 0;
-  max-width: 1200px;
+  max-width: 1150px;
 }
 
 .gg-overlap-card h2 span {
@@ -517,10 +506,11 @@ body {
 }
 
 .gg-overlap-card > p:last-child {
-  max-width: 760px;
-  font-size: clamp(1.08rem, 2vw, 1.35rem);
-  line-height: 1.65;
-  opacity: 0.82;
+  max-width: 780px;
+  font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+  line-height: 1.7;
+  opacity: 0.84;
+  margin: 2rem 0 0;
 }
 
 /* GENERAL SECTIONS */
@@ -1181,28 +1171,34 @@ body {
     padding: 5rem 1.15rem;
   }
 
-  .gg-overlap-story {
-    padding: 5rem 1rem 7rem;
-  }
+ .gg-overlap-story {
+  padding: 5rem 1rem 5rem;
+}
+
+.gg-overlap-intro {
+  padding-bottom: 4rem;
+}
 
 .gg-overlap-stage {
-  height: 250vh;
+  height: 420vh;
 }
 
 .gg-overlap-card {
   top: 84px;
-  height: 66vh;
+  height: 70vh;
   border-radius: 32px;
-  margin-bottom: 4vh;
+  padding: 1.7rem;
+  margin-bottom: 10vh;
 }
 
-.gg-overlap-card + .gg-overlap-card {
-  margin-top: 0;
+.gg-overlap-card h2 {
+  font-size: clamp(2.9rem, 15vw, 5.2rem);
 }
 
-  .gg-overlap-card h2 {
-    font-size: clamp(3.4rem, 18vw, 6rem);
-  }
+.gg-overlap-card > p:last-child {
+  font-size: 1rem;
+  line-height: 1.6;
+}
 
   .gg-loop-grid,
   .gg-store-grid,
