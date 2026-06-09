@@ -1,32 +1,56 @@
-<!doctype html>
-<html lang="{{ request.locale.iso_code }}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+<header class="gg-header" data-header>
+  <a class="gg-logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+    <span class="gg-logo-mark">
+      <span class="gg-leaf-icon"></span>
+    </span>
+    <span>{{ shop.name }}</span>
+  </a>
 
-    <title>
-      {{ page_title }}
-      {% unless page_title contains shop.name %} - {{ shop.name }}{% endunless %}
-    </title>
+  <nav class="gg-nav" aria-label="Main navigation">
+    <a href="{{ routes.root_url }}">Home</a>
+    <a href="/pages/about">About</a>
+    <a href="/pages/support">Support</a>
+    <a href="{{ routes.collections_url }}">Store</a>
+    <a href="/pages/contact">Contact</a>
+  </nav>
 
-    {{ content_for_header }}
+  <div class="gg-header-actions">
+    <a href="{{ routes.cart_url }}" class="gg-cart-link">
+      Cart
+      {% if cart.item_count > 0 %}
+        <span class="gg-cart-count">{{ cart.item_count }}</span>
+      {% endif %}
+    </a>
 
-    {{ 'goal-grower.css' | asset_url | stylesheet_tag }}
+    <a href="{{ routes.account_url }}" class="gg-btn gg-btn-small">
+      Profile
+    </a>
+  </div>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  </head>
+  <button class="gg-menu-btn" type="button" data-menu-toggle aria-label="Open menu">
+    <span></span>
+    <span></span>
+  </button>
 
-  <body>
-    {% section 'gg-header' %}
+  <div class="gg-mobile-menu" data-mobile-menu>
+    <a href="{{ routes.root_url }}">Home</a>
+    <a href="/pages/about">About</a>
+    <a href="/pages/support">Support</a>
+    <a href="{{ routes.collections_url }}">Store</a>
+    <a href="/pages/contact">Contact</a>
+    <a href="{{ routes.cart_url }}">Cart</a>
+    <a href="{{ routes.account_url }}">Profile</a>
+  </div>
+</header>
 
-    <main id="MainContent">
-      {{ content_for_layout }}
-    </main>
-
-    {% section 'gg-footer' %}
-
-    <script src="{{ 'goal-grower.js' | asset_url }}" defer></script>
-  </body>
-</html>
+{% schema %}
+{
+  "name": "Goal Grower Header",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Goal Grower Header"
+    }
+  ]
+}
+{% endschema %}
