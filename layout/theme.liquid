@@ -50,13 +50,13 @@
     <main id="MainContent">
       {{ content_for_layout }}
     </main>
-
+<script src="{{ 'goal-grower.js' | asset_url }}" defer></script>
     {% section 'footer' %}
     <script src="{{ 'header.js' | asset_url }}" defer></script>
     <script src="{{ 'faq.js' | asset_url }}" defer></script>
     {% render 'cart-drawer' %}
   <script src="{{ 'cart-drawer.js' | asset_url }}" defer></script>
   <script src="{{ 'page-roadmap.js' | asset_url }}" defer></script>
-  <script src="{{ 'goal-grower.js' | asset_url }}" defer></script>
+  
   </body>
 </html>
