@@ -590,3 +590,78 @@ p {
   border-radius: 32px;
   box-shadow: var(--gg-shadow);
 }
+
+.gg-page-hero {
+  padding: 140px 0 80px;
+  text-align: center;
+}
+
+.gg-page-section {
+  padding: 100px 0;
+}
+
+.gg-soft-bg {
+  background: var(--gg-sage);
+}
+
+.gg-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.gg-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.gg-feature-card {
+  background: white;
+  padding: 32px;
+  border-radius: 32px;
+  box-shadow: var(--gg-shadow);
+}
+
+.gg-feature-card span {
+  font-size: 48px;
+}
+
+.gg-contact-card {
+  max-width: 700px;
+}
+
+.gg-contact-card form {
+  background: white;
+  padding: 40px;
+  border-radius: 32px;
+  box-shadow: var(--gg-shadow);
+}
+
+.gg-contact-card label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.gg-contact-card input,
+.gg-contact-card textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+}
+
+.gg-success {
+  color: var(--gg-green);
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .gg-two-col,
+  .gg-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
