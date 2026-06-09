@@ -440,7 +440,7 @@ body {
 }
 
 .gg-service-card + .gg-service-card {
-  margin-top: -46vh;
+  margin-top: 16vh;
 }
 
 .gg-service-card-1 {
@@ -532,7 +532,7 @@ body {
   }
 
   .gg-service-card + .gg-service-card {
-    margin-top: -42vh;
+    margin-top: 12vh;
   }
 
   .gg-service-card h2 {
