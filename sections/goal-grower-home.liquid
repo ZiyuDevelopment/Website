@@ -27,38 +27,80 @@
     </div>
   </section>
 
-  document.addEventListener("DOMContentLoaded", () => {
-  const menuToggle = document.querySelector(".gg-menu-toggle");
-  const nav = document.querySelector(".gg-nav");
+  <section id="story" class="gg-overlap-story">
+  <div class="gg-overlap-intro">
+    <p class="gg-eyebrow">Why it exists</p>
+    <h2>Goal Grower is built around returning.</h2>
 
-  if (menuToggle && nav) {
-    menuToggle.addEventListener("click", () => {
-      nav.classList.toggle("gg-open");
-    });
-  }
+    <p>
+      Most goal apps punish inconsistency.
+      Goal Grower is designed around coming back.
+    </p>
+  </div>
 
-  const cards = document.querySelectorAll(".gg-overlap-card");
+  <div class="gg-overlap-stage">
 
-  function animateOverlapCards() {
-    const topOffset = window.innerWidth < 650 ? 84 : 92;
+    <article class="gg-overlap-card gg-overlap-dark">
+      <div>
+        <p class="gg-eyebrow">01 / The feeling</p>
+        <h2>
+          Goals should feel
+          <span>alive</span>
+        </h2>
+      </div>
 
-    cards.forEach((card, index) => {
-      const rect = card.getBoundingClientRect();
-      const progress = Math.min(Math.max((topOffset - rect.top) / 420, 0), 1);
+      <p>
+        Most apps turn progress into a list.
+        Goal Grower turns it into something living.
+      </p>
+    </article>
 
-      const visibleTop = index * (window.innerWidth < 650 ? 22 : 30);
-      const lift = progress * -110;
-      const scale = 1 - progress * 0.025;
-      const rotate = progress * (index % 2 === 0 ? -0.25 : 0.25);
+    <article class="gg-overlap-card gg-overlap-charcoal">
+      <div>
+        <p class="gg-eyebrow">02 / Real life</p>
+        <h2>
+          Life gets
+          <span>busy</span>
+        </h2>
+      </div>
 
-      card.style.transform = `translateY(${visibleTop + lift}px) scale(${scale}) rotate(${rotate}deg)`;
-    });
-  }
+      <p>
+        School. Work. Family. Stress.
+        Missing a day should not mean giving up.
+      </p>
+    </article>
 
-  window.addEventListener("scroll", animateOverlapCards, { passive: true });
-  window.addEventListener("resize", animateOverlapCards);
-  animateOverlapCards();
-});
+    <article class="gg-overlap-card gg-overlap-green">
+      <div>
+        <p class="gg-eyebrow">03 / Growth</p>
+        <h2>
+          Plant.
+          <span>Water.</span>
+          Return.
+        </h2>
+      </div>
+
+      <p>
+        Small actions create visible growth inside your garden.
+      </p>
+    </article>
+
+    <article class="gg-overlap-card gg-overlap-paper">
+      <div>
+        <p class="gg-eyebrow">04 / Together</p>
+        <h2>
+          Grow with
+          <span>people</span>
+        </h2>
+      </div>
+
+      <p>
+        Shared gardens help friends and families stay accountable together.
+      </p>
+    </article>
+
+  </div>
+</section>
 
   <section class="gg-human-section">
     <div class="gg-section-heading">
