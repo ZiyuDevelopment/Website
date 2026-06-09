@@ -31,39 +31,4 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     revealItems.forEach((item) => item.classList.add("gg-visible"));
   }
-
-  const cards = document.querySelectorAll(".gg-overlap-card");
-
-  function clamp(value, min, max) {
-    return Math.min(Math.max(value, min), max);
-  }
-
-  function animateOverlapCards() {
-    if (!cards.length) return;
-
-    const isMobile = window.innerWidth < 650;
-    const topOffset = isMobile ? 84 : 92;
-
-    cards.forEach((card, index) => {
-      const rect = card.getBoundingClientRect();
-
-      const raw = (topOffset - rect.top) / (isMobile ? 420 : 500);
-      const progress = clamp(raw, 0, 1);
-
-      const readableHold = 0.22;
-      const motion = clamp((progress - readableHold) / (1 - readableHold), 0, 1);
-
-      const visibleDeckGap = index * (isMobile ? 22 : 30);
-      const lift = motion * (isMobile ? -78 : -110);
-      const scale = 1 - motion * 0.022;
-      const rotate = motion * (index % 2 === 0 ? -0.18 : 0.18);
-
-      card.style.transform =
-        `translateY(${visibleDeckGap + lift}px) scale(${scale}) rotate(${rotate}deg)`;
-    });
-  }
-
-  window.addEventListener("scroll", animateOverlapCards, { passive: true });
-  window.addEventListener("resize", animateOverlapCards);
-  animateOverlapCards();
 });
