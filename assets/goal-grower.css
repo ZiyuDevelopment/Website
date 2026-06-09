@@ -400,26 +400,9 @@ body {
 
 /* TRUE VIDEO-STYLE OVERLAP CARDS */
 
-.gg-service-stack {
-  background: #edf3f1;
-  padding: 8vw 4vw 6vw;
-}
-
-.gg-service-intro {
-  max-width: 1000px;
-  padding: 0 2vw 5rem;
-}
-
-.gg-service-intro h2 {
-  font-size: clamp(2.8rem, 7vw, 7rem);
-  line-height: 0.92;
-  letter-spacing: -0.07em;
-  margin: 0;
-}
-
 .gg-service-pin {
   position: relative;
-  height: 300vh;
+  height: 360vh;
 }
 
 .gg-service-card {
@@ -437,40 +420,17 @@ body {
   overflow: hidden;
   box-shadow: 0 34px 90px rgba(17, 22, 26, 0.25);
   transform-origin: center top;
+  will-change: transform;
 }
 
 .gg-service-card + .gg-service-card {
-  margin-top: -18vh;
+  margin-top: 18vh;
 }
 
-.gg-service-card-1 {
-  z-index: 1;
-  background: #11161a;
-  color: white;
-}
-
-.gg-service-card-2 {
-  z-index: 2;
-  background: #343a40;
-  color: white;
-}
-
-.gg-service-card-3 {
-  z-index: 3;
-  background: #50555a;
-  color: white;
-}
-
-.gg-service-card-4 {
-  z-index: 4;
-  background: #dfeada;
-  color: var(--gg-dark);
-}
-
-.gg-service-card .gg-eyebrow {
-  color: inherit;
-  opacity: 0.68;
-}
+.gg-service-card-1 { z-index: 1; background: #11161a; color: white; }
+.gg-service-card-2 { z-index: 2; background: #343a40; color: white; }
+.gg-service-card-3 { z-index: 3; background: #50555a; color: white; }
+.gg-service-card-4 { z-index: 4; background: #dfeada; color: var(--gg-dark); }
 
 .gg-service-card h2 {
   font-size: clamp(4rem, 10vw, 9rem);
@@ -483,47 +443,26 @@ body {
   opacity: 0.42;
 }
 
-.gg-service-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  margin-bottom: 1.5rem;
+.gg-service-card.is-stacked .gg-service-content {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
 }
 
-.gg-service-tags span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 34px;
-  padding: 0 1rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.12);
-  font-size: 0.9rem;
-  font-weight: 750;
+.gg-service-card.is-stacked {
+  overflow: hidden;
 }
 
-.gg-service-card-4 .gg-service-tags span {
-  background: rgba(38,59,43,0.1);
-}
-
-.gg-service-card p:last-child {
-  max-width: 850px;
-  font-size: clamp(1.05rem, 1.9vw, 1.5rem);
-  line-height: 1.55;
-  opacity: 0.86;
-  margin: 0;
+.gg-service-content {
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 @media screen and (max-width: 750px) {
-  .gg-service-stack {
-    padding: 5rem 1rem 4rem;
-  }
-
   .gg-service-pin {
-    height: auto;
+    height: 340vh;
   }
 
   .gg-service-card {
-    position: sticky;
     top: 84px;
     min-height: 66vh;
     aspect-ratio: auto;
@@ -532,15 +471,11 @@ body {
   }
 
   .gg-service-card + .gg-service-card {
-    margin-top: -14vh;
+    margin-top: 14vh;
   }
 
   .gg-service-card h2 {
     font-size: clamp(3rem, 16vw, 5.5rem);
-  }
-
-  .gg-service-card p:last-child {
-    font-size: 1rem;
   }
 }
 
