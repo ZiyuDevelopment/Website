@@ -1,3 +1,5 @@
+console.log("Goal Grower JS loaded");
+
 document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.querySelector(".gg-menu-toggle");
   const nav = document.querySelector(".gg-nav");
