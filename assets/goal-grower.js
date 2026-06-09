@@ -8,23 +8,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const revealItems = document.querySelectorAll(
-    ".gg-loop-card, .gg-product-card, .gg-email-card, .gg-fund-card, .gg-faq details, .gg-contact-card, .gg-team-card, .gg-real-product-card, .gg-human-card"
-  );
+  const cards = document.querySelectorAll(".gg-overlap-card");
 
-  revealItems.forEach((item) => item.classList.add("gg-reveal"));
+  function animateOverlapCards() {
+    const topOffset = window.innerWidth < 650 ? 84 : 92;
 
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          entry.target.style.transitionDelay = `${Math.min(index * 70, 280)}ms`;
-          entry.target.classList.add("gg-visible");
-        }
-      });
-    },
-    { threshold: 0.16 }
-  );
+    cards.forEach((card, index) => {
+      const rect = card.getBoundingClientRect();
+      const progress = Math.min(Math.max((topOffset - rect.top) / 420, 0), 1);
 
-  revealItems.forEach((item) => revealObserver.observe(item));
+      const visibleTop = index * (window.innerWidth < 650 ? 22 : 30);
+      const lift = progress * -110;
+      const scale = 1 - progress * 0.025;
+      const rotate = progress * (index % 2 === 0 ? -0.25 : 0.25);
+
+      card.style.transform = `translateY(${visibleTop + lift}px) scale(${scale}) rotate(${rotate}deg)`;
+    });
+  }
+
+  window.addEventListener("scroll", animateOverlapCards, { passive: true });
+  window.addEventListener("resize", animateOverlapCards);
+  animateOverlapCards();
 });
