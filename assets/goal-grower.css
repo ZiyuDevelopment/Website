@@ -419,7 +419,7 @@ body {
 
 .gg-service-pin {
   position: relative;
-  height: 340vh;
+  height: 300vh;
 }
 
 .gg-service-card {
@@ -440,7 +440,7 @@ body {
 }
 
 .gg-service-card + .gg-service-card {
-  margin-top: 16vh;
+  margin-top: -18vh;
 }
 
 .gg-service-card-1 {
@@ -532,7 +532,7 @@ body {
   }
 
   .gg-service-card + .gg-service-card {
-    margin-top: 12vh;
+    margin-top: -14vh;
   }
 
   .gg-service-card h2 {
