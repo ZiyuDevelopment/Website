@@ -400,156 +400,147 @@ body {
 
 /* TRUE VIDEO-STYLE OVERLAP CARDS */
 
-.gg-overlap-story {
+.gg-service-stack {
   background: #edf3f1;
-  padding: 8vw 4vw 4vw;
-  overflow: visible;
+  padding: 8vw 4vw 6vw;
 }
 
-.gg-overlap-intro {
-  max-width: 980px;
-  padding: 0 2vw 6rem;
+.gg-service-intro {
+  max-width: 1000px;
+  padding: 0 2vw 5rem;
 }
 
-.gg-overlap-intro h2 {
+.gg-service-intro h2 {
   font-size: clamp(2.8rem, 7vw, 7rem);
   line-height: 0.92;
   letter-spacing: -0.07em;
-  margin: 0 0 1.2rem;
+  margin: 0;
 }
 
-.gg-overlap-intro p {
-  color: var(--gg-muted);
-  font-size: clamp(1.05rem, 2vw, 1.3rem);
-  line-height: 1.7;
-  max-width: 720px;
-}
-
-.gg-overlap-stage {
+.gg-service-pin {
   position: relative;
+  height: 340vh;
 }
 
-.gg-overlap-card {
+.gg-service-card {
   position: sticky;
-  height: 68vh;
-  border-radius: 42px;
-  padding: clamp(1.8rem, 4vw, 3.6rem);
-  margin-bottom: 14vh;
+  top: 96px;
+  width: 100%;
+  min-height: 68vh;
+  aspect-ratio: 16 / 7;
+  border-radius: 48px;
+  padding: clamp(2rem, 5vw, 5rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 4rem;
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(17, 22, 26, 0.22);
+  box-shadow: 0 34px 90px rgba(17, 22, 26, 0.25);
+  transform-origin: center top;
 }
 
-.gg-overlap-card:nth-child(1) {
-  top: 92px;
+.gg-service-card + .gg-service-card {
+  margin-top: -46vh;
+}
+
+.gg-service-card-1 {
   z-index: 1;
-}
-
-.gg-overlap-card:nth-child(2) {
-  top: 122px;
-  z-index: 2;
-}
-
-.gg-overlap-card:nth-child(3) {
-  top: 152px;
-  z-index: 3;
-}
-
-.gg-overlap-card:nth-child(4) {
-  top: 182px;
-  z-index: 4;
-  margin-bottom: 0;
-}
-
-.gg-overlap-dark {
   background: #11161a;
   color: white;
 }
 
-.gg-overlap-charcoal {
-  background: #383f42;
+.gg-service-card-2 {
+  z-index: 2;
+  background: #343a40;
   color: white;
 }
 
-.gg-overlap-green {
+.gg-service-card-3 {
+  z-index: 3;
+  background: #50555a;
+  color: white;
+}
+
+.gg-service-card-4 {
+  z-index: 4;
   background: #dfeada;
   color: var(--gg-dark);
 }
 
-.gg-overlap-paper {
-  background: var(--gg-paper);
-  color: var(--gg-dark);
-}
-
-.gg-overlap-card .gg-eyebrow {
+.gg-service-card .gg-eyebrow {
   color: inherit;
-  opacity: 0.7;
+  opacity: 0.68;
 }
 
-.gg-overlap-card h2 {
-  font-size: clamp(2.8rem, 7.5vw, 7.2rem);
-  line-height: 0.92;
-  letter-spacing: -0.075em;
+.gg-service-card h2 {
+  font-size: clamp(4rem, 10vw, 9rem);
+  line-height: 0.85;
+  letter-spacing: -0.08em;
   margin: 0;
-  max-width: 980px;
 }
 
-.gg-overlap-card h2 span {
-  display: block;
-  opacity: 0.44;
+.gg-service-card h2 span {
+  opacity: 0.42;
 }
 
-.gg-overlap-card > p:last-child {
-  max-width: 720px;
-  font-size: clamp(1rem, 1.4vw, 1.16rem);
-  line-height: 1.7;
+.gg-service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.gg-service-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.gg-service-card-4 .gg-service-tags span {
+  background: rgba(38,59,43,0.1);
+}
+
+.gg-service-card p:last-child {
+  max-width: 850px;
+  font-size: clamp(1.05rem, 1.9vw, 1.5rem);
+  line-height: 1.55;
   opacity: 0.86;
-  margin: 1.5rem 0 0;
+  margin: 0;
 }
 
-@media screen and (max-width: 650px) {
-  .gg-overlap-story {
-    padding: 5rem 1rem 3rem;
+@media screen and (max-width: 750px) {
+  .gg-service-stack {
+    padding: 5rem 1rem 4rem;
   }
 
-  .gg-overlap-intro {
-    padding-bottom: 3.5rem;
+  .gg-service-pin {
+    height: auto;
   }
 
-  .gg-overlap-card {
-    height: 62vh;
-    border-radius: 28px;
-    padding: 1.4rem;
-    margin-bottom: 12vh;
-  }
-
-  .gg-overlap-card:nth-child(1) {
+  .gg-service-card {
+    position: sticky;
     top: 84px;
+    min-height: 66vh;
+    aspect-ratio: auto;
+    border-radius: 30px;
+    padding: 1.5rem;
   }
 
-  .gg-overlap-card:nth-child(2) {
-    top: 108px;
+  .gg-service-card + .gg-service-card {
+    margin-top: -42vh;
   }
 
-  .gg-overlap-card:nth-child(3) {
-    top: 132px;
+  .gg-service-card h2 {
+    font-size: clamp(3rem, 16vw, 5.5rem);
   }
 
-  .gg-overlap-card:nth-child(4) {
-    top: 156px;
-    margin-bottom: 0;
-  }
-
-  .gg-overlap-card h2 {
-    font-size: clamp(2.35rem, 11vw, 4rem);
-    line-height: 0.96;
-  }
-
-  .gg-overlap-card > p:last-child {
-    font-size: 0.95rem;
-    line-height: 1.55;
+  .gg-service-card p:last-child {
+    font-size: 1rem;
   }
 }
 
