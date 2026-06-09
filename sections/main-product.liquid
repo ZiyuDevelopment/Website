@@ -1,6 +1,6 @@
-<section class="gg-page-section gg-product-page">
+<section class="gg-section gg-product-page">
   <div class="gg-container gg-product-layout">
-    <div class="gg-product-gallery">
+    <div class="gg-product-gallery reveal">
       {% if product.featured_image %}
         {{ product.featured_image | image_url: width: 1000 | image_tag: loading: 'eager', alt: product.title }}
       {% else %}
@@ -8,7 +8,7 @@
       {% endif %}
     </div>
 
-    <div class="gg-product-details">
+    <div class="gg-product-details reveal">
       <span class="gg-kicker">Goal Grower Store</span>
       <h1>{{ product.title }}</h1>
 

@@ -1,5 +1,5 @@
 <section class="gg-page-hero">
-  <div class="gg-container">
+  <div class="gg-container reveal">
     <span class="gg-kicker">Store</span>
     <h1>{{ collection.title | default: 'Support Store' }}</h1>
 
@@ -11,12 +11,12 @@
   </div>
 </section>
 
-<section class="gg-page-section">
+<section class="gg-section">
   <div class="gg-container">
     {% if collection.products_count > 0 %}
       <div class="gg-product-grid">
         {% for product in collection.products %}
-          <a class="gg-product-card" href="{{ product.url }}">
+          <a class="gg-product-card reveal" href="{{ product.url }}">
             <div class="gg-product-image">
               {% if product.featured_image %}
                 {{ product.featured_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.title }}
@@ -33,7 +33,7 @@
         {% endfor %}
       </div>
     {% else %}
-      <div class="gg-empty-state">
+      <div class="gg-empty-state reveal">
         <h2>No products yet.</h2>
         <p>Add products in Shopify admin and they will appear here.</p>
       </div>

@@ -1,18 +1,18 @@
 <section class="gg-page-hero">
-  <div class="gg-container">
+  <div class="gg-container reveal">
     <span class="gg-kicker">Cart</span>
     <h1>Your cart</h1>
     <p>Review your items before checkout.</p>
   </div>
 </section>
 
-<section class="gg-page-section">
+<section class="gg-section">
   <div class="gg-container">
     {% if cart.item_count > 0 %}
       <form action="{{ routes.cart_url }}" method="post" novalidate class="gg-cart-form">
         <div class="gg-cart-items">
           {% for item in cart.items %}
-            <div class="gg-cart-item">
+            <div class="gg-cart-item reveal">
               <div class="gg-cart-image">
                 {% if item.image %}
                   {{ item.image | image_url: width: 220 | image_tag: loading: 'lazy', alt: item.product.title }}
@@ -37,16 +37,16 @@
           {% endfor %}
         </div>
 
-        <div class="gg-cart-summary">
+        <div class="gg-cart-summary reveal">
           <h2>Total</h2>
           <p>{{ cart.total_price | money }}</p>
 
-          <button type="submit" name="update" class="gg-btn-outline">Update Cart</button>
+          <button type="submit" name="update" class="gg-btn-soft">Update Cart</button>
           <button type="submit" name="checkout" class="gg-btn">Checkout</button>
         </div>
       </form>
     {% else %}
-      <div class="gg-empty-state">
+      <div class="gg-empty-state reveal">
         <h2>Your cart is empty.</h2>
         <p>Visit the store to support Goal Grower development.</p>
         <a href="{{ routes.collections_url }}" class="gg-btn">Visit Store</a>
