@@ -27,42 +27,38 @@
     </div>
   </section>
 
-  <section id="story" class="gg-overlap-story">
-  <div class="gg-overlap-intro">
-    <p class="gg-eyebrow">Why it exists</p>
-    <h2>Goal Grower is built around returning.</h2>
-    <p>
-      Not perfect streaks. Not guilt. Just a small living reminder that the goal
-      is still worth caring for.
-    </p>
-  </div>
+  document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.querySelector(".gg-menu-toggle");
+  const nav = document.querySelector(".gg-nav");
 
-  <div class="gg-overlap-stage">
-    <article class="gg-overlap-card gg-overlap-dark">
-      <p class="gg-eyebrow">01 / The feeling</p>
-      <h2>Goals should feel <span>alive</span></h2>
-      <p>Most apps turn your life into another list. Goal Grower gives your effort a shape.</p>
-    </article>
+  if (menuToggle && nav) {
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("gg-open");
+    });
+  }
 
-    <article class="gg-overlap-card gg-overlap-charcoal">
-      <p class="gg-eyebrow">02 / Real life</p>
-      <h2>Life gets <span>loud</span></h2>
-      <p>School, work, stress, missed days, and unfinished plans are part of the design.</p>
-    </article>
+  const cards = document.querySelectorAll(".gg-overlap-card");
 
-    <article class="gg-overlap-card gg-overlap-green">
-      <p class="gg-eyebrow">03 / The loop</p>
-      <h2>Plant. Water. <span>Return.</span></h2>
-      <p>One small action keeps the plant alive. You can always come back.</p>
-    </article>
+  function animateOverlapCards() {
+    const topOffset = window.innerWidth < 650 ? 84 : 92;
 
-    <article class="gg-overlap-card gg-overlap-paper">
-      <p class="gg-eyebrow">04 / Together</p>
-      <h2>Grow with <span>people</span></h2>
-      <p>Shared gardens let friends, family, classmates, and teams grow side by side.</p>
-    </article>
-  </div>
-</section>
+    cards.forEach((card, index) => {
+      const rect = card.getBoundingClientRect();
+      const progress = Math.min(Math.max((topOffset - rect.top) / 420, 0), 1);
+
+      const visibleTop = index * (window.innerWidth < 650 ? 22 : 30);
+      const lift = progress * -110;
+      const scale = 1 - progress * 0.025;
+      const rotate = progress * (index % 2 === 0 ? -0.25 : 0.25);
+
+      card.style.transform = `translateY(${visibleTop + lift}px) scale(${scale}) rotate(${rotate}deg)`;
+    });
+  }
+
+  window.addEventListener("scroll", animateOverlapCards, { passive: true });
+  window.addEventListener("resize", animateOverlapCards);
+  animateOverlapCards();
+});
 
   <section class="gg-human-section">
     <div class="gg-section-heading">
