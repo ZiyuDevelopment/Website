@@ -1232,3 +1232,226 @@ body {
     display: none;
   }
 }
+
+/* TRUE OVERLAPPING CARD FEATURE */
+.gg-overlap-story {
+  background: #edf3f1;
+  padding: 8vw 4vw 12vw;
+}
+
+.gg-overlap-intro {
+  max-width: 980px;
+  padding: 0 2vw 5rem;
+}
+
+.gg-overlap-intro h2 {
+  font-size: clamp(2.8rem, 7vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.07em;
+  margin: 0 0 1.2rem;
+}
+
+.gg-overlap-intro p {
+  color: var(--gg-muted);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.7;
+  max-width: 720px;
+}
+
+.gg-overlap-stage {
+  position: relative;
+  height: 360vh;
+}
+
+.gg-overlap-card {
+  position: sticky;
+  top: 92px;
+  height: 78vh;
+  border-radius: 54px;
+  padding: clamp(2rem, 6vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 36px 90px rgba(17, 22, 26, 0.25);
+  transform-origin: center top;
+  will-change: transform;
+}
+
+.gg-overlap-card:not(:first-child) {
+  margin-top: -62vh;
+}
+
+.gg-overlap-card:nth-child(1) {
+  z-index: 1;
+}
+
+.gg-overlap-card:nth-child(2) {
+  z-index: 2;
+}
+
+.gg-overlap-card:nth-child(3) {
+  z-index: 3;
+}
+
+.gg-overlap-card:nth-child(4) {
+  z-index: 4;
+}
+
+.gg-overlap-card::after {
+  content: "";
+  position: absolute;
+  right: -130px;
+  bottom: -160px;
+  width: 430px;
+  height: 430px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.gg-overlap-dark {
+  background: #11161a;
+  color: white;
+}
+
+.gg-overlap-charcoal {
+  background: #383f42;
+  color: white;
+}
+
+.gg-overlap-green {
+  background: #dfeada;
+  color: var(--gg-dark);
+}
+
+.gg-overlap-paper {
+  background: var(--gg-paper);
+  color: var(--gg-dark);
+}
+
+.gg-overlap-card .gg-eyebrow {
+  color: inherit;
+  opacity: 0.68;
+}
+
+.gg-overlap-card h2 {
+  font-size: clamp(4.4rem, 11vw, 11rem);
+  line-height: 0.86;
+  letter-spacing: -0.09em;
+  margin: 0;
+  max-width: 1200px;
+}
+
+.gg-overlap-card h2 span {
+  display: block;
+  opacity: 0.42;
+}
+
+.gg-overlap-card > p:last-child {
+  max-width: 760px;
+  font-size: clamp(1.08rem, 2vw, 1.35rem);
+  line-height: 1.65;
+  opacity: 0.82;
+}
+
+/* More human/innovative page polish */
+.gg-subpage-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.gg-subpage-hero::after {
+  content: "";
+  position: absolute;
+  right: 6vw;
+  bottom: 6vw;
+  width: min(360px, 45vw);
+  height: min(360px, 45vw);
+  border-radius: 38% 62% 54% 46%;
+  background: linear-gradient(135deg, rgba(111,159,114,.22), rgba(212,173,87,.18));
+  animation: ggBlob 9s ease-in-out infinite;
+}
+
+.gg-team-card,
+.gg-product-card,
+.gg-loop-card,
+.gg-email-card,
+.gg-contact-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.gg-team-card::after,
+.gg-product-card::after,
+.gg-loop-card::after,
+.gg-email-card::after,
+.gg-contact-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -30% -35% auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  background: rgba(111,159,114,.09);
+  transition: transform .35s ease;
+}
+
+.gg-team-card:hover::after,
+.gg-product-card:hover::after,
+.gg-loop-card:hover::after,
+.gg-email-card:hover::after,
+.gg-contact-card:hover::after {
+  transform: scale(1.3);
+}
+
+.gg-about-story,
+.gg-store-feature,
+.gg-contact-form-section,
+.gg-testing {
+  border-radius: 46px;
+  margin: 4vw;
+}
+
+@keyframes ggBlob {
+  0%, 100% {
+    border-radius: 38% 62% 54% 46%;
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    border-radius: 58% 42% 38% 62%;
+    transform: translateY(-18px) rotate(8deg);
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .gg-overlap-story {
+    padding: 5rem 1rem 7rem;
+  }
+
+  .gg-overlap-stage {
+    height: 320vh;
+  }
+
+  .gg-overlap-card {
+    top: 84px;
+    height: 68vh;
+    border-radius: 32px;
+  }
+
+  .gg-overlap-card:not(:first-child) {
+    margin-top: -52vh;
+  }
+
+  .gg-overlap-card h2 {
+    font-size: clamp(3.4rem, 18vw, 6rem);
+  }
+
+  .gg-about-story,
+  .gg-store-feature,
+  .gg-contact-form-section,
+  .gg-testing {
+    margin: 1rem;
+    border-radius: 30px;
+  }
+}

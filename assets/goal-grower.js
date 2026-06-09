@@ -28,29 +28,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   revealItems.forEach((item) => revealObserver.observe(item));
 
-  const featureCards = document.querySelectorAll(".gg-feature-card");
-  const labCard = document.querySelector(".gg-lab-card-main");
+  const overlapCards = document.querySelectorAll(".gg-overlap-card");
 
-  function animateCards() {
+  function animateOverlapCards() {
     const topOffset = window.innerWidth < 650 ? 84 : 92;
 
-    featureCards.forEach((card, index) => {
+    overlapCards.forEach((card, index) => {
       const rect = card.getBoundingClientRect();
-      const progress = Math.min(Math.max((topOffset - rect.top) / 560, 0), 1);
+      const progress = Math.min(Math.max((topOffset - rect.top) / 520, 0), 1);
 
       const scale = 1 - progress * 0.055;
-      const lift = progress * -26;
-      const rotate = progress * (index % 2 === 0 ? -0.35 : 0.35);
+      const lift = progress * -24;
+      const rotate = progress * (index % 2 === 0 ? -0.45 : 0.45);
+      const opacity = 1 - progress * 0.04;
 
       card.style.transform = `translateY(${lift}px) scale(${scale}) rotate(${rotate}deg)`;
+      card.style.opacity = opacity;
     });
-
-    if (labCard) {
-      labCard.style.transform = `translateY(${window.scrollY * 0.012}px)`;
-    }
   }
 
-  window.addEventListener("scroll", animateCards, { passive: true });
-  window.addEventListener("resize", animateCards);
-  animateCards();
+  window.addEventListener("scroll", animateOverlapCards, { passive: true });
+  window.addEventListener("resize", animateOverlapCards);
+  animateOverlapCards();
 });
