@@ -5,7 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page_title }}{% if shop.name %} | {{ shop.name }}{% endif %}</title>
 
-
+    {{ 'header.css' | asset_url | stylesheet_tag }}
+    {{ 'footer.css' | asset_url | stylesheet_tag }}
+    {{ 'home.css' | asset_url | stylesheet_tag }}
+    {{ 'page-start-here.css' | asset_url | stylesheet_tag }}
+    {{ 'page-projects.css' | asset_url | stylesheet_tag }}
+    {{ 'page-goal-grower.css' | asset_url | stylesheet_tag }}
+    {{ 'page-myjourney.css' | asset_url | stylesheet_tag }}
+    {{ 'page-blokkr.css' | asset_url | stylesheet_tag }}
+    {{ 'page-kindlitt.css' | asset_url | stylesheet_tag }}
+    {{ 'page-support.css' | asset_url | stylesheet_tag }}
+    {{ 'page-philosophy.css' | asset_url | stylesheet_tag }}
+    {{ 'page-roadmap.css' | asset_url | stylesheet_tag }}
+    {{ 'page-community.css' | asset_url | stylesheet_tag }}
+    {{ 'page-founder-journey.css' | asset_url | stylesheet_tag }}
+    {{ 'collection.css' | asset_url | stylesheet_tag }}
+    {{ 'product.css' | asset_url | stylesheet_tag }}
+    {{ 'blog.css' | asset_url | stylesheet_tag }}
+    {{ 'article.css' | asset_url | stylesheet_tag }}
+    {{ 'page-faq.css' | asset_url | stylesheet_tag }}
+    {{ 'page-contact.css' | asset_url | stylesheet_tag }}
+    {{ 'search.css' | asset_url | stylesheet_tag }}
+    {{ 'cart.css' | asset_url | stylesheet_tag }}
+    {{ '404.css' | asset_url | stylesheet_tag }}
+    {{ 'page-beta.css' | asset_url | stylesheet_tag }}
+    {{ 'page-about.css' | asset_url | stylesheet_tag }}
+    {{ 'page-build-in-public.css' | asset_url | stylesheet_tag }}
+    {{ 'page.css' | asset_url | stylesheet_tag }}
+    {{ 'page-store.css' | asset_url | stylesheet_tag }}
+    {{ 'page-current-experiments.css' | asset_url | stylesheet_tag }}
+    {{ 'journal-products.css' | asset_url | stylesheet_tag }}
+    {{ 'collection-pages.css' | asset_url | stylesheet_tag }}
   {{ 'goal-grower.css' | asset_url | stylesheet_tag }}
 
     {{ content_for_header }}
@@ -22,6 +52,11 @@
     </main>
 
     {% section 'footer' %}
+    <script src="{{ 'header.js' | asset_url }}" defer></script>
+    <script src="{{ 'faq.js' | asset_url }}" defer></script>
+    {% render 'cart-drawer' %}
+  <script src="{{ 'cart-drawer.js' | asset_url }}" defer></script>
+  <script src="{{ 'page-roadmap.js' | asset_url }}" defer></script>
   <script src="{{ 'goal-grower.js' | asset_url }}" defer></script>
   </body>
 </html>

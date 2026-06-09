@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  // Mobile Menu
   const menuToggle = document.querySelector(".gg-menu-toggle");
   const nav = document.querySelector(".gg-nav");
 
@@ -8,23 +10,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Reveal Animations
   const revealItems = document.querySelectorAll(
     ".gg-loop-card, .gg-product-card, .gg-email-card, .gg-fund-card, .gg-faq details, .gg-contact-card, .gg-team-card, .gg-real-product-card, .gg-human-card"
   );
 
-  revealItems.forEach((item) => item.classList.add("gg-reveal"));
-
   const revealObserver = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry, index) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.style.transitionDelay = `${Math.min(index * 70, 280)}ms`;
           entry.target.classList.add("gg-visible");
         }
       });
     },
-    { threshold: 0.16 }
+    {
+      threshold: 0.15,
+    }
   );
 
-  revealItems.forEach((item) => revealObserver.observe(item));
+  revealItems.forEach((item) => {
+    item.classList.add("gg-reveal");
+    revealObserver.observe(item);
+  });
+
 });
