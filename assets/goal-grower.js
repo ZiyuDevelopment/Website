@@ -48,8 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const progress = total > 0 ? scrolled / total : 0;
 
     const isMobile = window.innerWidth < 650;
-    const startGap = isMobile ? 96 : 132;
-    const stackGap = isMobile ? 24 : 34;
+    const startGap = isMobile ? 86 : 118;
+    const stackGap = isMobile ? 26 : 38;
     const segment = 1 / cards.length;
 
     cards.forEach((card, index) => {
