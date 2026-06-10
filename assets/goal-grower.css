@@ -1354,3 +1354,96 @@ p {
   width: 255px;
   justify-self: center;
 }
+
+/* FINAL STACKING CARD FIX */
+
+.gg-overlay-story {
+  padding: 96px 0 220px;
+}
+
+.gg-overlay-story .gg-section-heading {
+  margin-bottom: 72px;
+}
+
+.gg-overlay-stack {
+  position: relative;
+  display: block;
+  padding-bottom: 140px;
+}
+
+.gg-overlay-card {
+  position: sticky;
+  min-height: 560px;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  align-items: center;
+  gap: 72px;
+  padding: 54px;
+  margin-bottom: 120px;
+  border-radius: 46px;
+  text-align: left;
+}
+
+.gg-overlay-card:nth-child(1) {
+  top: 92px;
+  z-index: 1;
+}
+
+.gg-overlay-card:nth-child(2) {
+  top: 112px;
+  z-index: 2;
+}
+
+.gg-overlay-card:nth-child(3) {
+  top: 132px;
+  z-index: 3;
+}
+
+.gg-overlay-card:nth-child(4) {
+  top: 152px;
+  z-index: 4;
+  margin-bottom: 0;
+}
+
+.gg-overlay-copy {
+  max-width: 720px;
+}
+
+.gg-overlay-copy h3 {
+  font-size: clamp(40px, 4.8vw, 66px);
+}
+
+.gg-overlay-copy p {
+  max-width: 600px;
+  font-size: 20px;
+}
+
+.card-phone {
+  width: 255px;
+  justify-self: center;
+}
+
+/* Mobile: no sticky stacking because it gets jumpy */
+@media (max-width: 950px) {
+  .gg-overlay-story {
+    padding: 80px 0;
+  }
+
+  .gg-overlay-stack {
+    padding-bottom: 0;
+  }
+
+  .gg-overlay-card {
+    position: relative;
+    top: auto !important;
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 32px;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .card-phone {
+    width: min(285px, 82vw);
+  }
+}
