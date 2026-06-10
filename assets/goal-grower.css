@@ -1203,8 +1203,8 @@ p {
   align-items: center;
 
   margin-top: -92px;
-  padding-top: 120px;
-  padding-bottom: 30px;
+  padding-top: 80px;
+  padding-bottom: -10px;
 
   background:
     radial-gradient(
