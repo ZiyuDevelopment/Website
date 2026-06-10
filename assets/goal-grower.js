@@ -19,9 +19,26 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     },
     {
-      threshold: 0.18
+      threshold: 0.14
     }
   );
 
   revealItems.forEach(item => revealObserver.observe(item));
+
+  const videos = document.querySelectorAll("video[autoplay]");
+
+  videos.forEach(video => {
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+
+    const tryPlay = () => {
+      video.play().catch(() => {});
+    };
+
+    tryPlay();
+
+    document.addEventListener("scroll", tryPlay, { once: true });
+    document.addEventListener("click", tryPlay, { once: true });
+  });
 });
