@@ -2243,3 +2243,23 @@ p {
   color: rgba(255,255,255,.75);
   font-size: 14px;
 }
+
+@keyframes launchPulse {
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.12);
+  }
+}
+
+.step-launch {
+  left: 73%;
+  bottom: 52%;
+}
+
+.step-projects {
+  right: -2%;
+  bottom: 70%;
+}
