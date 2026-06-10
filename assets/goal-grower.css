@@ -2215,7 +2215,7 @@ p {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  padding: 100px;
+  padding: 100px 0;
   background: var(--gg-paper);
 }
 
@@ -2224,6 +2224,7 @@ p {
   grid-template-columns: .9fr 1.1fr;
   gap: 100px;
   align-items: center;
+  padding: 100px;
 }
 
 .gg-manifesto-intro h2 {
