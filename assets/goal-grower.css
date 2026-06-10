@@ -1803,7 +1803,7 @@ p {
 /* Current needs whiteboard */
 
 .gg-lab-needs {
-  min-height: 800svh;
+  min-height: 50svh;
   display: flex;
   align-items: center;
   padding: 50px 0;
