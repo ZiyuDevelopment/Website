@@ -1759,7 +1759,6 @@ p {
   padding: 32px;
   border-radius: 34px;
   background: rgba(255,255,255,.76);
-  border: 1px solid rgba(255,255,255,.76);
   box-shadow: 0 30px 80px rgba(93,145,163,.12);
   position: relative;
   overflow: hidden;
