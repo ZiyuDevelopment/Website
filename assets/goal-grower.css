@@ -2211,32 +2211,35 @@ p {
   }
 }
 
-/* Manifesto / Mission */
-
 .gg-lab-manifesto {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  padding: 90px 0;
   background: var(--gg-paper);
 }
 
-.gg-manifesto-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 34px;
-  max-width: 940px;
-}
-
-.gg-manifesto-grid h2 {
+.gg-lab-manifesto h2 {
   max-width: 900px;
-  font-size: clamp(46px, 6vw, 86px);
+  font-size: clamp(70px, 9vw, 140px);
+  line-height: .92;
+  letter-spacing: -.06em;
 }
 
-.gg-manifesto-text {
+.gg-manifesto-divider {
+  width: 120px;
+  height: 2px;
+  margin: 56px 0;
+  background: var(--gg-clay);
+}
+
+.gg-manifesto-statements {
+  display: grid;
+  gap: 28px;
   max-width: 760px;
 }
 
-.gg-manifesto-text p {
-  font-size: 22px;
+.gg-manifesto-statement {
+  font-size: 28px;
+  line-height: 1.45;
+  color: var(--gg-muted);
 }
