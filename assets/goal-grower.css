@@ -1284,8 +1284,13 @@ p {
 }
 
 .gg-about-letter {
-  padding: 110px 0;
-  background: var(--gg-paper);
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(93,145,163,.10),
+      transparent 35%
+    ),
+    var(--gg-paper);
 }
 
 .gg-letter-panel {
