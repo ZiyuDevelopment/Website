@@ -664,7 +664,7 @@ p {
   min-height: 70svh;
   display: flex;
   align-items: center;
-  padding: 100px 0;
+  padding: 80px 0;
   background:
     radial-gradient(circle at 20% 20%, rgba(201, 130, 101, 0.18), transparent 28%),
     linear-gradient(135deg, var(--gg-blue), var(--gg-paper));
