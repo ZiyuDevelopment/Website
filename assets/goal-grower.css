@@ -2971,7 +2971,7 @@ p {
 }
 
 .gg-storefront-hero {
-  min-height: 72svh;
+  min-height: 64svh;
   display: grid;
   grid-template-columns: 1fr 380px;
   gap: 70px;
