@@ -1244,20 +1244,24 @@ p {
   pointer-events: none;
 }
 
-/* ABOUT HERO → NEXT SECTION FADE */
 .gg-about-human-hero::after {
   content: "";
+
   position: absolute;
   left: 0;
   right: 0;
   bottom: -1px;
-  height: 170px;
+
+  height: 180px;
+
   background: linear-gradient(
     180deg,
-    rgba(248, 242, 232, 0) 0%,
-    rgba(237, 247, 250, 0.55) 48%,
-   var( --gg-paper) 100%
+    rgba(255,250,242,0) 0%,
+    rgba(255,250,242,.35) 40%,
+    rgba(255,250,242,.75) 75%,
+    var(--gg-paper) 100%
   );
+
   pointer-events: none;
   z-index: 1;
 }
