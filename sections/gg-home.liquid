@@ -1,42 +1,40 @@
-<section class="gg-path-hero">
-  <div class="gg-path-bg"></div>
+<section class="gg-hero">
+  <div class="gg-hero-bg"></div>
 
-  <div class="gg-container gg-path-hero-grid">
-    <div class="gg-path-copy reveal">
-      <span class="gg-kicker">Goal Grower App</span>
-
-      <h1>A garden for becoming.</h1>
-
+  <div class="gg-container gg-hero-grid">
+    <div class="gg-hero-copy reveal">
+      <span class="gg-kicker">Goal Grower Beta</span>
+      <h1>Build goals you actually want to come back to.</h1>
       <p>
-        Goal Grower turns the things you care about into living plants,
-        so progress feels visible, personal, and easier to return to.
+        Goal Grower turns habits and big goals into living plants, so progress feels visible,
+        personal, and motivating instead of stressful.
       </p>
 
       <div class="gg-hero-actions">
-        <a href="/pages/support" class="gg-btn">Support Development</a>
-        <a href="#garden-path" class="gg-btn-soft">Walk the Path</a>
+        <a href="/pages/contact" class="gg-btn">Become a Tester</a>
+        <a href="/pages/support" class="gg-btn-soft">Support the Project</a>
       </div>
     </div>
 
-    <div class="gg-path-visual reveal">
-      <div class="gg-path-note note-left">
+    <div class="gg-hero-phones reveal">
+      <div class="gg-floating-card card-a">
         <strong>Return</strong>
-        <span>without shame</span>
+        <span>after imperfect days</span>
       </div>
 
-      <div class="gg-path-note note-right">
+      <div class="gg-floating-card card-b">
         <strong>Grow</strong>
-        <span>with small actions</span>
+        <span>one action at a time</span>
       </div>
 
-      <div class="gg-path-phone main-path-phone">
+      <div class="gg-phone main-phone">
         <div class="gg-phone-speaker"></div>
         <div class="gg-phone-screen">
           {{ 'gg-exercise-more-before-placed-garden-view.png' | asset_img_url: '1000x' | img_tag: 'Goal Grower garden screen' }}
         </div>
       </div>
 
-      <div class="gg-path-phone side-path-phone">
+      <div class="gg-phone side-phone">
         <div class="gg-phone-speaker small"></div>
         <div class="gg-phone-screen">
           {{ 'gg-exercise-more-only-goal-list-view.png' | asset_img_url: '700x' | img_tag: 'Goal Grower goals list screen' }}
@@ -46,40 +44,40 @@
   </div>
 </section>
 
-<section class="gg-path-belief">
+<section class="gg-belief">
   <div class="gg-container">
-    <div class="gg-belief-window reveal">
-      <span class="gg-kicker">The problem</span>
-      <h2>Most goals disappear because they never feel alive.</h2>
+    <div class="gg-belief-card reveal">
+      <span class="gg-kicker">The idea</span>
+      <h2>Your goals should feel alive.</h2>
       <p>
-        Checklists are useful, but they are easy to abandon. Goal Grower gives
-        your goals a place, a shape, and a reason to be cared for.
+        Most trackers turn your life into checkboxes. Goal Grower gives your progress a place to live.
+        Every goal becomes a plant. Every return matters. Every small action helps your garden grow.
       </p>
     </div>
   </div>
 </section>
 
-<section class="gg-garden-path" id="garden-path">
+<section class="gg-overlay-story" id="how-it-works">
   <div class="gg-container">
     <div class="gg-section-heading reveal">
-      <span class="gg-kicker">The garden path</span>
-      <h2>From empty space to visible growth.</h2>
+      <span class="gg-kicker">How it works</span>
+      <h2>From intention to visible growth.</h2>
       <p>
-        The homepage follows the same emotional journey as the app.
+        The app helps you move from “I should do this” to “I am becoming this.”
       </p>
     </div>
 
-    <div class="gg-path-steps">
-      <article class="gg-path-step reveal">
-        <div class="gg-path-step-copy">
-          <span>01</span>
-          <h3>Begin with space.</h3>
+    <div class="gg-overlay-stack">
+      <article class="gg-overlay-card reveal">
+        <div class="gg-overlay-copy">
+          <span>01 / Begin</span>
+          <h3>Start with a clean space.</h3>
           <p>
-            Before the garden grows, there is a quiet place to decide what matters.
+            Before anything grows, you get room to decide what actually matters.
           </p>
         </div>
 
-        <div class="gg-path-phone step-phone">
+        <div class="gg-phone card-phone">
           <div class="gg-phone-speaker"></div>
           <div class="gg-phone-screen">
             {{ 'gg-no-goals-yet.png' | asset_img_url: '900x' | img_tag: 'No goals yet screen' }}
@@ -87,16 +85,16 @@
         </div>
       </article>
 
-      <article class="gg-path-step reveal">
-        <div class="gg-path-step-copy">
-          <span>02</span>
-          <h3>Name what you are growing.</h3>
+      <article class="gg-overlay-card reveal">
+        <div class="gg-overlay-copy">
+          <span>02 / Choose</span>
+          <h3>Keep your goals visible.</h3>
           <p>
-            Your goals become easier to remember when they have a clear place to live.
+            Your goals stop disappearing into a forgotten list. They become part of the garden you are building.
           </p>
         </div>
 
-        <div class="gg-path-phone step-phone">
+        <div class="gg-phone card-phone">
           <div class="gg-phone-speaker"></div>
           <div class="gg-phone-screen">
             {{ 'gg-exercise-more-only-goal-list-view.png' | asset_img_url: '900x' | img_tag: 'Goal list screen' }}
@@ -104,19 +102,36 @@
         </div>
       </article>
 
-      <article class="gg-path-step reveal">
-        <div class="gg-path-step-copy">
-          <span>03</span>
-          <h3>Watch effort become visible.</h3>
+      <article class="gg-overlay-card reveal">
+        <div class="gg-overlay-copy">
+          <span>03 / Grow</span>
+          <h3>Watch effort become real.</h3>
           <p>
-            The garden turns consistency into something you can see and care about.
+            Each action helps your plant grow, turning consistency into something you can see and care about.
           </p>
         </div>
 
-        <div class="gg-path-phone step-phone">
+        <div class="gg-phone card-phone">
           <div class="gg-phone-speaker"></div>
           <div class="gg-phone-screen">
             {{ 'gg-exercise-more-before-placed-garden-view.png' | asset_img_url: '900x' | img_tag: 'Garden screen' }}
+          </div>
+        </div>
+      </article>
+
+      <article class="gg-overlay-card reveal">
+        <div class="gg-overlay-copy">
+          <span>04 / Understand</span>
+          <h3>See the progress behind the plant.</h3>
+          <p>
+            The garden gives motivation. The details screen gives clarity, so every goal feels meaningful and manageable.
+          </p>
+        </div>
+
+        <div class="gg-phone card-phone">
+          <div class="gg-phone-speaker"></div>
+          <div class="gg-phone-screen">
+            {{ 'gg-exercise-more-goal-details-view.png' | asset_img_url: '900x' | img_tag: 'Goal details screen' }}
           </div>
         </div>
       </article>
@@ -124,37 +139,23 @@
   </div>
 </section>
 
-<section class="gg-detail-proof">
-  <div class="gg-container gg-two-col">
-    <div class="reveal">
-      <span class="gg-kicker">Structure underneath</span>
-      <h2>Growth still needs clarity.</h2>
+<section class="gg-demo" id="demo">
+  <div class="gg-container gg-demo-grid">
+    <div class="gg-demo-copy reveal">
+      <span class="gg-kicker light">App demo</span>
+      <h2>See how the garden grows.</h2>
       <p>
-        The garden gives your progress emotion. The details screen gives it structure,
-        so goals feel meaningful and manageable at the same time.
+        Watch the current beta in motion. If the idea feels exciting, become a tester or support development
+        and help shape what Goal Grower becomes next.
       </p>
-    </div>
 
-    <div class="gg-path-phone proof-phone reveal">
-      <div class="gg-phone-speaker"></div>
-      <div class="gg-phone-screen">
-        {{ 'gg-exercise-more-goal-details-view.png' | asset_img_url: '900x' | img_tag: 'Goal details screen' }}
+      <div class="gg-hero-actions">
+        <a href="/pages/contact" class="gg-btn">Join Testing</a>
+        <a href="/pages/support" class="gg-btn-soft light-btn">Support Development</a>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="gg-path-video" id="runthrough">
-  <div class="gg-container">
-    <div class="gg-section-heading center reveal">
-      <span class="gg-kicker light">Runthrough</span>
-      <h2>See the app move.</h2>
-      <p>
-        A small runthrough of the real app experience.
-      </p>
-    </div>
-
-    <div class="gg-path-phone video-phone reveal">
+    <div class="gg-phone demo-phone reveal">
       <div class="gg-phone-speaker"></div>
       <div class="gg-phone-screen">
         <video
@@ -170,19 +171,18 @@
   </div>
 </section>
 
-<section class="gg-shared-path">
+<section class="gg-shared">
   <div class="gg-container">
-    <div class="gg-shared-window reveal">
+    <div class="gg-shared-card reveal">
       <div>
         <span class="gg-kicker">Shared gardens</span>
-        <h2>Growth can be personal and shared.</h2>
+        <h2>Grow with people who are growing too.</h2>
       </div>
 
       <div>
         <p>
-          Create shared gardens with friends, spouses, classmates, roommates, or
-          accountability partners. Everyone grows their own goals while contributing
-          to something together.
+          Shared gardens help friends, spouses, classmates, and accountability partners work on their own goals
+          while contributing to something together.
         </p>
 
         <div class="gg-pills">
@@ -196,105 +196,50 @@
   </div>
 </section>
 
-<section class="gg-human-loop">
-  <div class="gg-container">
-    <div class="gg-section-heading reveal">
-      <span class="gg-kicker">The loop</span>
-      <h2>Not productivity. Relationship.</h2>
-      <p>
-        The goal is not to become perfect. The goal is to keep coming back.
-      </p>
-    </div>
-
-    <div class="gg-loop-grid">
-      <div class="gg-loop-card reveal">
-        <span>Notice</span>
-        <p>Choose what deserves your attention.</p>
-      </div>
-
-      <div class="gg-loop-card reveal">
-        <span>Plant</span>
-        <p>Give that intention a place.</p>
-      </div>
-
-      <div class="gg-loop-card reveal">
-        <span>Water</span>
-        <p>Use small actions to keep it alive.</p>
-      </div>
-
-      <div class="gg-loop-card reveal">
-        <span>Return</span>
-        <p>Come back and grow again.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="gg-maker-path">
-  <div class="gg-container gg-two-col">
-    <div class="reveal">
-      <span class="gg-kicker light">Built by a student</span>
-      <h2>Made by someone who needed it too.</h2>
-      <p>
-        Goal Grower is being built to make progress feel less cold and more alive:
-        part app, part garden, part reminder that growth takes time.
-      </p>
-    </div>
-
-    <div class="gg-maker-card reveal">
-      <h3>Current progress</h3>
-      <ul>
-        <li>Goal tracking built</li>
-        <li>Personal gardens built</li>
-        <li>Shared gardens in beta</li>
-        <li>Android testing next</li>
-        <li>Widgets and reminders future</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="gg-support-path">
+<section class="gg-support-preview">
   <div class="gg-container">
     <div class="gg-section-heading reveal">
       <span class="gg-kicker">Support the build</span>
-      <h2>Help the garden keep growing.</h2>
+      <h2>Help Goal Grower become real.</h2>
       <p>
-        Support Goal Grower development, future apps, digital tools, and products
-        made for intentional growth.
+        Your support helps fund testing, design, development, and future features.
       </p>
     </div>
 
     <div class="gg-support-grid">
-      <a href="/collections/all" class="gg-support-card reveal">
-        <span>Main</span>
-        <h3>Goal Grower Support</h3>
-        <p>Help fund development, design, testing, and future features.</p>
+      <a href="/pages/contact" class="gg-support-card reveal">
+        <span>Beta</span>
+        <h3>Become a Tester</h3>
+        <p>Try the app, give feedback, and help shape the experience.</p>
+      </a>
+
+      <a href="/pages/support" class="gg-support-card reveal">
+        <span>Mission</span>
+        <h3>Support Development</h3>
+        <p>Help fund the app while it grows from beta into release.</p>
       </a>
 
       <a href="/collections/all" class="gg-support-card reveal">
-        <span>Tools</span>
-        <h3>Digital Products</h3>
-        <p>Templates, planners, and intentional growth resources.</p>
-      </a>
-
-      <a href="/collections/all" class="gg-support-card reveal">
-        <span>Objects</span>
-        <h3>Physical Products</h3>
-        <p>Merch, desk items, and calming productivity products.</p>
+        <span>Store</span>
+        <h3>Shop Products</h3>
+        <p>Support future apps, tools, and intentional growth products.</p>
       </a>
     </div>
   </div>
 </section>
 
-<section class="gg-path-final">
+<section class="gg-final">
   <div class="gg-container reveal">
     <span class="gg-kicker">The mission</span>
-    <h2>Build a life you can keep returning to.</h2>
+    <h2>Grow a life you can keep returning to.</h2>
     <p>
-      Goal Grower is about making progress feel human, hopeful, and worth caring about.
+      Goal Grower is for people who want progress to feel human, hopeful, and alive.
     </p>
-    <a href="/pages/support" class="gg-btn">Support Development</a>
+
+    <div class="gg-hero-actions center">
+      <a href="/pages/contact" class="gg-btn">Become a Tester</a>
+      <a href="/pages/support" class="gg-btn-soft">Support the Project</a>
+    </div>
   </div>
 </section>
 
