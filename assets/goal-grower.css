@@ -946,11 +946,11 @@ p {
 
 @keyframes floatingCard {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(-10);
   }
 
   50% {
-    transform: translateY(-35px);
+    transform: translateY(-30px);
   }
 }
 
