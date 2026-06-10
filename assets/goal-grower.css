@@ -2211,17 +2211,32 @@ p {
   }
 }
 
-.gg-mission-grid {
+/* Manifesto / Mission */
+
+.gg-lab-manifesto {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 90px 0;
+  background: var(--gg-paper);
+}
+
+.gg-manifesto-grid {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 34px;
+  max-width: 940px;
+}
+
+.gg-manifesto-grid h2 {
   max-width: 900px;
+  font-size: clamp(46px, 6vw, 86px);
 }
 
-.gg-mission-heading {
-  max-width: 700px;
+.gg-manifesto-text {
+  max-width: 760px;
 }
 
-.gg-mission-text {
-  max-width: 700px;
+.gg-manifesto-text p {
+  font-size: 22px;
 }
