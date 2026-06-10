@@ -72,52 +72,58 @@
   </div>
 </section>
 
-<section class="gg-support-chart-section">
-  <div class="gg-container gg-support-chart-grid">
-    <div class="gg-support-chart-copy reveal">
+<section class="gg-support-graph-section">
+  <div class="gg-container gg-support-graph-grid">
+    <div class="gg-support-graph-copy reveal">
       <span class="gg-kicker">Support Studio</span>
 
-      <h2>Support moves the build forward.</h2>
+      <h2>Every contribution moves the build forward.</h2>
 
       <p>
-        Every kind of help turns into progress: people testing the beta, feedback
-        becoming improvements, support funding polish, and the app getting closer
-        to launch.
+        Feedback improves the experience. Testing reveals what matters. Support
+        funds development. Together, they move Goal Grower closer to launch.
       </p>
     </div>
 
-    <div class="gg-build-chart reveal">
-      <div class="gg-chart-header">
-        <span>Build momentum</span>
-        <strong>Goal Grower Beta</strong>
-      </div>
+    <div class="gg-roadmap-graph reveal">
+      <div class="gg-graph-label top">Launch</div>
+      <div class="gg-graph-label bottom">Beta</div>
 
-      <div class="gg-chart-bars">
-        <a href="/pages/contact" class="gg-chart-bar bar-test">
-          <span>Test</span>
-          <strong>Beta feedback</strong>
-        </a>
+      <svg class="gg-graph-svg" viewBox="0 0 700 420" preserveAspectRatio="none" aria-hidden="true">
+        <path
+          class="gg-graph-line"
+          d="M 70 340 C 150 290, 190 300, 250 250 S 370 180, 440 155 S 560 105, 630 70"
+        />
 
-        <a href="/pages/contact" class="gg-chart-bar bar-feedback">
-          <span>Shape</span>
-          <strong>Better flow</strong>
-        </a>
+        <circle class="gg-graph-point point-one" cx="70" cy="340" r="10" />
+        <circle class="gg-graph-point point-two" cx="250" cy="250" r="10" />
+        <circle class="gg-graph-point point-three" cx="440" cy="155" r="10" />
+        <circle class="gg-graph-point point-four" cx="630" cy="70" r="10" />
+      </svg>
 
-        <a href="/collections/all" class="gg-chart-bar bar-fund">
-          <span>Fund</span>
-          <strong>Development</strong>
-        </a>
+      <a href="/pages/contact" class="gg-graph-card graph-card-one">
+        <span>01</span>
+        <strong>Feedback</strong>
+        <p>Shows what feels useful, confusing, or missing.</p>
+      </a>
 
-        <a href="/collections/all" class="gg-chart-bar bar-share">
-          <span>Share</span>
-          <strong>More testers</strong>
-        </a>
-      </div>
+      <a href="/pages/contact" class="gg-graph-card graph-card-two">
+        <span>02</span>
+        <strong>Testing</strong>
+        <p>Gets the beta into real hands on real devices.</p>
+      </a>
 
-      <div class="gg-chart-axis">
-        <span>Beta</span>
-        <span>Launch</span>
-      </div>
+      <a href="/collections/all" class="gg-graph-card graph-card-three">
+        <span>03</span>
+        <strong>Support</strong>
+        <p>Funds design polish, development time, and launch prep.</p>
+      </a>
+
+      <a href="/collections/all" class="gg-graph-card graph-card-four">
+        <span>04</span>
+        <strong>Launch</strong>
+        <p>Moves the project closer to a public release.</p>
+      </a>
     </div>
   </div>
 </section>
