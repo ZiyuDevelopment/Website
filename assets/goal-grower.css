@@ -1855,7 +1855,7 @@ p {
 /* Close */
 
 .gg-lab-close {
-  min-height: 100svh;
+  min-height: 70svh;
   display: flex;
   align-items: center;
   padding: 90px 0;
