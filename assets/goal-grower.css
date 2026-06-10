@@ -1293,3 +1293,64 @@ p {
     transform: none !important;
   }
 }
+
+/* CLEANER STACKABLE STORY CARDS - ONE SCREEN PER CARD */
+
+.gg-overlay-story {
+  padding: 88px 0 160px;
+}
+
+.gg-overlay-stack {
+  display: grid;
+  gap: 72px;
+  padding-bottom: 90px;
+}
+
+.gg-overlay-card {
+  position: sticky;
+  min-height: 560px;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  align-items: center;
+  gap: 64px;
+  padding: 52px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.gg-overlay-card:nth-child(1) {
+  top: 92px;
+  z-index: 1;
+}
+
+.gg-overlay-card:nth-child(2) {
+  top: 112px;
+  z-index: 2;
+}
+
+.gg-overlay-card:nth-child(3) {
+  top: 132px;
+  z-index: 3;
+}
+
+.gg-overlay-card:nth-child(4) {
+  top: 152px;
+  z-index: 4;
+}
+
+.gg-overlay-copy {
+  max-width: 720px;
+}
+
+.gg-overlay-copy h3 {
+  font-size: clamp(38px, 4.5vw, 62px);
+}
+
+.gg-overlay-copy p {
+  max-width: 600px;
+  font-size: 20px;
+}
+
+.card-phone {
+  width: 255px;
+  justify-self: center;
+}
