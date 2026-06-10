@@ -1269,12 +1269,12 @@ p {
 .gg-about-human-grid {
   display: grid;
   grid-template-columns: 1fr .85fr;
-  gap: 72px;
+  gap: 68px;
   align-items: end;
 }
 
 .gg-about-note {
-  padding: 34px;
+  padding: 32px;
   border-left: 2px solid var(--gg-clay);
 }
 
