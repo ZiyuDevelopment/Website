@@ -661,7 +661,7 @@ p {
 .gg-shared {
   position: relative;
   overflow: hidden;
-  min-height: 84svh;
+  min-height: 70svh;
   display: flex;
   align-items: center;
   padding: 100px 0;
