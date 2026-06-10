@@ -1,54 +1,110 @@
-<section class="gg-shop-page">
+<section class="gg-storefront">
   <div class="gg-container">
-    <div class="gg-shop-hero">
+    <div class="gg-storefront-hero">
       <div>
         <span class="gg-kicker">Ziyu Development Store</span>
-        <h1>Build-supporting products for intentional growth.</h1>
+        <h1>Support the build.</h1>
         <p>
-          Shop digital tools, project merch, and support items that help fund Goal Grower and future app projects.
+          Shop products that help fund Goal Grower development, testing, launch prep,
+          and future intentional software projects.
         </p>
+        <div class="gg-hero-actions">
+          <a href="#products" class="gg-btn">Shop Products</a>
+          <a href="/pages/support" class="gg-btn-soft">Why It Matters</a>
+        </div>
       </div>
 
-      <div class="gg-shop-note">
-        <strong>Every purchase supports development.</strong>
-        <span>Testing, design polish, launch prep, and future tools.</span>
+      {% assign featured_product = collection.products.first %}
+      {% if featured_product %}
+        <a href="{{ featured_product.url }}" class="gg-featured-product">
+          <span>Featured</span>
+          <div class="gg-featured-image">
+            {% if featured_product.featured_image %}
+              {{ featured_product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: featured_product.title }}
+            {% else %}
+              <div class="gg-product-placeholder"></div>
+            {% endif %}
+          </div>
+          <h2>{{ featured_product.title }}</h2>
+          <p>{{ featured_product.price | money }}</p>
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="gg-shop-categories">
+      <a href="#products">Support Development</a>
+      <a href="#products">Digital Products</a>
+      <a href="#products">Merchandise</a>
+      <a href="#future">Future Releases</a>
+    </div>
+
+    <section id="products" class="gg-shop-products">
+      <div class="gg-shop-heading">
+        <span>{{ collection.products_count }} products</span>
+        <h2>Available now</h2>
       </div>
-    </div>
 
-    <div class="gg-shop-toolbar">
-      <span>{{ collection.products_count }} products</span>
-      <a href="/pages/support">Why purchases matter</a>
-    </div>
-
-    {% if collection.products.size > 0 %}
-      <div class="gg-shop-grid">
-        {% for product in collection.products %}
-          <a href="{{ product.url }}" class="gg-shop-card">
-            <div class="gg-shop-image">
-              {% if product.featured_image %}
-                {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
-              {% else %}
-                <div class="gg-product-placeholder"></div>
-              {% endif %}
-            </div>
-
-            <div class="gg-shop-info">
-              <span>{{ product.type | default: 'Support item' }}</span>
-              <h2>{{ product.title }}</h2>
-              <div class="gg-shop-price-row">
-                <p>{{ product.price | money }}</p>
-                <small>View item</small>
+      {% if collection.products.size > 0 %}
+        <div class="gg-shop-grid">
+          {% for product in collection.products %}
+            <a href="{{ product.url }}" class="gg-shop-card">
+              <div class="gg-shop-image">
+                {% if product.featured_image %}
+                  {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
+                {% else %}
+                  <div class="gg-product-placeholder"></div>
+                {% endif %}
               </div>
-            </div>
-          </a>
-        {% endfor %}
+
+              <div class="gg-shop-info">
+                <span>{{ product.type | default: 'Support item' }}</span>
+                <h3>{{ product.title }}</h3>
+                <p>{{ product.price | money }}</p>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="gg-empty-store">
+          <h2>Products are coming soon.</h2>
+          <p>The store is being prepared.</p>
+        </div>
+      {% endif %}
+    </section>
+
+    <section class="gg-purchase-impact">
+      <div>
+        <span class="gg-kicker">Why purchases matter</span>
+        <h2>Every purchase helps move Goal Grower closer to launch.</h2>
       </div>
-    {% else %}
-      <div class="gg-empty-store">
-        <h2>Products are coming soon.</h2>
-        <p>The store is being prepared.</p>
+
+      <div class="gg-impact-bars">
+        <div>
+          <span>Development</span>
+          <strong><i style="width: 82%"></i></strong>
+        </div>
+        <div>
+          <span>Testing</span>
+          <strong><i style="width: 64%"></i></strong>
+        </div>
+        <div>
+          <span>Launch Prep</span>
+          <strong><i style="width: 46%"></i></strong>
+        </div>
       </div>
-    {% endif %}
+    </section>
+
+    <section id="future" class="gg-future-projects">
+      <span class="gg-kicker">Coming next</span>
+      <h2>Future projects from the studio.</h2>
+
+      <div class="gg-future-grid">
+        <div><strong>MyJourney</strong><span>Life archive app</span></div>
+        <div><strong>Blokkr</strong><span>Focus tool</span></div>
+        <div><strong>KindLitt</strong><span>Reading helper</span></div>
+        <div><strong>EyeDry</strong><span>Eye-rest reminder</span></div>
+      </div>
+    </section>
   </div>
 </section>
 {% schema %}
