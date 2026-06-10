@@ -22,14 +22,7 @@
     <div class="gg-phone-camera"></div>
 
     <div class="gg-phone-screen">
-      {{
-        'gg-exercise-more-before-placed-garden-view.png'
-        | asset_url
-        | image_tag:
-          loading: 'eager',
-          alt: 'Goal Grower Garden Screen',
-          widths: '400,600,800'
-      }}
+      {{ 'gg-exercise-more-before-placed-garden-view.png' | asset_img_url: '800x' | img_tag: 'Goal Grower garden screen' }}
     </div>
   </div>
 
@@ -37,14 +30,8 @@
     <div class="gg-phone-camera small"></div>
 
     <div class="gg-phone-screen">
-      {{
-        'gg-exercise-more-only-goal-list-view.png'
-        | asset_url
-        | image_tag:
-          loading: 'lazy',
-          alt: 'Goal Grower Goals Screen'
-      }}
-    </div>
+  {{ 'gg-exercise-more-only-goal-list-view.png' | asset_img_url: '500x' | img_tag: 'Goal Grower goals screen' }}
+</div>
   </div>
 
   <div class="gg-human-note">
