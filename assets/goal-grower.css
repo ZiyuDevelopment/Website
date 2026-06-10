@@ -2000,8 +2000,8 @@ p {
 .gg-roadmap-line {
   position: relative;
   width: 100%;
-  height: 760px;
-  margin-top: -120px;
+  height: 500px;
+  margin-top: -40px;
 }
 
 .gg-roadmap-svg {
@@ -2068,69 +2068,65 @@ p {
 
 /* Positions */
 
+/* Development */
+
 .step-development {
-  left: 2%;
-  bottom: 4%;
-  animation-delay: .25s;
+  left: 3%;
+  bottom: 12%;
 }
 
 .step-development .graph-label {
   left: 24px;
-  bottom: 36px;
+  bottom: 34px;
 }
+
+/* Testing */
 
 .step-testing {
   left: 25%;
-  bottom: 26%;
-  animation-delay: .65s;
+  bottom: 24%;
 }
 
 .step-testing .graph-label {
-  left: -60px;
-  top: 36px;
+  left: -20px;
+  top: 34px;
 }
 
+/* Feedback */
+
 .step-feedback {
-  left: 49%;
-  bottom: 49%;
-  animation-delay: 1.05s;
+  left: 47%;
+  bottom: 34%;
 }
 
 .step-feedback .graph-label {
-  left: 26px;
-  bottom: 36px;
+  left: -10px;
+  bottom: 34px;
 }
 
+/* Launch */
+
 .step-launch {
-  left: 72%;
-  top: 18%;
-  animation-delay: 1.45s;
+  left: 69%;
+  bottom: 47%;
 }
 
 .step-launch .graph-label {
-  left: -80px;
-  top: 36px;
+  left: -20px;
+  top: 34px;
 }
+
+/* More Projects */
 
 .step-projects {
-  right: -3%;
-  top: -2%;
-  animation-delay: 1.85s;
-}
-
-.step-projects .graph-node {
-  width: 28px;
-  height: 28px;
-  box-shadow:
-    0 0 0 16px rgba(201,130,101,.16),
-    0 0 60px rgba(201,130,101,.35);
+  right: 2%;
+  bottom: 62%;
 }
 
 .step-projects .graph-label {
   right: 0;
-  top: 42px;
-  width: 230px;
-  background: var(--gg-charcoal);
+  bottom: 34px;
+  width: 240px;
 }
 
 .step-projects .graph-label strong {
