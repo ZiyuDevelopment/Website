@@ -2060,166 +2060,200 @@ p {
   opacity: .8;
 }
 
-/* SIGNAL PULSE SECTION */
+/* SUPPORT STUDIO SECTION */
 
-.gg-signal-section {
+.gg-support-studio {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  padding: 86px 0;
+  padding: 90px 0;
   background:
-    radial-gradient(circle at 20% 20%, rgba(93,145,163,.14), transparent 30%),
-    radial-gradient(circle at 80% 80%, rgba(201,130,101,.14), transparent 30%),
-    linear-gradient(180deg, #edf7fa, var(--gg-paper));
+    radial-gradient(circle at 15% 20%, rgba(93,145,163,.16), transparent 30%),
+    radial-gradient(circle at 85% 80%, rgba(201,130,101,.14), transparent 30%),
+    linear-gradient(135deg, #edf7fa, var(--gg-paper));
 }
 
-.gg-signal-grid {
+.gg-studio-grid {
   display: grid;
-  grid-template-columns: .9fr 1fr;
-  gap: 72px;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 80px;
   align-items: center;
 }
 
-.gg-signal-copy {
+.gg-studio-copy {
   max-width: 620px;
 }
 
-.gg-signal-copy h2 {
+.gg-studio-copy h2 {
   margin-top: 18px;
-  font-size: clamp(42px, 5vw, 76px);
+  font-size: clamp(42px, 5vw, 78px);
 }
 
-.gg-signal-copy p {
+.gg-studio-copy p {
   margin-top: 22px;
   font-size: 21px;
 }
 
-.gg-signal-visual {
+/* studio board */
+
+.gg-studio-board {
   position: relative;
-  min-height: 460px;
-  display: grid;
-  place-items: center;
-}
-
-.gg-signal-core {
-  position: relative;
-  z-index: 4;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--gg-charcoal);
-  color: white;
-  box-shadow: 0 30px 80px rgba(36,39,44,.22);
-}
-
-.gg-signal-core span {
-  font-weight: 900;
-}
-
-.gg-signal-ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 2px solid rgba(93,145,163,.28);
-  animation: signalPulse 4s ease-out infinite;
-}
-
-.ring-a {
-  width: 210px;
-  height: 210px;
-}
-
-.ring-b {
-  width: 300px;
-  height: 300px;
-  animation-delay: .8s;
-}
-
-.ring-c {
-  width: 390px;
-  height: 390px;
-  animation-delay: 1.6s;
-}
-
-.gg-signal-tag {
-  position: absolute;
-  z-index: 5;
-  padding: 14px 18px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.78);
+  min-height: 560px;
+  border-radius: 44px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.56), rgba(255,255,255,.25));
   border: 1px solid rgba(255,255,255,.8);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 20px 55px rgba(93,145,163,.14);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 30px 90px rgba(93,145,163,.14),
+    inset 0 0 0 1px rgba(255,255,255,.4);
+  overflow: hidden;
+}
+
+.gg-studio-board::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(36,39,44,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(36,39,44,.045) 1px, transparent 1px);
+  background-size: 34px 34px;
+  opacity: .45;
+}
+
+.gg-studio-board::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  right: -90px;
+  bottom: -90px;
+  border-radius: 50%;
+  background: rgba(201,130,101,.16);
+}
+
+/* notes */
+
+.gg-studio-note {
+  position: absolute;
+  width: 250px;
+  min-height: 185px;
+  padding: 24px;
+  border-radius: 28px;
+  background: rgba(255,250,242,.88);
+  border: 1px solid rgba(255,255,255,.85);
+  box-shadow: 0 24px 65px rgba(36,39,44,.12);
+  transition: transform .3s ease, box-shadow .3s ease;
+  z-index: 2;
+}
+
+.gg-studio-note:hover {
+  transform: translateY(-10px) rotate(0deg) !important;
+  box-shadow: 0 32px 80px rgba(36,39,44,.16);
+}
+
+.gg-studio-note span {
+  color: var(--gg-blue-deep);
+  font-size: 12px;
   font-weight: 900;
+  letter-spacing: .13em;
+}
+
+.gg-studio-note strong {
+  display: block;
+  margin-top: 14px;
   color: var(--gg-charcoal);
-  animation: signalFloat 5s ease-in-out infinite;
+  font-size: 24px;
+  font-family: "Sora", sans-serif;
+  letter-spacing: -.04em;
 }
 
-.tag-one {
-  top: 12%;
-  left: 28%;
+.gg-studio-note p {
+  margin-bottom: 0;
+  font-size: 15px;
+  line-height: 1.55;
 }
 
-.tag-two {
+.note-test {
+  left: 7%;
+  top: 10%;
+  transform: rotate(-4deg);
+  animation: studioFloatOne 7s ease-in-out infinite;
+}
+
+.note-feedback {
   right: 8%;
-  top: 42%;
-  animation-delay: .4s;
+  top: 18%;
+  transform: rotate(3deg);
+  animation: studioFloatTwo 7.5s ease-in-out infinite;
 }
 
-.tag-three {
+.note-fund {
+  left: 18%;
   bottom: 12%;
-  left: 30%;
-  animation-delay: .8s;
+  transform: rotate(4deg);
+  background: var(--gg-charcoal);
+  animation: studioFloatThree 8s ease-in-out infinite;
 }
 
-.tag-four {
-  left: 6%;
-  top: 42%;
-  animation-delay: 1.2s;
+.note-fund strong,
+.note-fund p {
+  color: white;
 }
 
-@keyframes signalPulse {
-  0% {
-    transform: scale(.72);
-    opacity: .75;
-  }
-
-  70% {
-    opacity: .18;
-  }
-
-  100% {
-    transform: scale(1.12);
-    opacity: 0;
-  }
+.note-fund p {
+  color: rgba(255,255,255,.72);
 }
 
-@keyframes signalFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
+.note-shop {
+  right: 10%;
+  bottom: 8%;
+  transform: rotate(-3deg);
+  animation: studioFloatFour 7.2s ease-in-out infinite;
+}
 
-  50% {
-    transform: translateY(-10px);
-  }
+@keyframes studioFloatOne {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-12px) rotate(-2deg); }
+}
+
+@keyframes studioFloatTwo {
+  0%, 100% { transform: translateY(0) rotate(3deg); }
+  50% { transform: translateY(12px) rotate(1deg); }
+}
+
+@keyframes studioFloatThree {
+  0%, 100% { transform: translateY(0) rotate(4deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes studioFloatFour {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(10px) rotate(-1deg); }
 }
 
 @media (max-width: 950px) {
-  .gg-signal-section {
+  .gg-support-studio {
     min-height: auto;
+    padding: 80px 0;
   }
 
-  .gg-signal-grid {
+  .gg-studio-grid {
     grid-template-columns: 1fr;
   }
 
-  .gg-signal-visual {
-    min-height: 390px;
+  .gg-studio-board {
+    min-height: auto;
+    display: grid;
+    gap: 18px;
+    padding: 24px;
   }
 
-  .ring-c {
-    width: 330px;
-    height: 330px;
+  .gg-studio-note {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    transform: none !important;
+    animation: none;
   }
 }
