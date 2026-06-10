@@ -2211,37 +2211,60 @@ p {
   }
 }
 
+/* Mission section - polished */
+
 .gg-lab-manifesto {
-  min-height: 100svh;
+  min-height: 86svh;
   display: flex;
   align-items: center;
-  padding: 90px 0;
+  padding: 80px 0;
   background: var(--gg-paper);
 }
 
 .gg-manifesto-grid {
-  max-width: 1000px;
+  max-width: 1080px;
+  display: grid;
+  grid-template-columns: 0.95fr 0.85fr;
+  gap: 72px;
+  align-items: end;
 }
 
 .gg-manifesto-grid h2 {
-  max-width: 850px;
-  font-size: clamp(52px, 6vw, 88px);
-  line-height: .95;
-  letter-spacing: -.05em;
   margin-top: 16px;
+  max-width: 720px;
+  font-size: clamp(52px, 6vw, 88px);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
 }
 
 .gg-manifesto-text {
-  max-width: 700px;
-  margin-top: 48px;
+  max-width: 520px;
+  padding-bottom: 10px;
 }
 
 .gg-manifesto-text p {
-  font-size: 24px;
-  line-height: 1.6;
-  margin-bottom: 28px;
+  margin: 0 0 24px;
+  font-size: 22px;
+  line-height: 1.65;
+  color: var(--gg-muted);
 }
 
 .gg-manifesto-text p:last-child {
   margin-bottom: 0;
+}
+
+@media (max-width: 950px) {
+  .gg-lab-manifesto {
+    min-height: auto;
+    padding: 80px 0;
+  }
+
+  .gg-manifesto-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .gg-manifesto-text {
+    max-width: 700px;
+  }
 }
