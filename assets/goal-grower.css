@@ -2256,3 +2256,58 @@ p {
 
   animation: launchRing 3s ease-out infinite;
 }
+
+/* Development */
+.step-development {
+  left: 3%;
+  bottom: 15%;
+}
+
+/* Testing */
+.step-testing {
+  left: 24%;
+  bottom: 23%;
+}
+
+/* Feedback */
+.step-feedback {
+  left: 46%;
+  bottom: 34%;
+}
+
+/* Launch */
+.step-launch {
+  left: 68%;
+  bottom: 48%;
+}
+
+/* More Projects */
+.step-projects {
+  left: 89%;
+  bottom: 62%;
+}
+
+.step-development .graph-label {
+  left: 28px;
+  bottom: 34px;
+}
+
+.step-testing .graph-label {
+  left: -40px;
+  top: 34px;
+}
+
+.step-feedback .graph-label {
+  left: -20px;
+  bottom: 34px;
+}
+
+.step-launch .graph-label {
+  left: -30px;
+  top: 34px;
+}
+
+.step-projects .graph-label {
+  right: -20px;
+  bottom: 34px;
+}
