@@ -1434,3 +1434,38 @@ p {
     display: none;
   }
 }
+
+/* SECTION DIRECTLY BELOW HERO */
+
+.gg-belief {
+  min-height: auto;
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+.gg-belief-card {
+  padding: 48px;
+}
+
+/* Remove excess spacing below hero */
+
+.gg-hero {
+  margin-bottom: 0;
+}
+
+/* HOW IT WORKS SECTION */
+
+.gg-showcase {
+  margin-top: 0;
+  padding-top: 70px;
+  padding-bottom: 90px;
+}
+
+.gg-showcase .gg-section-heading {
+  margin-bottom: 10px;
+}
+
+.gg-showcase-row:first-of-type {
+  border-top: 0;
+  padding-top: 10px;
+}
