@@ -950,7 +950,7 @@ p {
   }
 
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-27px);
   }
 }
 
@@ -1310,8 +1310,8 @@ p {
 /* HERO FULL VIEWPORT FIX */
 
 .gg-hero {
-  min-height: 100svh;
-  height: 100svh;
+  min-height: 108svh;
+  height: 108svh;
 
   display: flex;
   align-items: center;
