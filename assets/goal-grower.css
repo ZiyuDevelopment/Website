@@ -22,8 +22,7 @@ html {
 
 body {
   margin: 0;
-  background:
-    linear-gradient(180deg, #f8f2e8 0%, #fffaf2 42%, #f8f2e8 100%);
+  background: linear-gradient(180deg, #f8f2e8 0%, #fffaf2 42%, #f8f2e8 100%);
   color: var(--gg-ink);
   font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   overflow-x: hidden;
@@ -190,7 +189,7 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(46px, 7vw, 86px);
+  font-size: clamp(54px, 6vw, 92px);
 }
 
 h2 {
@@ -250,11 +249,13 @@ p {
 .gg-hero {
   position: relative;
   overflow: hidden;
-  min-height: calc(100svh - 20px);
+  min-height: 105svh;
+  height: 105svh;
   display: flex;
   align-items: center;
   margin-top: -92px;
-  padding: 152px 0 48px;
+  margin-bottom: 0;
+  padding: 128px 0 48px;
   background:
     radial-gradient(circle at 14% 20%, rgba(201, 130, 101, 0.18), transparent 32%),
     radial-gradient(circle at 82% 12%, rgba(93, 145, 163, 0.28), transparent 35%),
@@ -266,10 +267,15 @@ p {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -230px;
-  height: 430px;
+  bottom: -170px;
+  height: 360px;
   background:
-    radial-gradient(circle at 50% 0%, rgba(93, 145, 163, 0.13), transparent 70%);
+    linear-gradient(
+      180deg,
+      rgba(248, 242, 232, 0) 0%,
+      rgba(255, 250, 242, 0.75) 48%,
+      rgba(255, 250, 242, 1) 100%
+    );
   pointer-events: none;
   z-index: 0;
 }
@@ -286,31 +292,42 @@ p {
 }
 
 .gg-hero-grid {
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 0.95fr;
-  gap: 56px;
+  gap: 60px;
   align-items: center;
   position: relative;
   z-index: 2;
 }
 
+.gg-hero-copy {
+  align-self: center;
+}
+
 .gg-hero-copy h1 {
   max-width: 840px;
-  font-size: clamp(46px, 7vw, 86px);
+  font-size: clamp(54px, 6vw, 92px);
+  line-height: 0.92;
+  margin-bottom: 22px;
 }
 
 .gg-hero-copy p {
-  max-width: 660px;
-  margin-top: 18px;
-  font-size: 18px;
+  max-width: 580px;
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 20px;
   line-height: 1.65;
 }
 
 .gg-hero-phones {
-  min-height: 560px;
-  display: grid;
-  place-items: center;
+  height: 100%;
+  min-height: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
+  transform: translateX(-8px);
 }
 
 /* PHONE FRAMES */
@@ -325,26 +342,33 @@ p {
 }
 
 .main-phone {
-  width: min(285px, 74vw);
+  width: min(320px, 26vw);
   aspect-ratio: 9 / 19.5;
   border-radius: 42px;
   padding: 12px;
+  z-index: 2;
+  transform: rotate(-3deg);
   animation: phoneFloat 6s ease-in-out infinite;
 }
 
 .side-phone {
+  display: block;
   position: absolute;
-  width: 132px;
+  width: 160px;
   aspect-ratio: 9 / 19.5;
-  right: -38px;
-  bottom: 52px;
+  right: 42px;
+  bottom: 128px;
+  z-index: 4;
   border-radius: 28px;
   padding: 9px;
-  transform: rotate(7deg);
+  opacity: 1;
+  transform: rotate(9deg);
   animation: phoneFloatSmall 7s ease-in-out infinite;
+  box-shadow:
+    0 28px 70px rgba(36, 39, 44, 0.32),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
-.card-phone,
 .demo-phone,
 .showcase-phone {
   aspect-ratio: 9 / 19.5;
@@ -358,7 +382,7 @@ p {
 }
 
 .showcase-phone {
-  width: min(340px, 82vw);
+  width: min(300px, 78vw);
   justify-self: center;
   transition: transform 0.35s ease;
 }
@@ -427,53 +451,61 @@ p {
 }
 
 .card-a {
-  top: 27%;
-  left: -8px;
+  top: 40%;
+  left: 20px;
+  z-index: 5;
 }
 
 .card-b {
-  top: 64%;
-  right: -56px;
+  top: 72%;
+  right: -28px;
+  z-index: 5;
 }
 
 /* BELIEF */
 
 .gg-belief {
   position: relative;
-  min-height: 78svh;
+  min-height: auto;
   display: flex;
   align-items: center;
-  padding: 90px 0;
+  padding: 70px 0 90px;
   background:
-    radial-gradient(circle at 85% 20%, rgba(93, 145, 163, 0.2), transparent 30%),
+    radial-gradient(circle at 85% 20%, rgba(93, 145, 163, 0.18), transparent 30%),
     transparent;
 }
 
 .gg-belief-card {
-  max-width: 980px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 54px;
   padding: 56px;
   border-radius: 48px;
-  background: rgba(255, 250, 242, 0.72);
-  backdrop-filter: blur(22px);
-  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: rgba(255, 250, 242, 0.78);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.74);
   box-shadow: var(--gg-shadow);
 }
 
 .gg-belief-card h2 {
-  margin-top: 16px;
+  margin-top: 14px;
+  max-width: 760px;
 }
 
 .gg-belief-card p {
-  max-width: 780px;
-  font-size: 22px;
+  max-width: 760px;
+  margin-top: 0;
+  font-size: 21px;
 }
 
-/* SHOWCASE SECTION */
+/* SHOWCASE */
 
 .gg-showcase {
   position: relative;
   overflow: hidden;
-  padding: 120px 0;
+  margin-top: 0;
+  padding: 70px 0 90px;
   background:
     radial-gradient(circle at 12% 10%, rgba(93, 145, 163, 0.16), transparent 30%),
     radial-gradient(circle at 88% 80%, rgba(201, 130, 101, 0.14), transparent 30%),
@@ -482,7 +514,7 @@ p {
 
 .gg-section-heading {
   max-width: 780px;
-  margin-bottom: 52px;
+  margin-bottom: 24px;
 }
 
 .gg-section-heading.center {
@@ -501,12 +533,19 @@ p {
 }
 
 .gg-showcase-row {
-  min-height: 88svh;
+  min-height: 64svh;
   display: grid;
   grid-template-columns: 1fr 360px;
-  gap: 90px;
+  gap: 56px;
   align-items: center;
+  padding: 34px 0;
   border-top: 1px solid var(--gg-line);
+}
+
+.gg-showcase-row:first-of-type {
+  min-height: 60svh;
+  border-top: 0;
+  padding-top: 10px;
 }
 
 .gg-showcase-row.reverse {
@@ -535,14 +574,15 @@ p {
 
 .gg-showcase-copy h3 {
   margin-top: 18px;
-  font-size: clamp(46px, 6vw, 82px);
+  font-size: clamp(38px, 5vw, 66px);
   line-height: 0.95;
 }
 
 .gg-showcase-copy p {
   max-width: 620px;
-  margin-top: 24px;
-  font-size: 22px;
+  margin-top: 18px;
+  font-size: 20px;
+  line-height: 1.65;
 }
 
 .gg-showcase-row:hover .showcase-phone {
@@ -945,7 +985,7 @@ p {
 
 @keyframes floatingCard {
   0%, 100% {
-    transform: translateY(-10);
+    transform: translateY(-10px);
   }
 
   50% {
@@ -955,21 +995,21 @@ p {
 
 @keyframes phoneFloat {
   0%, 100% {
-    transform: translateY(0) rotate(-2deg);
+    transform: translateY(0) rotate(-3deg);
   }
 
   50% {
-    transform: translateY(-18px) rotate(1deg);
+    transform: translateY(-16px) rotate(0deg);
   }
 }
 
 @keyframes phoneFloatSmall {
   0%, 100% {
-    transform: translateY(0) rotate(7deg);
+    transform: translateY(0) rotate(9deg);
   }
 
   50% {
-    transform: translateY(-14px) rotate(4deg);
+    transform: translateY(-12px) rotate(6deg);
   }
 }
 
@@ -1007,17 +1047,9 @@ p {
 
   .gg-hero {
     min-height: auto;
+    height: auto;
     margin-top: -80px;
     padding: 132px 0 64px;
-  }
-
-  .gg-belief,
-  .gg-demo,
-  .gg-shared,
-  .gg-support-preview,
-  .gg-final {
-    min-height: auto;
-    padding: 86px 0;
   }
 
   .gg-hero-grid,
@@ -1027,25 +1059,47 @@ p {
   .gg-product-grid,
   .gg-product-layout,
   .gg-cart-form,
-  .gg-footer-grid {
+  .gg-footer-grid,
+  .gg-belief-card {
     grid-template-columns: 1fr;
   }
 
   .gg-hero-grid {
-    gap: 36px;
+    height: auto;
+    gap: 40px;
+  }
+
+  .gg-hero-copy {
+    text-align: center;
+  }
+
+  .gg-hero-copy p {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .gg-hero-phones {
+    height: auto;
     min-height: 460px;
+    transform: none;
   }
 
   .main-phone {
-    width: min(270px, 82vw);
+    width: min(300px, 82vw);
   }
 
   .side-phone,
   .gg-floating-card {
     display: none;
+  }
+
+  .gg-belief,
+  .gg-demo,
+  .gg-shared,
+  .gg-support-preview,
+  .gg-final {
+    min-height: auto;
+    padding: 86px 0;
   }
 
   .gg-belief-card,
@@ -1058,15 +1112,15 @@ p {
   }
 
   .gg-showcase {
-    padding: 86px 0;
+    padding: 86px 0 60px;
   }
 
   .gg-showcase-row,
   .gg-showcase-row.reverse {
     min-height: auto;
     grid-template-columns: 1fr;
-    gap: 38px;
-    padding: 64px 0;
+    gap: 28px;
+    padding: 44px 0;
   }
 
   .gg-showcase-row.reverse .gg-showcase-copy,
@@ -1080,7 +1134,7 @@ p {
   }
 
   .showcase-phone {
-    width: min(300px, 82vw);
+    width: min(280px, 82vw);
   }
 
   .gg-cart-summary {
@@ -1099,372 +1153,4 @@ p {
   h2 {
     font-size: 42px;
   }
-}
-
-/* HERO PHONE SPATIAL OVERLAP + HOW IT WORKS FLOW FIX */
-
-.gg-hero {
-  padding-bottom: 0;
-}
-
-.gg-hero-phones {
-  min-height: 560px;
-  transform: translateX(-18px);
-}
-
-/* Main garden phone: large anchor */
-.main-phone {
-  width: min(300px, 74vw);
-  transform: rotate(-3deg);
-}
-
-/* Side goals phone: lower, more behind, less random */
-.side-phone {
-  width: 150px;
-  right: 34px;
-  bottom: 42px;
-  z-index: 1;
-  opacity: 0.96;
-  transform: rotate(7deg);
-}
-
-.main-phone {
-  z-index: 3;
-}
-
-/* Bring bubbles into the phone cluster */
-.card-a {
-  top: 25%;
-  left: 20px;
-  z-index: 5;
-}
-
-.card-b {
-  top: 55%;
-  right: 6px;
-  z-index: 5;
-}
-
-/* Make hero fade into next section instead of cutting */
-.gg-hero::after {
-  bottom: -170px;
-  height: 360px;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(248, 242, 232, 0) 0%,
-      rgba(255, 250, 242, 0.75) 48%,
-      rgba(255, 250, 242, 1) 100%
-    );
-}
-
-/* Pull How It Works upward to fill white space */
-.gg-showcase {
-  margin-top: -95px;
-  padding-top: 165px;
-  position: relative;
-  z-index: 2;
-}
-
-/* First showcase row should feel connected to the intro */
-.gg-showcase .gg-section-heading {
-  margin-bottom: 34px;
-}
-
-.gg-showcase-row:first-of-type {
-  min-height: 76svh;
-  border-top: 0;
-}
-
-/* Mobile */
-@media (max-width: 950px) {
-  .gg-hero-phones {
-    transform: none;
-  }
-
-  .main-phone {
-    width: min(285px, 82vw);
-  }
-
-  .side-phone {
-    display: none;
-  }
-
-  .gg-showcase {
-    margin-top: -45px;
-    padding-top: 120px;
-  }
-}
-
-/* HERO IMAGE OVERLAP + SHORTER HOW IT WORKS SECTIONS */
-
-/* Better hero image cluster */
-.gg-hero-phones {
-  min-height: 520px;
-  transform: translateX(-8px);
-}
-
-/* Main phone sits behind */
-.main-phone {
-  width: min(295px, 74vw);
-  z-index: 2;
-  transform: rotate(-3deg);
-}
-
-/* Small phone overlaps on top of main phone */
-.side-phone {
-  display: block;
-  width: 150px;
-  right: 18px;
-  bottom: 72px;
-  z-index: 4;
-  opacity: 1;
-  transform: rotate(7deg);
-  box-shadow:
-    0 28px 70px rgba(36, 39, 44, 0.32),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-}
-
-/* Move bubbles out of the way */
-.card-a {
-  top: 38%;
-  left: -4px;
-  z-index: 5;
-}
-
-.card-b {
-  top: 68%;
-  right: -22px;
-  z-index: 5;
-}
-
-/* Shorter, tighter How It Works section */
-.gg-showcase {
-  margin-top: -70px;
-  padding-top: 125px;
-  padding-bottom: 70px;
-}
-
-.gg-showcase .gg-section-heading {
-  margin-bottom: 24px;
-}
-
-.gg-showcase-row {
-  min-height: 64svh;
-  gap: 56px;
-  padding: 34px 0;
-}
-
-.gg-showcase-row:first-of-type {
-  min-height: 62svh;
-}
-
-.gg-showcase-copy h3 {
-  font-size: clamp(38px, 5vw, 66px);
-}
-
-.gg-showcase-copy p {
-  font-size: 20px;
-  line-height: 1.65;
-  margin-top: 18px;
-}
-
-.showcase-phone {
-  width: min(300px, 78vw);
-}
-
-/* Mobile */
-@media (max-width: 950px) {
-  .gg-hero-phones {
-    min-height: 460px;
-    transform: none;
-  }
-
-  .main-phone {
-    width: min(280px, 82vw);
-  }
-
-  .side-phone {
-    display: none;
-  }
-
-  .gg-showcase {
-    margin-top: -35px;
-    padding-top: 90px;
-    padding-bottom: 60px;
-  }
-
-  .gg-showcase-row,
-  .gg-showcase-row.reverse {
-    min-height: auto;
-    gap: 28px;
-    padding: 44px 0;
-  }
-
-  .showcase-phone {
-    width: min(280px, 82vw);
-  }
-}
-
-/* HERO FULL VIEWPORT FIX */
-
-.gg-hero {
-  min-height: 101svh;
-  height: 101svh;
-
-  display: flex;
-  align-items: center;
-
-  padding-top: 110px;
-  padding-bottom: 40px;
-
-  overflow: hidden;
-}
-
-.gg-hero-grid {
-  height: 100%;
-
-  display: grid;
-  grid-template-columns: 1fr 0.95fr;
-
-  align-items: center;
-  gap: 60px;
-}
-
-.gg-hero-copy {
-  align-self: center;
-}
-
-.gg-hero-copy h1 {
-  font-size: clamp(58px, 6vw, 92px);
-  line-height: 0.92;
-  margin-bottom: 22px;
-}
-
-.gg-hero-copy p {
-  max-width: 580px;
-  font-size: 20px;
-  margin-bottom: 28px;
-}
-
-.gg-hero-phones {
-  height: 100%;
-  min-height: unset;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-}
-
-/* Main phone */
-
-.main-phone {
-  width: min(320px, 26vw);
-
-  z-index: 2;
-
-  transform: rotate(-3deg);
-}
-
-/* Small phone OVERLAPS the large phone */
-
-.side-phone {
-  width: 160px;
-
-  position: absolute;
-
-  right: 60px;
-  bottom: 130px;
-
-  z-index: 4;
-
-  transform: rotate(9deg);
-}
-
-/* Left bubble */
-
-.card-a {
-  top: 40%;
-  left: 20px;
-}
-
-/* Right bubble */
-
-.card-b {
-  top: 70%;
-  right: -10px;
-}
-
-/* Mobile */
-
-@media (max-width: 950px) {
-  .gg-hero {
-    min-height: auto;
-    height: auto;
-
-    padding-top: 120px;
-    padding-bottom: 60px;
-  }
-
-  .gg-hero-grid {
-    height: auto;
-
-    grid-template-columns: 1fr;
-
-    gap: 40px;
-  }
-
-  .gg-hero-copy {
-    text-align: center;
-  }
-
-  .gg-hero-copy p {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .main-phone {
-    width: min(300px, 82vw);
-  }
-
-  .side-phone {
-    display: none;
-  }
-}
-
-/* SECTION DIRECTLY BELOW HERO */
-
-.gg-belief {
-  min-height: auto;
-  padding-top: 40px;
-  padding-bottom: 80px;
-}
-
-.gg-belief-card {
-  padding: 48px;
-}
-
-/* Remove excess spacing below hero */
-
-.gg-hero {
-  margin-bottom: 0;
-}
-
-/* HOW IT WORKS SECTION */
-
-.gg-showcase {
-  margin-top: 0;
-  padding-top: 70px;
-  padding-bottom: 90px;
-}
-
-.gg-showcase .gg-section-heading {
-  margin-bottom: 10px;
-}
-
-.gg-showcase-row:first-of-type {
-  border-top: 0;
-  padding-top: 10px;
 }
