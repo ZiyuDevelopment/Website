@@ -22,7 +22,8 @@ html {
 
 body {
   margin: 0;
-  background: var(--gg-cream);
+  background:
+    linear-gradient(180deg, #f8f2e8 0%, #fffaf2 42%, #f8f2e8 100%);
   color: var(--gg-ink);
   font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   overflow-x: hidden;
@@ -48,16 +49,16 @@ a {
 
 .gg-header {
   position: sticky;
-  top: 16px;
-  z-index: 100;
-  width: min(1180px, calc(100% - 32px));
-  margin: 16px auto 0;
+  top: 18px;
+  z-index: 1000;
+  width: min(1180px, calc(100% - 48px));
+  margin: 18px auto 0;
   padding: 14px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255, 250, 242, 0.88);
-  border: 1px solid var(--gg-line);
+  background: rgba(255, 250, 242, 0.9);
+  border: 1px solid rgba(36, 39, 44, 0.1);
   border-radius: 999px;
   backdrop-filter: blur(18px);
   box-shadow: 0 16px 40px rgba(36, 39, 44, 0.08);
@@ -189,7 +190,7 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(58px, 8vw, 112px);
+  font-size: clamp(46px, 7vw, 86px);
 }
 
 h2 {
@@ -223,7 +224,7 @@ p {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  margin-top: 34px;
+  margin-top: 26px;
 }
 
 .gg-hero-actions.center,
@@ -244,36 +245,42 @@ p {
   transform: translateY(0);
 }
 
-/* HOME */
-
-.gg-hero,
-.gg-belief,
-.gg-overlay-story,
-.gg-demo,
-.gg-shared,
-.gg-support-preview,
-.gg-final {
-  position: relative;
-  overflow: hidden;
-}
+/* HERO */
 
 .gg-hero {
-  min-height: 94svh;
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100svh - 20px);
   display: flex;
   align-items: center;
-  padding: 130px 0 90px;
+  margin-top: -92px;
+  padding: 152px 0 48px;
   background:
-    radial-gradient(circle at 14% 20%, rgba(201, 130, 101, 0.22), transparent 30%),
-    radial-gradient(circle at 82% 10%, rgba(93, 145, 163, 0.34), transparent 34%),
-    linear-gradient(135deg, var(--gg-cream), var(--gg-paper));
+    radial-gradient(circle at 14% 20%, rgba(201, 130, 101, 0.18), transparent 32%),
+    radial-gradient(circle at 82% 12%, rgba(93, 145, 163, 0.28), transparent 35%),
+    linear-gradient(180deg, #f8f2e8 0%, #fffaf2 58%, #f8f2e8 100%);
+}
+
+.gg-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -230px;
+  height: 430px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(93, 145, 163, 0.13), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .gg-hero-bg {
   position: absolute;
   inset: 0;
+  opacity: 0.7;
   background-image:
-    linear-gradient(rgba(36, 39, 44, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(36, 39, 44, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(36, 39, 44, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(36, 39, 44, 0.04) 1px, transparent 1px);
   background-size: 44px 44px;
   mask-image: radial-gradient(circle at center, black, transparent 76%);
 }
@@ -281,7 +288,7 @@ p {
 .gg-hero-grid {
   display: grid;
   grid-template-columns: 1fr 0.95fr;
-  gap: 90px;
+  gap: 56px;
   align-items: center;
   position: relative;
   z-index: 2;
@@ -289,16 +296,18 @@ p {
 
 .gg-hero-copy h1 {
   max-width: 840px;
+  font-size: clamp(46px, 7vw, 86px);
 }
 
 .gg-hero-copy p {
   max-width: 660px;
-  margin-top: 24px;
-  font-size: 20px;
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 1.65;
 }
 
 .gg-hero-phones {
-  min-height: 620px;
+  min-height: 560px;
   display: grid;
   place-items: center;
   position: relative;
@@ -316,7 +325,7 @@ p {
 }
 
 .main-phone {
-  width: min(320px, 82vw);
+  width: min(285px, 74vw);
   aspect-ratio: 9 / 19.5;
   border-radius: 42px;
   padding: 12px;
@@ -325,30 +334,33 @@ p {
 
 .side-phone {
   position: absolute;
-  width: 150px;
+  width: 132px;
   aspect-ratio: 9 / 19.5;
-  right: 2%;
-  bottom: 78px;
+  right: -38px;
+  bottom: 52px;
   border-radius: 28px;
   padding: 9px;
   transform: rotate(7deg);
   animation: phoneFloatSmall 7s ease-in-out infinite;
 }
 
-.card-phone {
-  width: 285px;
+.card-phone,
+.demo-phone,
+.showcase-phone {
   aspect-ratio: 9 / 19.5;
   border-radius: 42px;
   padding: 12px;
-  justify-self: end;
 }
 
 .demo-phone {
   width: min(285px, 80vw);
-  aspect-ratio: 9 / 19.5;
-  border-radius: 42px;
-  padding: 12px;
   justify-self: center;
+}
+
+.showcase-phone {
+  width: min(340px, 82vw);
+  justify-self: center;
+  transition: transform 0.35s ease;
 }
 
 .gg-phone-speaker {
@@ -389,13 +401,13 @@ p {
   display: block;
 }
 
-/* FLOATING CARDS */
+/* FLOATING HERO BUBBLES */
 
 .gg-floating-card {
   position: absolute;
   z-index: 5;
-  padding: 16px 20px;
-  border-radius: 22px;
+  padding: 13px 17px;
+  border-radius: 18px;
   background: rgba(255, 250, 242, 0.88);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.75);
@@ -405,35 +417,37 @@ p {
 
 .gg-floating-card strong {
   display: block;
-  font-size: 24px;
+  font-size: 20px;
   color: var(--gg-charcoal);
 }
 
 .gg-floating-card span {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--gg-muted);
 }
 
 .card-a {
-  top: 15%;
-  left: -18px;
+  top: 27%;
+  left: -8px;
 }
 
 .card-b {
-  right: 0;
-  top: 38%;
+  top: 64%;
+  right: -56px;
 }
 
 /* BELIEF */
 
 .gg-belief {
+  position: relative;
+  overflow: hidden;
   min-height: 78svh;
   display: flex;
   align-items: center;
   padding: 90px 0;
   background:
     radial-gradient(circle at 85% 20%, rgba(93, 145, 163, 0.2), transparent 30%),
-    var(--gg-paper);
+    transparent;
 }
 
 .gg-belief-card {
@@ -455,12 +469,15 @@ p {
   font-size: 22px;
 }
 
-/* OVERLAY STORY */
+/* SHOWCASE SECTION */
 
-.gg-overlay-story {
-  padding: 120px 0 150px;
+.gg-showcase {
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0;
   background:
-    radial-gradient(circle at 15% 10%, rgba(93, 145, 163, 0.16), transparent 28%),
+    radial-gradient(circle at 12% 10%, rgba(93, 145, 163, 0.16), transparent 30%),
+    radial-gradient(circle at 88% 80%, rgba(201, 130, 101, 0.14), transparent 30%),
     linear-gradient(180deg, var(--gg-paper), var(--gg-cream));
 }
 
@@ -484,49 +501,32 @@ p {
   max-width: 680px;
 }
 
-.gg-overlay-stack {
-  position: relative;
-}
-
-.gg-overlay-card {
-  min-height: 620px;
+.gg-showcase-row {
+  min-height: 88svh;
   display: grid;
-  grid-template-columns: 1fr 310px;
-  gap: 70px;
-  align-items: start;
-  padding: 58px;
-  border-radius: 48px;
-  box-shadow: var(--gg-shadow);
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  position: sticky;
-  top: 112px;
-  margin-bottom: 78px;
-  transform-origin: top center;
+  grid-template-columns: 1fr 360px;
+  gap: 90px;
+  align-items: center;
+  border-top: 1px solid var(--gg-line);
 }
 
-.gg-overlay-card:nth-child(1) {
-  background: var(--gg-paper);
+.gg-showcase-row.reverse {
+  grid-template-columns: 360px 1fr;
 }
 
-.gg-overlay-card:nth-child(2) {
-  background: var(--gg-blue);
+.gg-showcase-row.reverse .gg-showcase-copy {
+  order: 2;
 }
 
-.gg-overlay-card:nth-child(3) {
-  background: var(--gg-clay-soft);
+.gg-showcase-row.reverse .showcase-phone {
+  order: 1;
 }
 
-.gg-overlay-card:nth-child(4) {
-  background: white;
+.gg-showcase-copy {
+  max-width: 720px;
 }
 
-.gg-overlay-copy {
-  padding-top: 4px;
-}
-
-.gg-overlay-copy span {
-  display: inline-flex;
-  margin-bottom: 18px;
+.gg-showcase-copy span {
   color: var(--gg-blue-deep);
   font-size: 13px;
   font-weight: 900;
@@ -534,21 +534,27 @@ p {
   text-transform: uppercase;
 }
 
-.gg-overlay-copy h3 {
-  font-size: clamp(42px, 5vw, 70px);
+.gg-showcase-copy h3 {
+  margin-top: 18px;
+  font-size: clamp(46px, 6vw, 82px);
   line-height: 0.95;
-  max-width: 760px;
 }
 
-.gg-overlay-copy p {
-  margin-top: 22px;
+.gg-showcase-copy p {
   max-width: 620px;
-  font-size: 21px;
+  margin-top: 24px;
+  font-size: 22px;
+}
+
+.gg-showcase-row:hover .showcase-phone {
+  transform: translateY(-12px) rotate(1deg);
 }
 
 /* DEMO */
 
 .gg-demo {
+  position: relative;
+  overflow: hidden;
   min-height: 92svh;
   display: flex;
   align-items: center;
@@ -578,6 +584,8 @@ p {
 /* SHARED */
 
 .gg-shared {
+  position: relative;
+  overflow: hidden;
   min-height: 84svh;
   display: flex;
   align-items: center;
@@ -616,6 +624,8 @@ p {
 /* SUPPORT */
 
 .gg-support-preview {
+  position: relative;
+  overflow: hidden;
   min-height: 84svh;
   display: flex;
   align-items: center;
@@ -665,6 +675,8 @@ p {
 /* FINAL */
 
 .gg-final {
+  position: relative;
+  overflow: hidden;
   min-height: 84svh;
   display: flex;
   align-items: center;
@@ -988,7 +1000,18 @@ p {
     box-shadow: var(--gg-shadow);
   }
 
-  .gg-hero,
+  .gg-header {
+    top: 12px;
+    width: min(1180px, calc(100% - 28px));
+    margin-top: 12px;
+  }
+
+  .gg-hero {
+    min-height: auto;
+    margin-top: -80px;
+    padding: 132px 0 64px;
+  }
+
   .gg-belief,
   .gg-demo,
   .gg-shared,
@@ -999,7 +1022,6 @@ p {
   }
 
   .gg-hero-grid,
-  .gg-overlay-card,
   .gg-demo-grid,
   .gg-shared-card,
   .gg-support-grid,
@@ -1008,167 +1030,6 @@ p {
   .gg-cart-form,
   .gg-footer-grid {
     grid-template-columns: 1fr;
-  }
-
-  .gg-hero-phones {
-    min-height: 520px;
-  }
-
-  .side-phone,
-  .gg-floating-card {
-    display: none;
-  }
-
-  .gg-overlay-card {
-    position: relative;
-    top: auto;
-    min-height: auto;
-    gap: 40px;
-    padding: 34px;
-    margin-bottom: 30px;
-  }
-
-  .gg-overlay-copy h3 {
-    font-size: 42px;
-  }
-
-  .card-phone {
-    justify-self: center;
-    width: min(300px, 82vw);
-  }
-
-  .gg-belief-card,
-  .gg-shared-card {
-    padding: 34px;
-  }
-
-  .demo-phone {
-    max-width: 300px;
-  }
-
-  .gg-cart-summary {
-    position: relative;
-    top: auto;
-  }
-
-  .gg-cart-item {
-    grid-template-columns: 1fr;
-  }
-
-  h1 {
-    font-size: 54px;
-  }
-
-  h2 {
-    font-size: 42px;
-  }
-}
-
-/* HERO MUST FIT IN ONE SCREEN */
-
-.gg-hero {
-  min-height: calc(100svh - 32px);
-  padding: 72px 0 40px;
-  display: flex;
-  align-items: center;
-}
-
-.gg-hero-grid {
-  gap: 56px;
-}
-
-.gg-hero-copy h1 {
-  font-size: clamp(46px, 7vw, 86px);
-}
-
-.gg-hero-copy p {
-  font-size: 18px;
-  line-height: 1.65;
-  margin-top: 18px;
-}
-
-.gg-hero-actions {
-  margin-top: 26px;
-}
-
-.gg-hero-phones {
-  min-height: 520px;
-}
-
-.main-phone {
-  width: min(285px, 74vw);
-}
-
-.side-phone {
-  width: 132px;
-  bottom: 66px;
-}
-
-/* OVERLAY CARD SECTION ON SCROLL */
-
-.gg-overlay-story {
-  padding: 90px 0 180px;
-  background:
-    radial-gradient(circle at 15% 10%, rgba(93, 145, 163, 0.16), transparent 28%),
-    linear-gradient(180deg, var(--gg-paper), var(--gg-cream));
-}
-
-.gg-overlay-stack {
-  position: relative;
-}
-
-.gg-overlay-card {
-  position: sticky;
-  top: 96px;
-  min-height: 560px;
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 56px;
-  align-items: start;
-  padding: 48px;
-  border-radius: 48px;
-  margin-bottom: 110px;
-  box-shadow: var(--gg-shadow);
-  border: 1px solid rgba(255, 255, 255, 0.72);
-}
-
-.gg-overlay-card:nth-child(1) {
-  z-index: 1;
-}
-
-.gg-overlay-card:nth-child(2) {
-  z-index: 2;
-  transform: translateY(12px);
-}
-
-.gg-overlay-card:nth-child(3) {
-  z-index: 3;
-  transform: translateY(24px);
-}
-
-.gg-overlay-card:nth-child(4) {
-  z-index: 4;
-  transform: translateY(36px);
-}
-
-.gg-overlay-copy h3 {
-  font-size: clamp(38px, 4.5vw, 64px);
-}
-
-.gg-overlay-copy p {
-  font-size: 20px;
-}
-
-.card-phone {
-  width: 270px;
-}
-
-/* MOBILE FIXES */
-
-@media (max-width: 950px) {
-  .gg-hero {
-    min-height: auto;
-    padding: 82px 0 64px;
   }
 
   .gg-hero-grid {
@@ -1188,635 +1049,15 @@ p {
     display: none;
   }
 
-  .gg-overlay-story {
-    padding: 72px 0;
+  .gg-belief-card,
+  .gg-shared-card {
+    padding: 34px;
   }
 
-  .gg-overlay-card {
-    position: relative;
-    top: auto;
-    min-height: auto;
-    grid-template-columns: 1fr;
-    margin-bottom: 30px;
-    padding: 32px;
-    transform: none !important;
+  .demo-phone {
+    max-width: 300px;
   }
 
-  .card-phone {
-    width: min(285px, 82vw);
-    justify-self: center;
-  }
-}
-
-/* STACKABLE OVERLAY CARDS + TWO SCREENS PER CARD */
-
-.gg-overlay-card {
-  grid-template-columns: 0.9fr 1.1fr;
-  align-items: center;
-  text-align: center;
-  min-height: 620px;
-  padding: 52px;
-}
-
-.gg-overlay-copy {
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-.gg-overlay-copy span {
-  justify-content: center;
-}
-
-.gg-overlay-copy h3,
-.gg-overlay-copy p {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.gg-card-phone-pair {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-}
-
-.gg-card-phone-pair .gg-phone {
-  width: min(220px, 42vw);
-}
-
-.gg-card-phone-pair .gg-phone:nth-child(2) {
-  transform: translateY(34px) rotate(3deg);
-}
-
-.gg-card-phone-pair .gg-phone:nth-child(1) {
-  transform: translateY(-18px) rotate(-3deg);
-}
-
-/* stronger stacking effect */
-
-.gg-overlay-stack {
-  padding-bottom: 80px;
-}
-
-.gg-overlay-card:nth-child(1) {
-  z-index: 1;
-  top: 96px;
-}
-
-.gg-overlay-card:nth-child(2) {
-  z-index: 2;
-  top: 116px;
-}
-
-.gg-overlay-card:nth-child(3) {
-  z-index: 3;
-  top: 136px;
-}
-
-.gg-overlay-card:nth-child(4) {
-  z-index: 4;
-  top: 156px;
-}
-
-@media (max-width: 950px) {
-  .gg-overlay-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .gg-card-phone-pair {
-    flex-direction: column;
-  }
-
-  .gg-card-phone-pair .gg-phone {
-    width: min(260px, 82vw);
-    transform: none !important;
-  }
-}
-
-/* CLEANER STACKABLE STORY CARDS - ONE SCREEN PER CARD */
-
-.gg-overlay-story {
-  padding: 88px 0 160px;
-}
-
-.gg-overlay-stack {
-  display: grid;
-  gap: 72px;
-  padding-bottom: 90px;
-}
-
-.gg-overlay-card {
-  position: sticky;
-  min-height: 560px;
-  grid-template-columns: minmax(0, 1fr) 280px;
-  align-items: center;
-  gap: 64px;
-  padding: 52px;
-  margin-bottom: 0;
-  text-align: left;
-}
-
-.gg-overlay-card:nth-child(1) {
-  top: 92px;
-  z-index: 1;
-}
-
-.gg-overlay-card:nth-child(2) {
-  top: 112px;
-  z-index: 2;
-}
-
-.gg-overlay-card:nth-child(3) {
-  top: 132px;
-  z-index: 3;
-}
-
-.gg-overlay-card:nth-child(4) {
-  top: 152px;
-  z-index: 4;
-}
-
-.gg-overlay-copy {
-  max-width: 720px;
-}
-
-.gg-overlay-copy h3 {
-  font-size: clamp(38px, 4.5vw, 62px);
-}
-
-.gg-overlay-copy p {
-  max-width: 600px;
-  font-size: 20px;
-}
-
-.card-phone {
-  width: 255px;
-  justify-self: center;
-}
-
-/* FINAL STACKING CARD FIX */
-
-.gg-overlay-story {
-  padding: 96px 0 220px;
-}
-
-.gg-overlay-story .gg-section-heading {
-  margin-bottom: 72px;
-}
-
-.gg-overlay-stack {
-  position: relative;
-  display: block;
-  padding-bottom: 140px;
-}
-
-.gg-overlay-card {
-  position: sticky;
-  min-height: 560px;
-  grid-template-columns: minmax(0, 1fr) 270px;
-  align-items: center;
-  gap: 72px;
-  padding: 54px;
-  margin-bottom: 120px;
-  border-radius: 46px;
-  text-align: left;
-}
-
-.gg-overlay-card:nth-child(1) {
-  top: 92px;
-  z-index: 1;
-}
-
-.gg-overlay-card:nth-child(2) {
-  top: 112px;
-  z-index: 2;
-}
-
-.gg-overlay-card:nth-child(3) {
-  top: 132px;
-  z-index: 3;
-}
-
-.gg-overlay-card:nth-child(4) {
-  top: 152px;
-  z-index: 4;
-  margin-bottom: 0;
-}
-
-.gg-overlay-copy {
-  max-width: 720px;
-}
-
-.gg-overlay-copy h3 {
-  font-size: clamp(40px, 4.8vw, 66px);
-}
-
-.gg-overlay-copy p {
-  max-width: 600px;
-  font-size: 20px;
-}
-
-.card-phone {
-  width: 255px;
-  justify-self: center;
-}
-
-/* Mobile: no sticky stacking because it gets jumpy */
-@media (max-width: 950px) {
-  .gg-overlay-story {
-    padding: 80px 0;
-  }
-
-  .gg-overlay-stack {
-    padding-bottom: 0;
-  }
-
-  .gg-overlay-card {
-    position: relative;
-    top: auto !important;
-    min-height: auto;
-    grid-template-columns: 1fr;
-    gap: 36px;
-    padding: 32px;
-    margin-bottom: 28px;
-    text-align: center;
-  }
-
-  .card-phone {
-    width: min(285px, 82vw);
-  }
-}
-
-/* REPLACE CARD STACK WITH ANIMATED APP JOURNEY */
-
-.gg-journey {
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  padding: 110px 0;
-  background:
-    radial-gradient(circle at 15% 12%, rgba(93, 145, 163, 0.18), transparent 30%),
-    radial-gradient(circle at 88% 72%, rgba(201, 130, 101, 0.16), transparent 30%),
-    linear-gradient(180deg, var(--gg-paper), var(--gg-cream));
-  overflow: hidden;
-}
-
-.gg-journey-layout {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 72px;
-  align-items: center;
-}
-
-.gg-journey-steps {
-  display: grid;
-  gap: 18px;
-}
-
-.gg-journey-step {
-  padding: 24px 26px;
-  border-radius: 28px;
-  background: rgba(255, 250, 242, 0.68);
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  box-shadow: 0 18px 50px rgba(36, 39, 44, 0.08);
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.gg-journey-step:hover,
-.gg-journey-step.active {
-  transform: translateX(10px);
-  background: white;
-}
-
-.gg-journey-step span {
-  color: var(--gg-blue-deep);
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.13em;
-}
-
-.gg-journey-step h3 {
-  font-size: clamp(26px, 3vw, 38px);
-  margin-top: 10px;
-}
-
-.gg-journey-step p {
-  margin-bottom: 0;
-  font-size: 16px;
-}
-
-.gg-journey-visual {
-  position: relative;
-  min-height: 620px;
-}
-
-.journey-phone {
-  position: absolute;
-  width: 210px;
-  aspect-ratio: 9 / 19.5;
-  border-radius: 38px;
-  padding: 10px;
-  transition: transform 0.3s ease;
-}
-
-.phone-one {
-  left: 4%;
-  top: 18%;
-  transform: rotate(-8deg);
-  animation: journeyFloatOne 7s ease-in-out infinite;
-}
-
-.phone-two {
-  left: 28%;
-  top: 4%;
-  transform: rotate(4deg);
-  animation: journeyFloatTwo 8s ease-in-out infinite;
-}
-
-.phone-three {
-  right: 12%;
-  top: 20%;
-  width: 250px;
-  transform: rotate(-2deg);
-  z-index: 3;
-  animation: journeyFloatThree 7.5s ease-in-out infinite;
-}
-
-.phone-four {
-  left: 36%;
-  bottom: 0;
-  transform: rotate(7deg);
-  animation: journeyFloatFour 8.5s ease-in-out infinite;
-}
-
-.gg-orbit {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(93, 145, 163, 0.25);
-  animation: orbitSpin 16s linear infinite;
-}
-
-.orbit-one {
-  width: 420px;
-  height: 420px;
-  left: 18%;
-  top: 12%;
-}
-
-.orbit-two {
-  width: 300px;
-  height: 300px;
-  right: 8%;
-  bottom: 10%;
-  animation-direction: reverse;
-}
-
-@keyframes journeyFloatOne {
-  0%, 100% { transform: translateY(0) rotate(-8deg); }
-  50% { transform: translateY(-18px) rotate(-4deg); }
-}
-
-@keyframes journeyFloatTwo {
-  0%, 100% { transform: translateY(0) rotate(4deg); }
-  50% { transform: translateY(16px) rotate(1deg); }
-}
-
-@keyframes journeyFloatThree {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-22px) rotate(2deg); }
-}
-
-@keyframes journeyFloatFour {
-  0%, 100% { transform: translateY(0) rotate(7deg); }
-  50% { transform: translateY(18px) rotate(3deg); }
-}
-
-@keyframes orbitSpin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (max-width: 950px) {
-  .gg-journey {
-    min-height: auto;
-    padding: 86px 0;
-  }
-
-  .gg-journey-layout {
-    grid-template-columns: 1fr;
-    gap: 44px;
-  }
-
-  .gg-journey-step:hover,
-  .gg-journey-step.active {
-    transform: none;
-  }
-
-  .gg-journey-visual {
-    min-height: auto;
-    display: grid;
-    gap: 22px;
-    justify-items: center;
-  }
-
-  .journey-phone {
-    position: relative;
-    left: auto;
-    right: auto;
-    top: auto;
-    bottom: auto;
-    width: min(275px, 82vw);
-    transform: none !important;
-    animation: none;
-  }
-
-  .gg-orbit {
-    display: none;
-  }
-}
-
-/* CLEAN WALKTHROUGH — NO CARDS */
-
-.gg-clear-walkthrough {
-  padding: 120px 0;
-  background:
-    radial-gradient(circle at 12% 10%, rgba(93, 145, 163, 0.15), transparent 30%),
-    radial-gradient(circle at 88% 80%, rgba(201, 130, 101, 0.14), transparent 30%),
-    linear-gradient(180deg, var(--gg-paper), var(--gg-cream));
-}
-
-.gg-walkthrough-intro {
-  max-width: 820px;
-  margin-bottom: 80px;
-}
-
-.gg-walkthrough-intro h2 {
-  margin-top: 16px;
-}
-
-.gg-walkthrough-intro p {
-  max-width: 680px;
-  margin-top: 20px;
-  font-size: 21px;
-}
-
-.gg-walkthrough-row {
-  min-height: 88svh;
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 90px;
-  align-items: center;
-  border-top: 1px solid var(--gg-line);
-}
-
-.gg-walkthrough-row.reverse {
-  grid-template-columns: 360px 1fr;
-}
-
-.gg-walkthrough-row.reverse .gg-walkthrough-text {
-  order: 2;
-}
-
-.gg-walkthrough-row.reverse .walkthrough-phone {
-  order: 1;
-}
-
-.gg-walkthrough-text {
-  max-width: 720px;
-}
-
-.gg-walkthrough-text span {
-  color: var(--gg-blue-deep);
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.gg-walkthrough-text h3 {
-  margin-top: 18px;
-  font-size: clamp(46px, 6vw, 82px);
-  line-height: 0.95;
-}
-
-.gg-walkthrough-text p {
-  max-width: 620px;
-  margin-top: 24px;
-  font-size: 22px;
-}
-
-.walkthrough-phone {
-  width: min(340px, 82vw);
-  aspect-ratio: 9 / 19.5;
-  border-radius: 42px;
-  padding: 12px;
-  justify-self: center;
-  transition: transform 0.35s ease;
-}
-
-.gg-walkthrough-row:hover .walkthrough-phone {
-  transform: translateY(-12px) rotate(1deg);
-}
-
-@media (max-width: 950px) {
-  .gg-clear-walkthrough {
-    padding: 86px 0;
-  }
-
-  .gg-walkthrough-row,
-  .gg-walkthrough-row.reverse {
-    min-height: auto;
-    grid-template-columns: 1fr;
-    gap: 38px;
-    padding: 64px 0;
-  }
-
-  .gg-walkthrough-row.reverse .gg-walkthrough-text,
-  .gg-walkthrough-row.reverse .walkthrough-phone {
-    order: initial;
-  }
-
-  .gg-walkthrough-text {
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  .walkthrough-phone {
-    width: min(300px, 82vw);
-  }
-}
-
-/* FINAL CLEAR SHOWCASE HOMEPAGE OVERRIDES */
-
-.gg-showcase {
-  padding: 120px 0;
-  background:
-    radial-gradient(circle at 12% 10%, rgba(93, 145, 163, 0.16), transparent 30%),
-    radial-gradient(circle at 88% 80%, rgba(201, 130, 101, 0.14), transparent 30%),
-    linear-gradient(180deg, var(--gg-paper), var(--gg-cream));
-}
-
-.gg-showcase-row {
-  min-height: 88svh;
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 90px;
-  align-items: center;
-  border-top: 1px solid var(--gg-line);
-}
-
-.gg-showcase-row.reverse {
-  grid-template-columns: 360px 1fr;
-}
-
-.gg-showcase-row.reverse .gg-showcase-copy {
-  order: 2;
-}
-
-.gg-showcase-row.reverse .showcase-phone {
-  order: 1;
-}
-
-.gg-showcase-copy {
-  max-width: 720px;
-}
-
-.gg-showcase-copy span {
-  color: var(--gg-blue-deep);
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.gg-showcase-copy h3 {
-  margin-top: 18px;
-  font-size: clamp(46px, 6vw, 82px);
-  line-height: 0.95;
-}
-
-.gg-showcase-copy p {
-  max-width: 620px;
-  margin-top: 24px;
-  font-size: 22px;
-}
-
-.showcase-phone {
-  width: min(340px, 82vw);
-  aspect-ratio: 9 / 19.5;
-  border-radius: 42px;
-  padding: 12px;
-  justify-self: center;
-  transition: transform 0.35s ease;
-}
-
-.gg-showcase-row:hover .showcase-phone {
-  transform: translateY(-12px) rotate(1deg);
-}
-
-@media (max-width: 950px) {
   .gg-showcase {
     padding: 86px 0;
   }
@@ -1842,70 +1083,21 @@ p {
   .showcase-phone {
     width: min(300px, 82vw);
   }
-}
 
-/* HERO HEADER FLOW FIX */
+  .gg-cart-summary {
+    position: relative;
+    top: auto;
+  }
 
-body {
-  background:
-    linear-gradient(180deg, #f8f2e8 0%, #fffaf2 42%, #f8f2e8 100%);
-}
+  .gg-cart-item {
+    grid-template-columns: 1fr;
+  }
 
-.gg-header {
-  margin-top: 0;
-  top: 12px;
-}
+  h1 {
+    font-size: 54px;
+  }
 
-.gg-hero {
-  margin-top: -82px;
-  padding-top: 150px;
-  background:
-    radial-gradient(circle at 14% 20%, rgba(201, 130, 101, 0.18), transparent 32%),
-    radial-gradient(circle at 82% 12%, rgba(93, 145, 163, 0.28), transparent 35%),
-    linear-gradient(180deg, #f8f2e8 0%, #fffaf2 58%, #f8f2e8 100%);
-}
-
-.gg-hero-bg {
-  top: 0;
-  opacity: 0.7;
-}
-
-/* lower floating hero cards */
-
-.card-a {
-  top: 27%;
-  left: -8px;
-}
-
-.card-b {
-  top: 48%;
-  right: -4px;
-}
-
-/* make floating cards less intrusive */
-
-.gg-floating-card {
-  padding: 13px 17px;
-  border-radius: 18px;
-}
-
-.gg-floating-card strong {
-  font-size: 20px;
-}
-
-.gg-floating-card span {
-  font-size: 12px;
-}
-
-/* better hero phone balance */
-
-.gg-hero-phones {
-  min-height: 560px;
-}
-
-@media (max-width: 950px) {
-  .gg-hero {
-    margin-top: -70px;
-    padding-top: 130px;
+  h2 {
+    font-size: 42px;
   }
 }
