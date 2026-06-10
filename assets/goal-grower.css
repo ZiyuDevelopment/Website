@@ -1517,47 +1517,30 @@ p {
 }
 
 .gg-lab-seed {
-  position: absolute;
-  inset: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 210px;
-  height: 210px;
+  width: 165px;
+  height: 165px;
   border-radius: 50%;
-
-  background: var(--gg-charcoal);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-
+  display: grid;
+  place-items: center;
   text-align: center;
+  background: var(--gg-charcoal);
+  color: white;
+  box-shadow: 0 34px 80px rgba(36,39,44,.24);
+}
 
-  z-index: 5;
+.gg-lab-seed span,
+.gg-lab-seed strong {
+  display: block;
 }
 
 .gg-lab-seed span {
-  display: block;
-
-  color: rgba(255,255,255,.72);
-
-  font-size: 20px;
-  font-weight: 500;
-
-  line-height: 1;
+  color: rgba(255,255,255,.7);
+  font-size: 12px;
 }
 
 .gg-lab-seed strong {
-  display: block;
-
-  color: white;
-
-  font-size: 56px;
-  font-weight: 800;
-
-  line-height: 1;
+  font-family: "Sora", sans-serif;
+  font-size: 32px;
 }
 
 .gg-lab-chip {
