@@ -2311,3 +2311,37 @@ p {
   right: -20px;
   bottom: 34px;
 }
+
+.gg-roadmap-path {
+  stroke-width: 6;
+}
+
+.graph-node {
+  box-shadow: 0 0 0 10px rgba(201,130,101,.12);
+}
+
+.step-launch {
+  left: 69%;
+  bottom: 47%;
+  animation-delay: 1.45s;
+}
+
+.step-launch .graph-label {
+  left: -40px;
+  bottom: 34px;
+  top: auto;
+
+  background: var(--gg-charcoal);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.step-projects {
+  right: 2%;
+  bottom: 68%;
+  animation-delay: 1.85s;
+}
+
+.step-projects .graph-label {
+  right: 0;
+  bottom: 34px;
+}
