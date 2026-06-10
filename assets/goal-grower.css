@@ -2331,3 +2331,401 @@ p {
   }
 
 }
+
+/* =========================
+   STORE HERO
+========================= */
+
+.gg-store-hero {
+  min-height: 100svh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 12% 20%, rgba(201,130,101,.14), transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(93,145,163,.16), transparent 32%),
+    linear-gradient(135deg, var(--gg-paper), #edf7fa);
+}
+
+.gg-store-grid-bg {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(0,0,0,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px);
+
+  background-size: 80px 80px;
+
+  opacity: .35;
+}
+
+.gg-store-hero-grid {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.gg-store-copy h1 {
+  font-size: clamp(72px, 7vw, 120px);
+  line-height: .9;
+  letter-spacing: -.07em;
+}
+
+.gg-store-copy p {
+  max-width: 700px;
+  margin-top: 24px;
+  font-size: 24px;
+}
+
+/* =========================
+   ORBIT
+========================= */
+
+.gg-store-orbit {
+  position: relative;
+  width: 520px;
+  height: 520px;
+  margin-left: auto;
+}
+
+.gg-store-circle {
+  position: absolute;
+  inset: 0;
+
+  border-radius: 50%;
+  border: 1px solid rgba(93,145,163,.22);
+
+  animation: orbitFloat 7s ease-in-out infinite;
+}
+
+.gg-store-circle::before {
+  content: "";
+
+  position: absolute;
+  inset: 70px;
+
+  border-radius: 50%;
+  border: 1px solid rgba(93,145,163,.18);
+}
+
+.gg-store-center {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background: var(--gg-charcoal);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+
+  box-shadow: 0 35px 90px rgba(0,0,0,.18);
+}
+
+.gg-store-center span {
+  color: rgba(255,255,255,.72);
+}
+
+.gg-store-center strong {
+  font-size: 44px;
+}
+
+.gg-store-chip {
+  position: absolute;
+
+  background: rgba(255,255,255,.88);
+
+  border: 1px solid rgba(255,255,255,.9);
+
+  padding: 18px 22px;
+
+  border-radius: 24px;
+
+  box-shadow: 0 20px 50px rgba(93,145,163,.12);
+
+  backdrop-filter: blur(12px);
+}
+
+.gg-store-chip strong {
+  display: block;
+}
+
+.gg-store-chip span {
+  color: var(--gg-muted);
+}
+
+.chip-a {
+  top: 20%;
+  left: -20px;
+}
+
+.chip-b {
+  top: 12%;
+  right: -10px;
+}
+
+.chip-c {
+  bottom: 18%;
+  right: 0;
+}
+
+@keyframes orbitFloat {
+  0%,100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.gg-store-intro {
+  min-height: 75svh;
+  display: flex;
+  align-items: center;
+  background: var(--gg-paper);
+}
+
+.gg-store-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+}
+
+.gg-store-intro h2 {
+  max-width: 700px;
+}
+
+.gg-store-intro p {
+  font-size: 24px;
+  line-height: 1.7;
+}
+
+/* =========================
+   PATHS
+========================= */
+
+.gg-store-categories {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+
+  background:
+    linear-gradient(180deg, var(--gg-paper), #f5f8f9);
+}
+
+.gg-store-path-grid {
+  margin-top: 60px;
+
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 28px;
+}
+
+.gg-store-path {
+  padding: 40px;
+
+  border-radius: 34px;
+
+  background: rgba(255,255,255,.8);
+
+  border: 1px solid rgba(255,255,255,.8);
+
+  box-shadow: 0 25px 70px rgba(93,145,163,.08);
+
+  transition: .35s ease;
+}
+
+.gg-store-path:hover {
+  transform: translateY(-10px);
+}
+
+.gg-store-path.featured {
+  background: var(--gg-charcoal);
+}
+
+.gg-store-path.featured h3,
+.gg-store-path.featured p {
+  color: white;
+}
+
+.gg-store-path span {
+  color: var(--gg-clay);
+  font-weight: 800;
+}
+
+.gg-store-path h3 {
+  margin-top: 20px;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.gg-store-products {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+
+  background: #eef5f7;
+}
+
+.gg-product-grid {
+  margin-top: 60px;
+
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 30px;
+}
+
+.gg-product-card {
+  border-radius: 30px;
+
+  overflow: hidden;
+
+  background: white;
+
+  box-shadow: 0 20px 60px rgba(93,145,163,.12);
+
+  transition: .35s ease;
+}
+
+.gg-product-card:hover {
+  transform: translateY(-8px);
+}
+
+.gg-product-image img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.gg-product-info {
+  padding: 24px;
+}
+
+.gg-product-info p {
+  margin-top: 10px;
+  color: var(--gg-clay);
+}
+
+/* =========================
+   IMPACT
+========================= */
+
+.gg-store-impact {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+
+  background:
+    radial-gradient(circle at 80% 20%, rgba(93,145,163,.18), transparent 30%),
+    linear-gradient(135deg, var(--gg-charcoal), #17191d);
+}
+
+.gg-store-impact-grid {
+  display: grid;
+  grid-template-columns: .9fr 1fr;
+  gap: 80px;
+}
+
+.gg-store-impact h2 {
+  color: white;
+}
+
+.gg-store-impact-list {
+  display: grid;
+  gap: 22px;
+}
+
+.gg-store-impact-list div {
+  padding: 26px;
+
+  border-radius: 24px;
+
+  background: rgba(255,255,255,.08);
+}
+
+.gg-store-impact-list strong {
+  display: block;
+  color: white;
+}
+
+.gg-store-impact-list span {
+  color: rgba(255,255,255,.72);
+}
+
+/* =========================
+   CLOSE
+========================= */
+
+.gg-store-close {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(93,145,163,.14), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(201,130,101,.14), transparent 30%),
+    linear-gradient(180deg, var(--gg-paper), var(--gg-cream));
+}
+
+.gg-store-close-panel {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gg-store-close-panel p {
+  max-width: 700px;
+  margin: 24px auto 0;
+  font-size: 22px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 950px) {
+
+  .gg-store-hero-grid,
+  .gg-store-intro-grid,
+  .gg-store-impact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gg-store-path-grid,
+  .gg-product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gg-store-orbit {
+    width: 100%;
+    max-width: 420px;
+    height: 420px;
+    margin: 0 auto;
+  }
+
+  .gg-store-copy h1 {
+    font-size: clamp(52px, 12vw, 72px);
+  }
+}

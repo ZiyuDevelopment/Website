@@ -1,95 +1,184 @@
-<main class="gg-page">
-  <section class="gg-subpage-hero">
-    <p class="gg-eyebrow">Goal Grower Store</p>
-    <h1>Products that help fund the app.</h1>
-    <p>
-      Merch, planning tools, desk items, and focus-friendly products that support
-      Goal Grower development.
-    </p>
-  </section>
+<section class="gg-store-hero">
+  <div class="gg-store-grid-bg"></div>
 
-  <section class="gg-store-feature">
-    <div>
-      <p class="gg-eyebrow">Why the store exists</p>
-      <h2>Every purchase helps keep the project growing.</h2>
+  <div class="gg-container gg-store-hero-grid">
+    <div class="gg-store-copy reveal">
+      <span class="gg-kicker">Goal Grower Store</span>
+
+      <h1>Shop things that help the garden grow.</h1>
+
       <p>
-        The store is not separate from the app. It helps fund testing, design,
-        development tools, app store costs, and future features.
+        Every purchase helps support Goal Grower development, testing, launch prep,
+        and future Ziyu Development projects.
+      </p>
+
+      <div class="gg-hero-actions">
+        <a href="#featured-products" class="gg-btn">Shop Products</a>
+        <a href="/pages/support" class="gg-btn-soft">Support the Project</a>
+      </div>
+    </div>
+
+    <div class="gg-store-orbit reveal">
+      <div class="gg-store-circle"></div>
+
+      <div class="gg-store-center">
+        <span>Support</span>
+        <strong>Build</strong>
+      </div>
+
+      <div class="gg-store-chip chip-a">
+        <strong>Apps</strong>
+        <span>Goal Grower</span>
+      </div>
+
+      <div class="gg-store-chip chip-b">
+        <strong>Digital</strong>
+        <span>tools</span>
+      </div>
+
+      <div class="gg-store-chip chip-c">
+        <strong>Merch</strong>
+        <span>mission goods</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gg-store-intro">
+  <div class="gg-container gg-store-intro-grid">
+    <div>
+      <span class="gg-kicker">Why shop here</span>
+      <h2>Your purchase is part of the build.</h2>
+    </div>
+
+    <div>
+      <p>
+        This store exists to support small, intentional software projects. Some
+        products are digital, some are physical, and some are simple ways to fund
+        the work behind Goal Grower.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="gg-store-categories">
+  <div class="gg-container">
+    <div class="gg-section-heading reveal">
+      <span class="gg-kicker">Store paths</span>
+      <h2>Choose what kind of support fits you.</h2>
+    </div>
+
+    <div class="gg-store-path-grid">
+      <a href="/collections/all" class="gg-store-path reveal">
+        <span>01</span>
+        <h3>Support items</h3>
+        <p>Simple products that help fund Goal Grower development.</p>
+      </a>
+
+      <a href="/collections/all" class="gg-store-path featured reveal">
+        <span>02</span>
+        <h3>Digital tools</h3>
+        <p>Templates, resources, and future downloads made to help people grow.</p>
+      </a>
+
+      <a href="/collections/all" class="gg-store-path reveal">
+        <span>03</span>
+        <h3>Project merch</h3>
+        <p>Physical items connected to the mission and future app projects.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="featured-products" class="gg-store-products">
+  <div class="gg-container">
+    <div class="gg-section-heading reveal">
+      <span class="gg-kicker">Featured products</span>
+      <h2>Available in the store.</h2>
+      <p>
+        Products may change as the project grows. Each purchase supports the next
+        stage of development.
       </p>
     </div>
 
-    <div class="gg-fund-card gg-light-card">
-      <h3>Store categories</h3>
-      <div><span>01</span><p>Goal Grower merch</p></div>
-      <div><span>02</span><p>Journals and planning tools</p></div>
-      <div><span>03</span><p>Desk and focus accessories</p></div>
-      <div><span>04</span><p>Student-built project support items</p></div>
-    </div>
-  </section>
-
-  <section class="gg-store">
-    <div class="gg-section-heading">
-      <p class="gg-eyebrow">Shop by category</p>
-      <h2>Choose the kind of support that fits you.</h2>
-    </div>
-
-    <div class="gg-store-grid">
-      <a href="/collections/goal-grower" class="gg-product-card">
-        <div class="gg-product-image"></div>
-        <span>Merch</span>
-        <h3>Goal Grower apparel</h3>
-        <p>Shirts, hoodies, stickers, and simple merch.</p>
-      </a>
-
-      <a href="/collections/stationery" class="gg-product-card">
-        <div class="gg-product-image"></div>
-        <span>Stationery</span>
-        <h3>Journals and planners</h3>
-        <p>Tools for thinking, planning, and tracking goals offline.</p>
-      </a>
-
-      <a href="/collections/tech" class="gg-product-card">
-        <div class="gg-product-image"></div>
-        <span>Tech</span>
-        <h3>Desk accessories</h3>
-        <p>Small products that support calmer routines.</p>
-      </a>
-    </div>
-  </section>
-
-  <section class="gg-store-products">
-    <div class="gg-section-heading">
-      <p class="gg-eyebrow">Products</p>
-      <h2>Featured items</h2>
-    </div>
-
     {% if collections.all.products.size > 0 %}
-      <div class="gg-real-product-grid">
-        {% for product in collections.all.products limit: 8 %}
-          <a href="{{ product.url }}" class="gg-real-product-card">
-            {% if product.featured_image %}
-              <img
-                src="{{ product.featured_image | image_url: width: 600 }}"
-                alt="{{ product.featured_image.alt | escape }}"
-                loading="lazy"
-              >
-            {% else %}
-              <div class="gg-product-image"></div>
-            {% endif %}
+      <div class="gg-product-grid">
+        {% for product in collections.all.products limit: 6 %}
+          <a href="{{ product.url }}" class="gg-product-card reveal">
+            <div class="gg-product-image">
+              {% if product.featured_image %}
+                {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
+              {% else %}
+                <div class="gg-product-placeholder"></div>
+              {% endif %}
+            </div>
 
-            <h3>{{ product.title }}</h3>
-            <p>{{ product.price | money }}</p>
+            <div class="gg-product-info">
+              <h3>{{ product.title }}</h3>
+              <p>{{ product.price | money }}</p>
+            </div>
           </a>
         {% endfor %}
       </div>
     {% else %}
-      <div class="gg-empty-store">
-        <h3>No products added yet.</h3>
-        <p>Add products in Shopify and they will appear here automatically.</p>
+      <div class="gg-empty-store reveal">
+        <span class="gg-kicker">Coming soon</span>
+        <h3>Products are being prepared.</h3>
+        <p>
+          The store will include support products, digital tools, and project
+          items as Goal Grower moves closer to launch.
+        </p>
+        <a href="/pages/support" class="gg-btn">Support Development</a>
       </div>
     {% endif %}
-  </section>
-</main>
+  </div>
+</section>
+
+<section class="gg-store-impact">
+  <div class="gg-container gg-store-impact-grid">
+    <div class="reveal">
+      <span class="gg-kicker light">Where it goes</span>
+      <h2>Purchases help move Goal Grower forward.</h2>
+    </div>
+
+    <div class="gg-store-impact-list reveal">
+      <div>
+        <strong>Testing</strong>
+        <span>Getting the app into real hands.</span>
+      </div>
+
+      <div>
+        <strong>Design polish</strong>
+        <span>Improving screens, flow, and clarity.</span>
+      </div>
+
+      <div>
+        <strong>Launch prep</strong>
+        <span>Preparing app store assets and release steps.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gg-store-close">
+  <div class="gg-container">
+    <div class="gg-store-close-panel reveal">
+      <span class="gg-kicker">Thank you</span>
+
+      <h2>Shop with the mission in mind.</h2>
+
+      <p>
+        Whether you buy something, test the app, or share the project, you are
+        helping Goal Grower become real.
+      </p>
+
+      <div class="gg-hero-actions center">
+        <a href="/collections/all" class="gg-btn">View Products</a>
+        <a href="/pages/contact" class="gg-btn-soft">Become a Tester</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 {% schema %}
 {
