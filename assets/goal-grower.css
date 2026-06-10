@@ -462,41 +462,50 @@ p {
   z-index: 5;
 }
 
-/* BELIEF */
+/* BELIEF - CLEAN TRANSITION BAND */
 
 .gg-belief {
-  position: relative;
   min-height: auto;
-  display: flex;
-  align-items: center;
-  padding: 70px 0 90px;
-  background:
-    radial-gradient(circle at 85% 20%, rgba(93, 145, 163, 0.18), transparent 30%),
-    transparent;
+  padding: 36px 0 44px;
+  background: linear-gradient(180deg, #f8f2e8 0%, #fffaf2 100%);
 }
 
 .gg-belief-card {
-  max-width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 54px;
-  padding: 56px;
-  border-radius: 48px;
-  background: rgba(255, 250, 242, 0.78);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.74);
-  box-shadow: var(--gg-shadow);
+  grid-template-columns: 0.85fr 1fr;
+  gap: 72px;
+  align-items: center;
+  padding: 52px 56px;
+  border-radius: 38px;
+  background: rgba(255, 250, 242, 0.82);
+  border: 1px solid rgba(36, 39, 44, 0.08);
+  box-shadow: 0 24px 70px rgba(36, 39, 44, 0.08);
 }
 
 .gg-belief-card h2 {
   margin-top: 14px;
-  max-width: 760px;
+  max-width: 620px;
+  font-size: clamp(42px, 5vw, 72px);
 }
 
 .gg-belief-card p {
-  max-width: 760px;
-  margin-top: 0;
+  max-width: 700px;
+  margin: 0;
   font-size: 21px;
+  line-height: 1.7;
+}
+
+/* HOW IT WORKS START */
+
+.gg-showcase {
+  margin-top: 0;
+  padding-top: 72px;
+}
+
+.gg-showcase .gg-section-heading {
+  margin-bottom: 42px;
 }
 
 /* SHOWCASE */
