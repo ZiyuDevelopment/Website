@@ -2215,31 +2215,33 @@ p {
   min-height: 100svh;
   display: flex;
   align-items: center;
+  padding: 90px 0;
   background: var(--gg-paper);
 }
 
-.gg-lab-manifesto h2 {
-  max-width: 900px;
-  font-size: clamp(70px, 9vw, 140px);
-  line-height: .92;
-  letter-spacing: -.06em;
+.gg-manifesto-grid {
+  max-width: 1000px;
 }
 
-.gg-manifesto-divider {
-  width: 120px;
-  height: 2px;
-  margin: 56px 0;
-  background: var(--gg-clay);
+.gg-manifesto-grid h2 {
+  max-width: 850px;
+  font-size: clamp(52px, 6vw, 88px);
+  line-height: .95;
+  letter-spacing: -.05em;
+  margin-top: 16px;
 }
 
-.gg-manifesto-statements {
-  display: grid;
-  gap: 28px;
-  max-width: 760px;
+.gg-manifesto-text {
+  max-width: 700px;
+  margin-top: 48px;
 }
 
-.gg-manifesto-statement {
-  font-size: 28px;
-  line-height: 1.45;
-  color: var(--gg-muted);
+.gg-manifesto-text p {
+  font-size: 24px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.gg-manifesto-text p:last-child {
+  margin-bottom: 0;
 }
