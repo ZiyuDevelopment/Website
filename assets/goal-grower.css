@@ -1266,6 +1266,13 @@ p {
   z-index: 1;
 }
 
+.gg-about-human-hero h1 {
+  font-size: clamp(64px, 7vw, 110px);
+  line-height: .92;
+
+  max-width: 1200px; /* was probably 700-850px */
+}
+
 .gg-about-human-grid {
   display: grid;
   grid-template-columns: 1fr .85fr;
@@ -1284,13 +1291,8 @@ p {
 }
 
 .gg-about-letter {
-  background:
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(93,145,163,.10),
-      transparent 35%
-    ),
-    var(--gg-paper);
+  padding: 110px 0;
+  background: var(--gg-paper);
 }
 
 .gg-letter-panel {
