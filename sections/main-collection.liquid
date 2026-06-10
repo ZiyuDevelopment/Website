@@ -1,20 +1,37 @@
 <section class="gg-page-hero">
   <div class="gg-container reveal">
     <span class="gg-kicker">Store</span>
-    <h1>{{ collection.title | default: 'Support Store' }}</h1>
-
-    {% if collection.description != blank %}
-      <p>{{ collection.description }}</p>
-    {% else %}
-      <p>Products and support items that help fund Goal Grower development.</p>
-    {% endif %}
+    <h1>Support the garden.</h1>
+    <p>
+      Shop support items, digital products, and future physical products that help fund Goal Grower development.
+    </p>
   </div>
 </section>
 
-<section class="gg-section">
+<section class="gg-section gg-products-section">
   <div class="gg-container">
+    <div class="gg-product-lanes store-lanes">
+      <a href="/collections/all" class="gg-lane-card reveal">
+        <span class="gg-lane-label">Main</span>
+        <h3>Goal Grower Support</h3>
+        <p>Support development, testing, and future app features.</p>
+      </a>
+
+      <a href="/collections/all" class="gg-lane-card reveal">
+        <span class="gg-lane-label">Digital</span>
+        <h3>Digital Products</h3>
+        <p>Templates, planners, and resources for intentional growth.</p>
+      </a>
+
+      <a href="/collections/all" class="gg-lane-card reveal">
+        <span class="gg-lane-label">Physical</span>
+        <h3>Physical Products</h3>
+        <p>Merch, desk items, and future productivity products.</p>
+      </a>
+    </div>
+
     {% if collection.products_count > 0 %}
-      <div class="gg-product-grid">
+      <div class="gg-product-grid store-product-grid">
         {% for product in collection.products %}
           <a class="gg-product-card reveal" href="{{ product.url }}">
             <div class="gg-product-image">
@@ -35,7 +52,7 @@
     {% else %}
       <div class="gg-empty-state reveal">
         <h2>No products yet.</h2>
-        <p>Add products in Shopify admin and they will appear here.</p>
+        <p>Add products to this collection in Shopify admin and they will appear here.</p>
       </div>
     {% endif %}
   </div>
