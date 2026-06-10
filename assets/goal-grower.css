@@ -1658,3 +1658,250 @@ p {
     border-top: 2px solid var(--gg-clay);
   }
 }
+
+/* UNIQUE SUPPORT PAGE */
+
+.gg-support-donate-hero {
+  min-height: 92svh;
+  display: flex;
+  align-items: center;
+  margin-top: -92px;
+  padding: 170px 0 90px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(201,130,101,.18), transparent 30%),
+    radial-gradient(circle at 85% 15%, rgba(93,145,163,.20), transparent 32%),
+    linear-gradient(135deg, var(--gg-cream), var(--gg-paper));
+  position: relative;
+  overflow: hidden;
+}
+
+.gg-support-donate-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(36,39,44,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(36,39,44,.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(circle at center, black, transparent 76%);
+  opacity: .7;
+}
+
+.gg-support-donate-card {
+  position: relative;
+  z-index: 2;
+  max-width: 1050px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gg-support-donate-card h1 {
+  margin-top: 16px;
+  font-size: clamp(62px, 8vw, 120px);
+}
+
+.gg-support-donate-card p {
+  max-width: 760px;
+  margin: 28px auto 0;
+  font-size: 23px;
+}
+
+/* Impact rows */
+
+.gg-support-impact {
+  padding: 100px 0;
+  background: var(--gg-paper);
+}
+
+.gg-support-impact-intro {
+  max-width: 820px;
+  margin-bottom: 56px;
+}
+
+.gg-support-impact-intro h2 {
+  margin-top: 16px;
+}
+
+.gg-impact-list {
+  border-top: 1px solid var(--gg-line);
+}
+
+.gg-impact-row {
+  display: grid;
+  grid-template-columns: 80px .55fr 1fr;
+  gap: 34px;
+  align-items: center;
+  padding: 38px 0;
+  border-bottom: 1px solid var(--gg-line);
+}
+
+.gg-impact-row span {
+  color: var(--gg-blue-deep);
+  font-weight: 900;
+  letter-spacing: .13em;
+}
+
+.gg-impact-row h3 {
+  font-size: clamp(30px, 4vw, 52px);
+}
+
+.gg-impact-row p {
+  margin: 0;
+  font-size: 19px;
+}
+
+/* Support paths */
+
+.gg-support-options-unique {
+  padding: 100px 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(93,145,163,.16), transparent 30%),
+    linear-gradient(135deg, #dceff5 0%, #edf7fa 42%, var(--gg-paper) 100%);
+}
+
+.gg-support-paths {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.gg-support-path {
+  min-height: 320px;
+  padding: 34px;
+  border-radius: 34px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(255,255,255,.75);
+  box-shadow: 0 30px 80px rgba(93,145,163,.12);
+  transition: transform .3s ease;
+}
+
+.gg-support-path:hover {
+  transform: translateY(-10px);
+}
+
+.gg-support-path.main {
+  background: var(--gg-charcoal);
+  transform: translateY(-22px);
+}
+
+.gg-support-path.main:hover {
+  transform: translateY(-32px);
+}
+
+.gg-support-path.main h3,
+.gg-support-path.main p {
+  color: white;
+}
+
+.gg-support-path.main p {
+  color: rgba(255,255,255,.72);
+}
+
+.gg-support-path span {
+  color: var(--gg-clay);
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.gg-support-path h3 {
+  margin-top: 22px;
+}
+
+/* Current needs */
+
+.gg-support-current-needs {
+  padding: 110px 0;
+  background:
+    radial-gradient(circle at 80% 16%, rgba(93,145,163,.22), transparent 30%),
+    linear-gradient(135deg, var(--gg-charcoal), #17191d);
+}
+
+.gg-needs-grid {
+  display: grid;
+  grid-template-columns: .9fr 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.gg-support-current-needs h2,
+.gg-support-current-needs p,
+.gg-needs-board strong {
+  color: white;
+}
+
+.gg-support-current-needs p {
+  color: rgba(255,255,255,.72);
+  font-size: 21px;
+}
+
+.gg-needs-board {
+  display: grid;
+  gap: 18px;
+}
+
+.gg-needs-board div {
+  padding: 24px;
+  border-radius: 24px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.gg-needs-board strong {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.gg-needs-board span {
+  color: rgba(255,255,255,.68);
+}
+
+/* Thank you */
+
+.gg-support-thank-you {
+  padding: 100px 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(93,145,163,.14), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(201,130,101,.14), transparent 30%),
+    linear-gradient(180deg, var(--gg-paper), var(--gg-cream));
+}
+
+.gg-thank-you-panel {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gg-thank-you-panel h2 {
+  margin-top: 14px;
+}
+
+.gg-thank-you-panel p {
+  max-width: 700px;
+  margin: 24px auto 0;
+  font-size: 21px;
+}
+
+@media (max-width: 950px) {
+  .gg-support-donate-hero {
+    min-height: auto;
+    padding: 130px 0 80px;
+  }
+
+  .gg-impact-row,
+  .gg-support-paths,
+  .gg-needs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gg-support-path.main {
+    transform: none;
+  }
+
+  .gg-support-path.main:hover {
+    transform: translateY(-10px);
+  }
+}
