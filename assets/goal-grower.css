@@ -1965,7 +1965,7 @@ p {
   }
 }
 
-/* SUPPORT GRAPH SECTION */
+/* SUPPORT ROADMAP GRAPH - MULTI STEP */
 
 .gg-support-graph-section {
   min-height: 100svh;
@@ -1979,8 +1979,8 @@ p {
 }
 
 .gg-support-graph-copy {
-  max-width: 760px;
-  margin-bottom: 10px;
+  max-width: 840px;
+  margin-bottom: 0;
 }
 
 .gg-support-graph-copy h2 {
@@ -1993,13 +1993,11 @@ p {
   font-size: 21px;
 }
 
-/* hand-drawn roadmap line */
-
 .gg-roadmap-line {
   position: relative;
   width: 100%;
-  height: 520px;
-  margin-top: -20px;
+  height: 560px;
+  margin-top: -18px;
 }
 
 .gg-roadmap-svg {
@@ -2015,105 +2013,142 @@ p {
   stroke: var(--gg-clay);
   stroke-width: 7;
   stroke-linecap: round;
-  stroke-dasharray: 1800;
-  stroke-dashoffset: 1800;
-  animation: drawRoadmap 2.4s cubic-bezier(.2,.8,.2,1) forwards;
+  stroke-dasharray: 1900;
+  stroke-dashoffset: 1900;
+  animation: drawRoadmap 2.5s cubic-bezier(.2,.8,.2,1) forwards;
   filter: drop-shadow(0 14px 22px rgba(201,130,101,.22));
 }
 
-.gg-roadmap-arrow {
-  fill: none;
-  stroke: var(--gg-clay);
-  stroke-width: 7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 180;
-  stroke-dashoffset: 180;
-  animation: drawRoadmap 0.6s ease forwards;
-  animation-delay: 2s;
+/* Each roadmap point */
+
+.graph-step {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: stepReveal .45s ease forwards;
 }
 
-/* graph dots */
-
 .graph-node {
-  position: absolute;
   width: 22px;
   height: 22px;
   border-radius: 50%;
   background: var(--gg-charcoal);
   border: 5px solid var(--gg-paper);
   box-shadow: 0 0 0 16px rgba(201,130,101,.15);
-  opacity: 0;
-  transform: scale(.35);
-  animation: nodeReveal .45s ease forwards;
 }
-
-/* graph labels */
 
 .graph-label {
   position: absolute;
-  padding: 12px 17px;
-  border-radius: 999px;
+  width: 230px;
+  padding: 14px 16px;
+  border-radius: 22px;
   background: rgba(255,255,255,.84);
   border: 1px solid rgba(255,255,255,.8);
   backdrop-filter: blur(12px);
-  color: var(--gg-charcoal);
-  font-size: 14px;
-  font-weight: 900;
   box-shadow: 0 18px 48px rgba(93,145,163,.12);
-  opacity: 0;
-  transform: translateY(10px);
-  animation: labelReveal .45s ease forwards;
 }
 
-/* bottom-left to top-right positions */
+.graph-label strong {
+  display: block;
+  color: var(--gg-charcoal);
+  font-size: 15px;
+  font-weight: 900;
+}
 
-.node-feedback {
-  left: 5%;
-  bottom: 8%;
+.graph-label span {
+  display: block;
+  margin-top: 6px;
+  color: var(--gg-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* Positions: bottom-left to top-right */
+
+.step-development {
+  left: 4%;
+  bottom: 7%;
   animation-delay: .25s;
 }
 
-.feedback-label {
-  left: 7%;
-  bottom: 18%;
-  animation-delay: .35s;
+.step-development .graph-label {
+  left: 28px;
+  bottom: 30px;
 }
 
-.node-testing {
-  left: 40%;
-  bottom: 39%;
-  animation-delay: .75s;
+.step-testing {
+  left: 22%;
+  bottom: 25%;
+  animation-delay: .55s;
 }
 
-.testing-label {
-  left: 42%;
-  bottom: 49%;
+.step-testing .graph-label {
+  left: 30px;
+  bottom: 26px;
+}
+
+.step-feedback {
+  left: 38%;
+  bottom: 38%;
   animation-delay: .85s;
 }
 
-.node-development {
-  left: 66%;
+.step-feedback .graph-label {
+  left: -90px;
+  bottom: 30px;
+}
+
+.step-implementing {
+  left: 55%;
   bottom: 55%;
-  animation-delay: 1.2s;
+  animation-delay: 1.15s;
 }
 
-.development-label {
-  left: 60%;
-  bottom: 65%;
-  animation-delay: 1.3s;
+.step-implementing .graph-label {
+  left: 28px;
+  bottom: 26px;
 }
 
-.node-launch {
-  right: 4%;
-  top: 6%;
-  animation-delay: 1.7s;
+.step-launch {
+  left: 69%;
+  top: 25%;
+  animation-delay: 1.45s;
 }
 
-.launch-label {
-  right: 7%;
+.step-launch .graph-label {
+  left: -95px;
+  bottom: 28px;
+}
+
+.step-updates {
+  left: 82%;
   top: 18%;
-  animation-delay: 1.8s;
+  animation-delay: 1.75s;
+}
+
+.step-updates .graph-label {
+  left: -115px;
+  bottom: 30px;
+}
+
+.step-projects {
+  right: 3%;
+  top: 5%;
+  animation-delay: 2.05s;
+}
+
+.step-projects .graph-label {
+  right: 0;
+  top: 34px;
+  background: var(--gg-charcoal);
+}
+
+.step-projects .graph-label strong {
+  color: white;
+}
+
+.step-projects .graph-label span {
+  color: rgba(255,255,255,.72);
 }
 
 @keyframes drawRoadmap {
@@ -2122,21 +2157,14 @@ p {
   }
 }
 
-@keyframes nodeReveal {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes labelReveal {
+@keyframes stepReveal {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* mobile fallback */
+/* Mobile fallback */
 
 @media (max-width: 950px) {
   .gg-support-graph-section {
@@ -2146,22 +2174,37 @@ p {
 
   .gg-roadmap-line {
     height: auto;
-    margin-top: 32px;
+    margin-top: 34px;
     display: grid;
     gap: 16px;
   }
 
-  .gg-roadmap-svg,
-  .graph-node {
+  .gg-roadmap-svg {
     display: none;
   }
 
-  .graph-label {
+  .graph-step {
     position: relative;
     inset: auto;
     opacity: 1;
     transform: none;
     animation: none;
-    width: fit-content;
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+
+  .graph-label,
+  .step-development .graph-label,
+  .step-testing .graph-label,
+  .step-feedback .graph-label,
+  .step-implementing .graph-label,
+  .step-launch .graph-label,
+  .step-updates .graph-label,
+  .step-projects .graph-label {
+    position: relative;
+    inset: auto;
+    width: 100%;
   }
 }
