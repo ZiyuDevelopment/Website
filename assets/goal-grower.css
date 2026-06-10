@@ -1101,3 +1101,98 @@ p {
     font-size: 42px;
   }
 }
+
+/* HERO PHONE SPATIAL OVERLAP + HOW IT WORKS FLOW FIX */
+
+.gg-hero {
+  padding-bottom: 0;
+}
+
+.gg-hero-phones {
+  min-height: 560px;
+  transform: translateX(-18px);
+}
+
+/* Main garden phone: large anchor */
+.main-phone {
+  width: min(300px, 74vw);
+  transform: rotate(-3deg);
+}
+
+/* Side goals phone: lower, more behind, less random */
+.side-phone {
+  width: 150px;
+  right: 34px;
+  bottom: 42px;
+  z-index: 1;
+  opacity: 0.96;
+  transform: rotate(7deg);
+}
+
+.main-phone {
+  z-index: 3;
+}
+
+/* Bring bubbles into the phone cluster */
+.card-a {
+  top: 34%;
+  left: 20px;
+  z-index: 5;
+}
+
+.card-b {
+  top: 66%;
+  right: 6px;
+  z-index: 5;
+}
+
+/* Make hero fade into next section instead of cutting */
+.gg-hero::after {
+  bottom: -170px;
+  height: 360px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(248, 242, 232, 0) 0%,
+      rgba(255, 250, 242, 0.75) 48%,
+      rgba(255, 250, 242, 1) 100%
+    );
+}
+
+/* Pull How It Works upward to fill white space */
+.gg-showcase {
+  margin-top: -95px;
+  padding-top: 165px;
+  position: relative;
+  z-index: 2;
+}
+
+/* First showcase row should feel connected to the intro */
+.gg-showcase .gg-section-heading {
+  margin-bottom: 34px;
+}
+
+.gg-showcase-row:first-of-type {
+  min-height: 76svh;
+  border-top: 0;
+}
+
+/* Mobile */
+@media (max-width: 950px) {
+  .gg-hero-phones {
+    transform: none;
+  }
+
+  .main-phone {
+    width: min(285px, 82vw);
+  }
+
+  .side-phone {
+    display: none;
+  }
+
+  .gg-showcase {
+    margin-top: -45px;
+    padding-top: 120px;
+  }
+}
