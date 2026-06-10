@@ -2191,3 +2191,55 @@ p {
     width: 100%;
   }
 }
+
+.step-development .graph-node {
+  width: 18px;
+  height: 18px;
+}
+
+.step-testing .graph-node {
+  width: 20px;
+  height: 20px;
+}
+
+.step-feedback .graph-node {
+  width: 22px;
+  height: 22px;
+}
+
+.step-launch .graph-node {
+  width: 42px;
+  height: 42px;
+
+  box-shadow:
+    0 0 0 22px rgba(201,130,101,.18),
+    0 0 80px rgba(201,130,101,.45);
+
+  animation:
+    launchPulse 3s ease-in-out infinite;
+}
+
+.step-projects .graph-node {
+  width: 30px;
+  height: 30px;
+
+  box-shadow:
+    0 0 0 18px rgba(93,145,163,.16),
+    0 0 50px rgba(93,145,163,.25);
+}
+
+.step-launch .graph-label {
+  width: 300px;
+  padding: 20px;
+  background: var(--gg-charcoal);
+}
+
+.step-launch .graph-label strong {
+  font-size: 20px;
+  color: white;
+}
+
+.step-launch .graph-label span {
+  color: rgba(255,255,255,.75);
+  font-size: 14px;
+}
