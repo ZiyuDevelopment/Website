@@ -1063,3 +1063,147 @@ p {
     font-size: 42px;
   }
 }
+
+/* HERO MUST FIT IN ONE SCREEN */
+
+.gg-hero {
+  min-height: calc(100svh - 32px);
+  padding: 72px 0 40px;
+  display: flex;
+  align-items: center;
+}
+
+.gg-hero-grid {
+  gap: 56px;
+}
+
+.gg-hero-copy h1 {
+  font-size: clamp(46px, 7vw, 86px);
+}
+
+.gg-hero-copy p {
+  font-size: 18px;
+  line-height: 1.65;
+  margin-top: 18px;
+}
+
+.gg-hero-actions {
+  margin-top: 26px;
+}
+
+.gg-hero-phones {
+  min-height: 520px;
+}
+
+.main-phone {
+  width: min(285px, 74vw);
+}
+
+.side-phone {
+  width: 132px;
+  bottom: 66px;
+}
+
+/* OVERLAY CARD SECTION ON SCROLL */
+
+.gg-overlay-story {
+  padding: 90px 0 180px;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(93, 145, 163, 0.16), transparent 28%),
+    linear-gradient(180deg, var(--gg-paper), var(--gg-cream));
+}
+
+.gg-overlay-stack {
+  position: relative;
+}
+
+.gg-overlay-card {
+  position: sticky;
+  top: 96px;
+  min-height: 560px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 56px;
+  align-items: start;
+  padding: 48px;
+  border-radius: 48px;
+  margin-bottom: 110px;
+  box-shadow: var(--gg-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+.gg-overlay-card:nth-child(1) {
+  z-index: 1;
+}
+
+.gg-overlay-card:nth-child(2) {
+  z-index: 2;
+  transform: translateY(12px);
+}
+
+.gg-overlay-card:nth-child(3) {
+  z-index: 3;
+  transform: translateY(24px);
+}
+
+.gg-overlay-card:nth-child(4) {
+  z-index: 4;
+  transform: translateY(36px);
+}
+
+.gg-overlay-copy h3 {
+  font-size: clamp(38px, 4.5vw, 64px);
+}
+
+.gg-overlay-copy p {
+  font-size: 20px;
+}
+
+.card-phone {
+  width: 270px;
+}
+
+/* MOBILE FIXES */
+
+@media (max-width: 950px) {
+  .gg-hero {
+    min-height: auto;
+    padding: 82px 0 64px;
+  }
+
+  .gg-hero-grid {
+    gap: 36px;
+  }
+
+  .gg-hero-phones {
+    min-height: 460px;
+  }
+
+  .main-phone {
+    width: min(270px, 82vw);
+  }
+
+  .side-phone,
+  .gg-floating-card {
+    display: none;
+  }
+
+  .gg-overlay-story {
+    padding: 72px 0;
+  }
+
+  .gg-overlay-card {
+    position: relative;
+    top: auto;
+    min-height: auto;
+    grid-template-columns: 1fr;
+    margin-bottom: 30px;
+    padding: 32px;
+    transform: none !important;
+  }
+
+  .card-phone {
+    width: min(285px, 82vw);
+    justify-self: center;
+  }
+}
