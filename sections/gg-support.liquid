@@ -1,54 +1,120 @@
-<section class="gg-page-hero">
-  <div class="gg-container reveal">
-    <span class="gg-kicker">Support Development</span>
-    <h1>Help the garden keep growing.</h1>
-    <p>
-      Goal Grower is still being built. Your support helps fund development, testing, design, and future features.
-    </p>
+<section class="gg-support-hero">
+  <div class="gg-container gg-support-hero-grid">
+    <div>
+      <span class="gg-kicker">Support Goal Grower</span>
+      <h1>Help build a calmer way to grow.</h1>
+    </div>
 
-    <div class="gg-hero-actions center">
-      <a href="{{ routes.collections_url }}" class="gg-btn">Visit Store</a>
-      <a href="/pages/contact" class="gg-btn-soft">Become a Tester</a>
+    <div class="gg-support-hero-note">
+      <p>
+        Goal Grower is still in development. Your support helps with testing,
+        design, app store prep, future features, and keeping the project moving.
+      </p>
+      <a href="/collections/all" class="gg-btn">Support the Project</a>
     </div>
   </div>
 </section>
 
-<section class="gg-section">
+<section class="gg-support-mission">
   <div class="gg-container">
-    <div class="gg-section-heading reveal">
-      <span class="gg-kicker">Where support goes</span>
-      <h2>Funding real development work.</h2>
+    <div class="gg-support-mission-panel">
+      <span class="gg-kicker">Why support matters</span>
+      <h2>This is more than a goal tracker.</h2>
+      <p>
+        Goal Grower is being built to make progress feel human, visual, and
+        easier to return to. Support helps turn the beta into a polished app
+        people can actually use every day.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="gg-support-options">
+  <div class="gg-container">
+    <div class="gg-section-heading">
+      <span class="gg-kicker">Ways to support</span>
+      <h2>Choose what fits you.</h2>
     </div>
 
-    <div class="gg-card-grid">
-      <div class="gg-info-card reveal">
-        <span class="gg-number">01</span>
-        <h3>Building</h3>
-        <p>New features, app polish, shared gardens, and bug fixes.</p>
-      </div>
+    <div class="gg-support-option-grid">
+      <a href="/pages/contact" class="gg-support-option">
+        <span>01</span>
+        <h3>Become a beta tester</h3>
+        <p>Try the app, share feedback, and help improve the experience before launch.</p>
+      </a>
 
-      <div class="gg-info-card reveal">
-        <span class="gg-number">02</span>
-        <h3>Testing</h3>
-        <p>Preparing Goal Grower for beta testers and app store release.</p>
-      </div>
+      <a href="/collections/all" class="gg-support-option featured">
+        <span>02</span>
+        <h3>Support development</h3>
+        <p>Help fund design, testing, app store setup, and future features.</p>
+      </a>
 
-      <div class="gg-info-card reveal">
-        <span class="gg-number">03</span>
-        <h3>Design</h3>
-        <p>Making the app feel more human, calming, motivating, and alive.</p>
-      </div>
+      <a href="/collections/all" class="gg-support-option">
+        <span>03</span>
+        <h3>Shop products</h3>
+        <p>Buy digital tools, merch, or future products that help fund the build.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="gg-support-roadmap">
+  <div class="gg-container gg-support-roadmap-grid">
+    <div>
+      <span class="gg-kicker light">What support helps with</span>
+      <h2>Every bit moves the app forward.</h2>
     </div>
 
-    <p class="gg-disclaimer reveal">
-      Support is voluntary and does not guarantee rewards, ownership, or future access.
-    </p>
+    <div class="gg-roadmap-list">
+      <div>
+        <strong>Testing</strong>
+        <span>Finding bugs and improving confusing screens.</span>
+      </div>
+
+      <div>
+        <strong>Design polish</strong>
+        <span>Making the app feel clearer, calmer, and more motivating.</span>
+      </div>
+
+      <div>
+        <strong>App store launch</strong>
+        <span>Preparing screenshots, listing content, testing, and release steps.</span>
+      </div>
+
+      <div>
+        <strong>Future features</strong>
+        <span>Improving shared gardens, reminders, widgets, and goal systems.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gg-support-final">
+  <div class="gg-container">
+    <div class="gg-support-final-card">
+      <span class="gg-kicker">Thank you</span>
+      <h2>Support the garden while it grows.</h2>
+      <p>
+        Whether you test, share feedback, or support financially, you are helping
+        Goal Grower become a better app for real people with real goals.
+      </p>
+
+      <div class="gg-hero-actions center">
+        <a href="/collections/all" class="gg-btn">Support Now</a>
+        <a href="/pages/contact" class="gg-btn-soft">Join Testing</a>
+      </div>
+    </div>
   </div>
 </section>
 
 {% schema %}
 {
   "name": "Goal Grower Support",
-  "settings": []
+  "settings": [],
+  "presets": [
+    {
+      "name": "Goal Grower Support"
+    }
+  ]
 }
 {% endschema %}
