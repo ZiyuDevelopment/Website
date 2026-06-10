@@ -2716,3 +2716,244 @@ p {
     padding: 34px;
   }
 }
+
+/* FLOW + SPACING REFINEMENT */
+
+.gg-section-heading {
+  margin-bottom: 64px;
+}
+
+.gg-section-heading h2 {
+  margin-top: 16px;
+}
+
+.gg-section-heading p {
+  margin-top: 20px;
+}
+
+.gg-premium-hero {
+  padding: 150px 0 130px;
+}
+
+.gg-hero-grid {
+  gap: 96px;
+}
+
+.gg-belief-flow,
+.gg-stacked-story,
+.gg-runthrough-section,
+.gg-living-section,
+.gg-gallery-flow,
+.gg-shared-flow,
+.gg-growth-flow,
+.gg-maker-flow,
+.gg-store-flow {
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+/* Better stacked story */
+
+.gg-stacked-story {
+  background:
+    radial-gradient(circle at 15% 8%, rgba(111, 157, 171, 0.18), transparent 28%),
+    linear-gradient(180deg, var(--gg-cream), var(--gg-paper));
+}
+
+.gg-stack-story-card {
+  position: sticky;
+  top: 112px;
+  min-height: 620px;
+  display: grid;
+  grid-template-columns: 1fr 310px;
+  gap: 70px;
+  align-items: start;
+  margin-bottom: 72px;
+  padding: 58px;
+  border-radius: 48px;
+  box-shadow: var(--gg-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+.card-create {
+  background: var(--gg-paper);
+}
+
+.card-empty {
+  background: var(--gg-blue);
+}
+
+.card-garden {
+  background: var(--gg-clay-soft);
+}
+
+.card-details {
+  background: #ffffff;
+}
+
+.gg-stack-copy {
+  position: sticky;
+  top: 150px;
+  padding-top: 4px;
+}
+
+.gg-stack-copy span {
+  display: inline-flex;
+  margin-bottom: 18px;
+  color: var(--gg-blue-deep);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.gg-stack-copy h3 {
+  font-size: clamp(38px, 4vw, 62px);
+  line-height: 0.98;
+  max-width: 720px;
+}
+
+.gg-stack-copy p {
+  margin-top: 22px;
+  max-width: 620px;
+  font-size: 20px;
+}
+
+.gg-stack-phone {
+  width: 285px;
+  aspect-ratio: 9 / 19.5;
+  justify-self: end;
+  position: relative;
+  background: linear-gradient(145deg, #34383d, #17191c);
+  border-radius: 46px;
+  padding: 12px;
+  box-shadow: 0 28px 70px rgba(36, 38, 41, 0.24);
+}
+
+/* Runthrough video */
+
+.gg-runthrough-section {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(201, 130, 101, 0.18), transparent 30%),
+    var(--gg-charcoal);
+}
+
+.gg-runthrough-section h2,
+.gg-runthrough-section p {
+  color: white;
+}
+
+.gg-runthrough-section p {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.gg-video-frame {
+  padding: 14px;
+  border-radius: 42px;
+  background: rgba(255, 250, 242, 0.08);
+  border: 1px solid rgba(255, 250, 242, 0.16);
+  box-shadow: 0 34px 80px rgba(0, 0, 0, 0.26);
+}
+
+.gg-video-frame video {
+  width: 100%;
+  display: block;
+  border-radius: 30px;
+  background: #000;
+}
+
+/* More balanced gallery */
+
+.gg-gallery-stack {
+  gap: 34px;
+}
+
+.gg-gallery-device {
+  transition: transform 0.3s ease;
+}
+
+.gg-gallery-device:hover {
+  transform: translateY(-14px) scale(1.015);
+}
+
+.featured-gallery-device:hover {
+  transform: translateY(-42px) scale(1.015);
+}
+
+/* Bigger card typography */
+
+.gg-living-list strong,
+.gg-store-flow-card h3,
+.gg-maker-card h3,
+.gg-growth-node span,
+.gg-shared-panel h2 {
+  font-size: clamp(24px, 2.2vw, 34px);
+}
+
+.gg-living-list span,
+.gg-store-flow-card p,
+.gg-growth-node p,
+.gg-maker-card li,
+.gg-shared-panel p {
+  font-size: 18px;
+}
+
+/* Better flow overlaps */
+
+.gg-belief-panel {
+  transform: translateY(-36px);
+}
+
+.gg-living-section {
+  margin-top: -30px;
+}
+
+.gg-shared-flow {
+  margin-top: -20px;
+}
+
+/* Mobile */
+
+@media (max-width: 950px) {
+  .gg-premium-hero,
+  .gg-belief-flow,
+  .gg-stacked-story,
+  .gg-runthrough-section,
+  .gg-living-section,
+  .gg-gallery-flow,
+  .gg-shared-flow,
+  .gg-growth-flow,
+  .gg-maker-flow,
+  .gg-store-flow {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .gg-hero-grid,
+  .gg-stack-story-card {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .gg-stack-story-card {
+    position: relative;
+    top: auto;
+    min-height: auto;
+    padding: 34px;
+    margin-bottom: 34px;
+  }
+
+  .gg-stack-copy {
+    position: relative;
+    top: auto;
+  }
+
+  .gg-stack-phone {
+    justify-self: center;
+    width: min(300px, 82vw);
+  }
+
+  .gg-stack-copy h3 {
+    font-size: 40px;
+  }
+}

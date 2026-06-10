@@ -16,7 +16,7 @@
 
       <div class="gg-hero-actions">
         <a href="/pages/support" class="gg-btn">Support Development</a>
-        <a href="#journey" class="gg-btn-soft">See How It Works</a>
+        <a href="#runthrough" class="gg-btn-soft">Watch Runthrough</a>
       </div>
     </div>
 
@@ -46,7 +46,7 @@
       <div class="gg-mini-phone phone-float-one">
         <div class="gg-phone-speaker small"></div>
         <div class="gg-phone-screen">
-          {{ 'gg-exercise-more-only-goal-list-view.png' | asset_img_url: '700x' | img_tag: 'Goal Grower goals list screen' }}
+          {{ 'gg-exercise-more-only-goal-list-view.png' | asset_img_url: '700x' | img_tag: 'Goal Grower goal list screen' }}
         </div>
       </div>
     </div>
@@ -66,61 +66,94 @@
   </div>
 </section>
 
-<section class="gg-journey-section" id="journey">
+<section class="gg-stacked-story" id="journey">
   <div class="gg-container">
     <div class="gg-section-heading reveal">
-      <span class="gg-kicker">The journey</span>
-      <h2>From idea to living progress.</h2>
+      <span class="gg-kicker">How it works</span>
+      <h2>Your goal becomes a living thing.</h2>
+      <p>The cards stack as the story moves forward, like moving through the app.</p>
+    </div>
+
+    <article class="gg-stack-story-card card-create reveal">
+      <div class="gg-stack-copy">
+        <span>01 / Create</span>
+        <h3>Start with a goal that matters.</h3>
+        <p>Add the reason, the habit, the project, or the future version of yourself you are trying to grow.</p>
+      </div>
+
+      <div class="gg-stack-phone">
+        <div class="gg-phone-speaker"></div>
+        <div class="gg-phone-screen">
+          {{ 'gg-add-goal-saving-read-more-view.png' | asset_img_url: '900x' | img_tag: 'Create goal screen' }}
+        </div>
+      </div>
+    </article>
+
+    <article class="gg-stack-story-card card-empty reveal">
+      <div class="gg-stack-copy">
+        <span>02 / Begin</span>
+        <h3>Go from empty space to intention.</h3>
+        <p>The app gives your goals a home instead of letting them disappear into another list.</p>
+      </div>
+
+      <div class="gg-stack-phone">
+        <div class="gg-phone-speaker"></div>
+        <div class="gg-phone-screen">
+          {{ 'gg-no-goals-yet.png' | asset_img_url: '900x' | img_tag: 'No goals yet screen' }}
+        </div>
+      </div>
+    </article>
+
+    <article class="gg-stack-story-card card-garden reveal">
+      <div class="gg-stack-copy">
+        <span>03 / Garden</span>
+        <h3>Place your effort somewhere visible.</h3>
+        <p>Each goal becomes part of a garden, turning consistency into something you can see.</p>
+      </div>
+
+      <div class="gg-stack-phone">
+        <div class="gg-phone-speaker"></div>
+        <div class="gg-phone-screen">
+          {{ 'gg-exercise-more-before-placed-garden-view.png' | asset_img_url: '900x' | img_tag: 'Garden screen' }}
+        </div>
+      </div>
+    </article>
+
+    <article class="gg-stack-story-card card-details reveal">
+      <div class="gg-stack-copy">
+        <span>04 / Details</span>
+        <h3>Track the growth behind the plant.</h3>
+        <p>See the goal, progress, and details that help the habit become real.</p>
+      </div>
+
+      <div class="gg-stack-phone">
+        <div class="gg-phone-speaker"></div>
+        <div class="gg-phone-screen">
+          {{ 'gg-exercise-more-goal-details-view.png' | asset_img_url: '900x' | img_tag: 'Goal details screen' }}
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="gg-runthrough-section" id="runthrough">
+  <div class="gg-container gg-two-col">
+    <div class="reveal">
+      <span class="gg-kicker">App runthrough</span>
+      <h2>Watch the garden system in motion.</h2>
       <p>
-        The page flows like the app: plant something, care for it, and watch it become visible.
+        Show people how Goal Grower feels before they download or support it.
+        This is where the app becomes real.
       </p>
     </div>
 
-    <div class="gg-journey-track">
-      <article class="gg-journey-card reveal">
-        <div class="gg-journey-copy">
-          <span>01</span>
-          <h3>Start with an intention.</h3>
-          <p>Create a goal with enough meaning that you want to return to it.</p>
-        </div>
-
-        <div class="gg-journey-phone">
-          <div class="gg-phone-speaker"></div>
-          <div class="gg-phone-screen">
-            {{ 'gg-add-goal-saving-read-more-view.png' | asset_img_url: '900x' | img_tag: 'Create goal screen' }}
-          </div>
-        </div>
-      </article>
-
-      <article class="gg-journey-card reveal">
-        <div class="gg-journey-copy">
-          <span>02</span>
-          <h3>Give the goal a home.</h3>
-          <p>Your goal becomes part of a garden instead of disappearing into a list.</p>
-        </div>
-
-        <div class="gg-journey-phone">
-          <div class="gg-phone-speaker"></div>
-          <div class="gg-phone-screen">
-            {{ 'gg-exercise-more-before-placed-garden-view.png' | asset_img_url: '900x' | img_tag: 'Garden screen' }}
-          </div>
-        </div>
-      </article>
-
-      <article class="gg-journey-card reveal">
-        <div class="gg-journey-copy">
-          <span>03</span>
-          <h3>See the details.</h3>
-          <p>Track progress, milestones, and the actions that keep the plant alive.</p>
-        </div>
-
-        <div class="gg-journey-phone">
-          <div class="gg-phone-speaker"></div>
-          <div class="gg-phone-screen">
-            {{ 'gg-exercise-more-goal-details-view.png' | asset_img_url: '900x' | img_tag: 'Goal details screen' }}
-          </div>
-        </div>
-      </article>
+    <div class="gg-video-frame reveal">
+      <video
+        src="{{ 'Screen_Recording_goal-grower-runthrough.mp4' | asset_url }}"
+        controls
+        playsinline
+        preload="metadata"
+      ></video>
     </div>
   </div>
 </section>
@@ -148,7 +181,7 @@
 
       <div>
         <strong>Shared growth</strong>
-        <span>Grow with other people without turning accountability into pressure.</span>
+        <span>Grow with people without turning accountability into pressure.</span>
       </div>
     </div>
   </div>
@@ -157,7 +190,7 @@
 <section class="gg-gallery-flow" id="screenshots">
   <div class="gg-container">
     <div class="gg-section-heading reveal">
-      <span class="gg-kicker">App screenshots</span>
+      <span class="gg-kicker">Screenshots</span>
       <h2>Real screens. Real flow.</h2>
       <p>
         A calmer way to create goals, track progress, and see your effort become visual.
@@ -168,7 +201,7 @@
       <div class="gg-gallery-device reveal">
         <div class="gg-phone-speaker"></div>
         <div class="gg-phone-screen">
-          {{ 'gg-no-goals-yet.png' | asset_img_url: '900x' | img_tag: 'No goals yet screen' }}
+          {{ 'gg-no-goals-yet.png' | asset_img_url: '900x' | img_tag: 'No goals screen' }}
         </div>
       </div>
 
@@ -189,7 +222,7 @@
       <div class="gg-gallery-device reveal">
         <div class="gg-phone-speaker"></div>
         <div class="gg-phone-screen">
-          {{ 'gg-exercise-more-only-goal-list-view.png' | asset_img_url: '900x' | img_tag: 'Goals list screen' }}
+          {{ 'gg-exercise-more-only-goal-list-view.png' | asset_img_url: '900x' | img_tag: 'Goal list screen' }}
         </div>
       </div>
 
