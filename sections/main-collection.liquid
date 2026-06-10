@@ -1,18 +1,30 @@
-<section class="gg-shop-direct">
+<section class="gg-shop-page">
   <div class="gg-container">
-    <div class="gg-shop-direct-hero">
-      <span class="gg-kicker">Store</span>
-      <h1>Support the build.</h1>
-      <p>
-        Products here help fund Goal Grower development, testing, and future app projects.
-      </p>
+    <div class="gg-shop-hero">
+      <div>
+        <span class="gg-kicker">Ziyu Development Store</span>
+        <h1>Build-supporting products for intentional growth.</h1>
+        <p>
+          Shop digital tools, project merch, and support items that help fund Goal Grower and future app projects.
+        </p>
+      </div>
+
+      <div class="gg-shop-note">
+        <strong>Every purchase supports development.</strong>
+        <span>Testing, design polish, launch prep, and future tools.</span>
+      </div>
+    </div>
+
+    <div class="gg-shop-toolbar">
+      <span>{{ collection.products_count }} products</span>
+      <a href="/pages/support">Why purchases matter</a>
     </div>
 
     {% if collection.products.size > 0 %}
-      <div class="gg-shop-direct-grid">
+      <div class="gg-shop-grid">
         {% for product in collection.products %}
-          <a href="{{ product.url }}" class="gg-shop-direct-card">
-            <div class="gg-shop-direct-image">
+          <a href="{{ product.url }}" class="gg-shop-card">
+            <div class="gg-shop-image">
               {% if product.featured_image %}
                 {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
               {% else %}
@@ -20,23 +32,25 @@
               {% endif %}
             </div>
 
-            <div class="gg-shop-direct-info">
+            <div class="gg-shop-info">
               <span>{{ product.type | default: 'Support item' }}</span>
               <h2>{{ product.title }}</h2>
-              <p>{{ product.price | money }}</p>
+              <div class="gg-shop-price-row">
+                <p>{{ product.price | money }}</p>
+                <small>View item</small>
+              </div>
             </div>
           </a>
         {% endfor %}
       </div>
     {% else %}
       <div class="gg-empty-store">
-        <h2>No products yet.</h2>
-        <p>Products are being prepared.</p>
+        <h2>Products are coming soon.</h2>
+        <p>The store is being prepared.</p>
       </div>
     {% endif %}
   </div>
 </section>
-
 {% schema %}
 {
   "name": "Main Collection",
