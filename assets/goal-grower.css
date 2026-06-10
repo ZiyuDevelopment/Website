@@ -1743,22 +1743,12 @@ p {
   gap: 24px;
 }
 
-.gg-lab-role-track::before {
-  content: "";
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  top: -34px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gg-blue-deep), var(--gg-clay), transparent);
-  opacity: .45;
-}
-
 .gg-lab-role {
   min-height: 270px;
   padding: 32px;
   border-radius: 34px;
   background: rgba(255,255,255,.76);
+  border: 1px solid rgba(255,255,255,.76);
   box-shadow: 0 30px 80px rgba(93,145,163,.12);
   position: relative;
   overflow: hidden;
