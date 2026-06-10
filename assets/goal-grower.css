@@ -1469,3 +1469,27 @@ p {
   border-top: 0;
   padding-top: 10px;
 }
+
+.gg-belief {
+  position: relative;
+  overflow: hidden;
+  min-height: 84svh;
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(201, 130, 101, 0.18), transparent 28%),
+    linear-gradient(135deg, var(--gg-blue), var(--gg-paper));
+}
+
+.gg-belief-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 54px;
+  padding: 56px;
+  border-radius: 48px;
+  background: rgba(255, 250, 242, 0.78);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  box-shadow: var(--gg-shadow);
+}
