@@ -2060,9 +2060,9 @@ p {
   opacity: .8;
 }
 
-/* SUPPORT STUDIO — PINBOARD MOTION */
+/* SUPPORT CHART SECTION */
 
-.gg-support-studio {
+.gg-support-chart-section {
   min-height: 100svh;
   display: flex;
   align-items: center;
@@ -2073,82 +2073,109 @@ p {
     linear-gradient(135deg, #edf7fa, var(--gg-paper));
 }
 
-.gg-studio-grid {
+.gg-support-chart-grid {
   display: grid;
   grid-template-columns: .82fr 1.18fr;
   gap: 80px;
   align-items: center;
 }
 
-.gg-studio-copy {
+.gg-support-chart-copy {
   max-width: 640px;
 }
 
-.gg-studio-copy h2 {
+.gg-support-chart-copy h2 {
   margin-top: 18px;
   font-size: clamp(42px, 5vw, 78px);
 }
 
-.gg-studio-copy p {
+.gg-support-chart-copy p {
   margin-top: 22px;
   font-size: 21px;
 }
 
-.gg-studio-board {
-  position: relative;
-  min-height: 570px;
+/* chart */
+
+.gg-build-chart {
+  min-height: 560px;
+  padding: 34px;
   border-radius: 44px;
   background:
-    linear-gradient(135deg, rgba(255,255,255,.6), rgba(255,255,255,.28));
-  border: 1px solid rgba(255,255,255,.8);
+    linear-gradient(135deg, rgba(255,255,255,.68), rgba(255,255,255,.32));
+  border: 1px solid rgba(255,255,255,.82);
   backdrop-filter: blur(18px);
   box-shadow:
     0 30px 90px rgba(93,145,163,.14),
     inset 0 0 0 1px rgba(255,255,255,.4);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   overflow: hidden;
+  position: relative;
 }
 
-.gg-studio-board::before {
+.gg-build-chart::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 96px 34px 72px 34px;
   background-image:
-    linear-gradient(rgba(36,39,44,.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(36,39,44,.045) 1px, transparent 1px);
-  background-size: 34px 34px;
-  opacity: .45;
+    linear-gradient(rgba(36,39,44,.075) 1px, transparent 1px);
+  background-size: 100% 72px;
+  opacity: .65;
 }
 
-.gg-studio-board::after {
-  content: "";
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  right: -90px;
-  bottom: -90px;
-  border-radius: 50%;
-  background: rgba(201,130,101,.16);
+.gg-chart-header {
+  position: relative;
+  z-index: 2;
 }
 
-.gg-studio-note {
-  position: absolute;
-  width: 255px;
-  min-height: 190px;
-  padding: 24px;
-  border-radius: 28px;
+.gg-chart-header span {
+  color: var(--gg-clay);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.gg-chart-header strong {
+  display: block;
+  margin-top: 10px;
+  color: var(--gg-charcoal);
+  font-family: "Sora", sans-serif;
+  font-size: 34px;
+  letter-spacing: -.04em;
+}
+
+.gg-chart-bars {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  align-items: end;
+  padding-top: 38px;
+}
+
+.gg-chart-bar {
+  min-height: 120px;
+  padding: 18px;
+  border-radius: 24px 24px 18px 18px;
   background: rgba(255,250,242,.9);
   border: 1px solid rgba(255,255,255,.85);
-  box-shadow: 0 24px 65px rgba(36,39,44,.12);
-  z-index: 2;
-  transition: transform .35s ease, box-shadow .35s ease;
+  box-shadow: 0 20px 55px rgba(36,39,44,.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transform-origin: bottom;
+  animation: chartGrow .9s ease both;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 
-.gg-studio-note:hover {
-  transform: translateY(-12px) rotate(0deg) scale(1.02) !important;
-  box-shadow: 0 34px 86px rgba(36,39,44,.18);
+.gg-chart-bar:hover {
+  transform: translateY(-10px) scaleY(1.02);
+  box-shadow: 0 30px 75px rgba(36,39,44,.16);
 }
 
-.gg-studio-note span {
+.gg-chart-bar span {
   color: var(--gg-blue-deep);
   font-size: 12px;
   font-weight: 900;
@@ -2156,106 +2183,90 @@ p {
   text-transform: uppercase;
 }
 
-.gg-studio-note strong {
+.gg-chart-bar strong {
   display: block;
-  margin-top: 14px;
+  margin-top: 10px;
   color: var(--gg-charcoal);
-  font-size: 24px;
-  font-family: "Sora", sans-serif;
-  letter-spacing: -.04em;
+  font-size: 18px;
+  line-height: 1.15;
 }
 
-.gg-studio-note p {
-  margin-bottom: 0;
-  font-size: 15px;
-  line-height: 1.55;
+.bar-test {
+  height: 54%;
+  animation-delay: .1s;
 }
 
-.note-test {
-  left: 7%;
-  top: 10%;
-  transform: rotate(-5deg);
-  animation: notePlaceOne 8s ease-in-out infinite;
+.bar-feedback {
+  height: 68%;
+  animation-delay: .25s;
 }
 
-.note-feedback {
-  right: 7%;
-  top: 15%;
-  transform: rotate(4deg);
-  animation: notePlaceTwo 9s ease-in-out infinite;
-}
-
-.note-fund {
-  left: 17%;
-  bottom: 12%;
-  transform: rotate(3deg);
+.bar-fund {
+  height: 86%;
   background: var(--gg-charcoal);
-  animation: notePlaceThree 8.5s ease-in-out infinite;
+  animation-delay: .4s;
 }
 
-.note-fund strong,
-.note-fund p {
+.bar-fund span {
+  color: var(--gg-clay-soft);
+}
+
+.bar-fund strong {
   color: white;
 }
 
-.note-fund p {
-  color: rgba(255,255,255,.72);
+.bar-share {
+  height: 62%;
+  animation-delay: .55s;
 }
 
-.note-share {
-  right: 9%;
-  bottom: 9%;
-  transform: rotate(-4deg);
-  animation: notePlaceFour 9.5s ease-in-out infinite;
+.gg-chart-axis {
+  position: relative;
+  z-index: 2;
+  padding-top: 18px;
+  border-top: 1px solid rgba(36,39,44,.12);
+  display: flex;
+  justify-content: space-between;
+  color: var(--gg-muted);
+  font-size: 13px;
+  font-weight: 900;
 }
 
-/* feels like human rearranging notes, not generic floating */
-@keyframes notePlaceOne {
-  0%, 100% { transform: translate(0, 0) rotate(-5deg); }
-  35% { transform: translate(8px, -10px) rotate(-3deg); }
-  70% { transform: translate(-4px, 6px) rotate(-6deg); }
-}
+@keyframes chartGrow {
+  from {
+    transform: scaleY(.18);
+    opacity: 0;
+  }
 
-@keyframes notePlaceTwo {
-  0%, 100% { transform: translate(0, 0) rotate(4deg); }
-  35% { transform: translate(-10px, 8px) rotate(2deg); }
-  70% { transform: translate(5px, -7px) rotate(5deg); }
-}
-
-@keyframes notePlaceThree {
-  0%, 100% { transform: translate(0, 0) rotate(3deg); }
-  35% { transform: translate(7px, -8px) rotate(5deg); }
-  70% { transform: translate(-8px, 5px) rotate(2deg); }
-}
-
-@keyframes notePlaceFour {
-  0%, 100% { transform: translate(0, 0) rotate(-4deg); }
-  35% { transform: translate(-7px, -9px) rotate(-2deg); }
-  70% { transform: translate(6px, 7px) rotate(-5deg); }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
 }
 
 @media (max-width: 950px) {
-  .gg-support-studio {
+  .gg-support-chart-section {
     min-height: auto;
     padding: 80px 0;
   }
 
-  .gg-studio-grid {
+  .gg-support-chart-grid {
     grid-template-columns: 1fr;
   }
 
-  .gg-studio-board {
-    min-height: auto;
-    display: grid;
-    gap: 18px;
-    padding: 24px;
+  .gg-build-chart {
+    min-height: 460px;
   }
 
-  .gg-studio-note {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    transform: none !important;
-    animation: none;
+  .gg-chart-bars {
+    gap: 10px;
+  }
+
+  .gg-chart-bar {
+    padding: 14px;
+  }
+
+  .gg-chart-bar strong {
+    font-size: 14px;
   }
 }
