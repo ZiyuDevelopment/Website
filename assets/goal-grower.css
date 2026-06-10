@@ -2192,74 +2192,30 @@ p {
   }
 }
 
-.step-development .graph-node {
-  width: 18px;
-  height: 18px;
-}
-
-.step-testing .graph-node {
-  width: 20px;
-  height: 20px;
-}
-
-.step-feedback .graph-node {
+.step-launch .graph-node {
   width: 22px;
   height: 22px;
-}
 
-.step-launch .graph-node {
-  width: 42px;
-  height: 42px;
+  background: var(--gg-clay);
 
   box-shadow:
-    0 0 0 22px rgba(201,130,101,.18),
-    0 0 80px rgba(201,130,101,.45);
-
-  animation:
-    launchPulse 3s ease-in-out infinite;
-}
-
-.step-projects .graph-node {
-  width: 30px;
-  height: 30px;
-
-  box-shadow:
-    0 0 0 18px rgba(93,145,163,.16),
-    0 0 50px rgba(93,145,163,.25);
+    0 0 0 14px rgba(201,130,101,.18),
+    0 0 40px rgba(201,130,101,.25);
 }
 
 .step-launch .graph-label {
-  width: 300px;
-  padding: 20px;
-  background: var(--gg-charcoal);
+  width: 240px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(201,130,101,.12),
+      rgba(255,255,255,.9)
+    );
+
+  border: 1px solid rgba(201,130,101,.3);
 }
 
 .step-launch .graph-label strong {
-  font-size: 20px;
-  color: white;
-}
-
-.step-launch .graph-label span {
-  color: rgba(255,255,255,.75);
-  font-size: 14px;
-}
-
-@keyframes launchPulse {
-  0%,100%{
-    transform:scale(1);
-  }
-
-  50%{
-    transform:scale(1.12);
-  }
-}
-
-.step-launch {
-  left: 73%;
-  bottom: 52%;
-}
-
-.step-projects {
-  right: -2%;
-  bottom: 70%;
+  color: var(--gg-charcoal);
 }
