@@ -2076,8 +2076,8 @@ p {
 }
 
 .step-development .graph-label {
-  left: 24px;
-  bottom: 34px;
+  left: 20px;
+  bottom: 42px;
 }
 
 .step-testing {
@@ -2087,8 +2087,8 @@ p {
 }
 
 .step-testing .graph-label {
-  left: -20px;
-  top: 34px;
+  left: 30px;
+  top: 28px;
 }
 
 .step-feedback {
@@ -2098,26 +2098,20 @@ p {
 }
 
 .step-feedback .graph-label {
-  left: -10px;
-  bottom: 34px;
+  left: -60px;
+  bottom: 44px;
 }
 
 .step-launch {
-  left: 69%;
-  bottom: 48%;
+  left: 65%;
+  bottom: 62%;
   animation-delay: 1.45s;
 }
 
 .step-launch .graph-label {
-  left: -20px;
-  top: 34px;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(201,130,101,.12),
-      rgba(255,255,255,.9)
-    );
-  border: 1px solid rgba(201,130,101,.3);
+  left: -15px;
+  top: 38px;
+  background: var(--gg-charcoal);
 }
 
 .step-launch .graph-node {
