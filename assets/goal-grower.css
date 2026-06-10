@@ -1470,14 +1470,41 @@ p {
   padding-top: 10px;
 }
 
+/* BELIEF SECTION */
+
 .gg-belief {
-  position: relative;
-  overflow: hidden;
-  min-height: 84svh;
-  display: flex;
-  align-items: center;
-  padding: 100px 0;
+  min-height: auto;
+  padding: 90px 0;
   background:
-    radial-gradient(circle at 20% 20%, rgba(201, 130, 101, 0.18), transparent 28%),
-    linear-gradient(135deg, var(--gg-blue), var(--gg-paper));
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(93, 145, 163, 0.18),
+      transparent 30%
+    );
+}
+
+.gg-belief-card {
+  max-width: 100%;
+  padding: 56px;
+
+  border-radius: 48px;
+
+  background: rgba(255, 250, 242, 0.78);
+
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,.74);
+
+  box-shadow: var(--gg-shadow);
+}
+
+.gg-belief-card h2 {
+  margin-top: 14px;
+  max-width: 760px;
+}
+
+.gg-belief-card p {
+  max-width: 760px;
+  margin-top: 22px;
+  font-size: 21px;
 }
