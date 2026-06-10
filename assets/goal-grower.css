@@ -2130,7 +2130,7 @@ p {
 }
 
 .step-projects .graph-label strong {
-  color: white;
+  color: var(--gg-blue-deep);
 }
 
 .step-projects .graph-label span {
