@@ -1965,13 +1965,14 @@ p {
   }
 }
 
-/* SUPPORT ROADMAP GRAPH - MULTI STEP */
+/* SUPPORT ROADMAP GRAPH */
 
 .gg-support-graph-section {
   min-height: 100svh;
   display: flex;
   align-items: center;
   padding: 90px 0;
+  overflow: hidden;
   background:
     radial-gradient(circle at 16% 20%, rgba(93,145,163,.16), transparent 30%),
     radial-gradient(circle at 84% 82%, rgba(201,130,101,.14), transparent 30%),
@@ -1981,6 +1982,8 @@ p {
 .gg-support-graph-copy {
   max-width: 840px;
   margin-bottom: 0;
+  position: relative;
+  z-index: 3;
 }
 
 .gg-support-graph-copy h2 {
@@ -1995,9 +1998,9 @@ p {
 
 .gg-roadmap-line {
   position: relative;
-  width: 100%;
-  height: 560px;
-  margin-top: -18px;
+  width: 112%;
+  height: 650px;
+  margin-top: -70px;
 }
 
 .gg-roadmap-svg {
@@ -2013,19 +2016,18 @@ p {
   stroke: var(--gg-clay);
   stroke-width: 7;
   stroke-linecap: round;
-  stroke-dasharray: 1900;
-  stroke-dashoffset: 1900;
-  animation: drawRoadmap 2.5s cubic-bezier(.2,.8,.2,1) forwards;
+  stroke-dasharray: 2100;
+  stroke-dashoffset: 2100;
+  animation: drawRoadmap 2.6s cubic-bezier(.2,.8,.2,1) forwards;
   filter: drop-shadow(0 14px 22px rgba(201,130,101,.22));
 }
-
-/* Each roadmap point */
 
 .graph-step {
   position: absolute;
   opacity: 0;
   transform: translateY(14px);
   animation: stepReveal .45s ease forwards;
+  z-index: 4;
 }
 
 .graph-node {
@@ -2039,7 +2041,7 @@ p {
 
 .graph-label {
   position: absolute;
-  width: 230px;
+  width: 245px;
   padding: 14px 16px;
   border-radius: 22px;
   background: rgba(255,255,255,.84);
@@ -2063,11 +2065,11 @@ p {
   line-height: 1.45;
 }
 
-/* Positions: bottom-left to top-right */
+/* Positions */
 
 .step-development {
-  left: 4%;
-  bottom: 7%;
+  left: 2%;
+  bottom: 2%;
   animation-delay: .25s;
 }
 
@@ -2077,69 +2079,56 @@ p {
 }
 
 .step-testing {
-  left: 22%;
-  bottom: 25%;
-  animation-delay: .55s;
+  left: 28%;
+  bottom: 31%;
+  animation-delay: .65s;
 }
 
 .step-testing .graph-label {
-  left: 30px;
-  bottom: 26px;
+  left: -40px;
+  bottom: 34px;
 }
 
 .step-feedback {
-  left: 38%;
-  bottom: 38%;
-  animation-delay: .85s;
+  left: 52%;
+  bottom: 50%;
+  animation-delay: 1.05s;
 }
 
 .step-feedback .graph-label {
-  left: -90px;
+  left: 26px;
   bottom: 30px;
 }
 
-.step-implementing {
-  left: 55%;
-  bottom: 55%;
-  animation-delay: 1.15s;
-}
-
-.step-implementing .graph-label {
-  left: 28px;
-  bottom: 26px;
-}
-
 .step-launch {
-  left: 69%;
-  top: 25%;
+  left: 74%;
+  top: 18%;
   animation-delay: 1.45s;
 }
 
 .step-launch .graph-label {
-  left: -95px;
-  bottom: 28px;
-}
-
-.step-updates {
-  left: 82%;
-  top: 18%;
-  animation-delay: 1.75s;
-}
-
-.step-updates .graph-label {
-  left: -115px;
+  left: -70px;
   bottom: 30px;
 }
 
 .step-projects {
-  right: 3%;
-  top: 5%;
-  animation-delay: 2.05s;
+  right: -1%;
+  top: -1%;
+  animation-delay: 1.85s;
+}
+
+.step-projects .graph-node {
+  width: 28px;
+  height: 28px;
+  box-shadow:
+    0 0 0 18px rgba(201,130,101,.16),
+    0 0 60px rgba(201,130,101,.35);
 }
 
 .step-projects .graph-label {
   right: 0;
-  top: 34px;
+  top: 38px;
+  width: 260px;
   background: var(--gg-charcoal);
 }
 
@@ -2164,8 +2153,6 @@ p {
   }
 }
 
-/* Mobile fallback */
-
 @media (max-width: 950px) {
   .gg-support-graph-section {
     min-height: auto;
@@ -2173,6 +2160,7 @@ p {
   }
 
   .gg-roadmap-line {
+    width: 100%;
     height: auto;
     margin-top: 34px;
     display: grid;
@@ -2199,9 +2187,7 @@ p {
   .step-development .graph-label,
   .step-testing .graph-label,
   .step-feedback .graph-label,
-  .step-implementing .graph-label,
   .step-launch .graph-label,
-  .step-updates .graph-label,
   .step-projects .graph-label {
     position: relative;
     inset: auto;
