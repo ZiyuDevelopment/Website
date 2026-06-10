@@ -451,13 +451,13 @@ p {
 }
 
 .card-a {
-  top: 40%;
+  top: 30%;
   left: 20px;
   z-index: 5;
 }
 
 .card-b {
-  top: 72%;
+  top: 65%;
   right: -28px;
   z-index: 5;
 }
