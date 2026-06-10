@@ -467,21 +467,48 @@ p {
 .gg-belief {
   min-height: auto;
   padding: 36px 0 44px;
-  background: linear-gradient(180deg, #f8f2e8 0%, #fffaf2 100%);
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(93,145,163,.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(93,145,163,.12),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #dceff5 0%,
+      #edf7fa 40%,
+      #fffaf2 100%
+    );
 }
 
 .gg-belief-card {
   max-width: 1180px;
   margin: 0 auto;
+
   display: grid;
-  grid-template-columns: 0.85fr 1fr;
+  grid-template-columns: .85fr 1fr;
   gap: 72px;
   align-items: center;
+
   padding: 52px 56px;
+
   border-radius: 38px;
-  background: rgba(255, 250, 242, 0.82);
-  border: 1px solid rgba(36, 39, 44, 0.08);
-  box-shadow: 0 24px 70px rgba(36, 39, 44, 0.08);
+
+  background: rgba(255,255,255,.72);
+
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,.65);
+
+  box-shadow:
+    0 30px 80px rgba(93,145,163,.14),
+    0 8px 24px rgba(36,39,44,.06);
 }
 
 .gg-belief-card h2 {
