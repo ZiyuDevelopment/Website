@@ -1965,13 +1965,13 @@ p {
   }
 }
 
-/* SUPPORT ROADMAP GRAPH */
+/* SUPPORT ROADMAP GRAPH - CLEAN CURVE */
 
 .gg-support-graph-section {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  padding: 90px 0;
+  padding: 72px 0;
   overflow: hidden;
   background:
     radial-gradient(circle at 16% 20%, rgba(93,145,163,.16), transparent 30%),
@@ -1988,25 +1988,26 @@ p {
 
 .gg-support-graph-copy h2 {
   margin-top: 18px;
-  font-size: clamp(42px, 5vw, 78px);
+  font-size: clamp(38px, 4.8vw, 72px);
 }
 
 .gg-support-graph-copy p {
-  margin-top: 22px;
-  font-size: 21px;
+  margin-top: 18px;
+  font-size: 19px;
+  line-height: 1.6;
 }
 
 .gg-roadmap-line {
   position: relative;
-  width: 112%;
-  height: 650px;
-  margin-top: -70px;
+  width: 100%;
+  height: 760px;
+  margin-top: -120px;
 }
 
 .gg-roadmap-svg {
   position: absolute;
   inset: 0;
-  width: 100%;
+  width: 108%;
   height: 100%;
   overflow: visible;
 }
@@ -2016,8 +2017,8 @@ p {
   stroke: var(--gg-clay);
   stroke-width: 7;
   stroke-linecap: round;
-  stroke-dasharray: 2100;
-  stroke-dashoffset: 2100;
+  stroke-dasharray: 2300;
+  stroke-dashoffset: 2300;
   animation: drawRoadmap 2.6s cubic-bezier(.2,.8,.2,1) forwards;
   filter: drop-shadow(0 14px 22px rgba(201,130,101,.22));
 }
@@ -2036,15 +2037,15 @@ p {
   border-radius: 50%;
   background: var(--gg-charcoal);
   border: 5px solid var(--gg-paper);
-  box-shadow: 0 0 0 16px rgba(201,130,101,.15);
+  box-shadow: 0 0 0 14px rgba(201,130,101,.14);
 }
 
 .graph-label {
   position: absolute;
-  width: 245px;
-  padding: 14px 16px;
-  border-radius: 22px;
-  background: rgba(255,255,255,.84);
+  width: 210px;
+  padding: 12px 14px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.86);
   border: 1px solid rgba(255,255,255,.8);
   backdrop-filter: blur(12px);
   box-shadow: 0 18px 48px rgba(93,145,163,.12);
@@ -2053,67 +2054,67 @@ p {
 .graph-label strong {
   display: block;
   color: var(--gg-charcoal);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 900;
 }
 
 .graph-label span {
   display: block;
-  margin-top: 6px;
+  margin-top: 5px;
   color: var(--gg-muted);
-  font-size: 13px;
-  line-height: 1.45;
+  font-size: 12px;
+  line-height: 1.4;
 }
 
 /* Positions */
 
 .step-development {
   left: 2%;
-  bottom: 2%;
+  bottom: 4%;
   animation-delay: .25s;
 }
 
 .step-development .graph-label {
-  left: 28px;
-  bottom: 30px;
+  left: 24px;
+  bottom: 36px;
 }
 
 .step-testing {
-  left: 28%;
-  bottom: 31%;
+  left: 25%;
+  bottom: 26%;
   animation-delay: .65s;
 }
 
 .step-testing .graph-label {
-  left: -40px;
-  bottom: 34px;
+  left: -60px;
+  top: 36px;
 }
 
 .step-feedback {
-  left: 52%;
-  bottom: 50%;
+  left: 49%;
+  bottom: 49%;
   animation-delay: 1.05s;
 }
 
 .step-feedback .graph-label {
   left: 26px;
-  bottom: 30px;
+  bottom: 36px;
 }
 
 .step-launch {
-  left: 74%;
+  left: 72%;
   top: 18%;
   animation-delay: 1.45s;
 }
 
 .step-launch .graph-label {
-  left: -70px;
-  bottom: 30px;
+  left: -80px;
+  top: 36px;
 }
 
 .step-projects {
-  right: -1%;
-  top: -1%;
+  right: -3%;
+  top: -2%;
   animation-delay: 1.85s;
 }
 
@@ -2121,14 +2122,14 @@ p {
   width: 28px;
   height: 28px;
   box-shadow:
-    0 0 0 18px rgba(201,130,101,.16),
+    0 0 0 16px rgba(201,130,101,.16),
     0 0 60px rgba(201,130,101,.35);
 }
 
 .step-projects .graph-label {
   right: 0;
-  top: 38px;
-  width: 260px;
+  top: 42px;
+  width: 230px;
   background: var(--gg-charcoal);
 }
 
@@ -2160,7 +2161,6 @@ p {
   }
 
   .gg-roadmap-line {
-    width: 100%;
     height: auto;
     margin-top: 34px;
     display: grid;
