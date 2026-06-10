@@ -2127,10 +2127,11 @@ p {
   right: 0;
   bottom: 34px;
   width: 240px;
+  background-color: var(--gg-charcoal);
 }
 
 .step-projects .graph-label strong {
-  color: var(--gg-blue-deep);
+  color: white;
 }
 
 .step-projects .graph-label span {
