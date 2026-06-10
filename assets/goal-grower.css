@@ -2109,8 +2109,8 @@ p {
 }
 
 .step-launch .graph-label {
-  left: -15px;
-  top: 38px;
+  left: 33px;
+  top: 25px;
   background: var(--gg-charcoal);
 }
 
@@ -2126,19 +2126,19 @@ p {
   position: absolute;
   inset: -10px;
   border-radius: 50%;
-  border: 2px solid rgba(201,130,101,.4);
+  border: 2px solid var(--gg-charcoal, .4);
   animation: launchRing 3s ease-out infinite;
 }
 
 .step-projects {
-  right: 2%;
-  bottom: 62%;
+  right: 21%;
+  bottom: 74%;
   animation-delay: 1.85s;
 }
 
 .step-projects .graph-label {
-  right: 0;
-  bottom: 34px;
+  right: -251;
+  bottom: -81px;
 }
 
 .step-projects .graph-node {
