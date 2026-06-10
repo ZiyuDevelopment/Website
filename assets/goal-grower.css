@@ -1484,3 +1484,379 @@ p {
   }
 
 }
+
+/* Premium home additions */
+
+.gg-app-walkthrough {
+  padding: 140px 0;
+  background: var(--gg-paper);
+}
+
+.gg-walkthrough-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.gg-walk-card {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 60px;
+  align-items: center;
+  background: white;
+  padding: 50px;
+  border-radius: 40px;
+  box-shadow: var(--gg-shadow);
+}
+
+.gg-walk-copy span {
+  color: var(--gg-blue-deep);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.gg-walk-phone {
+  background: linear-gradient(145deg, #34383d, #17191c);
+  padding: 12px;
+  border-radius: 44px;
+  box-shadow: 0 24px 60px rgba(36, 38, 41, 0.24);
+}
+
+.gg-walk-phone img {
+  width: 100%;
+  display: block;
+  border-radius: 32px;
+}
+
+/* Shared garden */
+
+.gg-shared-garden-section {
+  padding: 140px 0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(201, 130, 101, 0.16), transparent 30%),
+    var(--gg-blue);
+}
+
+.gg-shared-card {
+  background: rgba(255, 250, 242, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 36px;
+  padding: 38px;
+  box-shadow: var(--gg-shadow);
+}
+
+.gg-shared-card ul {
+  padding-left: 20px;
+  color: var(--gg-muted);
+}
+
+.gg-shared-card li {
+  margin-bottom: 12px;
+}
+
+/* Better phone realism */
+
+.gg-android-phone,
+.gg-mini-phone {
+  position: relative;
+  background: linear-gradient(145deg, #34383d, #17191c);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 46px;
+  padding: 12px;
+  box-shadow:
+    0 34px 80px rgba(36, 38, 41, 0.28),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.gg-android-phone {
+  width: min(315px, 82vw);
+  aspect-ratio: 9 / 19.5;
+}
+
+.gg-mini-phone {
+  position: absolute;
+  width: 145px;
+  aspect-ratio: 9 / 19.5;
+  right: 4%;
+  bottom: 74px;
+  transform: rotate(8deg);
+}
+
+.gg-phone-speaker {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  width: 64px;
+  height: 6px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  z-index: 5;
+}
+
+.gg-phone-speaker.small {
+  width: 38px;
+  height: 5px;
+}
+
+.gg-phone-camera {
+  display: none;
+}
+
+.gg-phone-screen {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 35px;
+  background: #fff;
+  padding: 0;
+}
+
+.gg-phone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Floating stats */
+
+.gg-floating-stat {
+  position: absolute;
+  z-index: 5;
+  background: rgba(255, 250, 242, 0.9);
+  backdrop-filter: blur(14px);
+  padding: 14px 18px;
+  border-radius: 20px;
+  box-shadow: var(--gg-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+.gg-floating-stat strong {
+  display: block;
+  font-size: 22px;
+  color: var(--gg-charcoal);
+}
+
+.gg-floating-stat span {
+  display: block;
+  font-size: 12px;
+  color: var(--gg-muted);
+}
+
+.stat-1 {
+  top: 10%;
+  left: -40px;
+}
+
+.stat-2 {
+  bottom: 20%;
+  left: -20px;
+}
+
+.stat-3 {
+  top: 35%;
+  right: -40px;
+}
+
+/* Screenshot grid */
+
+.gg-phone-grid-large {
+  grid-template-columns: repeat(5, minmax(180px, 1fr));
+  gap: 28px;
+  align-items: center;
+  overflow-x: auto;
+  padding: 20px 6px 40px;
+  scrollbar-width: thin;
+}
+
+.gg-phone-grid-large .gg-android-phone {
+  width: 100%;
+  max-width: 245px;
+  justify-self: center;
+}
+
+.gg-phone-grid-large .featured-phone {
+  max-width: 285px;
+  transform: translateY(-28px);
+}
+
+.gg-phone-grid-large .gg-android-phone:nth-child(1),
+.gg-phone-grid-large .gg-android-phone:nth-child(4) {
+  transform: translateY(22px) rotate(-2deg);
+}
+
+.gg-phone-grid-large .gg-android-phone:nth-child(3),
+.gg-phone-grid-large .gg-android-phone:nth-child(5) {
+  transform: translateY(18px) rotate(2deg);
+}
+
+/* Growth journey */
+
+.gg-growth-journey {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(111, 157, 171, 0.2), transparent 30%),
+    var(--gg-paper);
+}
+
+.gg-growth-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.gg-growth-step {
+  background: white;
+  padding: 32px;
+  border-radius: 30px;
+  box-shadow: var(--gg-shadow);
+  transition: 0.3s ease;
+}
+
+.gg-growth-step:hover {
+  transform: translateY(-8px);
+}
+
+.gg-growth-step span {
+  display: inline-flex;
+  margin-bottom: 22px;
+  color: var(--gg-blue-deep);
+  font-weight: 900;
+}
+
+/* Roadmap */
+
+.gg-roadmap {
+  background:
+    radial-gradient(circle at 14% 12%, rgba(111, 157, 171, 0.2), transparent 30%),
+    linear-gradient(180deg, var(--gg-paper), var(--gg-cream));
+}
+
+.gg-roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.gg-roadmap-card {
+  min-height: 180px;
+  padding: 26px;
+  border-radius: 30px;
+  background: var(--gg-paper);
+  box-shadow: var(--gg-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.gg-roadmap-card span,
+.gg-lane-label {
+  display: inline-flex;
+  margin-bottom: 18px;
+  color: var(--gg-blue-deep);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.gg-roadmap-card.done {
+  background: var(--gg-blue);
+}
+
+/* Creator section */
+
+.gg-creator {
+  background: var(--gg-charcoal);
+}
+
+.gg-creator h2,
+.gg-creator h3,
+.gg-creator p,
+.gg-creator li {
+  color: white;
+}
+
+.gg-creator p,
+.gg-creator li {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.gg-creator-card {
+  background: rgba(255, 250, 242, 0.08);
+  border: 1px solid rgba(255, 250, 242, 0.15);
+  border-radius: 34px;
+  padding: 34px;
+}
+
+.gg-creator-card ul {
+  padding-left: 20px;
+}
+
+/* Store cards */
+
+.gg-lane-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.gg-lane-card::after {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  right: -60px;
+  bottom: -60px;
+  border-radius: 50%;
+  background: rgba(201, 130, 101, 0.16);
+  transition: transform 0.3s ease;
+}
+
+.gg-lane-card:hover::after {
+  transform: scale(1.35);
+}
+
+/* Animation */
+
+@keyframes floatCard {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 950px) {
+  .gg-walk-card {
+    grid-template-columns: 1fr;
+    padding: 32px;
+  }
+
+  .gg-floating-stat {
+    display: none;
+  }
+
+  .gg-phone-grid-large {
+    grid-template-columns: 1fr;
+    overflow-x: visible;
+  }
+
+  .gg-phone-grid-large .gg-android-phone,
+  .gg-phone-grid-large .featured-phone {
+    max-width: 315px;
+    transform: none !important;
+  }
+
+  .gg-growth-steps,
+  .gg-roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gg-mini-phone {
+    display: none;
+  }
+}
