@@ -1444,3 +1444,18 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+/* ABOUT HERO VERTICAL ALIGNMENT FIX */
+
+.gg-about-human-grid {
+  align-items: center;
+}
+
+.gg-about-note {
+  align-self: center;
+  margin-top: 46px;
+}
+
+.gg-about-human-hero h1 {
+  margin-bottom: 0;
+}
