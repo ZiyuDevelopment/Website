@@ -2070,8 +2070,8 @@ p {
 /* Positions */
 
 .step-development {
-  left: 3%;
-  bottom: 13%;
+  left: 2%;
+  bottom: 15%;
   animation-delay: .25s;
 }
 
@@ -2092,8 +2092,8 @@ p {
 }
 
 .step-feedback {
-  left: 47%;
-  bottom: 35%;
+  left: 40%;
+  bottom: 37%;
   animation-delay: 1.05s;
 }
 
