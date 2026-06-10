@@ -1266,13 +1266,6 @@ p {
   z-index: 1;
 }
 
-.gg-about-human-hero h1 {
-  font-size: clamp(64px, 7vw, 110px);
-  line-height: .92;
-
-  max-width: 1200px; /* was probably 700-850px */
-}
-
 .gg-about-human-grid {
   display: grid;
   grid-template-columns: 1.3fr .7fr;
