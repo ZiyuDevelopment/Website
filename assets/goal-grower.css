@@ -1965,38 +1965,13 @@ p {
   }
 }
 
-/* SUPPORT GRAPH SECTION */
-
-.gg-support-graph-section {
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  padding: 90px 0;
-  background:
-    radial-gradient(circle at 16% 20%, rgba(93,145,163,.16), transparent 30%),
-    radial-gradient(circle at 84% 82%, rgba(201,130,101,.14), transparent 30%),
-    linear-gradient(135deg, #edf7fa, var(--gg-paper));
-}
-
-.gg-support-graph-copy {
-  max-width: 760px;
-  margin-bottom: 54px;
-}
-
-.gg-support-graph-copy h2 {
-  margin-top: 18px;
-  font-size: clamp(42px, 5vw, 78px);
-}
-
-.gg-support-graph-copy p {
-  margin-top: 22px;
-  font-size: 21px;
-}
+/* SUPPORT GRAPH — HAND DRAWN GROWTH CURVE */
 
 .gg-roadmap-line {
   position: relative;
   width: 100%;
-  height: 420px;
+  height: 520px;
+  margin-top: -40px;
 }
 
 .gg-roadmap-svg {
@@ -2010,139 +1985,77 @@ p {
 .gg-roadmap-path {
   fill: none;
   stroke: var(--gg-clay);
-  stroke-width: 6;
+  stroke-width: 7;
   stroke-linecap: round;
-  stroke-dasharray: 1500;
-  stroke-dashoffset: 1500;
-  animation: drawRoadmap 2.3s cubic-bezier(.2,.8,.2,1) forwards;
-  filter: drop-shadow(0 10px 18px rgba(201,130,101,.18));
+  stroke-dasharray: 1800;
+  stroke-dashoffset: 1800;
+  animation: drawRoadmap 2.4s cubic-bezier(.2,.8,.2,1) forwards;
+  filter: drop-shadow(0 14px 22px rgba(201,130,101,.22));
+}
+
+/* bigger curve from bottom-left to upper-right */
+.gg-roadmap-svg path {
+  d: path("M 70 455 C 230 390, 340 330, 485 295 S 680 250, 790 200 S 970 110, 1130 35");
 }
 
 .graph-node {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--gg-charcoal);
+  width: 22px;
+  height: 22px;
   border: 5px solid var(--gg-paper);
-  box-shadow: 0 0 0 12px rgba(201,130,101,.13);
-  opacity: 0;
-  transform: scale(.35);
-  animation: nodeReveal .45s ease forwards;
+  box-shadow: 0 0 0 16px rgba(201,130,101,.15);
 }
-
-.graph-label {
-  position: absolute;
-  padding: 12px 17px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.84);
-  border: 1px solid rgba(255,255,255,.8);
-  backdrop-filter: blur(12px);
-  color: var(--gg-charcoal);
-  font-size: 14px;
-  font-weight: 900;
-  box-shadow: 0 18px 48px rgba(93,145,163,.12);
-  opacity: 0;
-  transform: translateY(10px);
-  animation: labelReveal .45s ease forwards;
-}
-
-/* bottom-left to top-right positions */
 
 .node-feedback {
   left: 5%;
-  bottom: 12%;
-  animation-delay: .25s;
+  bottom: 6%;
 }
 
 .feedback-label {
   left: 7%;
-  bottom: 22%;
-  animation-delay: .35s;
+  bottom: 16%;
 }
 
 .node-testing {
-  left: 32%;
-  bottom: 36%;
-  animation-delay: .75s;
+  left: 34%;
+  bottom: 33%;
 }
 
 .testing-label {
-  left: 34%;
-  bottom: 46%;
-  animation-delay: .85s;
+  left: 36%;
+  bottom: 43%;
 }
 
 .node-development {
-  left: 61%;
-  bottom: 58%;
-  animation-delay: 1.2s;
+  left: 64%;
+  bottom: 49%;
 }
 
 .development-label {
-  left: 63%;
-  bottom: 68%;
-  animation-delay: 1.3s;
+  left: 61%;
+  bottom: 59%;
 }
 
 .node-launch {
-  right: 4%;
-  top: 8%;
-  animation-delay: 1.7s;
+  right: 5%;
+  top: 5%;
 }
 
 .launch-label {
-  right: 5%;
-  top: 19%;
-  animation-delay: 1.8s;
+  right: 7%;
+  top: 17%;
 }
 
-@keyframes drawRoadmap {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes nodeReveal {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes labelReveal {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 950px) {
-  .gg-support-graph-section {
-    min-height: auto;
-    padding: 80px 0;
-  }
-
-  .gg-roadmap-line {
-    height: 520px;
-  }
-
-  .gg-roadmap-svg {
-    display: none;
-  }
-
-  .graph-node {
-    display: none;
-  }
-
-  .graph-label {
-    position: relative;
-    inset: auto;
-    display: block;
-    width: fit-content;
-    margin: 16px 0;
-    opacity: 1;
-    transform: none;
-    animation: none;
-  }
+/* add hand-drawn sketch arrow feel */
+.gg-roadmap-line::after {
+  content: "";
+  position: absolute;
+  right: 2%;
+  top: 0;
+  width: 120px;
+  height: 120px;
+  border-top: 7px solid var(--gg-clay);
+  border-right: 7px solid var(--gg-clay);
+  transform: rotate(18deg);
+  border-radius: 8px;
+  opacity: .9;
 }
