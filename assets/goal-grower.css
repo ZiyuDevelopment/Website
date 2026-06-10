@@ -2212,43 +2212,85 @@ p {
 }
 
 .gg-lab-manifesto {
-  padding: 140px 0;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
   background: var(--gg-paper);
 }
 
-.gg-manifesto-grid {
-  max-width: 1200px;
+.gg-manifesto-layout {
   display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 120px;
-  align-items: start;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 100px;
+  align-items: center;
 }
 
-.gg-manifesto-grid h2 {
-  max-width: 700px;
+.gg-manifesto-intro h2 {
+  margin-top: 14px;
 
-  font-size: clamp(64px, 6vw, 96px);
+  font-size: clamp(60px, 6vw, 92px);
   line-height: .92;
   letter-spacing: -.06em;
 
-  margin-top: 12px;
+  max-width: 520px;
 }
 
-.gg-manifesto-text {
-  max-width: 560px;
-
-  padding-top: 110px;
+.gg-manifesto-cards {
+  display: grid;
+  gap: 22px;
 }
 
-.gg-manifesto-text p {
-  font-size: 24px;
-  line-height: 1.75;
+.gg-manifesto-card {
+  padding: 32px;
 
-  margin-bottom: 36px;
+  border-radius: 28px;
 
-  color: var(--gg-muted);
+  background: rgba(255,255,255,.65);
+
+  border: 1px solid rgba(255,255,255,.7);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 20px 60px rgba(93,145,163,.08);
+
+  transition: transform .3s ease;
 }
 
-.gg-manifesto-text p:last-child {
-  margin-bottom: 0;
+.gg-manifesto-card:hover {
+  transform: translateY(-6px);
+}
+
+.gg-manifesto-card span {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: var(--gg-clay);
+
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.gg-manifesto-card p {
+  margin: 0;
+
+  font-size: 22px;
+  line-height: 1.6;
+
+  color: var(--gg-charcoal);
+}
+
+@media (max-width: 950px) {
+
+  .gg-manifesto-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .gg-manifesto-intro h2 {
+    max-width: 100%;
+  }
+
 }
