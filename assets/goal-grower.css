@@ -1965,102 +1965,7 @@ p {
   }
 }
 
-/* GROW TOGETHER */
-
-.gg-grow-together {
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  padding: 100px 0;
-
-  background:
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(93,145,163,.14),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(201,130,101,.14),
-      transparent 30%
-    ),
-    linear-gradient(
-      180deg,
-      #edf7fa,
-      var(--gg-paper)
-    );
-}
-
-.gg-grow-quote {
-  max-width: 1000px;
-  margin: 0 auto 100px;
-  text-align: center;
-}
-
-.gg-grow-quote blockquote {
-  margin-top: 24px;
-
-  font-size: clamp(42px, 5vw, 82px);
-  line-height: 1.08;
-
-  font-weight: 700;
-  letter-spacing: -.04em;
-
-  color: var(--gg-charcoal);
-}
-
-.gg-growth-chain {
-  max-width: 900px;
-  margin: 0 auto;
-
-  display: grid;
-  justify-items: center;
-}
-
-.gg-chain-step {
-  text-align: center;
-  max-width: 500px;
-}
-
-.gg-chain-number {
-  width: 72px;
-  height: 72px;
-
-  margin: 0 auto 24px;
-
-  border-radius: 50%;
-
-  display: grid;
-  place-items: center;
-
-  background: rgba(255,255,255,.75);
-
-  border: 1px solid rgba(255,255,255,.8);
-
-  backdrop-filter: blur(12px);
-
-  color: var(--gg-blue-deep);
-  font-weight: 900;
-}
-
-.gg-chain-step h3 {
-  margin-bottom: 16px;
-  font-size: clamp(34px,4vw,56px);
-}
-
-.gg-chain-step p {
-  font-size: 19px;
-  line-height: 1.7;
-}
-
-.gg-chain-arrow {
-  margin: 26px 0;
-  font-size: 48px;
-  color: var(--gg-clay);
-  opacity: .8;
-}
-
-/* SUPPORT ROADMAP LINE GRAPH */
+/* SUPPORT GRAPH SECTION */
 
 .gg-support-graph-section {
   min-height: 100svh;
@@ -2073,15 +1978,9 @@ p {
     linear-gradient(135deg, #edf7fa, var(--gg-paper));
 }
 
-.gg-support-graph-grid {
-  display: grid;
-  grid-template-columns: .82fr 1.18fr;
-  gap: 80px;
-  align-items: center;
-}
-
 .gg-support-graph-copy {
-  max-width: 640px;
+  max-width: 760px;
+  margin-bottom: 54px;
 }
 
 .gg-support-graph-copy h2 {
@@ -2094,201 +1993,127 @@ p {
   font-size: 21px;
 }
 
-/* graph board */
-
-.gg-roadmap-graph {
+.gg-roadmap-line {
   position: relative;
-  min-height: 560px;
-  border-radius: 44px;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,.68), rgba(255,255,255,.32));
-  border: 1px solid rgba(255,255,255,.82);
-  backdrop-filter: blur(18px);
-  box-shadow:
-    0 30px 90px rgba(93,145,163,.14),
-    inset 0 0 0 1px rgba(255,255,255,.4);
-  overflow: hidden;
+  width: 100%;
+  height: 420px;
 }
 
-.gg-roadmap-graph::before {
-  content: "";
+.gg-roadmap-svg {
   position: absolute;
-  inset: 48px;
-  background-image:
-    linear-gradient(rgba(36,39,44,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(36,39,44,.055) 1px, transparent 1px);
-  background-size: 100% 76px, 112px 100%;
-  opacity: .6;
-}
-
-.gg-graph-label {
-  position: absolute;
-  left: 34px;
-  z-index: 4;
-  color: var(--gg-muted);
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-}
-
-.gg-graph-label.top {
-  top: 34px;
-}
-
-.gg-graph-label.bottom {
-  bottom: 34px;
-}
-
-.gg-graph-svg {
-  position: absolute;
-  inset: 64px 36px 64px 52px;
-  width: calc(100% - 88px);
-  height: calc(100% - 128px);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   overflow: visible;
 }
 
-.gg-graph-line {
+.gg-roadmap-path {
   fill: none;
   stroke: var(--gg-clay);
   stroke-width: 6;
   stroke-linecap: round;
-  stroke-dasharray: 980;
-  stroke-dashoffset: 980;
-  animation: graphDraw 2.1s cubic-bezier(.2,.8,.2,1) forwards;
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 1500;
+  animation: drawRoadmap 2.3s cubic-bezier(.2,.8,.2,1) forwards;
   filter: drop-shadow(0 10px 18px rgba(201,130,101,.18));
 }
 
-.gg-graph-point {
-  fill: var(--gg-charcoal);
-  stroke: var(--gg-paper);
-  stroke-width: 6;
+.graph-node {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gg-charcoal);
+  border: 5px solid var(--gg-paper);
+  box-shadow: 0 0 0 12px rgba(201,130,101,.13);
   opacity: 0;
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: graphPointIn .45s ease forwards;
+  transform: scale(.35);
+  animation: nodeReveal .45s ease forwards;
 }
 
-.point-one {
+.graph-label {
+  position: absolute;
+  padding: 12px 17px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.84);
+  border: 1px solid rgba(255,255,255,.8);
+  backdrop-filter: blur(12px);
+  color: var(--gg-charcoal);
+  font-size: 14px;
+  font-weight: 900;
+  box-shadow: 0 18px 48px rgba(93,145,163,.12);
+  opacity: 0;
+  transform: translateY(10px);
+  animation: labelReveal .45s ease forwards;
+}
+
+/* bottom-left to top-right positions */
+
+.node-feedback {
+  left: 5%;
+  bottom: 12%;
+  animation-delay: .25s;
+}
+
+.feedback-label {
+  left: 7%;
+  bottom: 22%;
   animation-delay: .35s;
 }
 
-.point-two {
-  animation-delay: .8s;
+.node-testing {
+  left: 32%;
+  bottom: 36%;
+  animation-delay: .75s;
 }
 
-.point-three {
-  animation-delay: 1.25s;
+.testing-label {
+  left: 34%;
+  bottom: 46%;
+  animation-delay: .85s;
 }
 
-.point-four {
-  animation-delay: 1.75s;
+.node-development {
+  left: 61%;
+  bottom: 58%;
+  animation-delay: 1.2s;
 }
 
-/* graph cards */
-
-.gg-graph-card {
-  position: absolute;
-  width: 215px;
-  padding: 18px;
-  border-radius: 24px;
-  background: rgba(255,250,242,.9);
-  border: 1px solid rgba(255,255,255,.85);
-  box-shadow: 0 22px 58px rgba(36,39,44,.12);
-  z-index: 5;
-  opacity: 0;
-  animation: graphCardIn .6s ease forwards;
-  transition: transform .3s ease, box-shadow .3s ease;
+.development-label {
+  left: 63%;
+  bottom: 68%;
+  animation-delay: 1.3s;
 }
 
-.gg-graph-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 32px 80px rgba(36,39,44,.16);
-}
-
-.gg-graph-card span {
-  color: var(--gg-blue-deep);
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: .13em;
-}
-
-.gg-graph-card strong {
-  display: block;
-  margin-top: 8px;
-  color: var(--gg-charcoal);
-  font-family: "Sora", sans-serif;
-  font-size: 21px;
-  letter-spacing: -.04em;
-}
-
-.gg-graph-card p {
-  margin: 8px 0 0;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.graph-card-one {
-  left: 7%;
-  bottom: 10%;
-  animation-delay: .45s;
-}
-
-.graph-card-two {
-  left: 29%;
-  bottom: 34%;
-  animation-delay: .9s;
-}
-
-.graph-card-three {
-  right: 22%;
-  top: 24%;
-  animation-delay: 1.35s;
-}
-
-.graph-card-four {
-  right: 6%;
+.node-launch {
+  right: 4%;
   top: 8%;
-  background: var(--gg-charcoal);
-  animation-delay: 1.85s;
+  animation-delay: 1.7s;
 }
 
-.graph-card-four strong,
-.graph-card-four p {
-  color: white;
+.launch-label {
+  right: 5%;
+  top: 19%;
+  animation-delay: 1.8s;
 }
 
-.graph-card-four p {
-  color: rgba(255,255,255,.72);
-}
-
-@keyframes graphDraw {
+@keyframes drawRoadmap {
   to {
     stroke-dashoffset: 0;
   }
 }
 
-@keyframes graphPointIn {
-  from {
-    opacity: 0;
-    transform: scale(.3);
-  }
-
+@keyframes nodeReveal {
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
-@keyframes graphCardIn {
-  from {
-    opacity: 0;
-    transform: translateY(16px) scale(.96);
-  }
-
+@keyframes labelReveal {
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
@@ -2298,28 +2123,26 @@ p {
     padding: 80px 0;
   }
 
-  .gg-support-graph-grid {
-    grid-template-columns: 1fr;
+  .gg-roadmap-line {
+    height: 520px;
   }
 
-  .gg-roadmap-graph {
-    min-height: auto;
-    display: grid;
-    gap: 16px;
-    padding: 24px;
-  }
-
-  .gg-roadmap-graph::before,
-  .gg-graph-svg,
-  .gg-graph-label {
+  .gg-roadmap-svg {
     display: none;
   }
 
-  .gg-graph-card {
+  .graph-node {
+    display: none;
+  }
+
+  .graph-label {
     position: relative;
     inset: auto;
-    width: 100%;
+    display: block;
+    width: fit-content;
+    margin: 16px 0;
     opacity: 1;
+    transform: none;
     animation: none;
   }
 }
