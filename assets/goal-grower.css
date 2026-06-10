@@ -1135,7 +1135,7 @@ p {
 
 /* Bring bubbles into the phone cluster */
 .card-a {
-  top: 34%;
+  top: 25%;
   left: 20px;
   z-index: 5;
 }
