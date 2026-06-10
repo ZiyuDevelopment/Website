@@ -1806,7 +1806,7 @@ p {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  padding: 90px 0;
+  padding: 50px 0;
   background:
     radial-gradient(circle at 80% 16%, rgba(93,145,163,.22), transparent 30%),
     linear-gradient(135deg, var(--gg-charcoal), #17191d);
