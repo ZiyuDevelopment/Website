@@ -2729,3 +2729,85 @@ p {
     font-size: clamp(52px, 12vw, 72px);
   }
 }
+
+.gg-shop-direct {
+  min-height: 100svh;
+  padding: 150px 0 100px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(93,145,163,.16), transparent 30%),
+    linear-gradient(135deg, #edf7fa, var(--gg-paper));
+}
+
+.gg-shop-direct-hero {
+  max-width: 780px;
+  margin-bottom: 56px;
+}
+
+.gg-shop-direct-hero h1 {
+  margin-top: 14px;
+  font-size: clamp(56px, 7vw, 104px);
+}
+
+.gg-shop-direct-hero p {
+  max-width: 620px;
+  font-size: 21px;
+}
+
+.gg-shop-direct-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.gg-shop-direct-card {
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 34px;
+  overflow: hidden;
+  box-shadow: 0 24px 70px rgba(93,145,163,.12);
+  transition: transform .3s ease;
+}
+
+.gg-shop-direct-card:hover {
+  transform: translateY(-8px);
+}
+
+.gg-shop-direct-image {
+  aspect-ratio: 1;
+  background: var(--gg-blue);
+}
+
+.gg-shop-direct-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gg-shop-direct-info {
+  padding: 24px;
+}
+
+.gg-shop-direct-info span {
+  color: var(--gg-clay);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.gg-shop-direct-info h2 {
+  margin-top: 12px;
+  font-size: 26px;
+}
+
+.gg-shop-direct-info p {
+  margin-top: 10px;
+  color: var(--gg-charcoal);
+  font-weight: 900;
+}
+
+@media (max-width: 950px) {
+  .gg-shop-direct-grid {
+    grid-template-columns: 1fr;
+  }
+}
