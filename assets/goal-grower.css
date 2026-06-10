@@ -2114,6 +2114,14 @@ p {
   background: var(--gg-charcoal);
 }
 
+.step-launch .graph-label span {
+  color: rgba(255,255,255,.92);
+}
+
+.step-launch .graph-label strong {
+  color: #ffffff;
+}
+
 .step-launch .graph-node {
   background: var(--gg-charcoal);
   box-shadow:
@@ -2126,7 +2134,7 @@ p {
   position: absolute;
   inset: -10px;
   border-radius: 50%;
-  border: 2px solid var(--gg-charcoal, .4);
+  border: 2px solid rgba(201,130,101,.4);
   animation: launchRing 3s ease-out infinite;
 }
 
