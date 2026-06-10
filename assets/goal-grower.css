@@ -1306,3 +1306,131 @@ p {
     width: min(280px, 82vw);
   }
 }
+
+/* HERO FULL VIEWPORT FIX */
+
+.gg-hero {
+  min-height: 100svh;
+  height: 100svh;
+
+  display: flex;
+  align-items: center;
+
+  padding-top: 110px;
+  padding-bottom: 40px;
+
+  overflow: hidden;
+}
+
+.gg-hero-grid {
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+
+  align-items: center;
+  gap: 60px;
+}
+
+.gg-hero-copy {
+  align-self: center;
+}
+
+.gg-hero-copy h1 {
+  font-size: clamp(58px, 6vw, 92px);
+  line-height: 0.92;
+  margin-bottom: 22px;
+}
+
+.gg-hero-copy p {
+  max-width: 580px;
+  font-size: 20px;
+  margin-bottom: 28px;
+}
+
+.gg-hero-phones {
+  height: 100%;
+  min-height: unset;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+/* Main phone */
+
+.main-phone {
+  width: min(320px, 26vw);
+
+  z-index: 2;
+
+  transform: rotate(-3deg);
+}
+
+/* Small phone OVERLAPS the large phone */
+
+.side-phone {
+  width: 160px;
+
+  position: absolute;
+
+  right: 60px;
+  bottom: 130px;
+
+  z-index: 4;
+
+  transform: rotate(9deg);
+}
+
+/* Left bubble */
+
+.card-a {
+  top: 40%;
+  left: 20px;
+}
+
+/* Right bubble */
+
+.card-b {
+  top: 70%;
+  right: -10px;
+}
+
+/* Mobile */
+
+@media (max-width: 950px) {
+  .gg-hero {
+    min-height: auto;
+    height: auto;
+
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
+
+  .gg-hero-grid {
+    height: auto;
+
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .gg-hero-copy {
+    text-align: center;
+  }
+
+  .gg-hero-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main-phone {
+    width: min(300px, 82vw);
+  }
+
+  .side-phone {
+    display: none;
+  }
+}
