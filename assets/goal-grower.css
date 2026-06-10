@@ -1310,8 +1310,8 @@ p {
 /* HERO FULL VIEWPORT FIX */
 
 .gg-hero {
-  min-height: 108svh;
-  height: 108svh;
+  min-height: 100svh;
+  height: 100svh;
 
   display: flex;
   align-items: center;
