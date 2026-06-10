@@ -2059,3 +2059,145 @@ p {
   color: var(--gg-clay);
   opacity: .8;
 }
+
+/* SMALLER ANIMATED GROW TOGETHER */
+
+.gg-grow-together {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 86px 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(93,145,163,.14), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(201,130,101,.14), transparent 30%),
+    linear-gradient(180deg, #edf7fa, var(--gg-paper));
+}
+
+.gg-grow-mini-grid {
+  display: grid;
+  grid-template-columns: .9fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.gg-grow-mini-copy {
+  max-width: 620px;
+}
+
+.gg-grow-mini-copy h2 {
+  margin-top: 18px;
+  font-size: clamp(42px, 5vw, 76px);
+}
+
+.gg-grow-mini-copy p {
+  margin-top: 22px;
+  font-size: 21px;
+}
+
+/* animated loop */
+
+.gg-loop-orbit {
+  position: relative;
+  min-height: 520px;
+  display: grid;
+  place-items: center;
+}
+
+.gg-loop-line {
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  border: 2px dashed rgba(93,145,163,.38);
+  animation: loopSpin 24s linear infinite;
+}
+
+.gg-loop-center {
+  position: absolute;
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--gg-charcoal);
+  color: white;
+  box-shadow: 0 30px 80px rgba(36,39,44,.22);
+}
+
+.gg-loop-center span {
+  font-weight: 900;
+  text-align: center;
+}
+
+.gg-loop-node {
+  position: absolute;
+  padding: 16px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(255,255,255,.8);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 55px rgba(93,145,163,.14);
+  animation: nodeFloat 6s ease-in-out infinite;
+}
+
+.gg-loop-node strong {
+  font-size: 15px;
+  color: var(--gg-charcoal);
+}
+
+.node-one {
+  top: 10%;
+  left: 38%;
+}
+
+.node-two {
+  top: 42%;
+  right: 2%;
+  animation-delay: .5s;
+}
+
+.node-three {
+  bottom: 12%;
+  left: 34%;
+  animation-delay: 1s;
+}
+
+.node-four {
+  top: 42%;
+  left: 0;
+  animation-delay: 1.5s;
+}
+
+@keyframes loopSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes nodeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (max-width: 950px) {
+  .gg-grow-together {
+    min-height: auto;
+  }
+
+  .gg-grow-mini-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gg-loop-orbit {
+    min-height: 420px;
+  }
+
+  .gg-loop-line {
+    width: 300px;
+    height: 300px;
+  }
+}
