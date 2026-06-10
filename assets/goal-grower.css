@@ -1207,3 +1207,89 @@ p {
     justify-self: center;
   }
 }
+
+/* STACKABLE OVERLAY CARDS + TWO SCREENS PER CARD */
+
+.gg-overlay-card {
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  text-align: center;
+  min-height: 620px;
+  padding: 52px;
+}
+
+.gg-overlay-copy {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.gg-overlay-copy span {
+  justify-content: center;
+}
+
+.gg-overlay-copy h3,
+.gg-overlay-copy p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gg-card-phone-pair {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.gg-card-phone-pair .gg-phone {
+  width: min(220px, 42vw);
+}
+
+.gg-card-phone-pair .gg-phone:nth-child(2) {
+  transform: translateY(34px) rotate(3deg);
+}
+
+.gg-card-phone-pair .gg-phone:nth-child(1) {
+  transform: translateY(-18px) rotate(-3deg);
+}
+
+/* stronger stacking effect */
+
+.gg-overlay-stack {
+  padding-bottom: 80px;
+}
+
+.gg-overlay-card:nth-child(1) {
+  z-index: 1;
+  top: 96px;
+}
+
+.gg-overlay-card:nth-child(2) {
+  z-index: 2;
+  top: 116px;
+}
+
+.gg-overlay-card:nth-child(3) {
+  z-index: 3;
+  top: 136px;
+}
+
+.gg-overlay-card:nth-child(4) {
+  z-index: 4;
+  top: 156px;
+}
+
+@media (max-width: 950px) {
+  .gg-overlay-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .gg-card-phone-pair {
+    flex-direction: column;
+  }
+
+  .gg-card-phone-pair .gg-phone {
+    width: min(260px, 82vw);
+    transform: none !important;
+  }
+}
