@@ -1843,3 +1843,69 @@ p {
     width: min(300px, 82vw);
   }
 }
+
+/* HERO HEADER FLOW FIX */
+
+body {
+  background:
+    linear-gradient(180deg, #f8f2e8 0%, #fffaf2 42%, #f8f2e8 100%);
+}
+
+.gg-header {
+  margin-top: 0;
+  top: 12px;
+}
+
+.gg-hero {
+  margin-top: -82px;
+  padding-top: 150px;
+  background:
+    radial-gradient(circle at 14% 20%, rgba(201, 130, 101, 0.18), transparent 32%),
+    radial-gradient(circle at 82% 12%, rgba(93, 145, 163, 0.28), transparent 35%),
+    linear-gradient(180deg, #f8f2e8 0%, #fffaf2 58%, #f8f2e8 100%);
+}
+
+.gg-hero-bg {
+  top: 0;
+  opacity: 0.7;
+}
+
+/* lower floating hero cards */
+
+.card-a {
+  top: 27%;
+  left: -8px;
+}
+
+.card-b {
+  top: 48%;
+  right: -4px;
+}
+
+/* make floating cards less intrusive */
+
+.gg-floating-card {
+  padding: 13px 17px;
+  border-radius: 18px;
+}
+
+.gg-floating-card strong {
+  font-size: 20px;
+}
+
+.gg-floating-card span {
+  font-size: 12px;
+}
+
+/* better hero phone balance */
+
+.gg-hero-phones {
+  min-height: 560px;
+}
+
+@media (max-width: 950px) {
+  .gg-hero {
+    margin-top: -70px;
+    padding-top: 130px;
+  }
+}
