@@ -2103,8 +2103,8 @@ p {
 }
 
 .step-launch {
-  left: 65%;
-  bottom: 62%;
+  left: 60%;
+  bottom: 57%;
   animation-delay: 1.45s;
 }
 
@@ -2115,7 +2115,7 @@ p {
 }
 
 .step-launch .graph-node {
-  background: var(--gg-clay);
+  background: var(--gg-charcoal);
   box-shadow:
     0 0 0 14px rgba(201,130,101,.18),
     0 0 40px rgba(201,130,101,.25);
