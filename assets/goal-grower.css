@@ -1958,3 +1958,159 @@ p {
     padding: 34px;
   }
 }
+
+/* MAKE SUPPORT SECTIONS FIT ONE VIEWPORT */
+
+.gg-support-board-hero,
+.gg-support-letter,
+.gg-support-map,
+.gg-support-roles,
+.gg-support-now,
+.gg-support-close {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-top: 86px;
+  padding-bottom: 86px;
+}
+
+/* Hero is under sticky nav, so it needs extra top room */
+.gg-support-board-hero {
+  padding-top: 150px;
+}
+
+/* Reduce oversized section content */
+.gg-support-board-copy h1 {
+  font-size: clamp(48px, 6vw, 88px);
+}
+
+.gg-support-board-copy p,
+.gg-support-letter-text p,
+.gg-support-now p,
+.gg-support-close-panel p {
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+/* Keep visual board from making hero too tall */
+.gg-support-board-visual {
+  min-height: 460px;
+}
+
+.board-main {
+  width: 300px;
+  min-height: 220px;
+}
+
+.board-small {
+  width: 190px;
+  min-height: 130px;
+}
+
+/* Letter section fits one screen */
+.gg-support-letter {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.gg-support-letter h2 {
+  font-size: clamp(40px, 5vw, 72px);
+}
+
+.gg-support-letter-grid {
+  align-items: center;
+}
+
+/* Impact map was too tall */
+.gg-map-layout {
+  min-height: 560px;
+  margin-top: 12px;
+}
+
+.gg-map-center {
+  width: 190px;
+  height: 190px;
+}
+
+.gg-map-center::before {
+  width: 300px;
+  height: 300px;
+}
+
+.gg-map-center::after {
+  width: 430px;
+  height: 430px;
+}
+
+.gg-map-item {
+  width: min(310px, 32vw);
+  padding: 24px;
+}
+
+.gg-map-item h3 {
+  font-size: clamp(24px, 3vw, 38px);
+}
+
+.gg-map-item p {
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* Role section fits one screen */
+.gg-role-lane {
+  min-height: 250px;
+  padding: 28px;
+}
+
+.gg-role-lane h3 {
+  font-size: clamp(26px, 3vw, 38px);
+}
+
+.gg-role-lane p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Current section fits one screen */
+.gg-now-list div {
+  padding: 20px;
+}
+
+.gg-now-list strong {
+  font-size: 20px;
+}
+
+/* Closing section fits cleanly */
+.gg-support-close-panel {
+  padding: 48px;
+}
+
+/* Mobile: sections should not force full viewport */
+@media (max-width: 950px) {
+  .gg-support-board-hero,
+  .gg-support-letter,
+  .gg-support-map,
+  .gg-support-roles,
+  .gg-support-now,
+  .gg-support-close {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .gg-support-board-hero {
+    padding-top: 130px;
+  }
+
+  .gg-support-board-visual {
+    min-height: 420px;
+  }
+
+  .gg-map-layout {
+    min-height: auto;
+  }
+
+  .gg-map-item {
+    width: 100%;
+  }
+}
