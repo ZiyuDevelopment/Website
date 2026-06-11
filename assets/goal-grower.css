@@ -3640,7 +3640,7 @@ html {
 
 .gg-highlight {
   background: linear-gradient(
-    180deg,
+    -180deg,
     var(--gg-charcoal),
     var(--gg-blue-deep)
   );
