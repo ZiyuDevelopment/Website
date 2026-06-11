@@ -880,7 +880,6 @@ p {
 /* FOOTER */
 
 .gg-footer {
-  padding: 60px auto 30px;
   background: var(--gg-charcoal);
   color: white;
 }
@@ -891,6 +890,7 @@ p {
   display: grid;
   grid-template-columns: 1.35fr repeat(3, 1fr);
   gap: 38px;
+  padding-top: 30px;
 }
 
 .gg-footer h3, .gg-footer .gg-logo {
@@ -910,6 +910,7 @@ p {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding-bottom: 20px;
 }
 
 /* MOBILE MENU */
