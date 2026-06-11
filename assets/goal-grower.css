@@ -3319,6 +3319,7 @@ html {
 
 .gg-support-amount {
   min-height: 150px;
+  min-width: 220px;
   padding: 26px;
   border-radius: 26px;
   background: #f6f1e8;
