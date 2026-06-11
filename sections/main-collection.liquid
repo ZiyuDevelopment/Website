@@ -77,11 +77,41 @@
       {% endif %}
     </div>
 
-    <div class="gg-custom-support">
-      <span>Want to give a different amount?</span>
-      <p>Create a custom support product or message me for another option.</p>
-    </div>
+    {% assign custom_support = all_products['custom-support-goal-grower'] %}
+
+{% if custom_support %}
+  <div class="gg-custom-support">
+    <span>Custom</span>
+    <p>Choose your own amount: $5, $15, $50, or $___</p>
+
+    <form action="/cart/add" method="post" class="gg-custom-support-form">
+      <input 
+        type="hidden" 
+        name="id" 
+        value="{{ custom_support.selected_or_first_available_variant.id }}"
+      >
+
+      <label for="custom-support-amount">Amount</label>
+
+      <div class="gg-custom-input-wrap">
+        <span>$</span>
+        <input 
+          id="custom-support-amount"
+          type="number" 
+          name="quantity" 
+          min="1" 
+          step="1" 
+          placeholder="15"
+          required
+        >
+      </div>
+
+      <button type="submit" class="gg-btn">
+        Add custom support
+      </button>
+    </form>
   </div>
+{% endif %}
 </section>
 
     <section id="products" class="gg-shop-products">
