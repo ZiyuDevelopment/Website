@@ -151,11 +151,13 @@
         <div class="gg-shop-grid">
           {% for product in collection.products %}
             <a
-              href="{{ product.url }}"
-              class="gg-shop-card"
-              data-product-card
-              data-product-title="{{ product.title | downcase | escape }}"
-            >
+  href="{{ product.url }}"
+  class="gg-shop-card"
+  data-product-card
+  data-product-title="{{ product.title | downcase | escape }}"
+  data-product-type="{{ product.type | downcase | escape }}"
+  data-product-collection="{{ collection.title | downcase | escape }}"
+>
               <div class="gg-shop-image">
                 {% if product.featured_image %}
                   {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
@@ -223,19 +225,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!input) return;
 
-  input.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-    }
-  });
-
   input.addEventListener('input', () => {
-    const search = input.value.toLowerCase().trim();
+  const search = input.value.toLowerCase().trim();
 
-    cards.forEach(card => {
-      const title = card.dataset.productTitle || '';
-      card.style.display = title.includes(search) ? '' : 'none';
-    });
+  cards.forEach(card => {
+    const title = card.dataset.productTitle || '';
+    const type = card.dataset.productType || '';
+    const collection = card.dataset.productCollection || '';
+
+    const matches =
+      title.includes(search) ||
+      type.includes(search) ||
+      collection.includes(search);
+
+    card.style.display = matches ? '' : 'none';
   });
 });
 </script>
