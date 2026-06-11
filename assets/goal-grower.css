@@ -796,28 +796,6 @@ p {
   gap: 20px;
 }
 
-.gg-cart-item {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 22px;
-}
-
-.gg-cart-image {
-  background: var(--gg-blue);
-  border-radius: 24px;
-  overflow: hidden;
-}
-
-.gg-cart-summary {
-  position: sticky;
-  top: 120px;
-}
-
-.gg-cart-summary .gg-btn, .gg-cart-summary .gg-btn-soft, .gg-cart-summary .gg-btn-outline {
-  width: 100%;
-  margin-top: 12px;
-}
-
 /* PAGES */
 
 .gg-page-hero {
@@ -3600,24 +3578,6 @@ html {
 .gg-cart-items {
   display: grid;
   gap: 22px;
-}
-
-.gg-cart-item {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 24px;
-  padding: 24px;
-  border-radius: 30px;
-  background: rgba(255,255,255,.78);
-  border: 1px solid rgba(255,255,255,.82);
-  box-shadow: 0 20px 60px rgba(36,39,44,.08);
-}
-
-.gg-cart-image {
-  aspect-ratio: 1;
-  border-radius: 22px;
-  overflow: hidden;
-  background: var(--gg-blue);
 }
 
 .gg-cart-image img {
