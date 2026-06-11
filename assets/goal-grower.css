@@ -2967,7 +2967,8 @@ p {
 
 .gg-storefront {
   min-height: 100svh;
-  padding: 140px 0 100px;
+  margin-top: -92px;
+  padding: 130px 0 100px;
   background: #f6f1e8;
 }
 
