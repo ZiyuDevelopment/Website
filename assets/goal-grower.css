@@ -3206,6 +3206,19 @@ p {
 }
 
 .gg-direct-support {
+  margin: 70px 0  30px;
+  padding: 56px;
+  border-radius: 38px;
+  background: white;
+  border: 1px solid rgba(36,39,44,.1);
+  display: grid;
+  grid-template-columns: .9fr 1fr;
+  gap: 54px;
+  align-items: center;
+  box-shadow: 0 18px 55px rgba(36,39,44,.08);
+}
+
+.gg-direct-support-copy {
   margin: 70px 100px;
   padding: 56px;
   border-radius: 38px;
