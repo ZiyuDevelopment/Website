@@ -14,13 +14,19 @@
           <div class="gg-product-thumbs">
             {% for image in product.images %}
               <button
-                type="button"
-                class="gg-product-thumb"
-                data-product-thumb="{{ image | image_url: width: 1400 }}"
-                data-image-alt="{{ image.alt | downcase | escape }}"
-              >
-                {{ image | image_url: width: 240 | image_tag: loading: 'lazy', alt: product.title }}
-              </button>
+  type="button"
+  class="gg-product-thumb"
+  data-product-thumb="{{ image | image_url: width: 1400 }}"
+  data-image-alt="{{ image.alt | downcase | escape }}"
+>
+  {{ image | image_url: width: 240 | image_tag: loading: 'lazy', alt: product.title }}
+
+  {% if image.alt != blank %}
+    <span>{{ image.alt }}</span>
+  {% else %}
+    <span>View</span>
+  {% endif %}
+</button>
             {% endfor %}
           </div>
         {% endif %}

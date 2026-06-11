@@ -3898,10 +3898,10 @@ html {
   gap: 18px;
 }
 
-.gg-product-main-image {
-  border-radius: 32px;
-  overflow: hidden;
-  background: #e8edf0;
+.gg-product-main-image img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
 .gg-product-main-image img {
@@ -3926,7 +3926,7 @@ html {
 
 .gg-product-thumb img {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 12px;
 }
@@ -4185,4 +4185,22 @@ html {
   .gg-product-total {
     border-radius: 18px;
   }
+}
+
+.gg-product-thumb {
+  display: grid;
+  gap: 8px;
+  text-align: center;
+}
+
+.gg-product-thumb span {
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--gg-muted);
+  line-height: 1.2;
+}
+
+.gg-product-thumb:hover span,
+.gg-product-thumb.is-active span {
+  color: var(--gg-clay);
 }
