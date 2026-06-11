@@ -8,17 +8,19 @@
     </div>
 
     <div class="zd-cart-drawer__body" data-cart-drawer-body>
-      {% assign real_cart_count = 0 %}
+      {% if cart.item_count > 0 %}
+        {% for item in cart.items %}
+          <div class="zd-cart-drawer__item">
+            {% if item.image %}
+              <img src="{{ item.image | image_url: width: 180 }}" alt="{{ item.product.title | escape }}" width="180" height="180">
+            {% endif %}
 
-{% for item in cart.items %}
-  {% if item.product.handle == 'custom-goal-grower-support' %}
-    {% assign real_cart_count = real_cart_count | plus: 1 %}
-  {% else %}
-    {% assign real_cart_count = real_cart_count | plus: item.quantity %}
-  {% endif %}
-{% endfor %}
-
-{{ real_cart_count }}
+            <div>
+              <h3>{{ item.product.title }}</h3>
+              <p>{{ item.line_price | money }}</p>
+            </div>
+          </div>
+        {% endfor %}
       {% else %}
         <div class="zd-cart-drawer__empty">
           <h3>Your cart is empty.</h3>
