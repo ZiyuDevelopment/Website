@@ -8,7 +8,7 @@
 
     {% if cart.item_count > 0 %}
       <form action="{{ routes.cart_url }}" method="post" class="gg-cart-layout">
-        <div class="gg-cart-items">
+        <div class="gg-cart-item" data-cart-item>
           {% for item in cart.items %}
             <div class="gg-cart-item">
               <div class="gg-cart-image">
@@ -81,7 +81,7 @@
 
           <div class="gg-cart-total-row">
             <span>Subtotal</span>
-            <strong>{{ cart.total_price | money }}</strong>
+            <strong data-cart-subtotal>{{ cart.total_price | money }}</strong>
           </div>
 
           <p>
