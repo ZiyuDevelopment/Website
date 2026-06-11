@@ -3642,7 +3642,7 @@ html {
   background: linear-gradient(
     180deg,
     var(--gg-clay),
-    var(--gg-blue--light)
+    var(--gg-blue--deep)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
