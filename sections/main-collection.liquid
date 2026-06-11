@@ -33,7 +33,7 @@
 
     <div class="gg-shop-categories">
       <a href="#support-development">Support Development</a>
-      <a href="#products" class="gg-btn" data-scroll-products>Products</a>
+      <a href="#products" data-scroll-products>Products</a>
       <a href="#why-it-matters">Why Purchases Matter</a>
       <a href="#future">Future Releases</a>
     </div>
@@ -223,19 +223,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!input) return;
 
-  const productsButton = document.querySelector('[data-scroll-products]');
+  const productsButtons = document.querySelectorAll('[data-scroll-products]');
 const productsSection = document.getElementById('products');
 
-if (productsButton && productsSection) {
-  productsButton.addEventListener('click', (event) => {
-    event.preventDefault();
+if (productsButtons.length && productsSection) {
+  productsButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
 
-    const headerOffset = 150;
-    const sectionTop = productsSection.getBoundingClientRect().top + window.pageYOffset;
+      const headerOffset = 150;
+      const sectionTop =
+        productsSection.getBoundingClientRect().top + window.pageYOffset;
 
-    window.scrollTo({
-      top: sectionTop - headerOffset,
-      behavior: 'smooth'
+      window.scrollTo({
+        top: sectionTop - headerOffset,
+        behavior: 'smooth'
+      });
     });
   });
 }
