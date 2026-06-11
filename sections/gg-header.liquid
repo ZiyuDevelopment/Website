@@ -15,13 +15,21 @@
   </nav>
 
   <div class="gg-header-actions">
-    <a href="{{ routes.cart_url }}" class="zd-header__icon zd-header__cart" aria-label="Cart">
-  {% render 'icon-cart' %}
+    <a href="{{ routes.cart_url }}" class="gg-cart-link">
+      Cart
+      {% assign custom_support_handle = 'custom-support-goal-grower' %}
+{% assign real_cart_count = 0 %}
 
-  <span class="zd-header__cart-count">
-    {{ cart.total_price | money }}
-  </span>
-</a>
+{% for item in cart.items %}
+  {% if item.product.handle == custom_support_handle %}
+    {% assign real_cart_count = real_cart_count | plus: 1 %}
+  {% else %}
+    {% assign real_cart_count = real_cart_count | plus: item.quantity %}
+  {% endif %}
+{% endfor %}
+
+{{ real_cart_count }}
+    </a>
 
     <a href="{{ routes.account_url }}" class="gg-btn gg-btn-small">
       Profile
