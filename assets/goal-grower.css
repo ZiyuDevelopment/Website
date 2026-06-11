@@ -3650,7 +3650,7 @@ html {
 }
 
 #products {
-  scroll-margin-top: 120px;
+  scroll-margin-top: 0px;
 }
 
 .gg-shop-tools {
