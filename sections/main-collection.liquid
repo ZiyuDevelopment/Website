@@ -39,29 +39,48 @@
 </div>
 
 <section id="support-development" class="gg-direct-support">
-  <div>
+  <div class="gg-direct-support-copy">
     <span class="gg-kicker">Support development</span>
+
     <h2>Give directly to the production of Goal Grower.</h2>
+
     <p>
-      This helps with app testing, design polish, launch preparation, and future development.
+      Help fund app testing, design polish, launch preparation, and future development.
     </p>
   </div>
 
-  <div class="gg-support-amounts">
-    <a href="/products/support-goal-grower-5" class="gg-support-amount">
-      <strong>$5</strong>
-      <span>Small support</span>
-    </a>
+  <div class="gg-direct-support-side">
+    <div class="gg-support-amounts">
+      {% assign support_5 = all_products['support-goal-grower-5'] %}
+      {% assign support_10 = all_products['support-goal-grower-10'] %}
+      {% assign support_25 = all_products['support-goal-grower-25'] %}
 
-    <a href="/products/support-goal-grower-10" class="gg-support-amount featured">
-      <strong>$10</strong>
-      <span>Help the build</span>
-    </a>
+      {% if support_5 %}
+        <a href="/cart/add?id={{ support_5.selected_or_first_available_variant.id }}&quantity=1&return_to=/cart" class="gg-support-amount">
+          <strong>$5</strong>
+          <span>Small support</span>
+        </a>
+      {% endif %}
 
-    <a href="/products/support-goal-grower-25" class="gg-support-amount">
-      <strong>$25</strong>
-      <span>Launch support</span>
-    </a>
+      {% if support_10 %}
+        <a href="/cart/add?id={{ support_10.selected_or_first_available_variant.id }}&quantity=1&return_to=/cart" class="gg-support-amount featured">
+          <strong>$10</strong>
+          <span>Help the build</span>
+        </a>
+      {% endif %}
+
+      {% if support_25 %}
+        <a href="/cart/add?id={{ support_25.selected_or_first_available_variant.id }}&quantity=1&return_to=/cart" class="gg-support-amount">
+          <strong>$25</strong>
+          <span>Launch support</span>
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="gg-custom-support">
+      <span>Want to give a different amount?</span>
+      <p>Create a custom support product or message me for another option.</p>
+    </div>
   </div>
 </section>
 
