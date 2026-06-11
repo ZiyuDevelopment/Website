@@ -35,20 +35,8 @@
       <a href="{{ routes.cart_url }}" class="zd-header__icon zd-header__cart" aria-label="Cart">
         {% render 'icon-cart' %}
         <span class="zd-header__cart-count">
-          {% assign custom_support_handle = 'custom-support-goal-grower' %}
-{% assign real_cart_count = 0 %}
-
-{% for item in cart.items %}
-  {% if item.product.handle == custom_support_handle %}
-    {% assign real_cart_count = real_cart_count | plus: 1 %}
-  {% else %}
-    {% assign real_cart_count = real_cart_count | plus: item.quantity %}
-  {% endif %}
-{% endfor %}
-
-{{ real_cart_count }}
-
-        </span>
+  {{ cart.total_price | money }}
+</span>
       </a>
 
       <a href="/pages/support" class="zd-header__cta">
