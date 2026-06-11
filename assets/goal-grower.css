@@ -2684,7 +2684,7 @@ p {
 /* REAL STOREFRONT */
 
 .gg-storefront {
-  min-height: 100svh;
+  min-height: 101svh;
   padding: 160px 0 100px;
   background: #f6f1e8;
 }
