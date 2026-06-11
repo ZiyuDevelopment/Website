@@ -9,7 +9,7 @@
           and future intentional software projects.
         </p>
         <div class="gg-hero-actions">
-          <a href="#products" class="gg-btn">Shop Products</a>
+          <a href="#products" class="gg-btn" data-scroll-products>Shop Products</a>
           <a href="#why-it-matters" class="gg-btn-soft">Why It Matters</a>
         </div>
       </div>
@@ -222,6 +222,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const cards = document.querySelectorAll('[data-product-card]');
 
   if (!input) return;
+
+  const productsButton = document.querySelector('[data-scroll-products]');
+const productsSection = document.getElementById('products');
+
+if (productsButton && productsSection) {
+  productsButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const headerOffset = 95;
+    const sectionTop = productsSection.getBoundingClientRect().top + window.pageYOffset;
+
+    window.scrollTo({
+      top: sectionTop - headerOffset,
+      behavior: 'smooth'
+    });
+  });
+}
 
   input.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
