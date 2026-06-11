@@ -3576,3 +3576,8 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+#MainContent,
+.main-content {
+  flex: 1;
+}
