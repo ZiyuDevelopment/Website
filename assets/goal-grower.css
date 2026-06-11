@@ -3637,3 +3637,7 @@ html {
 
   box-shadow: 0 8px 20px rgba(36,39,44,.18);
 }
+
+.gg-highlight {
+  color: var(--gg-blue-deep);
+}
