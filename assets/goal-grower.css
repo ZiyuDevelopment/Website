@@ -3202,3 +3202,67 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+.gg-direct-support {
+  margin: 70px 0 30px;
+  padding: 56px;
+  border-radius: 38px;
+  background: white;
+  border: 1px solid rgba(36,39,44,.1);
+  display: grid;
+  grid-template-columns: .9fr 1fr;
+  gap: 54px;
+  align-items: center;
+  box-shadow: 0 18px 55px rgba(36,39,44,.08);
+}
+
+.gg-direct-support h2 {
+  margin-top: 14px;
+}
+
+.gg-direct-support p {
+  max-width: 620px;
+}
+
+.gg-support-amounts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.gg-support-amount {
+  padding: 26px;
+  border-radius: 26px;
+  background: #f6f1e8;
+  border: 1px solid rgba(36,39,44,.1);
+  text-align: center;
+}
+
+.gg-support-amount.featured {
+  background: var(--gg-charcoal);
+}
+
+.gg-support-amount.featured strong,
+.gg-support-amount.featured span {
+  color: white;
+}
+
+.gg-support-amount strong {
+  display: block;
+  font-size: 38px;
+  color: var(--gg-charcoal);
+}
+
+.gg-support-amount span {
+  display: block;
+  margin-top: 8px;
+  color: var(--gg-muted);
+  font-weight: 800;
+}
+
+@media (max-width: 950px) {
+  .gg-direct-support,
+  .gg-support-amounts {
+    grid-template-columns: 1fr;
+  }
+}
