@@ -49,13 +49,14 @@
     </button>
 
     <input
-      id="updates_{{ item.key }}"
-      type="number"
-      name="updates[]"
-      value="{{ item.quantity }}"
-      min="0"
-      class="gg-qty-input"
-    >
+  id="updates_{{ item.key }}"
+  type="number"
+  name="updates[]"
+  value="{{ item.quantity }}"
+  min="0"
+  class="gg-qty-input"
+  data-line="{{ forloop.index }}"
+>
 
     <button
       type="button"
@@ -117,20 +118,35 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.gg-quantity-selector').forEach(selector => {
     const input = selector.querySelector('.gg-qty-input');
-    const form = input.closest('form');
+
+    async function updateCartQuantity(newQuantity) {
+      const line = input.dataset.line;
+
+      input.value = newQuantity;
+
+      await fetch('/cart/change.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          line: Number(line),
+          quantity: Number(newQuantity)
+        })
+      });
+
+      window.location.reload();
+    }
 
     selector.querySelector('[data-qty-minus]').addEventListener('click', () => {
-      input.value = Math.max(0, parseInt(input.value || 0, 10) - 1);
-      form.submit();
+      const value = parseInt(input.value || 0, 10);
+      updateCartQuantity(Math.max(0, value - 1));
     });
 
     selector.querySelector('[data-qty-plus]').addEventListener('click', () => {
-      input.value = parseInt(input.value || 0, 10) + 1;
-      form.submit();
-    });
-
-    input.addEventListener('change', () => {
-      form.submit();
+      const value = parseInt(input.value || 0, 10);
+      updateCartQuantity(value + 1);
     });
   });
 });
