@@ -3804,3 +3804,25 @@ html {
   text-align: center;
   font-weight: 900;
 }
+
+.gg-btn-checkout {
+  width: 100%;
+  background: var(--gg-charcoal);
+  color: white;
+  border: none;
+}
+
+.gg-btn-checkout:hover {
+  transform: translateY(-2px);
+}
+
+.gg-qty-input::-webkit-outer-spin-button,
+.gg-qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.gg-qty-input {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
