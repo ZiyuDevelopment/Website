@@ -3648,3 +3648,58 @@ html {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+#products {
+  scroll-margin-top: 120px;
+}
+
+.gg-shop-tools {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  margin: 0 0 34px;
+}
+
+.gg-shop-search {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  max-width: 520px;
+}
+
+.gg-shop-search input {
+  flex: 1;
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,39,44,.14);
+  background: white;
+}
+
+.gg-shop-search button,
+.gg-shop-filters a {
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,39,44,.14);
+  background: white;
+  font-weight: 900;
+}
+
+.gg-shop-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 950px) {
+  .gg-shop-tools {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .gg-shop-search {
+    max-width: none;
+  }
+}
