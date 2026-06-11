@@ -3319,7 +3319,6 @@ html {
 
 .gg-support-amount {
   min-height: 150px;
-  min-width: 220px;
   padding: 26px;
   border-radius: 26px;
   background: #f6f1e8;
@@ -3403,10 +3402,10 @@ html {
 }
 
 .gg-custom-support-form {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 14px;
-  max-width: 360px;
-  margin: 0 auto;
+  max-width: 320px;
 }
 
 .gg-custom-support-form label {
@@ -3418,13 +3417,19 @@ html {
 }
 
 .gg-custom-input-wrap {
+  width: 100%;
+  height: 58px;
+
+  padding: 0 18px;
+
+  border-radius: 999px;
+
+  background: white;
+  border: 1px solid rgba(36,39,44,.12);
+
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 18px;
-  border-radius: 999px;
-  background: white;
-  border: 1px solid rgba(36,39,44,.12);
 }
 
 .gg-custom-input-wrap span {
@@ -3512,15 +3517,17 @@ html {
 }
 
 .gg-custom-submit {
+  width: 100%;
   height: 58px;
-  padding: 0 26px;
+
   border: 0;
   border-radius: 999px;
+
   background: var(--gg-charcoal);
   color: white;
+
   font-weight: 900;
   cursor: pointer;
-  box-shadow: 0 18px 42px rgba(36,39,44,.18);
 }
 
 .gg-custom-submit:hover {
@@ -3638,3 +3645,4 @@ html {
 
   box-shadow: 0 8px 20px rgba(36,39,44,.18);
 }
+
