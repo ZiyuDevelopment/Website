@@ -20,12 +20,6 @@
   data-image-alt="{{ image.alt | downcase | escape }}"
 >
   {{ image | image_url: width: 240 | image_tag: loading: 'lazy', alt: product.title }}
-
-  {% if image.alt != blank %}
-    <span>{{ image.alt }}</span>
-  {% else %}
-    <span>Preview</span>
-  {% endif %}
 </button>
             {% endfor %}
           </div>
