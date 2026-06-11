@@ -73,7 +73,10 @@
     </div>
 
     <div class="gg-contact-form-card reveal">
-      {% form 'contact' %}
+      {% form 'contact', id: 'ContactForm', class: 'gg-contact-form', return_to: '/pages/contact#contact-form' %}
+
+<input type="hidden" name="contact[subject]" value="New Ziyu Development contact form message">
+
         {% if form.posted_successfully? %}
           <p class="gg-form-success">Message sent. Thank you.</p>
         {% endif %}
