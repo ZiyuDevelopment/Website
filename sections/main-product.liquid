@@ -96,6 +96,7 @@
       </div>
     </div>
 
+    <section>
     <div class="gg-product-lower">
       <div class="gg-product-description-card">
         <span class="gg-kicker">Details</span>
@@ -106,7 +107,40 @@
         {% else %}
           <p>This product helps support Ziyu Development and the future of Goal Grower.</p>
         {% endif %}
+        <section class="gg-product-suggestions">
+  <div class="gg-section-heading">
+    <span class="gg-kicker">You may also like</span>
+    <h2>More from the store.</h2>
+  </div>
+
+  <div class="gg-product-suggestion-grid">
+    {% assign shown = 0 %}
+    {% for related_product in collections.all.products %}
+      {% if related_product.id != product.id and shown < 3 %}
+        <a href="{{ related_product.url }}" class="gg-product-suggestion-card">
+          <div class="gg-product-suggestion-image">
+            {% if related_product.featured_image %}
+              {{ related_product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: related_product.title }}
+            {% else %}
+              <div class="gg-product-placeholder"></div>
+            {% endif %}
+          </div>
+
+          <div>
+            <span>{{ related_product.type | default: 'Product' }}</span>
+            <strong>{{ related_product.title }}</strong>
+            <p>{{ related_product.price | money }}</p>
+          </div>
+        </a>
+
+        {% assign shown = shown | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
       </div>
+    </section>
+
 
       <div class="gg-product-support-card">
         <span class="gg-kicker">Impact</span>
