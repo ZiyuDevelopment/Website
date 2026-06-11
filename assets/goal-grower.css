@@ -3640,9 +3640,9 @@ html {
 
 .gg-highlight {
   background: linear-gradient(
-    235deg,
+    180deg,
     var(--gg-charcoal),
-    var(--gg-blue-deep)
+    var(--gg-blue)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
