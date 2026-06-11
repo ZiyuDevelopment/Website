@@ -1,39 +1,165 @@
-<section class="gg-page-hero">
-  <div class="gg-container reveal">
-    <span class="gg-kicker">Contact</span>
-    <h1>Send a note.</h1>
-    <p>
-      Ask about Goal Grower, beta testing, support, collaborations, or feedback.
-    </p>
+<section class="gg-contact-hero">
+  <div class="gg-contact-bg"></div>
+
+  <div class="gg-container gg-contact-hero-grid">
+    <div class="gg-contact-copy reveal">
+      <span class="gg-kicker">Contact + Beta Testing</span>
+      <h1>Help shape Goal Grower before launch.</h1>
+      <p>
+        Join testing, send feedback, ask a question, or share an idea for Ziyu Development.
+      </p>
+
+      <div class="gg-hero-actions">
+        <a href="#beta-signup" class="gg-btn">Join Beta Testing</a>
+        <a href="#contact-form" class="gg-btn-soft">Send a Message</a>
+      </div>
+    </div>
+
+    <div id="beta-signup" class="gg-beta-card reveal">
+      <span class="gg-kicker">Beta list</span>
+      <h2>Get testing updates.</h2>
+      <p>Add your email and I’ll use it for Goal Grower testing updates.</p>
+
+      {% form 'customer', class: 'gg-beta-form' %}
+        <input type="hidden" name="contact[tags]" value="Goal Grower Beta Tester">
+        <input type="email" name="contact[email]" placeholder="Your email" required>
+        <button type="submit" class="gg-btn">Join the Beta</button>
+
+        {% if form.posted_successfully? %}
+          <p class="gg-form-success">You’re on the beta list.</p>
+        {% endif %}
+
+        {% if form.errors %}
+          <p class="gg-form-error">Please check your email and try again.</p>
+        {% endif %}
+      {% endform %}
+    </div>
   </div>
 </section>
 
-<section class="gg-section">
-  <div class="gg-container gg-contact-card reveal">
-    {% form 'contact' %}
-      {% if form.posted_successfully? %}
-        <p class="gg-success">Thanks — your message was sent.</p>
-      {% endif %}
+<section class="gg-contact-options">
+  <div class="gg-container">
+    <div class="gg-section-heading reveal">
+      <span class="gg-kicker">What you can do here</span>
+      <h2>Choose the kind of help you want to give.</h2>
+    </div>
 
-      {{ form.errors | default_errors }}
+    <div class="gg-contact-option-grid">
+      <a href="#beta-signup" class="gg-contact-option reveal">
+        <span>01</span>
+        <h3>Join testing</h3>
+        <p>Get updates when Goal Grower needs testers or feedback.</p>
+      </a>
 
-      <label for="ContactName">Name</label>
-      <input id="ContactName" type="text" name="contact[name]" required>
+      <a href="#contact-form" class="gg-contact-option featured reveal">
+        <span>02</span>
+        <h3>Send feedback</h3>
+        <p>Tell me what feels confusing, useful, motivating, or missing.</p>
+      </a>
 
-      <label for="ContactEmail">Email</label>
-      <input id="ContactEmail" type="email" name="contact[email]" required>
+      <a href="/pages/support" class="gg-contact-option reveal">
+        <span>03</span>
+        <h3>Support the build</h3>
+        <p>Help fund testing, polish, launch prep, and future features.</p>
+      </a>
+    </div>
+  </div>
+</section>
 
-      <label for="ContactMessage">Message</label>
-      <textarea id="ContactMessage" name="contact[body]" rows="6" required></textarea>
+<section id="contact-form" class="gg-contact-main">
+  <div class="gg-container gg-contact-main-grid">
+    <div class="reveal">
+      <span class="gg-kicker">Send a message</span>
+      <h2>Questions, feedback, ideas, or testing interest.</h2>
+      <p>
+        Use this form for anything related to Goal Grower, Ziyu Development,
+        app testing, products, or project ideas.
+      </p>
+    </div>
 
-      <button type="submit" class="gg-btn">Send Message</button>
-    {% endform %}
+    <div class="gg-contact-form-card reveal">
+      {% form 'contact' %}
+        {% if form.posted_successfully? %}
+          <p class="gg-form-success">Message sent. Thank you.</p>
+        {% endif %}
+
+        {% if form.errors %}
+          <p class="gg-form-error">Something went wrong. Please check the form.</p>
+        {% endif %}
+
+        <label for="ContactFormName">Name</label>
+        <input id="ContactFormName" type="text" name="contact[name]" placeholder="Your name">
+
+        <label for="ContactFormEmail">Email</label>
+        <input id="ContactFormEmail" type="email" name="contact[email]" placeholder="Your email" required>
+
+        <label for="ContactFormReason">Reason</label>
+        <select id="ContactFormReason" name="contact[reason]">
+          <option>Beta testing</option>
+          <option>Goal Grower feedback</option>
+          <option>Support question</option>
+          <option>Product question</option>
+          <option>Project idea</option>
+          <option>Other</option>
+        </select>
+
+        <label for="ContactFormMessage">Message</label>
+        <textarea id="ContactFormMessage" name="contact[body]" rows="6" placeholder="Write your message here"></textarea>
+
+        <button type="submit" class="gg-btn">Send Message</button>
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+<section class="gg-beta-expectations">
+  <div class="gg-container gg-beta-expectations-grid">
+    <div class="reveal">
+      <span class="gg-kicker light">Beta testing</span>
+      <h2>What testers help with.</h2>
+    </div>
+
+    <div class="gg-beta-list reveal">
+      <div>
+        <strong>Try the app naturally</strong>
+        <span>Use Goal Grower like you would for your own habits or goals.</span>
+      </div>
+      <div>
+        <strong>Notice friction</strong>
+        <span>Share where the app feels confusing, slow, unclear, or hard to return to.</span>
+      </div>
+      <div>
+        <strong>Shape the launch</strong>
+        <span>Your feedback helps improve the experience before more people use it.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gg-contact-final">
+  <div class="gg-container">
+    <div class="gg-contact-final-panel reveal">
+      <span class="gg-kicker">Beta updates</span>
+      <h2>Want to hear when testing opens?</h2>
+      <p>Add your email and stay connected to the next stage of Goal Grower.</p>
+
+      {% form 'customer', class: 'gg-beta-form center-form' %}
+        <input type="hidden" name="contact[tags]" value="Goal Grower Beta Tester">
+        <input type="email" name="contact[email]" placeholder="Your email" required>
+        <button type="submit" class="gg-btn">Join Beta List</button>
+      {% endform %}
+    </div>
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "Goal Grower Contact",
-  "settings": []
+  "name": "Contact Page",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Contact Page"
+    }
+  ]
 }
 {% endschema %}
