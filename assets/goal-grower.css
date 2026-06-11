@@ -3775,3 +3775,32 @@ html {
     top: auto;
   }
 }
+
+.gg-quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gg-qty-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: none;
+  background: var(--gg-blue);
+  color: var(--gg-charcoal);
+  font-size: 22px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.gg-qty-btn:hover {
+  transform: scale(1.05);
+}
+
+.gg-qty-input {
+  width: 70px !important;
+  text-align: center;
+  font-weight: 900;
+}

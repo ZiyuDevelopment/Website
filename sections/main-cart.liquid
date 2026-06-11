@@ -37,19 +37,39 @@
                 <p class="gg-cart-price">{{ item.line_price | money }}</p>
 
                 <div class="gg-cart-controls">
-                  <label for="updates_{{ item.key }}">Quantity</label>
-                  <input
-                    id="updates_{{ item.key }}"
-                    type="number"
-                    name="updates[]"
-                    value="{{ item.quantity }}"
-                    min="0"
-                  >
+  <label for="updates_{{ item.key }}">Quantity</label>
 
-                  <a href="{{ item.url_to_remove }}" class="gg-cart-remove">
-                    Remove
-                  </a>
-                </div>
+  <div class="gg-quantity-selector">
+    <button
+      type="button"
+      class="gg-qty-btn"
+      data-qty-minus
+    >
+      −
+    </button>
+
+    <input
+      id="updates_{{ item.key }}"
+      type="number"
+      name="updates[]"
+      value="{{ item.quantity }}"
+      min="0"
+      class="gg-qty-input"
+    >
+
+    <button
+      type="button"
+      class="gg-qty-btn"
+      data-qty-plus
+    >
+      +
+    </button>
+  </div>
+
+  <a href="{{ item.url_to_remove }}" class="gg-cart-remove">
+    Remove
+  </a>
+</div>
               </div>
             </div>
           {% endfor %}
@@ -66,10 +86,6 @@
           <p>
             Taxes, shipping, and discounts are calculated at checkout.
           </p>
-
-          <button type="submit" name="update" class="gg-btn-soft">
-            Update Cart
-          </button>
 
           <button type="submit" name="checkout" class="gg-btn">
             Checkout
@@ -96,6 +112,29 @@
     {% endif %}
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.gg-quantity-selector').forEach(selector => {
+    const input = selector.querySelector('.gg-qty-input');
+    const form = input.closest('form');
+
+    selector.querySelector('[data-qty-minus]').addEventListener('click', () => {
+      input.value = Math.max(0, parseInt(input.value || 0, 10) - 1);
+      form.submit();
+    });
+
+    selector.querySelector('[data-qty-plus]').addEventListener('click', () => {
+      input.value = parseInt(input.value || 0, 10) + 1;
+      form.submit();
+    });
+
+    input.addEventListener('change', () => {
+      form.submit();
+    });
+  });
+});
+</script>
 
 {% schema %}
 {
