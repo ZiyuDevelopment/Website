@@ -1,55 +1,97 @@
-<section class="gg-page-hero">
-  <div class="gg-container reveal">
-    <span class="gg-kicker">Cart</span>
-    <h1>Your cart</h1>
-    <p>Review your items before checkout.</p>
-  </div>
-</section>
-
-<section class="gg-section">
+<section class="gg-cart-page">
   <div class="gg-container">
+    <div class="gg-cart-hero">
+      <span class="gg-kicker">Your Cart</span>
+      <h1>Ready to support the build?</h1>
+      <p>Review your items before checkout.</p>
+    </div>
+
     {% if cart.item_count > 0 %}
-      <form action="{{ routes.cart_url }}" method="post" novalidate class="gg-cart-form">
+      <form action="{{ routes.cart_url }}" method="post" class="gg-cart-layout">
         <div class="gg-cart-items">
           {% for item in cart.items %}
-            <div class="gg-cart-item reveal">
+            <div class="gg-cart-item">
               <div class="gg-cart-image">
                 {% if item.image %}
-                  {{ item.image | image_url: width: 220 | image_tag: loading: 'lazy', alt: item.product.title }}
+                  {{ item.image | image_url: width: 500 | image_tag: loading: 'lazy', alt: item.product.title }}
+                {% else %}
+                  <div class="gg-product-placeholder"></div>
                 {% endif %}
               </div>
 
               <div class="gg-cart-info">
-                <h3>{{ item.product.title }}</h3>
-                <p>{{ item.variant.title }}</p>
-                <p>{{ item.final_line_price | money }}</p>
+                <a href="{{ item.url }}">
+                  <h2>{{ item.product.title }}</h2>
+                </a>
 
-                <label for="Quantity-{{ item.index | plus: 1 }}">Quantity</label>
-                <input
-                  id="Quantity-{{ item.index | plus: 1 }}"
-                  type="number"
-                  name="updates[]"
-                  value="{{ item.quantity }}"
-                  min="0"
-                >
+                {% if item.properties.size > 0 %}
+                  <div class="gg-cart-properties">
+                    {% for property in item.properties %}
+                      {% unless property.last == blank %}
+                        <span>{{ property.first }}: {{ property.last }}</span>
+                      {% endunless %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+                <p class="gg-cart-price">{{ item.line_price | money }}</p>
+
+                <div class="gg-cart-controls">
+                  <label for="updates_{{ item.key }}">Quantity</label>
+                  <input
+                    id="updates_{{ item.key }}"
+                    type="number"
+                    name="updates[]"
+                    value="{{ item.quantity }}"
+                    min="0"
+                  >
+
+                  <a href="{{ item.url_to_remove }}" class="gg-cart-remove">
+                    Remove
+                  </a>
+                </div>
               </div>
             </div>
           {% endfor %}
         </div>
 
-        <div class="gg-cart-summary reveal">
-          <h2>Total</h2>
-          <p>{{ cart.total_price | money }}</p>
+        <aside class="gg-cart-summary">
+          <span class="gg-kicker">Summary</span>
 
-          <button type="submit" name="update" class="gg-btn-soft">Update Cart</button>
-          <button type="submit" name="checkout" class="gg-btn">Checkout</button>
-        </div>
+          <div class="gg-cart-total-row">
+            <span>Subtotal</span>
+            <strong>{{ cart.total_price | money }}</strong>
+          </div>
+
+          <p>
+            Taxes, shipping, and discounts are calculated at checkout.
+          </p>
+
+          <button type="submit" name="update" class="gg-btn-soft">
+            Update Cart
+          </button>
+
+          <button type="submit" name="checkout" class="gg-btn">
+            Checkout
+          </button>
+
+          <a href="/collections/all" class="gg-cart-continue">
+            Continue shopping
+          </a>
+        </aside>
       </form>
     {% else %}
-      <div class="gg-empty-state reveal">
-        <h2>Your cart is empty.</h2>
-        <p>Visit the store to support Goal Grower development.</p>
-        <a href="{{ routes.collections_url }}" class="gg-btn">Visit Store</a>
+      <div class="gg-empty-cart">
+        <span class="gg-kicker">Empty cart</span>
+        <h2>Your cart is waiting for something meaningful.</h2>
+        <p>
+          Add a product, support Goal Grower, or browse the store.
+        </p>
+
+        <div class="gg-hero-actions center">
+          <a href="/collections/all" class="gg-btn">Visit Store</a>
+          <a href="/pages/support" class="gg-btn-soft">Support Goal Grower</a>
+        </div>
       </div>
     {% endif %}
   </div>
