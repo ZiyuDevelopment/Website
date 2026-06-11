@@ -3703,3 +3703,47 @@ html {
     max-width: none;
   }
 }
+
+.gg-shop-search {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+  max-width: 620px;
+}
+
+.gg-shop-search-box {
+  flex: 1;
+  height: 54px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,39,44,.14);
+  background: white;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gg-shop-search-box svg {
+  width: 20px;
+  height: 20px;
+  color: var(--gg-muted);
+}
+
+.gg-shop-search-box input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 17px;
+}
+
+.gg-shop-search button,
+.gg-shop-filters a {
+  height: 54px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,39,44,.14);
+  background: white;
+  font-weight: 900;
+}

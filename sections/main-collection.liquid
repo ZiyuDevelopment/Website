@@ -131,15 +131,27 @@
       <div class="gg-shop-tools">
   <form action="/search" method="get" class="gg-shop-search">
     <input type="hidden" name="type" value="product">
-    <input type="search" name="q" placeholder="Search products">
+
+    <div class="gg-shop-search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="7"></circle>
+        <path d="M20 20l-3.5-3.5"></path>
+      </svg>
+
+      <input type="search" name="q" placeholder="Search products">
+    </div>
+
     <button type="submit">Search</button>
   </form>
 
   <div class="gg-shop-filters">
     <a href="/collections/all">All</a>
-    <a href="/collections/support">Support</a>
-    <a href="/collections/merch">Merch</a>
-    <a href="/collections/future-releases">Future</a>
+
+    {% for collection in collections %}
+      {% if collection.products_count > 0 and collection.handle != 'all' %}
+        <a href="{{ collection.url }}">{{ collection.title }}</a>
+      {% endif %}
+    {% endfor %}
   </div>
 </div>
 
