@@ -3796,3 +3796,67 @@ html {
     aspect-ratio: 1;
   }
 }
+
+/* EMPTY CART */
+
+.gg-empty-cart {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 50px;
+  text-align: center;
+
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(255,255,255,.82);
+  border-radius: 40px;
+
+  box-shadow: 0 24px 70px rgba(36,39,44,.08);
+}
+
+.gg-empty-cart .gg-kicker {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.gg-empty-cart h2 {
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: .95;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.gg-empty-cart p {
+  max-width: 600px;
+  margin: 24px auto 0;
+
+  color: var(--gg-muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.gg-empty-cart .gg-hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+
+.gg-empty-cart .gg-btn,
+.gg-empty-cart .gg-btn-soft {
+  min-width: 220px;
+}
+
+@media (max-width: 768px) {
+  .gg-empty-cart {
+    padding: 50px 28px;
+  }
+
+  .gg-empty-cart h2 {
+    font-size: clamp(34px, 10vw, 52px);
+  }
+
+  .gg-empty-cart .gg-btn,
+  .gg-empty-cart .gg-btn-soft {
+    width: 100%;
+  }
+}
