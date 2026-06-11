@@ -2966,13 +2966,14 @@ p {
 /* REAL STOREFRONT */
 
 .gg-storefront {
-  padding: 100px 0 100px;
+  min-height: 100svh;
+  padding: 140px 0 100px;
   background: #f6f1e8;
 }
 
 .gg-storefront-hero {
-  min-height: 100svh;
-  display: flex;
+  min-height: 64svh;
+  display: grid;
   grid-template-columns: 1fr 380px;
   gap: 70px;
   align-items: center;
