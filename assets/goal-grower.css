@@ -728,7 +728,7 @@ p {
 
 /* STORE / COLLECTION */
 
-.gg-product-card, .gg-product-gallery, .gg-product-details, .gg-cart-summary, .gg-empty-state, .gg-cart-item, .gg-contact-card form {
+.gg-product-card, .gg-product-gallery, .gg-product-details, .gg-cart-summary, .gg-empty-state, .gg-contact-card form {
   background: var(--gg-paper);
   border-radius: 34px;
   padding: 32px;
@@ -826,7 +826,7 @@ p {
   font-weight: 900;
 }
 
-.gg-contact-card input, .gg-contact-card textarea, .gg-product-details select, .gg-cart-item input {
+.gg-contact-card input, .gg-contact-card textarea, .gg-product-details select {
   width: 100%;
   padding: 15px 16px;
   border-radius: 18px;
@@ -3904,6 +3904,64 @@ html {
   min-width: 76px;
   height: 42px;
   text-align: center;
+}
+
+.gg-cart-remove {
+  white-space: nowrap;
+}
+
+.gg-cart-item {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 28px;
+  padding: 28px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(255,255,255,.82);
+  box-shadow: 0 20px 60px rgba(36,39,44,.08);
+}
+
+.gg-cart-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--gg-blue);
+}
+
+.gg-cart-info {
+  min-width: 0;
+  display: grid;
+  align-content: center;
+}
+
+.gg-cart-controls {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.gg-quantity-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.gg-qty-input {
+  width: 76px !important;
+  min-width: 76px;
+  height: 42px;
+  text-align: center;
+  padding: 0 !important;
+}
+
+.gg-qty-btn {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
 }
 
 .gg-cart-remove {
