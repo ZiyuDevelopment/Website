@@ -3379,3 +3379,160 @@ html {
     border-radius: 24px;
   }
 }
+
+.gg-custom-support {
+  padding: 28px;
+  border-radius: 28px;
+  background: #f6f1e8;
+  border: 1px solid rgba(36,39,44,.08);
+  text-align: center;
+}
+
+.gg-custom-support span {
+  display: block;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--gg-charcoal);
+}
+
+.gg-custom-support p {
+  margin: 8px auto 18px;
+  max-width: 420px;
+  font-size: 15px;
+}
+
+.gg-custom-support-form {
+  display: grid;
+  gap: 14px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.gg-custom-support-form label {
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--gg-clay);
+}
+
+.gg-custom-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: white;
+  border: 1px solid rgba(36,39,44,.12);
+}
+
+.gg-custom-input-wrap span {
+  font-size: 20px;
+  color: var(--gg-charcoal);
+}
+
+.gg-custom-input-wrap input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--gg-charcoal);
+}
+
+.gg-custom-support-form .gg-btn {
+  width: 100%;
+  justify-content: center;
+  border: 0;
+  cursor: pointer;
+}
+
+.gg-custom-support {
+  padding: 34px;
+  border-radius: 34px;
+  background: #f6f1e8;
+  border: 1px solid rgba(36,39,44,.1);
+  display: grid;
+  grid-template-columns: .75fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.gg-custom-copy strong {
+  display: block;
+  font-size: 28px;
+  color: var(--gg-charcoal);
+}
+
+.gg-custom-copy span {
+  display: block;
+  margin-top: 6px;
+  color: var(--gg-muted);
+  font-size: 16px;
+}
+
+.gg-custom-support-form {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: end;
+}
+
+.gg-custom-support-form label {
+  display: none;
+}
+
+.gg-custom-input-wrap {
+  height: 58px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: white;
+  border: 1px solid rgba(36,39,44,.12);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gg-custom-input-wrap span {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--gg-charcoal);
+}
+
+.gg-custom-input-wrap input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--gg-charcoal);
+}
+
+.gg-custom-submit {
+  height: 58px;
+  padding: 0 26px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--gg-charcoal);
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 18px 42px rgba(36,39,44,.18);
+}
+
+.gg-custom-submit:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 950px) {
+  .gg-custom-support,
+  .gg-custom-support-form {
+    grid-template-columns: 1fr;
+  }
+
+  .gg-custom-submit {
+    width: 100%;
+  }
+}

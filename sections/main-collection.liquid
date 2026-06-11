@@ -81,14 +81,22 @@
 
 {% if custom_support %}
   <div class="gg-custom-support">
-    <span>Custom</span>
-    <p>Choose your own amount: $5, $15, $50, or $___</p>
+    <div class="gg-custom-copy">
+      <strong>Custom</strong>
+      <span>Choose your own support amount.</span>
+    </div>
 
     <form action="/cart/add" method="post" class="gg-custom-support-form">
       <input 
         type="hidden" 
         name="id" 
         value="{{ custom_support.selected_or_first_available_variant.id }}"
+      >
+
+      <input
+        type="hidden"
+        name="properties[Support type]"
+        value="Custom Goal Grower support"
       >
 
       <label for="custom-support-amount">Amount</label>
@@ -106,8 +114,8 @@
         >
       </div>
 
-      <button type="submit" class="gg-btn">
-        Add custom support
+      <button type="submit" class="gg-custom-submit">
+        Add Custom Support
       </button>
     </form>
   </div>
