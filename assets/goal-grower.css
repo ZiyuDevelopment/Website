@@ -3641,7 +3641,7 @@ html {
 .gg-highlight {
   background: linear-gradient(
     180deg,
-    var(--gg-charcoal),
+    var(--gg-clay),
     var(--gg-blue)
   );
   -webkit-background-clip: text;
