@@ -3277,10 +3277,6 @@ html {
   scroll-margin-top: 5vh;
 }
 
-#products {
-  scroll-margin-top: 20px;
-}
-
 .gg-direct-support {
   margin: 70px 0 30px;
   padding: 56px;
@@ -3650,7 +3646,7 @@ html {
 }
 
 #products {
-  scroll-margin-top: 0px;
+  scroll-margin-top: 0;
 }
 
 .gg-shop-tools {
