@@ -129,7 +129,6 @@
       </div>
 
       <div class="gg-shop-tools">
-  <form action="/search" method="get" class="gg-shop-search">
     <input type="hidden" name="type" value="product">
 
     <div class="gg-shop-search">
@@ -146,18 +145,6 @@
       autocomplete="off"
     >
   </div>
-</div>
-
-    <button type="submit">Search</button>
-  </form>
-
-  <div class="gg-shop-filters">
-    <a href="/collections/all">All</a>
-
-    {% for collection in collections %}
-      {% if collection.products_count > 0 and collection.handle != 'all' %}
-        <a href="{{ collection.url }}">{{ collection.title }}</a>
-      {% endif %}
     {% endfor %}
   </div>
 </div>
