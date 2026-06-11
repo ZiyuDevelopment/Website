@@ -3517,11 +3517,17 @@ html {
 }
 
 .gg-custom-submit {
-  min-width: 160px;
+  width: 130%;
   height: 58px;
+
+  border: 0;
   border-radius: 999px;
-  font-size: 16px;
-  font-weight: 800;
+
+  background: var(--gg-charcoal);
+  color: white;
+
+  font-weight: 900;
+  cursor: pointer;
 }
 
 .gg-custom-submit:hover {
