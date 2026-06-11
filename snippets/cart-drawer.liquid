@@ -16,7 +16,7 @@
             {% endif %}
             <div>
               <h3>{{ item.product.title }}</h3>
-              <p>{{ item.quantity }} × {{ item.final_price | money }}</p>
+              <p>{{ item.line_price | money }}</p>
             </div>
           </div>
         {% endfor %}

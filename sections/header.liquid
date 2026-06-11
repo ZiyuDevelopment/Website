@@ -35,7 +35,7 @@
       <a href="{{ routes.cart_url }}" class="zd-header__icon zd-header__cart" aria-label="Cart">
         {% render 'icon-cart' %}
         <span class="zd-header__cart-count">
-          {{ cart.item_count }}
+          {{ cart.items.size }}
         </span>
       </a>
 
