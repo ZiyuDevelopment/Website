@@ -3639,5 +3639,12 @@ html {
 }
 
 .gg-highlight {
-  color: var(--gg-blue-deep);
+  background: linear-gradient(
+    90deg,
+    var(--gg-clay),
+    var(--gg-blue-deep)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
