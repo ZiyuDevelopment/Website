@@ -10,7 +10,7 @@
         </p>
         <div class="gg-hero-actions">
           <a href="#products" class="gg-btn">Shop Products</a>
-<a href="#why-it-matters" class="gg-btn-soft">Why It Matters</a>
+          <a href="#why-it-matters" class="gg-btn-soft">Why It Matters</a>
         </div>
       </div>
 
@@ -32,95 +32,96 @@
     </div>
 
     <div class="gg-shop-categories">
-  <a href="#support-development">Support Development</a>
-  <a href="#products">Products</a>
-  <a href="#why-it-matters">Why Purchases Matter</a>
-  <a href="#future">Future Releases</a>
-</div>
-
-<section id="support-development" class="gg-direct-support">
-  <div class="gg-direct-support-copy">
-    <span class="gg-kicker">Support development</span>
-
-    <h2>Help Bring <span class="gg-highlight">Goal Grower</span><br>to Life</h2>
-
-    <p>
-      Help fund app testing, design polish, launch preparation, and future development.
-    </p>
-  </div>
-
-  <div class="gg-direct-support-side">
-    <div class="gg-support-amounts">
-      {% assign support_5 = all_products['support-goal-grower-5'] %}
-      {% assign support_10 = all_products['support-goal-grower-10'] %}
-      {% assign support_25 = all_products['support-goal-grower-25'] %}
-
-      {% if support_5 %}
-        <a href="/cart/add?id={{ support_5.selected_or_first_available_variant.id }}&quantity=1&return_to=/cart" class="gg-support-amount">
-          <strong>$5</strong>
-          <span>Small support</span>
-        </a>
-      {% endif %}
-
-      {% if support_10 %}
-        <a href="/cart/add?id={{ support_10.selected_or_first_available_variant.id }}&quantity=1&return_to=/cart" class="gg-support-amount featured">
-          <strong>$10</strong>
-          <span>Help the build</span>
-        </a>
-      {% endif %}
-
-      {% if support_25 %}
-        <a href="/cart/add?id={{ support_25.selected_or_first_available_variant.id }}&quantity=1&return_to=/cart" class="gg-support-amount">
-          <strong>$25</strong>
-          <span>Launch support</span>
-        </a>
-      {% endif %}
+      <a href="#support-development">Support Development</a>
+      <a href="#products">Products</a>
+      <a href="#why-it-matters">Why Purchases Matter</a>
+      <a href="#future">Future Releases</a>
     </div>
 
-    {% assign custom_support = all_products['custom-support-goal-grower'] %}
+    <section id="support-development" class="gg-direct-support">
+      <div class="gg-direct-support-copy">
+        <span class="gg-kicker">Support development</span>
 
-{% if custom_support %}
-  <div class="gg-custom-support">
-    <div class="gg-custom-copy">
-      <strong>Custom</strong>
-      <span>Choose your own support amount.</span>
-    </div>
+        <h2>Help Bring <span class="gg-highlight">Goal Grower</span><br>to Life</h2>
 
-    <form action="/cart/add" method="post" class="gg-custom-support-form">
-      <input 
-        type="hidden" 
-        name="id" 
-        value="{{ custom_support.selected_or_first_available_variant.id }}"
-      >
-
-      <input
-        type="hidden"
-        name="properties[Support type]"
-        value="Custom Goal Grower support"
-      >
-
-      <label for="custom-support-amount">Amount</label>
-
-      <div class="gg-custom-input-wrap">
-        <span>$</span>
-        <input 
-          id="custom-support-amount"
-          type="number" 
-          name="quantity" 
-          min="1" 
-          step="1" 
-          placeholder="15"
-          required
-        >
+        <p>
+          Help fund app testing, design polish, launch preparation, and future development.
+        </p>
       </div>
 
-      <button type="submit" class="gg-custom-submit">
-        Add Support
-      </button>
-    </form>
-  </div>
-{% endif %}
-</section>
+      <div class="gg-direct-support-side">
+        <div class="gg-support-amounts">
+          {% assign support_5 = all_products['support-goal-grower-5'] %}
+          {% assign support_10 = all_products['support-goal-grower-10'] %}
+          {% assign support_25 = all_products['support-goal-grower-25'] %}
+
+          {% if support_5 %}
+            <a href="/cart/add?id={{ support_5.selected_or_first_available_variant.id }}&quantity=1&return_to=/cart" class="gg-support-amount">
+              <strong>$5</strong>
+              <span>Small support</span>
+            </a>
+          {% endif %}
+
+          {% if support_10 %}
+            <a href="/cart/add?id={{ support_10.selected_or_first_available_variant.id }}&quantity=1&return_to=/cart" class="gg-support-amount featured">
+              <strong>$10</strong>
+              <span>Help the build</span>
+            </a>
+          {% endif %}
+
+          {% if support_25 %}
+            <a href="/cart/add?id={{ support_25.selected_or_first_available_variant.id }}&quantity=1&return_to=/cart" class="gg-support-amount">
+              <strong>$25</strong>
+              <span>Launch support</span>
+            </a>
+          {% endif %}
+        </div>
+
+        {% assign custom_support = all_products['custom-support-goal-grower'] %}
+
+        {% if custom_support %}
+          <div class="gg-custom-support">
+            <div class="gg-custom-copy">
+              <strong>Custom</strong>
+              <span>Choose your own support amount.</span>
+            </div>
+
+            <form action="/cart/add" method="post" class="gg-custom-support-form">
+              <input 
+                type="hidden" 
+                name="id" 
+                value="{{ custom_support.selected_or_first_available_variant.id }}"
+              >
+
+              <input
+                type="hidden"
+                name="properties[Support type]"
+                value="Custom Goal Grower support"
+              >
+
+              <label for="custom-support-amount">Amount</label>
+
+              <div class="gg-custom-input-wrap">
+                <span>$</span>
+                <input 
+                  id="custom-support-amount"
+                  type="number" 
+                  name="quantity" 
+                  min="15" 
+                  value="15"
+                  step="1" 
+                  required
+                >
+              </div>
+
+              <button type="submit" class="gg-custom-submit">
+                Add Support
+              </button>
+            </form>
+          </div>
+        {% endif %}
+      </div>
+    </section>
 
     <section id="products" class="gg-shop-products">
       <div class="gg-shop-heading">
@@ -129,35 +130,42 @@
       </div>
 
       <div class="gg-shop-tools">
-    <input type="hidden" name="type" value="product">
+        <div class="gg-shop-search">
+          <div class="gg-shop-search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="M20 20l-3.5-3.5"></path>
+            </svg>
 
-    <div class="gg-shop-search">
-  <div class="gg-shop-search-box">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <circle cx="11" cy="11" r="7"></circle>
-      <path d="M20 20l-3.5-3.5"></path>
-    </svg>
+            <input
+              id="gg-product-search"
+              type="search"
+              placeholder="Search products"
+              autocomplete="on"
+            >
+          </div>
+        </div>
 
-    <input
-      id="gg-product-search"
-      type="search"
-      placeholder="Search products"
-      autocomplete="on"
-    >
-  </div>
-    {% endfor %}
-  </div>
-</div>
+        <div class="gg-shop-filters">
+          <a href="/collections/all">All</a>
+
+          {% for product_collection in collections %}
+            {% if product_collection.products_count > 0 and product_collection.handle != 'all' %}
+              <a href="{{ product_collection.url }}">{{ product_collection.title }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
 
       {% if collection.products.size > 0 %}
         <div class="gg-shop-grid">
           {% for product in collection.products %}
             <a
-  href="{{ product.url }}"
-  class="gg-shop-card"
-  data-product-card
-  data-product-title="{{ product.title | downcase | escape }}"
->
+              href="{{ product.url }}"
+              class="gg-shop-card"
+              data-product-card
+              data-product-title="{{ product.title | downcase | escape }}"
+            >
               <div class="gg-shop-image">
                 {% if product.featured_image %}
                   {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
@@ -225,17 +233,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!input) return;
 
+  input.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+    }
+  });
+
   input.addEventListener('input', () => {
     const search = input.value.toLowerCase().trim();
 
     cards.forEach(card => {
       const title = card.dataset.productTitle || '';
-
       card.style.display = title.includes(search) ? '' : 'none';
     });
   });
 });
 </script>
+
 {% schema %}
 {
   "name": "Main Collection",
