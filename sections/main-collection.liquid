@@ -139,9 +139,9 @@
       <path d="M20 20l-3.5-3.5"></path>
     </svg>
 
-    <input 
+    <input
       id="gg-product-search"
-      type="search" 
+      type="search"
       placeholder="Search products"
       autocomplete="off"
     >
@@ -165,7 +165,12 @@
       {% if collection.products.size > 0 %}
         <div class="gg-shop-grid">
           {% for product in collection.products %}
-            <a href="{{ product.url }}" class="gg-shop-card" data-product-card data-product-title="{{ product.title | escape }}">
+            <a
+  href="{{ product.url }}"
+  class="gg-shop-card"
+  data-product-card
+  data-product-title="{{ product.title | downcase | escape }}"
+>
               <div class="gg-shop-image">
                 {% if product.featured_image %}
                   {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
@@ -225,6 +230,25 @@
     </section>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('gg-product-search');
+  const cards = document.querySelectorAll('[data-product-card]');
+
+  if (!input) return;
+
+  input.addEventListener('input', () => {
+    const search = input.value.toLowerCase().trim();
+
+    cards.forEach(card => {
+      const title = card.dataset.productTitle || '';
+
+      card.style.display = title.includes(search) ? '' : 'none';
+    });
+  });
+});
+</script>
 {% schema %}
 {
   "name": "Main Collection",
