@@ -3266,3 +3266,14 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+#support-development,
+#why-it-matters,
+#products,
+#future {
+  scroll-margin-top: 30vh;
+}
