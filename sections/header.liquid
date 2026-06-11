@@ -35,11 +35,9 @@
       <a href="{{ routes.cart_url }}" class="zd-header__icon zd-header__cart" aria-label="Cart">
   {% render 'icon-cart' %}
 
-  {% if cart.total_price > 0 %}
-    <span class="zd-header__cart-count">
-      {{ cart.total_price | money }}
-    </span>
-  {% endif %}
+  <span class="zd-header__cart-count">
+    {{ cart.total_price | money }}
+  </span>
 </a>
 
       <a href="/pages/support" class="zd-header__cta">

@@ -15,12 +15,13 @@
   </nav>
 
   <div class="gg-header-actions">
-    <a href="{{ routes.cart_url }}" class="gg-cart-link">
-      Cart
-      {% if cart.item_count > 0 %}
-        <span class="gg-cart-count">{{ cart.item_count }}</span>
-      {% endif %}
-    </a>
+    <a href="{{ routes.cart_url }}" class="zd-header__icon zd-header__cart" aria-label="Cart">
+  {% render 'icon-cart' %}
+
+  <span class="zd-header__cart-count">
+    {{ cart.total_price | money }}
+  </span>
+</a>
 
     <a href="{{ routes.account_url }}" class="gg-btn gg-btn-small">
       Profile
