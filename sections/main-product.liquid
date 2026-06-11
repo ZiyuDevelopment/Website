@@ -1,61 +1,116 @@
-<section class="gg-section gg-product-page">
-  <div class="gg-container gg-product-layout">
-    <div class="gg-product-gallery reveal">
-      {% if product.featured_image %}
-        {{ product.featured_image | image_url: width: 1000 | image_tag: loading: 'eager', alt: product.title }}
-      {% else %}
-        <div class="gg-product-placeholder large"></div>
-      {% endif %}
-    </div>
-
-    <div class="gg-product-details reveal">
-      <span class="gg-kicker">Goal Grower Store</span>
-      <h1>{{ product.title }}</h1>
-
-      <div class="gg-product-price">
-        {{ product.price | money }}
+<section class="gg-product-page">
+  <div class="gg-container">
+    <div class="gg-product-layout">
+      <div class="gg-product-gallery">
+        {% if product.featured_image %}
+          {{ product.featured_image | image_url: width: 1100 | image_tag: loading: 'lazy', alt: product.title }}
+        {% else %}
+          <div class="gg-product-placeholder large"></div>
+        {% endif %}
       </div>
 
-      {% if product.description != blank %}
-        <div class="gg-product-description">
-          {{ product.description }}
-        </div>
-      {% endif %}
+      <div class="gg-product-details">
+        <span class="gg-kicker">{{ product.type | default: 'Ziyu Development' }}</span>
 
-      {% form 'product', product %}
-        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <h1>{{ product.title }}</h1>
 
-        {% unless product.has_only_default_variant %}
-          <label for="ProductVariant">Choose an option</label>
-          <select id="ProductVariant" name="id">
-            {% for variant in product.variants %}
-              <option
-                value="{{ variant.id }}"
-                {% if variant == product.selected_or_first_available_variant %}selected{% endif %}
-                {% unless variant.available %}disabled{% endunless %}
-              >
-                {{ variant.title }} - {{ variant.price | money }}
-              </option>
-            {% endfor %}
-          </select>
-        {% endunless %}
+        <p class="gg-product-price">{{ product.price | money }}</p>
 
-        <button
-          type="submit"
-          name="add"
-          class="gg-btn"
-          {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
-        >
-          {% if product.selected_or_first_available_variant.available %}
-            Add to Cart
+        {% if product.description != blank %}
+          <div class="gg-product-description">
+            {{ product.description }}
+          </div>
+        {% endif %}
+
+        {% form 'product', product, class: 'gg-product-form' %}
+          {% if product.has_only_default_variant == false %}
+            <label for="ProductSelect">Choose an option</label>
+
+            <select id="ProductSelect" name="id">
+              {% for variant in product.variants %}
+                <option
+                  value="{{ variant.id }}"
+                  {% unless variant.available %}disabled{% endunless %}
+                >
+                  {{ variant.title }}
+                  {% unless variant.available %} - Sold out{% endunless %}
+                </option>
+              {% endfor %}
+            </select>
           {% else %}
-            Sold Out
+            <input
+              type="hidden"
+              name="id"
+              value="{{ product.selected_or_first_available_variant.id }}"
+            >
           {% endif %}
-        </button>
-      {% endform %}
+
+          <label for="Quantity">Quantity</label>
+
+          <div class="gg-product-quantity">
+            <button type="button" class="gg-product-qty-btn" data-product-minus>−</button>
+
+            <input
+              id="Quantity"
+              type="number"
+              name="quantity"
+              value="1"
+              min="1"
+              class="gg-product-qty-input"
+            >
+
+            <button type="button" class="gg-product-qty-btn" data-product-plus>+</button>
+          </div>
+
+          <button
+            type="submit"
+            name="add"
+            class="gg-product-add"
+            {% unless product.available %}disabled{% endunless %}
+          >
+            {% if product.available %}
+              Add to Cart
+            {% else %}
+              Sold Out
+            {% endif %}
+          </button>
+        {% endform %}
+
+        <div class="gg-product-notes">
+          <div>
+            <strong>Supports development</strong>
+            <span>Purchases help fund Goal Grower testing, launch prep, and future projects.</span>
+          </div>
+
+          <div>
+            <strong>Simple checkout</strong>
+            <span>Add the item to your cart and check out securely through Shopify.</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.querySelector('.gg-product-qty-input');
+  const minus = document.querySelector('[data-product-minus]');
+  const plus = document.querySelector('[data-product-plus]');
+
+  if (!input || !minus || !plus) return;
+
+  minus.addEventListener('click', () => {
+    const value = parseInt(input.value || 1, 10);
+    input.value = Math.max(1, value - 1);
+  });
+
+  plus.addEventListener('click', () => {
+    const value = parseInt(input.value || 1, 10);
+    input.value = value + 1;
+  });
+});
+</script>
 
 {% schema %}
 {
