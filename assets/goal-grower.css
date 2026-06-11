@@ -2695,7 +2695,7 @@ p {
   grid-template-columns: 1fr 380px;
   gap: 70px;
   align-items: center;
-  padding-top: -92px;
+  margin-top: -92px;
 }
 
 .gg-storefront-hero h1 {
