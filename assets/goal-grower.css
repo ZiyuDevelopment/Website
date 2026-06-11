@@ -880,7 +880,7 @@ p {
 /* FOOTER */
 
 .gg-footer {
-  padding: 60px auto 30x;
+  padding: 60px auto 30px;
   background: var(--gg-charcoal);
   color: white;
 }
