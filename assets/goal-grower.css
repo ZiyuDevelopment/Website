@@ -3881,45 +3881,6 @@ html {
   margin-top: 28px;
 }
 
-.gg-cart-controls {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.gg-quantity-selector {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.gg-qty-btn {
-  width: 42px;
-  height: 42px;
-  flex: 0 0 42px;
-}
-
-.gg-qty-input {
-  width: 64px !important;
-  min-width: 64px;
-  height: 42px;
-  text-align: center;
-}
-
-.gg-cart-remove {
-  margin-left: 4px;
-  white-space: nowrap;
-}
-
-@media (max-width: 600px) {
-  .gg-cart-controls {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-}
-
 .gg-cart-item {
   display: grid;
   grid-template-columns: 160px minmax(0, 1fr);
