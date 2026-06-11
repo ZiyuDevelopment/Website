@@ -114,17 +114,76 @@
   </div>
 </section>
 
+<div class="gg-remove-modal" data-remove-modal aria-hidden="true">
+  <div class="gg-remove-modal__overlay" data-remove-cancel></div>
+
+  <div class="gg-remove-modal__panel">
+    <span class="gg-kicker">Remove item?</span>
+    <h2>Take this out of your cart?</h2>
+    <p>This item will be removed from your cart. You can keep it if you changed your mind.</p>
+
+    <div class="gg-remove-modal__actions">
+      <button type="button" class="gg-btn-soft" data-remove-cancel>
+        Keep Item
+      </button>
+
+      <button type="button" class="gg-btn" data-remove-confirm>
+        Remove
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.querySelector('[data-remove-modal]');
+  const confirmRemove = document.querySelector('[data-remove-confirm]');
+  const cancelRemoveButtons = document.querySelectorAll('[data-remove-cancel]');
+  const subtotal = document.querySelector('[data-cart-subtotal]');
+
+  let pendingRemove = null;
+
+  function formatMoney(cents) {
+    return '$' + (cents / 100).toFixed(2);
+  }
+
+  function openRemoveModal(callback) {
+    pendingRemove = callback;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeRemoveModal() {
+    pendingRemove = null;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  if (cancelRemoveButtons.length) {
+    cancelRemoveButtons.forEach(button => {
+      button.addEventListener('click', closeRemoveModal);
+    });
+  }
+
+  if (confirmRemove) {
+    confirmRemove.addEventListener('click', () => {
+      if (pendingRemove) pendingRemove();
+      closeRemoveModal();
+    });
+  }
+
   document.querySelectorAll('.gg-quantity-selector').forEach(selector => {
     const input = selector.querySelector('.gg-qty-input');
+    const item = selector.closest('[data-cart-item]');
+    const linePrice = item.querySelector('[data-line-price]');
 
     async function updateCartQuantity(newQuantity) {
       const line = input.dataset.line;
 
       input.value = newQuantity;
+      item.classList.add('is-updating');
 
-      await fetch('/cart/change.js', {
+      const response = await fetch('/cart/change.js', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -136,17 +195,58 @@ document.addEventListener('DOMContentLoaded', () => {
         })
       });
 
-      window.location.reload();
+      const cart = await response.json();
+
+      if (newQuantity === 0) {
+        item.remove();
+      } else {
+        const updatedItem = cart.items[Number(line) - 1];
+
+        if (updatedItem && linePrice) {
+          linePrice.textContent = formatMoney(updatedItem.line_price);
+        }
+      }
+
+      if (subtotal) {
+        subtotal.textContent = formatMoney(cart.total_price);
+      }
+
+      item.classList.remove('is-updating');
     }
 
     selector.querySelector('[data-qty-minus]').addEventListener('click', () => {
       const value = parseInt(input.value || 0, 10);
-      updateCartQuantity(Math.max(0, value - 1));
+      const newQuantity = Math.max(0, value - 1);
+
+      if (newQuantity === 0) {
+        openRemoveModal(() => {
+          updateCartQuantity(0);
+        });
+
+        return;
+      }
+
+      updateCartQuantity(newQuantity);
     });
 
     selector.querySelector('[data-qty-plus]').addEventListener('click', () => {
       const value = parseInt(input.value || 0, 10);
       updateCartQuantity(value + 1);
+    });
+
+    input.addEventListener('change', () => {
+      const value = parseInt(input.value || 0, 10);
+
+      if (value === 0) {
+        openRemoveModal(() => {
+          updateCartQuantity(0);
+        });
+
+        input.value = 1;
+        return;
+      }
+
+      updateCartQuantity(value);
     });
   });
 });

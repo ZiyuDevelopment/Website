@@ -3837,3 +3837,46 @@ html {
   -moz-appearance: textfield;
   appearance: textfield;
 }
+
+.gg-remove-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  place-items: center;
+  padding: 24px;
+}
+
+.gg-remove-modal.is-open {
+  display: grid;
+}
+
+.gg-remove-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(36,39,44,.46);
+  backdrop-filter: blur(10px);
+}
+
+.gg-remove-modal__panel {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  padding: 38px;
+  border-radius: 34px;
+  background: var(--gg-paper);
+  box-shadow: 0 30px 90px rgba(36,39,44,.22);
+  text-align: center;
+}
+
+.gg-remove-modal__panel h2 {
+  margin-top: 14px;
+  font-size: clamp(34px, 5vw, 54px);
+}
+
+.gg-remove-modal__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 28px;
+}
