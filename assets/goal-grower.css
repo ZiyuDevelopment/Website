@@ -3595,3 +3595,45 @@ html {
 
   box-shadow: 0 10px 24px rgba(36,39,44,.22);
 }
+
+.gg-cart-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gg-charcoal);
+}
+
+.gg-cart-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform .25s ease;
+}
+
+.gg-cart-link:hover .gg-cart-icon {
+  transform: translateY(-1px);
+}
+
+.gg-cart-bubble {
+  position: absolute;
+  top: -10px;
+  right: -14px;
+
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+
+  border-radius: 999px;
+  background: var(--gg-charcoal);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1;
+
+  box-shadow: 0 8px 20px rgba(36,39,44,.18);
+}

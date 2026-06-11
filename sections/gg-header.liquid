@@ -15,8 +15,13 @@
   </nav>
 
   <div class="gg-header-actions">
-    <a href="{{ routes.cart_url }}" class="gg-cart-link">
-  Cart
+    <a href="{{ routes.cart_url }}" class="gg-cart-link" aria-label="Cart">
+
+  <svg class="gg-cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="20" r="1"></circle>
+    <circle cx="18" cy="20" r="1"></circle>
+    <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 8H7"></path>
+  </svg>
 
   {% assign custom_support_handle = 'custom-support-goal-grower' %}
   {% assign real_cart_count = 0 %}
