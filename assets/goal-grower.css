@@ -3293,7 +3293,7 @@ html {
 /* CONTACT PAGE */
 
 .gg-contact-hero {
-  min-height: 100svh;
+  min-height: 102svh;
   display: flex;
   align-items: center;
   margin-top: -92px;
