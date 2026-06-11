@@ -1,11 +1,10 @@
 <section class="gg-product-page">
-  <div class="gg-container">
-
+  <div class="gg-container gg-product-wide">
     <div class="gg-product-top">
-      <div class="gg-product-gallery">
+      <div class="gg-product-gallery-card">
         <div class="gg-product-main-image">
           {% if product.featured_image %}
-            {{ product.featured_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: product.title }}
+            {{ product.featured_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: product.title, id: 'ProductMainImage' }}
           {% else %}
             <div class="gg-product-placeholder large"></div>
           {% endif %}
@@ -14,8 +13,13 @@
         {% if product.images.size > 1 %}
           <div class="gg-product-thumbs">
             {% for image in product.images %}
-              <button type="button" class="gg-product-thumb" data-product-thumb="{{ image | image_url: width: 1200 }}">
-                {{ image | image_url: width: 220 | image_tag: loading: 'lazy', alt: product.title }}
+              <button
+                type="button"
+                class="gg-product-thumb"
+                data-product-thumb="{{ image | image_url: width: 1400 }}"
+                data-image-alt="{{ image.alt | downcase | escape }}"
+              >
+                {{ image | image_url: width: 240 | image_tag: loading: 'lazy', alt: product.title }}
               </button>
             {% endfor %}
           </div>
@@ -25,27 +29,53 @@
       <div class="gg-product-buybox">
         <span class="gg-kicker">{{ product.type | default: 'Ziyu Development' }}</span>
         <h1>{{ product.title }}</h1>
-        <p class="gg-product-price">{{ product.price | money }}</p>
+
+        <div class="gg-product-price-block">
+          <span>Price</span>
+          <strong data-product-price>{{ product.selected_or_first_available_variant.price | money }}</strong>
+        </div>
 
         {% form 'product', product, class: 'gg-product-form' %}
           {% if product.has_only_default_variant == false %}
-            <label for="ProductSelect">Choose an option</label>
-            <select id="ProductSelect" name="id">
+            <label for="ProductSelect">Color / Option</label>
+
+            <select id="ProductSelect" name="id" data-product-select>
               {% for variant in product.variants %}
-                <option value="{{ variant.id }}" {% unless variant.available %}disabled{% endunless %}>
+                <option
+                  value="{{ variant.id }}"
+                  data-price="{{ variant.price }}"
+                  data-price-formatted="{{ variant.price | money }}"
+                  data-image="{% if variant.featured_image %}{{ variant.featured_image | image_url: width: 1400 }}{% endif %}"
+                  data-option="{{ variant.title | downcase | escape }}"
+                  {% if variant == product.selected_or_first_available_variant %}selected{% endif %}
+                  {% unless variant.available %}disabled{% endunless %}
+                >
                   {{ variant.title }}{% unless variant.available %} - Sold out{% endunless %}
                 </option>
               {% endfor %}
             </select>
           {% else %}
-            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            <input
+              type="hidden"
+              name="id"
+              value="{{ product.selected_or_first_available_variant.id }}"
+              data-price="{{ product.selected_or_first_available_variant.price }}"
+            >
           {% endif %}
 
           <label for="Quantity">Quantity</label>
-          <div class="gg-product-quantity">
-            <button type="button" class="gg-product-qty-btn" data-product-minus>−</button>
-            <input id="Quantity" type="number" name="quantity" value="1" min="1" class="gg-product-qty-input">
-            <button type="button" class="gg-product-qty-btn" data-product-plus>+</button>
+
+          <div class="gg-product-quantity-row">
+            <div class="gg-product-quantity">
+              <button type="button" class="gg-product-qty-btn" data-product-minus>−</button>
+              <input id="Quantity" type="number" name="quantity" value="1" min="1" class="gg-product-qty-input" data-product-quantity>
+              <button type="button" class="gg-product-qty-btn" data-product-plus>+</button>
+            </div>
+
+            <div class="gg-product-total">
+              <span>Total added</span>
+              <strong data-product-total>{{ product.selected_or_first_available_variant.price | money }}</strong>
+            </div>
           </div>
 
           <button type="submit" name="add" class="gg-product-add" {% unless product.available %}disabled{% endunless %}>
@@ -66,9 +96,7 @@
         <h2>About this product</h2>
 
         {% if product.description != blank %}
-          <div class="gg-product-description">
-            {{ product.description }}
-          </div>
+          <div class="gg-product-description">{{ product.description }}</div>
         {% else %}
           <p>This product helps support Ziyu Development and the future of Goal Grower.</p>
         {% endif %}
@@ -83,53 +111,129 @@
             <strong>Supports development</strong>
             <span>Purchases help fund Goal Grower testing, launch prep, and future features.</span>
           </div>
-
           <div>
             <strong>Built with purpose</strong>
             <span>Ziyu Development is focused on tools for growth, focus, learning, and intentional living.</span>
           </div>
-
           <div>
             <strong>Future projects</strong>
-            <span>Support also helps make room for more apps and creative tools after launch.</span>
+            <span>Support helps make room for more apps and creative tools after launch.</span>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const input = document.querySelector('.gg-product-qty-input');
+  const select = document.querySelector('[data-product-select]');
+  const qtyInput = document.querySelector('[data-product-quantity]');
   const minus = document.querySelector('[data-product-minus]');
   const plus = document.querySelector('[data-product-plus]');
-  const mainImage = document.querySelector('.gg-product-main-image img');
+  const priceText = document.querySelector('[data-product-price]');
+  const totalText = document.querySelector('[data-product-total]');
+  const mainImage = document.querySelector('#ProductMainImage');
   const thumbs = document.querySelectorAll('[data-product-thumb]');
 
-  if (input && minus && plus) {
-    minus.addEventListener('click', () => {
-      const value = parseInt(input.value || 1, 10);
-      input.value = Math.max(1, value - 1);
-    });
-
-    plus.addEventListener('click', () => {
-      const value = parseInt(input.value || 1, 10);
-      input.value = value + 1;
-    });
+  function formatMoney(cents) {
+    return '$' + (cents / 100).toFixed(2);
   }
 
-  if (mainImage && thumbs.length) {
+  function getCurrentPrice() {
+    if (select) {
+      return Number(select.options[select.selectedIndex].dataset.price || 0);
+    }
+
+    const hiddenPrice = document.querySelector('[name="id"][data-price]');
+    return Number(hiddenPrice?.dataset.price || 0);
+  }
+
+  function updateTotal() {
+    const quantity = Math.max(1, parseInt(qtyInput?.value || 1, 10));
+    const price = getCurrentPrice();
+
+    if (totalText) totalText.textContent = formatMoney(price * quantity);
+    if (priceText) priceText.textContent = formatMoney(price);
+  }
+
+  function updateVariantImageAndThumbs() {
+    if (!select) return;
+
+    const selected = select.options[select.selectedIndex];
+    const optionText = selected.dataset.option || '';
+    const variantImage = selected.dataset.image;
+
+    if (variantImage && mainImage) {
+      mainImage.src = variantImage;
+    }
+
+    let visibleCount = 0;
+
     thumbs.forEach(button => {
-      button.addEventListener('click', () => {
-        mainImage.src = button.dataset.productThumb;
+      const alt = button.dataset.imageAlt || '';
+      const shouldShow =
+        alt.includes(optionText) ||
+        optionText.includes(alt) ||
+        alt === '';
 
-        thumbs.forEach(item => item.classList.remove('is-active'));
-        button.classList.add('is-active');
+      if (shouldShow) {
+        button.style.display = '';
+        visibleCount++;
+      } else {
+        button.style.display = 'none';
+      }
+    });
+
+    if (visibleCount === 0) {
+      thumbs.forEach(button => {
+        button.style.display = '';
       });
+    }
+  }
+
+  if (minus && qtyInput) {
+    minus.addEventListener('click', () => {
+      const value = parseInt(qtyInput.value || 1, 10);
+      qtyInput.value = Math.max(1, value - 1);
+      updateTotal();
     });
   }
+
+  if (plus && qtyInput) {
+    plus.addEventListener('click', () => {
+      const value = parseInt(qtyInput.value || 1, 10);
+      qtyInput.value = value + 1;
+      updateTotal();
+    });
+  }
+
+  if (qtyInput) {
+    qtyInput.addEventListener('input', updateTotal);
+    qtyInput.addEventListener('change', () => {
+      qtyInput.value = Math.max(1, parseInt(qtyInput.value || 1, 10));
+      updateTotal();
+    });
+  }
+
+  if (select) {
+    select.addEventListener('change', () => {
+      updateVariantImageAndThumbs();
+      updateTotal();
+    });
+  }
+
+  thumbs.forEach(button => {
+    button.addEventListener('click', () => {
+      if (mainImage) mainImage.src = button.dataset.productThumb;
+
+      thumbs.forEach(item => item.classList.remove('is-active'));
+      button.classList.add('is-active');
+    });
+  });
+
+  updateVariantImageAndThumbs();
+  updateTotal();
 });
 </script>
 
