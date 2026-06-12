@@ -4104,7 +4104,7 @@ html {
   }
 
   .gg-product-panel {
-    position: relative;
+    position: sticky;
     top: auto;
   }
 
