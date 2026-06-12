@@ -1,32 +1,27 @@
 <section class="gg-product-page">
   <div class="gg-container gg-product-wide">
+
     <div class="gg-product-main">
-      <div class="gg-product-gallery">
-       <div class="gg-product-gallery">
 
-  {% if product.images.size > 1 %}
-    <div class="gg-product-thumbs">
-      {% for image in product.images %}
-        <button
-          type="button"
-          class="gg-product-thumb"
-          data-product-thumb="{{ image | image_url: width: 1200 }}"
-        >
-          {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: product.title }}
-        </button>
-      {% endfor %}
-    </div>
-  {% endif %}
+      <div class="gg-product-gallery-card">
+        {% if product.images.size > 1 %}
+          <div class="gg-product-thumbs">
+            {% for image in product.images %}
+              <button type="button" class="gg-product-thumb" data-product-thumb="{{ image | image_url: width: 1200 }}">
+                {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: product.title }}
+              </button>
+            {% endfor %}
+          </div>
+        {% endif %}
 
-  <div class="gg-product-main-image">
-    {% if product.featured_image %}
-      {{ product.featured_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: product.title, id: 'ProductMainImage' }}
-    {% else %}
-      <div class="gg-product-placeholder large"></div>
-    {% endif %}
-  </div>
-
-</div>
+        <div class="gg-product-main-image">
+          {% if product.featured_image %}
+            {{ product.featured_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: product.title, id: 'ProductMainImage' }}
+          {% else %}
+            <div class="gg-product-placeholder large"></div>
+          {% endif %}
+        </div>
+      </div>
 
       <div class="gg-product-info-panel">
         <span class="gg-kicker">{{ product.type | default: 'Ziyu Development' }}</span>
@@ -97,6 +92,7 @@
           <div><strong>Easy cart editing</strong><span>Change quantity before checkout</span></div>
         </div>
       </div>
+
     </div>
 
     <div class="gg-product-details-area">
@@ -117,6 +113,7 @@
         </p>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -192,7 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (qtyInput) qtyInput.addEventListener('input', updateProduct);
+  if (qtyInput) {
+    qtyInput.addEventListener('input', updateProduct);
+  }
 
   thumbs.forEach(button => {
     button.addEventListener('click', () => {
