@@ -1,14 +1,18 @@
 <section class="gg-product-page">
   <div class="gg-container gg-product-wide">
-
     <div class="gg-product-main">
 
       <div class="gg-product-gallery-card">
         {% if product.images.size > 1 %}
           <div class="gg-product-thumbs">
             {% for image in product.images %}
-              <button type="button" class="gg-product-thumb" data-product-thumb="{{ image | image_url: width: 1200 }}">
-                {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: product.title }}
+              <button
+                type="button"
+                class="gg-product-thumb {% if forloop.first %}is-active{% endif %}"
+                data-product-thumb="{{ image | image_url: width: 1200 }}"
+                data-image-alt="{{ image.alt | downcase | escape }}"
+              >
+                {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: image.alt | default: product.title }}
               </button>
             {% endfor %}
           </div>
@@ -34,7 +38,7 @@
 
         <div class="gg-product-price-row">
           <strong data-product-price>{{ product.selected_or_first_available_variant.price | money }}</strong>
-          <span>{% if product.available %}In stock{% else %}Sold out{% endif %}</span>
+          <span data-stock-status>{% if product.available %}In stock{% else %}Sold out{% endif %}</span>
         </div>
 
         {% form 'product', product, class: 'gg-product-form' %}
@@ -56,6 +60,7 @@
                       type="button"
                       class="gg-option-btn {% if option.selected_value == value %}is-selected{% endif %}"
                       data-option-value="{{ value | escape }}"
+                      data-option-name="{{ option.name | downcase | escape }}"
                     >
                       {{ value }}
                     </button>
@@ -68,6 +73,7 @@
           <div class="gg-purchase-row">
             <div>
               <label>Quantity</label>
+
               <div class="gg-product-quantity">
                 <button type="button" data-product-minus>−</button>
                 <input type="number" name="quantity" value="1" min="1" data-product-quantity>
@@ -81,7 +87,7 @@
             </div>
           </div>
 
-          <button type="submit" name="add" class="gg-product-add" {% unless product.available %}disabled{% endunless %}>
+          <button type="submit" name="add" class="gg-product-add" data-product-add {% unless product.available %}disabled{% endunless %}>
             {% if product.available %}Add to Cart{% else %}Sold Out{% endif %}
           </button>
         {% endform %}
@@ -113,7 +119,6 @@
         </p>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -129,6 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const plus = document.querySelector('[data-product-plus]');
   const mainImage = document.querySelector('#ProductMainImage');
   const thumbs = document.querySelectorAll('[data-product-thumb]');
+  const addButton = document.querySelector('[data-product-add]');
+  const stockStatus = document.querySelector('[data-stock-status]');
 
   let selectedOptions = [];
 
@@ -143,25 +150,80 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function selectedVariant() {
+    if (!variants.length) return null;
+
+    if (!selectedOptions.length) {
+      return variants[0];
+    }
+
     return variants.find(variant =>
       variant.options.every((option, index) => option === selectedOptions[index])
     );
+  }
+
+  function setMainImage(src) {
+    if (!mainImage || !src) return;
+    mainImage.src = src;
+  }
+
+  function activateThumbBySrc(src) {
+    if (!src) return;
+
+    thumbs.forEach(thumb => {
+      const thumbSrc = thumb.dataset.productThumb || '';
+      thumb.classList.toggle('is-active', thumbSrc.includes(src.split('?')[0]) || src.includes(thumbSrc.split('?')[0]));
+    });
+  }
+
+  function clickMatchingThumb(value) {
+    if (!value) return;
+
+    const searchValue = value.toLowerCase();
+
+    const matchingThumb = Array.from(thumbs).find(thumb => {
+      const alt = thumb.dataset.imageAlt || '';
+      const imgAlt = thumb.querySelector('img')?.alt?.toLowerCase() || '';
+      return alt.includes(searchValue) || imgAlt.includes(searchValue);
+    });
+
+    if (matchingThumb) {
+      matchingThumb.click();
+    }
   }
 
   function updateProduct() {
     const variant = selectedVariant();
     if (!variant) return;
 
-    const quantity = Math.max(1, parseInt(qtyInput.value || 1, 10));
+    const quantity = Math.max(1, parseInt(qtyInput?.value || 1, 10));
 
-    variantInput.value = variant.id;
-    priceText.textContent = money(variant.price);
-    totalText.textContent = money(variant.price * quantity);
+    if (variantInput) variantInput.value = variant.id;
+    if (priceText) priceText.textContent = money(variant.price);
+    if (totalText) totalText.textContent = money(variant.price * quantity);
+
+    if (stockStatus) {
+      stockStatus.textContent = variant.available ? 'In stock' : 'Sold out';
+    }
+
+    if (addButton) {
+      addButton.disabled = !variant.available;
+      addButton.textContent = variant.available ? 'Add to Cart' : 'Sold Out';
+    }
 
     if (variant.featured_image && mainImage) {
-      mainImage.src = variant.featured_image.src;
+      setMainImage(variant.featured_image.src);
+      activateThumbBySrc(variant.featured_image.src);
     }
   }
+
+  thumbs.forEach(button => {
+    button.addEventListener('click', () => {
+      setMainImage(button.dataset.productThumb);
+
+      thumbs.forEach(thumb => thumb.classList.remove('is-active'));
+      button.classList.add('is-active');
+    });
+  });
 
   optionGroups.forEach(group => {
     group.querySelectorAll('.gg-option-btn').forEach(button => {
@@ -170,19 +232,31 @@ document.addEventListener('DOMContentLoaded', () => {
         button.classList.add('is-selected');
 
         selectedOptions[Number(group.dataset.optionIndex)] = button.dataset.optionValue;
+
+        const optionName = button.dataset.optionName || '';
+
+        if (
+          optionName.includes('color') ||
+          optionName.includes('colour') ||
+          optionName.includes('hand') ||
+          optionName.includes('style')
+        ) {
+          clickMatchingThumb(button.dataset.optionValue);
+        }
+
         updateProduct();
       });
     });
   });
 
-  if (minus) {
+  if (minus && qtyInput) {
     minus.addEventListener('click', () => {
       qtyInput.value = Math.max(1, parseInt(qtyInput.value || 1, 10) - 1);
       updateProduct();
     });
   }
 
-  if (plus) {
+  if (plus && qtyInput) {
     plus.addEventListener('click', () => {
       qtyInput.value = parseInt(qtyInput.value || 1, 10) + 1;
       updateProduct();
@@ -191,15 +265,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (qtyInput) {
     qtyInput.addEventListener('input', updateProduct);
-  }
-
-  thumbs.forEach(button => {
-    button.addEventListener('click', () => {
-      mainImage.src = button.dataset.productThumb;
-      thumbs.forEach(thumb => thumb.classList.remove('is-active'));
-      button.classList.add('is-active');
+    qtyInput.addEventListener('change', () => {
+      qtyInput.value = Math.max(1, parseInt(qtyInput.value || 1, 10));
+      updateProduct();
     });
-  });
+  }
 
   updateProduct();
 });
