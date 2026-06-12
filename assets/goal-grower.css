@@ -3879,9 +3879,8 @@ html {
 
 .gg-product-main {
   display: grid;
-  grid-template-columns: 0.8fr 0.6fr;
-  gap: 32px;
-  align-items: start;
+  grid-template-columns: 58% 42%;
+  gap: 36px;
 }
 
 .gg-product-gallery,
@@ -3903,12 +3902,13 @@ html {
   overflow: hidden;
   border-radius: 22px;
   background: #e8edf0;
+  max-height: 430px;
 }
 
 .gg-product-main-image img {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  max-height: 420px;
+  height: 100%;
+  display: block;
   object-fit: cover;
 }
 
@@ -3943,7 +3943,7 @@ html {
 .gg-product-info-panel {
   position: sticky;
   top: 120px;
-  padding: 40px;
+  padding: 28px;
 }
 
 .gg-product-info-panel h1 {
