@@ -172,6 +172,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     variantInput.value = variant.id;
 
+    if (variant.featured_image && variant.featured_image.src && mainImage) {
+  mainImage.src = variant.featured_image.src;
+  mainImage.srcset = '';
+  mainImage.removeAttribute('srcset');
+  mainImage.removeAttribute('sizes');
+
+  thumbs.forEach(thumb => {
+    thumb.classList.remove('is-active');
+
+    if (thumb.dataset.productImage && variant.featured_image.src.includes(thumb.dataset.productImage.split('?')[0])) {
+      thumb.classList.add('is-active');
+    }
+  });
+}
+
     if (price) {
       price.textContent = formatMoney(variant.price);
     }

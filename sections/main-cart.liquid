@@ -23,6 +23,11 @@
                 <a href="{{ item.url }}">
                   <h2>{{ item.product.title }}</h2>
                 </a>
+                {% unless item.product.has_only_default_variant %}
+  <div class="gg-cart-variant">
+    {{ item.variant.title }}
+  </div>
+{% endunless %}
 
                 {% if item.properties.size > 0 %}
                   <div class="gg-cart-properties">
