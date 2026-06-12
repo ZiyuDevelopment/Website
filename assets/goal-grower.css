@@ -3898,15 +3898,17 @@ html {
 }
 
 .gg-product-main-image {
-  border-radius: 22px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
+  border-radius: 22px;
   background: #e8edf0;
 }
 
 .gg-product-main-image img {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  max-height: 500px;
+  height: 100%;
+  display: block;
   object-fit: cover;
 }
 
@@ -3927,7 +3929,8 @@ html {
 
 .gg-product-thumb img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%;
+  display: block;
   object-fit: cover;
   border-radius: 10px;
 }
