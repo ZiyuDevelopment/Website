@@ -4103,11 +4103,6 @@ html {
     overflow-y: hidden;
   }
 
-  .gg-product-panel {
-    position: sticky;
-    top: auto;
-  }
-
   .gg-product-main-image img {
     height: auto;
     aspect-ratio: 1;
