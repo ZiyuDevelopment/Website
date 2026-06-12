@@ -10,7 +10,7 @@
               <button
                 type="button"
                 class="gg-product-thumb {% if forloop.first %}is-active{% endif %}"
-                data-product-thumb="{{ image | image_url: width: 1200 }}"
+                data-product-image="{{ image | image_url: width: 1200 }}"
               >
                 {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: product.title }}
               </button>
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const minusButton = document.querySelector('[data-product-minus]');
   const plusButton = document.querySelector('[data-product-plus]');
   const mainImage = document.querySelector('.gg-product-main-image img');
-  const thumbs = document.querySelectorAll('[data-product-thumb]');
+  const thumbs = document.querySelectorAll('[data-product-image]');
 
   const variants = variantsElement ? JSON.parse(variantsElement.textContent) : [];
 
@@ -204,15 +204,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   thumbs.forEach(button => {
-    button.addEventListener('click', () => {
-      if (!mainImage) return;
+  button.addEventListener('click', () => {
+    if (!mainImage) return;
 
-      mainImage.src = button.dataset.productThumb;
+    const imageUrl = button.dataset.productImage;
 
-      thumbs.forEach(thumb => thumb.classList.remove('is-active'));
-      button.classList.add('is-active');
+    mainImage.src = imageUrl;
+    mainImage.srcset = '';
+    mainImage.removeAttribute('srcset');
+    mainImage.removeAttribute('sizes');
+
+    thumbs.forEach(thumb => {
+      thumb.classList.remove('is-active');
     });
+
+    button.classList.add('is-active');
   });
+});
 });
 </script>
 
