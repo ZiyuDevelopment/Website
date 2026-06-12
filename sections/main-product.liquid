@@ -212,15 +212,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const imageUrl = button.dataset.productImage;
 
-    mainImage.style.opacity = '0';
-
-    setTimeout(() => {
-      mainImage.src = imageUrl;
-      mainImage.srcset = '';
-      mainImage.removeAttribute('srcset');
-      mainImage.removeAttribute('sizes');
-      mainImage.style.opacity = '1';
-    }, 80);
+    mainImage.src = imageUrl;
+mainImage.srcset = '';
+mainImage.removeAttribute('srcset');
+mainImage.removeAttribute('sizes');
 
     thumbs.forEach(thumb => {
       thumb.classList.remove('is-active');

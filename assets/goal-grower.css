@@ -3937,7 +3937,7 @@ html {
 .gg-product-main-image {
   border-radius: 34px;
   overflow: hidden;
-  background: var(--gg-blue);
+  background: var(--gg-white);
   box-shadow: 0 24px 70px rgba(36,39,44,.08);
 }
 
@@ -4106,4 +4106,8 @@ html {
     height: auto;
     aspect-ratio: 1;
   }
+}
+
+.gg-product-main-image img {
+  transition: opacity .02s ease;
 }
