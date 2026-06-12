@@ -1,34 +1,32 @@
 <section class="gg-product-page">
   <div class="gg-container gg-product-wide">
-    <div class="gg-product-main">
+    <div class="gg-product-layout">
 
       <div class="gg-product-gallery-card">
-        {% if product.images.size > 1 %}
-          <div class="gg-product-thumbs">
-            {% for image in product.images %}
-              <button
-                type="button"
-                class="gg-product-thumb {% if forloop.first %}is-active{% endif %}"
-                data-product-thumb="{{ image | image_url: width: 1200 }}"
-                data-image-alt="{{ image.alt | downcase | escape }}"
-              >
-                {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: image.alt | default: product.title }}
-              </button>
-            {% endfor %}
-          </div>
-        {% endif %}
+        <div class="gg-product-thumbs">
+          {% for image in product.images %}
+            <button
+              type="button"
+              class="gg-product-thumb {% if forloop.first %}is-active{% endif %}"
+              data-product-thumb="{{ image | image_url: width: 1400 }}"
+            >
+              {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: product.title }}
+            </button>
+          {% endfor %}
+        </div>
 
         <div class="gg-product-main-image">
           {% if product.featured_image %}
-            {{ product.featured_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: product.title, id: 'ProductMainImage' }}
+            {{ product.featured_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: product.title, id: 'ProductMainImage' }}
           {% else %}
             <div class="gg-product-placeholder large"></div>
           {% endif %}
         </div>
       </div>
 
-      <div class="gg-product-info-panel">
+      <aside class="gg-product-buybox">
         <span class="gg-kicker">{{ product.type | default: 'Ziyu Development' }}</span>
+
         <h1>{{ product.title }}</h1>
 
         <div class="gg-product-rating">
@@ -36,9 +34,9 @@
           <small>New product</small>
         </div>
 
-        <div class="gg-product-price-row">
+        <div class="gg-product-price-box">
+          <span>Price</span>
           <strong data-product-price>{{ product.selected_or_first_available_variant.price | money }}</strong>
-          <span data-stock-status>{% if product.available %}In stock{% else %}Sold out{% endif %}</span>
         </div>
 
         {% form 'product', product, class: 'gg-product-form' %}
@@ -60,7 +58,6 @@
                       type="button"
                       class="gg-option-btn {% if option.selected_value == value %}is-selected{% endif %}"
                       data-option-value="{{ value | escape }}"
-                      data-option-name="{{ option.name | downcase | escape }}"
                     >
                       {{ value }}
                     </button>
@@ -70,7 +67,7 @@
             {% endfor %}
           {% endunless %}
 
-          <div class="gg-purchase-row">
+          <div class="gg-product-buy-row">
             <div>
               <label>Quantity</label>
 
@@ -87,21 +84,36 @@
             </div>
           </div>
 
-          <button type="submit" name="add" class="gg-product-add" data-product-add {% unless product.available %}disabled{% endunless %}>
-            {% if product.available %}Add to Cart{% else %}Sold Out{% endif %}
+          <button type="submit" name="add" class="gg-product-add" data-product-add>
+            Add to Cart
+          </button>
+
+          <button type="submit" name="checkout" class="gg-product-buy-now">
+            Buy Now
           </button>
         {% endform %}
 
         <div class="gg-product-trust">
-          <div><strong>Secure checkout</strong><span>Powered by Shopify</span></div>
-          <div><strong>Supports Goal Grower</strong><span>Helps fund testing and launch prep</span></div>
-          <div><strong>Easy cart editing</strong><span>Change quantity before checkout</span></div>
+          <div>
+            <strong>Secure transaction</strong>
+            <span>Checkout protected through Shopify.</span>
+          </div>
+
+          <div>
+            <strong>Supports Goal Grower</strong>
+            <span>Purchases help fund development, testing, and launch prep.</span>
+          </div>
+
+          <div>
+            <strong>Easy cart editing</strong>
+            <span>Change quantity before checkout.</span>
+          </div>
         </div>
-      </div>
+      </aside>
 
     </div>
 
-    <div class="gg-product-details-area">
+    <section class="gg-product-info-sections">
       <div>
         <span class="gg-kicker">Product details</span>
         <h2>About this item</h2>
@@ -118,7 +130,36 @@
           and future intentional software projects from Ziyu Development.
         </p>
       </div>
-    </div>
+    </section>
+
+    <section class="gg-product-suggestions">
+      <div class="gg-section-heading">
+        <span class="gg-kicker">You may also like</span>
+        <h2>More from the store.</h2>
+      </div>
+
+      <div class="gg-product-suggestion-grid">
+        {% assign shown = 0 %}
+        {% for related_product in collections.all.products %}
+          {% if related_product.id != product.id and shown < 3 %}
+            <a href="{{ related_product.url }}" class="gg-product-suggestion-card">
+              <div class="gg-product-suggestion-image">
+                {% if related_product.featured_image %}
+                  {{ related_product.featured_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: related_product.title }}
+                {% else %}
+                  <div class="gg-product-placeholder"></div>
+                {% endif %}
+              </div>
+
+              <strong>{{ related_product.title }}</strong>
+              <p>{{ related_product.price | money }}</p>
+            </a>
+
+            {% assign shown = shown | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
   </div>
 </section>
 
@@ -135,7 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainImage = document.querySelector('#ProductMainImage');
   const thumbs = document.querySelectorAll('[data-product-thumb]');
   const addButton = document.querySelector('[data-product-add]');
-  const stockStatus = document.querySelector('[data-stock-status]');
 
   let selectedOptions = [];
 
@@ -161,64 +201,29 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  function setMainImage(src) {
-    if (!mainImage || !src) return;
-    mainImage.src = src;
-  }
-
-  function activateThumbBySrc(src) {
-    if (!src) return;
-
-    thumbs.forEach(thumb => {
-      const thumbSrc = thumb.dataset.productThumb || '';
-      thumb.classList.toggle('is-active', thumbSrc.includes(src.split('?')[0]) || src.includes(thumbSrc.split('?')[0]));
-    });
-  }
-
-  function clickMatchingThumb(value) {
-    if (!value) return;
-
-    const searchValue = value.toLowerCase();
-
-    const matchingThumb = Array.from(thumbs).find(thumb => {
-      const alt = thumb.dataset.imageAlt || '';
-      const imgAlt = thumb.querySelector('img')?.alt?.toLowerCase() || '';
-      return alt.includes(searchValue) || imgAlt.includes(searchValue);
-    });
-
-    if (matchingThumb) {
-      matchingThumb.click();
-    }
-  }
-
   function updateProduct() {
     const variant = selectedVariant();
     if (!variant) return;
 
     const quantity = Math.max(1, parseInt(qtyInput?.value || 1, 10));
 
-    if (variantInput) variantInput.value = variant.id;
-    if (priceText) priceText.textContent = money(variant.price);
-    if (totalText) totalText.textContent = money(variant.price * quantity);
+    variantInput.value = variant.id;
+    priceText.textContent = money(variant.price);
+    totalText.textContent = money(variant.price * quantity);
 
-    if (stockStatus) {
-      stockStatus.textContent = variant.available ? 'In stock' : 'Sold out';
+    if (variant.featured_image && mainImage) {
+      mainImage.src = variant.featured_image.src;
     }
 
     if (addButton) {
       addButton.disabled = !variant.available;
       addButton.textContent = variant.available ? 'Add to Cart' : 'Sold Out';
     }
-
-    if (variant.featured_image && mainImage) {
-      setMainImage(variant.featured_image.src);
-      activateThumbBySrc(variant.featured_image.src);
-    }
   }
 
   thumbs.forEach(button => {
     button.addEventListener('click', () => {
-      setMainImage(button.dataset.productThumb);
+      mainImage.src = button.dataset.productThumb;
 
       thumbs.forEach(thumb => thumb.classList.remove('is-active'));
       button.classList.add('is-active');
@@ -232,44 +237,22 @@ document.addEventListener('DOMContentLoaded', () => {
         button.classList.add('is-selected');
 
         selectedOptions[Number(group.dataset.optionIndex)] = button.dataset.optionValue;
-
-        const optionName = button.dataset.optionName || '';
-
-        if (
-          optionName.includes('color') ||
-          optionName.includes('colour') ||
-          optionName.includes('hand') ||
-          optionName.includes('style')
-        ) {
-          clickMatchingThumb(button.dataset.optionValue);
-        }
-
         updateProduct();
       });
     });
   });
 
-  if (minus && qtyInput) {
-    minus.addEventListener('click', () => {
-      qtyInput.value = Math.max(1, parseInt(qtyInput.value || 1, 10) - 1);
-      updateProduct();
-    });
-  }
+  minus?.addEventListener('click', () => {
+    qtyInput.value = Math.max(1, parseInt(qtyInput.value || 1, 10) - 1);
+    updateProduct();
+  });
 
-  if (plus && qtyInput) {
-    plus.addEventListener('click', () => {
-      qtyInput.value = parseInt(qtyInput.value || 1, 10) + 1;
-      updateProduct();
-    });
-  }
+  plus?.addEventListener('click', () => {
+    qtyInput.value = parseInt(qtyInput.value || 1, 10) + 1;
+    updateProduct();
+  });
 
-  if (qtyInput) {
-    qtyInput.addEventListener('input', updateProduct);
-    qtyInput.addEventListener('change', () => {
-      qtyInput.value = Math.max(1, parseInt(qtyInput.value || 1, 10));
-      updateProduct();
-    });
-  }
+  qtyInput?.addEventListener('input', updateProduct);
 
   updateProduct();
 });
