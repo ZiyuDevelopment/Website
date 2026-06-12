@@ -3861,12 +3861,12 @@ html {
   }
 }
 
-/* PRODUCT PAGE */
+/* PRODUCT PAGE FINAL */
 
 .gg-product-page {
   min-height: 100svh;
   margin-top: -92px;
-  padding: 140px 0 100px;
+  padding: 120px 0 70px;
   background:
     radial-gradient(circle at 15% 20%, rgba(93,145,163,.14), transparent 30%),
     radial-gradient(circle at 85% 85%, rgba(201,130,101,.13), transparent 32%),
@@ -3875,60 +3875,52 @@ html {
 
 .gg-product-back {
   display: inline-flex;
-  margin-bottom: 34px;
+  margin-bottom: 18px;
   color: var(--gg-muted);
   font-weight: 900;
 }
 
 .gg-product-layout {
   display: grid;
-  grid-template-columns: 1fr .82fr;
-  gap: 48px;
+  grid-template-columns: 1fr .78fr;
+  gap: 34px;
   align-items: start;
 }
 
-.gg-product-media,
-.gg-product-panel {
-  background: rgba(255,255,255,.78);
-  border: 1px solid rgba(255,255,255,.82);
-  box-shadow: 0 24px 70px rgba(36,39,44,.08);
-  border-radius: 38px;
+.gg-product-left {
+  display: grid;
+  gap: 18px;
 }
 
 .gg-product-media {
-  padding: 26px;
-}
-
-.gg-product-main-image {
-  border-radius: 30px;
-  overflow: hidden;
-  background: var(--gg-blue);
-}
-
-.gg-product-main-image img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 16px;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border: 0;
 }
 
 .gg-product-thumbs {
-  display: flex;
-  gap: 12px;
-  margin-top: 16px;
-  overflow-x: auto;
-  padding-bottom: 4px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  max-height: 58svh;
+  overflow-y: auto;
+  padding-right: 4px;
 }
 
 .gg-product-thumb {
   width: 82px;
   height: 82px;
-  flex: 0 0 82px;
   padding: 0;
   border: 2px solid transparent;
   border-radius: 18px;
   overflow: hidden;
   background: white;
   cursor: pointer;
+  box-shadow: 0 12px 30px rgba(36,39,44,.08);
 }
 
 .gg-product-thumb.is-active,
@@ -3942,35 +3934,65 @@ html {
   object-fit: cover;
 }
 
+.gg-product-main-image {
+  border-radius: 34px;
+  overflow: hidden;
+  background: var(--gg-blue);
+  box-shadow: 0 24px 70px rgba(36,39,44,.08);
+}
+
+.gg-product-main-image img {
+  width: 100%;
+  height: min(58svh, 560px);
+  object-fit: cover;
+  display: block;
+}
+
+.gg-product-description-under {
+  padding: 26px 30px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(255,255,255,.82);
+  box-shadow: 0 18px 50px rgba(36,39,44,.07);
+  color: var(--gg-muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.gg-product-description-under p {
+  margin-top: 0;
+}
+
+.gg-product-description-under p:last-child {
+  margin-bottom: 0;
+}
+
 .gg-product-panel {
-  padding: 38px;
+  padding: 30px;
+  border-radius: 34px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(255,255,255,.82);
+  box-shadow: 0 24px 70px rgba(36,39,44,.08);
   position: sticky;
   top: 120px;
 }
 
 .gg-product-panel h1 {
   margin-top: 14px;
-  font-size: clamp(42px, 5vw, 72px);
+  font-size: clamp(36px, 4vw, 58px);
 }
 
 .gg-product-price {
-  margin: 22px 0 0;
+  margin: 18px 0 0;
   color: var(--gg-clay);
   font-size: 28px;
   font-weight: 900;
 }
 
-.gg-product-description {
-  margin-top: 24px;
-  color: var(--gg-muted);
-  font-size: 17px;
-  line-height: 1.7;
-}
-
 .gg-product-form {
-  margin-top: 28px;
+  margin-top: 22px;
   display: grid;
-  gap: 18px;
+  gap: 14px;
 }
 
 .gg-product-options {
@@ -4039,14 +4061,14 @@ html {
 }
 
 .gg-product-trust {
-  margin-top: 28px;
+  margin-top: 20px;
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .gg-product-trust div {
-  padding: 18px;
-  border-radius: 20px;
+  padding: 14px;
+  border-radius: 18px;
   background: rgba(93,145,163,.09);
 }
 
@@ -4069,12 +4091,25 @@ html {
     padding: 130px 0 80px;
   }
 
-  .gg-product-layout {
+  .gg-product-layout,
+  .gg-product-media {
     grid-template-columns: 1fr;
+  }
+
+  .gg-product-thumbs {
+    display: flex;
+    max-height: none;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   .gg-product-panel {
     position: relative;
     top: auto;
+  }
+
+  .gg-product-main-image img {
+    height: auto;
+    aspect-ratio: 1;
   }
 }

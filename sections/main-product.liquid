@@ -1,26 +1,35 @@
 <section class="gg-product-page">
   <div class="gg-container">
-
     <a href="/collections/all" class="gg-product-back">← Back to Store</a>
 
     <div class="gg-product-layout">
-      <div class="gg-product-media">
-        {% if product.featured_image %}
-          <div class="gg-product-main-image">
-            {{ product.featured_image | image_url: width: 1200 | image_tag: loading: 'eager', alt: product.title }}
+      <div class="gg-product-left">
+        <div class="gg-product-media">
+          <div class="gg-product-thumbs">
+            {% for image in product.images %}
+              <button
+                type="button"
+                class="gg-product-thumb {% if forloop.first %}is-active{% endif %}"
+                data-product-thumb="{{ image | image_url: width: 1200 }}"
+              >
+                {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: product.title }}
+              </button>
+            {% endfor %}
           </div>
 
-          {% if product.images.size > 1 %}
-            <div class="gg-product-thumbs">
-              {% for image in product.images %}
-                <button type="button" class="gg-product-thumb" data-product-thumb="{{ image | image_url: width: 1200 }}">
-                  {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: product.title }}
-                </button>
-              {% endfor %}
-            </div>
-          {% endif %}
-        {% else %}
-          <div class="gg-product-placeholder large"></div>
+          <div class="gg-product-main-image">
+            {% if product.featured_image %}
+              {{ product.featured_image | image_url: width: 1200 | image_tag: loading: 'eager', alt: product.title }}
+            {% else %}
+              <div class="gg-product-placeholder large"></div>
+            {% endif %}
+          </div>
+        </div>
+
+        {% if product.description != blank %}
+          <div class="gg-product-description-under">
+            {{ product.description }}
+          </div>
         {% endif %}
       </div>
 
@@ -31,12 +40,6 @@
         <p class="gg-product-price" data-product-price>
           {{ product.selected_or_first_available_variant.price | money }}
         </p>
-
-        {% if product.description != blank %}
-          <div class="gg-product-description">
-            {{ product.description }}
-          </div>
-        {% endif %}
 
         {% form 'product', product, class: 'gg-product-form' %}
           <input
@@ -49,16 +52,11 @@
           {% unless product.has_only_default_variant %}
             <div class="gg-product-options">
               {% for option in product.options_with_values %}
-                <label for="Option-{{ forloop.index }}">
-                  {{ option.name }}
-                </label>
+                <label for="Option-{{ forloop.index }}">{{ option.name }}</label>
 
                 <select id="Option-{{ forloop.index }}" data-option-position="{{ option.position }}">
                   {% for value in option.values %}
-                    <option
-                      value="{{ value | escape }}"
-                      {% if option.selected_value == value %}selected{% endif %}
-                    >
+                    <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
                       {{ value }}
                     </option>
                   {% endfor %}
@@ -120,15 +118,9 @@
             <strong>Secure checkout</strong>
             <span>Checkout is handled through Shopify.</span>
           </div>
-
-          <div>
-            <strong>Made with purpose</strong>
-            <span>Products are part of Ziyu Development’s app-building mission.</span>
-          </div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -216,6 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!mainImage) return;
 
       mainImage.src = button.dataset.productThumb;
+
       thumbs.forEach(thumb => thumb.classList.remove('is-active'));
       button.classList.add('is-active');
     });
