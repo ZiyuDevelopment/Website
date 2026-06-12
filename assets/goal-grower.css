@@ -3973,7 +3973,6 @@ html {
   background: rgba(255,255,255,.78);
   border: 1px solid rgba(255,255,255,.82);
   box-shadow: 0 24px 70px rgba(36,39,44,.08);
-  position: sticky;
   top: 120px;
 }
 
