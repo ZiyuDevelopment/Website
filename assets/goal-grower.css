@@ -3861,44 +3861,44 @@ html {
   }
 }
 
-/* PRODUCT PAGE — CONVERSION LAYOUT */
+/* PRODUCT PAGE — SIMPLE STORE FUNCTIONAL */
 
 .gg-product-page {
   min-height: 100svh;
   margin-top: -92px;
   padding: 125px 0 80px;
   background:
-    radial-gradient(circle at 15% 20%, rgba(93,145,163,.14), transparent 30%),
-    radial-gradient(circle at 85% 85%, rgba(201,130,101,.12), transparent 32%),
+    radial-gradient(circle at 14% 18%, rgba(93,145,163,.13), transparent 30%),
+    radial-gradient(circle at 86% 82%, rgba(201,130,101,.12), transparent 32%),
     linear-gradient(135deg, var(--gg-cream), var(--gg-paper));
 }
 
 .gg-product-wide {
-  width: min(1280px, calc(100% - 40px));
+  width: min(1260px, calc(100% - 40px));
 }
 
-.gg-product-shell {
+.gg-product-main {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 430px;
+  grid-template-columns: minmax(0, 1fr) 410px;
   gap: 34px;
   align-items: start;
 }
 
 .gg-product-gallery,
-.gg-product-buybox,
-.gg-product-lower > div {
-  border-radius: 34px;
+.gg-product-info-panel,
+.gg-product-details-area > div {
   background: rgba(255,255,255,.86);
   border: 1px solid rgba(255,255,255,.9);
+  border-radius: 30px;
   box-shadow: 0 22px 64px rgba(36,39,44,.08);
 }
 
 .gg-product-gallery {
-  padding: 18px;
+  padding: 16px;
 }
 
 .gg-product-main-image {
-  border-radius: 24px;
+  border-radius: 22px;
   overflow: hidden;
   background: #e8edf0;
 }
@@ -3906,20 +3906,20 @@ html {
 .gg-product-main-image img {
   width: 100%;
   aspect-ratio: 1 / 1;
-  max-height: 520px;
+  max-height: 500px;
   object-fit: cover;
 }
 
 .gg-product-thumbs {
-  margin-top: 14px;
+  margin-top: 12px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
 }
 
 .gg-product-thumb {
-  padding: 6px;
-  border-radius: 16px;
+  padding: 5px;
+  border-radius: 14px;
   border: 1px solid rgba(36,39,44,.12);
   background: white;
   cursor: pointer;
@@ -3929,7 +3929,7 @@ html {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 11px;
+  border-radius: 10px;
 }
 
 .gg-product-thumb:hover,
@@ -3937,43 +3937,62 @@ html {
   border-color: var(--gg-clay);
 }
 
-.gg-product-buybox {
+.gg-product-info-panel {
   position: sticky;
   top: 120px;
-  padding: 30px;
+  padding: 28px;
 }
 
-.gg-product-buybox h1 {
+.gg-product-info-panel h1 {
+  margin-top: 12px;
+  font-size: clamp(32px, 3.8vw, 54px);
+  line-height: .98;
+}
+
+.gg-product-rating {
+  display: flex;
+  gap: 10px;
+  align-items: center;
   margin-top: 14px;
-  font-size: clamp(34px, 4vw, 58px);
-  line-height: .96;
-  overflow-wrap: anywhere;
+}
+
+.gg-product-rating span {
+  color: var(--gg-clay);
+  letter-spacing: .08em;
+  font-size: 14px;
+}
+
+.gg-product-rating small {
+  color: var(--gg-muted);
+  font-weight: 800;
 }
 
 .gg-product-price-row {
-  margin-top: 22px;
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(93,145,163,.1);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .gg-product-price-row strong {
+  font-size: 28px;
   color: var(--gg-charcoal);
-  font-size: 30px;
-  font-weight: 900;
 }
 
 .gg-product-price-row span {
-  padding: 8px 12px;
+  padding: 7px 11px;
   border-radius: 999px;
-  background: rgba(93,145,163,.12);
+  background: white;
   color: var(--gg-blue-deep);
   font-size: 12px;
   font-weight: 900;
 }
 
 .gg-product-form {
-  margin-top: 26px;
+  margin-top: 22px;
   display: grid;
   gap: 18px;
 }
@@ -3992,12 +4011,12 @@ html {
 .gg-option-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 9px;
 }
 
 .gg-option-btn {
-  min-height: 44px;
-  padding: 0 18px;
+  min-height: 42px;
+  padding: 0 16px;
   border-radius: 999px;
   border: 1px solid rgba(36,39,44,.14);
   background: white;
@@ -4012,9 +4031,9 @@ html {
   border-color: var(--gg-charcoal);
 }
 
-.gg-product-quantity-row {
+.gg-purchase-row {
   display: grid;
-  grid-template-columns: 170px 1fr;
+  grid-template-columns: 155px 1fr;
   gap: 14px;
   align-items: end;
 }
@@ -4022,52 +4041,44 @@ html {
 .gg-product-quantity {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
 }
 
-.gg-product-qty-btn {
-  width: 42px;
-  height: 42px;
+.gg-product-quantity button {
+  width: 40px;
+  height: 40px;
   border: 0;
   border-radius: 999px;
   background: var(--gg-blue);
   color: var(--gg-charcoal);
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 900;
   cursor: pointer;
 }
 
-.gg-product-qty-input {
-  width: 64px;
-  height: 42px;
-  padding: 0;
+.gg-product-quantity input {
+  width: 58px;
+  height: 40px;
   border-radius: 999px;
   border: 1px solid rgba(36,39,44,.14);
-  background: white;
   text-align: center;
   font-weight: 900;
 }
 
-.gg-product-qty-input::-webkit-outer-spin-button,
-.gg-product-qty-input::-webkit-inner-spin-button {
+.gg-product-quantity input::-webkit-outer-spin-button,
+.gg-product-quantity input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.gg-product-qty-input {
-  -moz-appearance: textfield;
-  appearance: textfield;
-}
-
 .gg-product-total {
-  min-height: 42px;
-  padding: 10px 16px;
+  min-height: 40px;
+  padding: 9px 14px;
   border-radius: 999px;
   background: rgba(201,130,101,.12);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
 }
 
 .gg-product-total span {
@@ -4080,13 +4091,13 @@ html {
 
 .gg-product-total strong {
   color: var(--gg-charcoal);
-  font-size: 19px;
   font-weight: 900;
+  font-size: 18px;
 }
 
 .gg-product-add {
-  width: 100%;
   min-height: 58px;
+  width: 100%;
   border: 0;
   border-radius: 999px;
   background: var(--gg-charcoal);
@@ -4097,89 +4108,58 @@ html {
 }
 
 .gg-product-add:hover {
-  transform: translateY(-2px);
   background: var(--gg-clay);
+  transform: translateY(-2px);
 }
 
 .gg-product-trust {
-  margin-top: 20px;
   display: grid;
   gap: 10px;
+  margin-top: 20px;
+}
+
+.gg-product-trust div {
+  padding: 13px 14px;
+  border-radius: 18px;
+  background: rgba(93,145,163,.09);
+}
+
+.gg-product-trust strong {
+  display: block;
+  color: var(--gg-charcoal);
+  font-size: 14px;
 }
 
 .gg-product-trust span {
-  padding: 12px 14px;
-  border-radius: 999px;
-  background: rgba(93,145,163,.1);
+  display: block;
+  margin-top: 3px;
   color: var(--gg-muted);
   font-size: 13px;
-  font-weight: 800;
+  line-height: 1.4;
 }
 
-.gg-product-lower {
-  margin-top: 54px;
+.gg-product-details-area {
+  margin-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 }
 
-.gg-product-lower > div {
-  padding: 34px;
+.gg-product-details-area > div {
+  padding: 32px;
 }
 
-.gg-product-lower h2 {
-  margin-top: 14px;
-  font-size: clamp(30px, 4vw, 50px);
+.gg-product-details-area h2 {
+  margin-top: 12px;
+  font-size: clamp(30px, 4vw, 48px);
 }
 
-.gg-product-description {
-  margin-top: 22px;
+.gg-product-description,
+.gg-product-details-area p {
+  margin-top: 18px;
   color: var(--gg-muted);
   font-size: 17px;
   line-height: 1.7;
-}
-
-.gg-product-suggestions {
-  margin-top: 70px;
-}
-
-.gg-product-suggestion-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.gg-product-suggestion-card {
-  padding: 16px;
-  border-radius: 28px;
-  background: rgba(255,255,255,.8);
-  border: 1px solid rgba(255,255,255,.84);
-  box-shadow: 0 18px 50px rgba(36,39,44,.08);
-}
-
-.gg-product-suggestion-image {
-  border-radius: 20px;
-  overflow: hidden;
-  background: #e8edf0;
-}
-
-.gg-product-suggestion-image img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
-
-.gg-product-suggestion-card strong {
-  display: block;
-  margin-top: 14px;
-  color: var(--gg-charcoal);
-  font-size: 20px;
-}
-
-.gg-product-suggestion-card p {
-  margin: 8px 0 0;
-  color: var(--gg-charcoal);
-  font-weight: 900;
 }
 
 @media (max-width: 950px) {
@@ -4188,13 +4168,12 @@ html {
     padding: 130px 0 80px;
   }
 
-  .gg-product-shell,
-  .gg-product-lower,
-  .gg-product-suggestion-grid {
+  .gg-product-main,
+  .gg-product-details-area {
     grid-template-columns: 1fr;
   }
 
-  .gg-product-buybox {
+  .gg-product-info-panel {
     position: relative;
     top: auto;
   }
@@ -4203,7 +4182,7 @@ html {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .gg-product-quantity-row {
+  .gg-purchase-row {
     grid-template-columns: 1fr;
   }
 }
