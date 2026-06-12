@@ -1,10 +1,10 @@
 <section class="gg-product-page">
   <div class="gg-container gg-product-wide">
-    <div class="gg-product-top">
-      <div class="gg-product-gallery-card">
+    <div class="gg-product-shell">
+      <div class="gg-product-gallery">
         <div class="gg-product-main-image">
           {% if product.featured_image %}
-            {{ product.featured_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: product.title, id: 'ProductMainImage' }}
+            {{ product.featured_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: product.title, id: 'ProductMainImage' }}
           {% else %}
             <div class="gg-product-placeholder large"></div>
           {% endif %}
@@ -14,13 +14,12 @@
           <div class="gg-product-thumbs">
             {% for image in product.images %}
               <button
-  type="button"
-  class="gg-product-thumb"
-  data-product-thumb="{{ image | image_url: width: 1400 }}"
-  data-image-alt="{{ image.alt | downcase | escape }}"
->
-  {{ image | image_url: width: 240 | image_tag: loading: 'lazy', alt: product.title }}
-</button>
+                type="button"
+                class="gg-product-thumb"
+                data-product-thumb="{{ image | image_url: width: 1200 }}"
+              >
+                {{ image | image_url: width: 240 | image_tag: loading: 'lazy', alt: product.title }}
+              </button>
             {% endfor %}
           </div>
         {% endif %}
@@ -30,50 +29,52 @@
         <span class="gg-kicker">{{ product.type | default: 'Ziyu Development' }}</span>
         <h1>{{ product.title }}</h1>
 
-        <div class="gg-product-price-block">
-          <span>Price</span>
+        <div class="gg-product-price-row">
           <strong data-product-price>{{ product.selected_or_first_available_variant.price | money }}</strong>
+          <span>In stock</span>
         </div>
 
         {% form 'product', product, class: 'gg-product-form' %}
-          {% if product.has_only_default_variant == false %}
-            <label for="ProductSelect">Color / Option</label>
+          <input
+            type="hidden"
+            name="id"
+            value="{{ product.selected_or_first_available_variant.id }}"
+            data-selected-variant
+          >
 
-            <select id="ProductSelect" name="id" data-product-select>
-              {% for variant in product.variants %}
-                <option
-                  value="{{ variant.id }}"
-                  data-price="{{ variant.price }}"
-                  data-price-formatted="{{ variant.price | money }}"
-                  data-image="{% if variant.featured_image %}{{ variant.featured_image | image_url: width: 1400 }}{% endif %}"
-                  data-option="{{ variant.title | downcase | escape }}"
-                  {% if variant == product.selected_or_first_available_variant %}selected{% endif %}
-                  {% unless variant.available %}disabled{% endunless %}
-                >
-                  {{ variant.title }}{% unless variant.available %} - Sold out{% endunless %}
-                </option>
-              {% endfor %}
-            </select>
-          {% else %}
-            <input
-              type="hidden"
-              name="id"
-              value="{{ product.selected_or_first_available_variant.id }}"
-              data-price="{{ product.selected_or_first_available_variant.price }}"
-            >
-          {% endif %}
+          {% unless product.has_only_default_variant %}
+            {% for option in product.options_with_values %}
+              <div class="gg-option-group">
+                <label>{{ option.name }}</label>
 
-          <label for="Quantity">Quantity</label>
+                <div class="gg-option-buttons" data-option-index="{{ forloop.index0 }}">
+                  {% for value in option.values %}
+                    <button
+                      type="button"
+                      class="gg-option-btn {% if option.selected_value == value %}is-selected{% endif %}"
+                      data-option-value="{{ value | escape }}"
+                    >
+                      {{ value }}
+                    </button>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          {% endunless %}
 
           <div class="gg-product-quantity-row">
-            <div class="gg-product-quantity">
-              <button type="button" class="gg-product-qty-btn" data-product-minus>−</button>
-              <input id="Quantity" type="number" name="quantity" value="1" min="1" class="gg-product-qty-input" data-product-quantity>
-              <button type="button" class="gg-product-qty-btn" data-product-plus>+</button>
+            <div>
+              <label>Quantity</label>
+
+              <div class="gg-product-quantity">
+                <button type="button" class="gg-product-qty-btn" data-product-minus>−</button>
+                <input type="number" name="quantity" value="1" min="1" class="gg-product-qty-input" data-product-quantity>
+                <button type="button" class="gg-product-qty-btn" data-product-plus>+</button>
+              </div>
             </div>
 
             <div class="gg-product-total">
-              <span>Total added</span>
+              <span>Total</span>
               <strong data-product-total>{{ product.selected_or_first_available_variant.price | money }}</strong>
             </div>
           </div>
@@ -83,191 +84,156 @@
           </button>
         {% endform %}
 
-        <div class="gg-product-fast-notes">
-          <span>Secure Shopify checkout</span>
-          <span>Supports Goal Grower development</span>
+        <div class="gg-product-trust">
+          <span>Secure checkout</span>
+          <span>Supports Goal Grower</span>
+          <span>Ships through Shopify</span>
         </div>
       </div>
     </div>
 
-    <section>
     <div class="gg-product-lower">
-      <div class="gg-product-description-card">
+      <div>
         <span class="gg-kicker">Details</span>
-        <h2>About this product</h2>
+        <h2>Product details</h2>
+        <div class="gg-product-description">
+          {{ product.description }}
+        </div>
+      </div>
 
-        {% if product.description != blank %}
-          <div class="gg-product-description">{{ product.description }}</div>
-        {% else %}
-          <p>This product helps support Ziyu Development and the future of Goal Grower.</p>
-        {% endif %}
-        <section class="gg-product-suggestions">
-  <div class="gg-section-heading">
-    <span class="gg-kicker">You may also like</span>
-    <h2>More from the store.</h2>
-  </div>
+      <div>
+        <span class="gg-kicker">Impact</span>
+        <h2>Why this matters</h2>
+        <p>
+          Every purchase helps support Goal Grower development, testing, launch prep,
+          and future intentional software projects.
+        </p>
+      </div>
+    </div>
 
-  <div class="gg-product-suggestion-grid">
-    {% assign shown = 0 %}
-    {% for related_product in collections.all.products %}
-      {% if related_product.id != product.id and shown < 3 %}
-        <a href="{{ related_product.url }}" class="gg-product-suggestion-card">
-          <div class="gg-product-suggestion-image">
-            {% if related_product.featured_image %}
-              {{ related_product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: related_product.title }}
-            {% else %}
-              <div class="gg-product-placeholder"></div>
-            {% endif %}
-          </div>
+    <section class="gg-product-suggestions">
+      <div class="gg-section-heading">
+        <span class="gg-kicker">You may also like</span>
+        <h2>More from the store.</h2>
+      </div>
 
-          <div>
-            <span>{{ related_product.type | default: 'Product' }}</span>
-            <strong>{{ related_product.title }}</strong>
-            <p>{{ related_product.price | money }}</p>
-          </div>
-        </a>
+      <div class="gg-product-suggestion-grid">
+        {% assign shown = 0 %}
+        {% for related_product in collections.all.products %}
+          {% if related_product.id != product.id and shown < 3 %}
+            <a href="{{ related_product.url }}" class="gg-product-suggestion-card">
+              <div class="gg-product-suggestion-image">
+                {% if related_product.featured_image %}
+                  {{ related_product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: related_product.title }}
+                {% else %}
+                  <div class="gg-product-placeholder"></div>
+                {% endif %}
+              </div>
 
-        {% assign shown = shown | plus: 1 %}
-      {% endif %}
-    {% endfor %}
-  </div>
-</section>
+              <strong>{{ related_product.title }}</strong>
+              <p>{{ related_product.price | money }}</p>
+            </a>
+
+            {% assign shown = shown | plus: 1 %}
+          {% endif %}
+        {% endfor %}
       </div>
     </section>
-
-
-      <div class="gg-product-support-card">
-        <span class="gg-kicker">Impact</span>
-        <h2>Why it matters</h2>
-
-        <div class="gg-product-notes">
-          <div>
-            <strong>Supports development</strong>
-            <span>Purchases help fund Goal Grower testing, launch prep, and future features.</span>
-          </div>
-          <div>
-            <strong>Built with purpose</strong>
-            <span>Ziyu Development is focused on tools for growth, focus, learning, and intentional living.</span>
-          </div>
-          <div>
-            <strong>Future projects</strong>
-            <span>Support helps make room for more apps and creative tools after launch.</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const select = document.querySelector('[data-product-select]');
+  const variants = {{ product.variants | json }};
+  const selectedVariantInput = document.querySelector('[data-selected-variant]');
+  const optionGroups = document.querySelectorAll('[data-option-index]');
+  const priceText = document.querySelector('[data-product-price]');
+  const totalText = document.querySelector('[data-product-total]');
   const qtyInput = document.querySelector('[data-product-quantity]');
   const minus = document.querySelector('[data-product-minus]');
   const plus = document.querySelector('[data-product-plus]');
-  const priceText = document.querySelector('[data-product-price]');
-  const totalText = document.querySelector('[data-product-total]');
   const mainImage = document.querySelector('#ProductMainImage');
   const thumbs = document.querySelectorAll('[data-product-thumb]');
+
+  let selectedOptions = [];
+
+  optionGroups.forEach(group => {
+    const index = Number(group.dataset.optionIndex);
+    const selected = group.querySelector('.is-selected');
+    selectedOptions[index] = selected ? selected.dataset.optionValue : '';
+  });
 
   function formatMoney(cents) {
     return '$' + (cents / 100).toFixed(2);
   }
 
-  function getCurrentPrice() {
-    if (select) {
-      return Number(select.options[select.selectedIndex].dataset.price || 0);
-    }
-
-    const hiddenPrice = document.querySelector('[name="id"][data-price]');
-    return Number(hiddenPrice?.dataset.price || 0);
-  }
-
-  function updateTotal() {
-    const quantity = Math.max(1, parseInt(qtyInput?.value || 1, 10));
-    const price = getCurrentPrice();
-
-    if (totalText) totalText.textContent = formatMoney(price * quantity);
-    if (priceText) priceText.textContent = formatMoney(price);
-  }
-
-  function updateVariantImageAndThumbs() {
-    if (!select) return;
-
-    const selected = select.options[select.selectedIndex];
-    const optionText = selected.dataset.option || '';
-    const variantImage = selected.dataset.image;
-
-    if (variantImage && mainImage) {
-      mainImage.src = variantImage;
-    }
-
-    let visibleCount = 0;
-
-    thumbs.forEach(button => {
-      const alt = button.dataset.imageAlt || '';
-      const shouldShow =
-        alt.includes(optionText) ||
-        optionText.includes(alt) ||
-        alt === '';
-
-      if (shouldShow) {
-        button.style.display = '';
-        visibleCount++;
-      } else {
-        button.style.display = 'none';
-      }
+  function getSelectedVariant() {
+    return variants.find(variant => {
+      return variant.options.every((option, index) => option === selectedOptions[index]);
     });
+  }
 
-    if (visibleCount === 0) {
-      thumbs.forEach(button => {
-        button.style.display = '';
-      });
+  function updateProduct() {
+    const variant = getSelectedVariant();
+
+    if (!variant) return;
+
+    selectedVariantInput.value = variant.id;
+
+    if (priceText) priceText.textContent = formatMoney(variant.price);
+
+    const quantity = Math.max(1, parseInt(qtyInput.value || 1, 10));
+    if (totalText) totalText.textContent = formatMoney(variant.price * quantity);
+
+    if (variant.featured_image && mainImage) {
+      mainImage.src = variant.featured_image.src;
     }
   }
+
+  optionGroups.forEach(group => {
+    group.querySelectorAll('.gg-option-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const index = Number(group.dataset.optionIndex);
+
+        group.querySelectorAll('.gg-option-btn').forEach(btn => {
+          btn.classList.remove('is-selected');
+        });
+
+        button.classList.add('is-selected');
+        selectedOptions[index] = button.dataset.optionValue;
+
+        updateProduct();
+      });
+    });
+  });
 
   if (minus && qtyInput) {
     minus.addEventListener('click', () => {
-      const value = parseInt(qtyInput.value || 1, 10);
-      qtyInput.value = Math.max(1, value - 1);
-      updateTotal();
+      qtyInput.value = Math.max(1, parseInt(qtyInput.value || 1, 10) - 1);
+      updateProduct();
     });
   }
 
   if (plus && qtyInput) {
     plus.addEventListener('click', () => {
-      const value = parseInt(qtyInput.value || 1, 10);
-      qtyInput.value = value + 1;
-      updateTotal();
+      qtyInput.value = parseInt(qtyInput.value || 1, 10) + 1;
+      updateProduct();
     });
   }
 
   if (qtyInput) {
-    qtyInput.addEventListener('input', updateTotal);
-    qtyInput.addEventListener('change', () => {
-      qtyInput.value = Math.max(1, parseInt(qtyInput.value || 1, 10));
-      updateTotal();
-    });
-  }
-
-  if (select) {
-    select.addEventListener('change', () => {
-      updateVariantImageAndThumbs();
-      updateTotal();
-    });
+    qtyInput.addEventListener('input', updateProduct);
   }
 
   thumbs.forEach(button => {
     button.addEventListener('click', () => {
       if (mainImage) mainImage.src = button.dataset.productThumb;
-
       thumbs.forEach(item => item.classList.remove('is-active'));
       button.classList.add('is-active');
     });
   });
 
-  updateVariantImageAndThumbs();
-  updateTotal();
+  updateProduct();
 });
 </script>
 
