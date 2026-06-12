@@ -204,15 +204,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   thumbs.forEach(button => {
+  const preload = new Image();
+  preload.src = button.dataset.productImage;
+
   button.addEventListener('click', () => {
     if (!mainImage) return;
 
     const imageUrl = button.dataset.productImage;
 
-    mainImage.src = imageUrl;
-    mainImage.srcset = '';
-    mainImage.removeAttribute('srcset');
-    mainImage.removeAttribute('sizes');
+    mainImage.style.opacity = '0';
+
+    setTimeout(() => {
+      mainImage.src = imageUrl;
+      mainImage.srcset = '';
+      mainImage.removeAttribute('srcset');
+      mainImage.removeAttribute('sizes');
+      mainImage.style.opacity = '1';
+    }, 80);
 
     thumbs.forEach(thumb => {
       thumb.classList.remove('is-active');

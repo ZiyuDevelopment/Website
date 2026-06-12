@@ -4107,3 +4107,7 @@ html {
     aspect-ratio: 1;
   }
 }
+
+.gg-product-main-image img {
+  transition: opacity .12s ease;
+}
