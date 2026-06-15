@@ -3920,23 +3920,6 @@ html {
   display: none;
 }
 
-.gg-thumb-arrow {
-  width: 82px;
-  height: 34px;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(255,255,255,.9);
-  color: var(--gg-charcoal);
-  font-size: 18px;
-  font-weight: 900;
-  cursor: pointer;
-  box-shadow: 0 10px 26px rgba(36,39,44,.08);
-}
-
-.gg-thumb-arrow:hover {
-  background: var(--gg-blue);
-}
-
 .gg-product-thumb.is-active,
 .gg-product-thumb:hover {
   border-color: var(--gg-clay);
@@ -4144,25 +4127,29 @@ html {
 }
 
 .gg-product-thumbs-wrap {
-  display: grid;
-  grid-template-rows: 42px 1fr 42px;
-  gap: 10px;
   height: min(58svh, 560px);
-  align-items: start;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   background: transparent;
 }
 
 .gg-product-thumbs {
-  display: grid;
-  gap: 10px;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+
+  max-height: calc(min(58svh, 560px) - 96px);
   overflow-y: auto;
   overflow-x: hidden;
-  scroll-behavior: smooth;
-  padding: 0;
+
   background: transparent;
-  max-height: 100%;
+  padding: 0;
+
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -4171,13 +4158,43 @@ html {
   display: none;
 }
 
+.gg-product-thumb {
+  width: 82px;
+  height: 82px;
+  padding: 0;
+  border: 0;
+  outline: none;
+  border-radius: 18px;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.gg-product-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.gg-product-thumb.is-active img {
+  box-shadow: 0 0 0 3px var(--gg-clay);
+}
+
 .gg-thumb-arrow {
   width: 82px;
   height: 36px;
-  border: 1px solid rgba(36,39,44,.1);
+  border: 0;
+  outline: none;
   border-radius: 999px;
-  background: rgba(255,255,255,.75);
+  background: rgba(255,255,255,.78);
   color: var(--gg-charcoal);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   font-size: 18px;
   font-weight: 900;
   cursor: pointer;
@@ -4185,7 +4202,7 @@ html {
 }
 
 .gg-thumb-arrow:hover {
-  background: var(--gg-paper);
+  background: white;
 }
 
 .gg-product-media {

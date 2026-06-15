@@ -87,17 +87,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateThumbArrows() {
-    if (!thumbsScroller || !thumbUp || !thumbDown) return;
+  if (!thumbsScroller || !thumbUp || !thumbDown) return;
 
-    const isMobile = window.matchMedia("(max-width: 950px)").matches;
+  const isMobile = window.matchMedia("(max-width: 950px)").matches;
 
-    const needsScroll = isMobile
-      ? thumbsScroller.scrollWidth > thumbsScroller.clientWidth + 5
-      : thumbsScroller.scrollHeight > thumbsScroller.clientHeight + 5;
+  const needsScroll = isMobile
+    ? thumbsScroller.scrollWidth > thumbsScroller.clientWidth + 5
+    : thumbsScroller.scrollHeight > thumbsScroller.clientHeight + 5;
 
-    thumbUp.style.display = needsScroll ? "flex" : "none";
-    thumbDown.style.display = needsScroll ? "flex" : "none";
-  }
+  thumbUp.style.display = needsScroll ? "flex" : "none";
+  thumbDown.style.display = needsScroll ? "flex" : "none";
+}
 
   thumbs.forEach(thumb => {
     const preload = new Image();
@@ -151,7 +151,14 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
 
-        addButton.textContent = "Added ✓";
+        const cartResponse = await fetch("/cart.js");
+        const cart = await cartResponse.json();
+
+        document.querySelectorAll(".gg-cart-count").forEach(count => {
+          count.textContent = cart.item_count;
+        });
+
+addButton.textContent = "Added ✓";
 
         setTimeout(() => {
           addButton.textContent = originalText.trim() || "Add to Cart";
