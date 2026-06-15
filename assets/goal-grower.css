@@ -4151,7 +4151,6 @@ html {
 .gg-announcement-track span::after {
   content: "";
   position: absolute;
-  right: 25px;
   top: 50%;
 
   width: 6px;
