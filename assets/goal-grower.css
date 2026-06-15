@@ -4113,23 +4113,45 @@ html {
 }
 
 .gg-announcement-bar {
-  height: 42px;
+  height: 38px;
+  overflow: hidden;
   background: var(--gg-charcoal);
   color: white;
+
   display: flex;
   align-items: center;
-  justify-content: center;
+
   position: relative;
   z-index: 1001;
 }
 
-.gg-announcement-inner {
-  font-size: 13px;
-  font-weight: 800;
+.gg-announcement-track {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+
+  width: max-content;
+  white-space: nowrap;
+
+  animation: ggAnnouncementScroll 28s linear infinite;
+}
+
+.gg-announcement-track span {
+  font-size: 12px;
+  font-weight: 900;
   letter-spacing: .08em;
   text-transform: uppercase;
-  text-align: center;
-  padding: 0 20px;
+  color: rgba(255,255,255,.9);
+}
+
+@keyframes ggAnnouncementScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .gg-header {
