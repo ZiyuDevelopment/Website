@@ -4137,11 +4137,30 @@ html {
 }
 
 .gg-announcement-track span {
+  position: relative;
+
   font-size: 12px;
   font-weight: 900;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: rgba(255,255,255,.9);
+
+  padding-right: 42px;
+}
+
+.gg-announcement-track span::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 999px;
+  background: var(--gg-clay);
+
+  transform: translateY(-50%);
 }
 
 @keyframes ggAnnouncementScroll {
