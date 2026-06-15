@@ -41,6 +41,28 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("scroll", tryPlay, { once: true });
     document.addEventListener("click", tryPlay, { once: true });
   });
+
+  const thumbsScroller = document.querySelector("[data-product-thumbs]");
+  const thumbUp = document.querySelector("[data-thumb-up]");
+  const thumbDown = document.querySelector("[data-thumb-down]");
+
+  if (thumbsScroller && thumbUp && thumbDown) {
+    thumbUp.addEventListener("click", () => {
+      thumbsScroller.scrollBy({
+        top: -96,
+        left: -96,
+        behavior: "smooth"
+      });
+    });
+
+    thumbDown.addEventListener("click", () => {
+      thumbsScroller.scrollBy({
+        top: 96,
+        left: 96,
+        behavior: "smooth"
+      });
+    });
+  }
 });
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -50,6 +72,8 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     const target = document.querySelector(
       link.getAttribute("href")
     );
+
+    if (!target) return;
 
     target.scrollIntoView({
       behavior: "smooth",

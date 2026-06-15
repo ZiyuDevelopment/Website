@@ -5,17 +5,23 @@
     <div class="gg-product-layout">
       <div class="gg-product-left">
         <div class="gg-product-media">
-          <div class="gg-product-thumbs">
-            {% for image in product.images %}
-              <button
-                type="button"
-                class="gg-product-thumb {% if forloop.first %}is-active{% endif %}"
-                data-product-image="{{ image | image_url: width: 1200 }}"
-              >
-                {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: product.title }}
-              </button>
-            {% endfor %}
-          </div>
+          <div class="gg-product-thumbs-wrap">
+  <button type="button" class="gg-thumb-arrow" data-thumb-up>↑</button>
+
+  <div class="gg-product-thumbs" data-product-thumbs>
+    {% for image in product.images %}
+      <button
+        type="button"
+        class="gg-product-thumb {% if forloop.first %}is-active{% endif %}"
+        data-product-image="{{ image | image_url: width: 1200 }}"
+      >
+        {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: product.title }}
+      </button>
+    {% endfor %}
+  </div>
+
+  <button type="button" class="gg-thumb-arrow" data-thumb-down>↓</button>
+</div>
 
           <div class="gg-product-main-image">
             {% if product.featured_image %}
