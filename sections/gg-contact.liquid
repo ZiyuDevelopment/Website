@@ -17,13 +17,14 @@
 
     <div id="beta-signup" class="gg-beta-card reveal">
       <span class="gg-kicker">Beta list</span>
-      <h2>Get testing updates.</h2>
-      <p>Add your email and I’ll use it for Goal Grower testing updates.</p>
+      <h2>Get Early Access</h2>
+      <p>Join a small group of early testers helping build Goal Grower from the ground up.
+      Your feedback will directly influence future updates and improvements.</p>
 
       {% form 'customer', class: 'gg-beta-form' %}
         <input type="hidden" name="contact[tags]" value="Goal Grower Beta Tester">
         <input type="email" name="contact[email]" placeholder="Your email" required>
-        <button type="submit" class="gg-btn">Join the Beta</button>
+        <button type="submit" class="gg-btn">Become a Beta Tester</button>
 
         {% if form.posted_successfully? %}
           <p class="gg-form-success">You’re on the beta list.</p>
