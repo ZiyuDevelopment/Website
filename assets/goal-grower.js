@@ -18,9 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    {
-      threshold: 0.14
-    }
+    { threshold: 0.14 }
   );
 
   revealItems.forEach(item => revealObserver.observe(item));
@@ -73,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function moveThumb(direction) {
     const thumbArray = Array.from(thumbs);
-
     if (!thumbArray.length) return;
 
     const currentIndex = thumbArray.findIndex(thumb =>
@@ -82,19 +79,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let nextIndex = currentIndex + direction;
 
-    if (currentIndex === -1) {
-      nextIndex = 0;
-    }
-
-    if (nextIndex < 0) {
-      nextIndex = thumbArray.length - 1;
-    }
-
-    if (nextIndex >= thumbArray.length) {
-      nextIndex = 0;
-    }
+    if (currentIndex === -1) nextIndex = 0;
+    if (nextIndex < 0) nextIndex = thumbArray.length - 1;
+    if (nextIndex >= thumbArray.length) nextIndex = 0;
 
     switchToThumb(thumbArray[nextIndex]);
+  }
+
+  function updateThumbArrows() {
+    if (!thumbsScroller || !thumbUp || !thumbDown) return;
+
+    const isMobile = window.matchMedia("(max-width: 950px)").matches;
+
+    const needsScroll = isMobile
+      ? thumbsScroller.scrollWidth > thumbsScroller.clientWidth + 5
+      : thumbsScroller.scrollHeight > thumbsScroller.clientHeight + 5;
+
+    thumbUp.style.display = needsScroll ? "flex" : "none";
+    thumbDown.style.display = needsScroll ? "flex" : "none";
   }
 
   thumbs.forEach(thumb => {
@@ -114,18 +116,66 @@ document.addEventListener("DOMContentLoaded", () => {
     thumbDown.addEventListener("click", () => {
       moveThumb(1);
     });
+
+    updateThumbArrows();
+
+    thumbsScroller.addEventListener("scroll", updateThumbArrows);
+    window.addEventListener("resize", updateThumbArrows);
+  }
+
+  const productForm = document.querySelector(".gg-product-form");
+  const addButton = document.querySelector(".gg-product-add");
+
+  if (productForm && addButton) {
+    productForm.addEventListener("submit", async event => {
+      const submitter = event.submitter;
+
+      if (!submitter || !submitter.classList.contains("gg-product-add")) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const originalText = addButton.textContent;
+      const formData = new FormData(productForm);
+
+      addButton.disabled = true;
+      addButton.textContent = "Adding...";
+
+      try {
+        await fetch("/cart/add.js", {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        addButton.textContent = "Added ✓";
+
+        setTimeout(() => {
+          addButton.textContent = originalText.trim() || "Add to Cart";
+          addButton.disabled = false;
+        }, 1600);
+      } catch (error) {
+        addButton.textContent = "Try Again";
+        addButton.disabled = false;
+      }
+    });
   }
 });
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener("click", e => {
-    e.preventDefault();
+    const href = link.getAttribute("href");
 
-    const target = document.querySelector(
-      link.getAttribute("href")
-    );
+    if (!href || href === "#") return;
+
+    const target = document.querySelector(href);
 
     if (!target) return;
+
+    e.preventDefault();
 
     target.scrollIntoView({
       behavior: "smooth",
