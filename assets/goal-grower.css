@@ -4111,3 +4111,26 @@ html {
 .gg-product-main-image img {
   transition: opacity .02s ease;
 }
+
+.gg-announcement-bar {
+  background: var(--gg-charcoal);
+  color: white;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1001;
+}
+
+.gg-announcement-inner {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.gg-header {
+  top: 42px;
+}
