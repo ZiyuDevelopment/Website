@@ -4113,9 +4113,9 @@ html {
 }
 
 .gg-announcement-bar {
+  height: 42px;
   background: var(--gg-charcoal);
   color: white;
-  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4129,8 +4129,14 @@ html {
   letter-spacing: .08em;
   text-transform: uppercase;
   text-align: center;
+  padding: 0 20px;
 }
 
 .gg-header {
-  top: 42px;
+  position: sticky;
+  top: 0;
+}
+
+body {
+  padding-top: 42px;
 }
