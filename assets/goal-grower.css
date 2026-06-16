@@ -4443,40 +4443,30 @@ html {
   box-shadow: 0 0 0 3px rgba(93,145,163,.18);
 }
 
-.gg-option-label {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.gg-selected-color-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(36,39,44,.18);
-  background: transparent;
-}
-
-.gg-color-dot[data-color-dot="Flo Blue"] {
+.gg-color-dot[data-color-dot="flo-blue"] {
   background: #4c78c7;
 }
 
-.gg-color-dot[data-color-dot="Grey"] {
+.gg-color-dot[data-color-dot="grey"],
+.gg-color-dot[data-color-dot="gray"] {
   background: #8a8a8a;
 }
 
-.gg-color-dot[data-color-dot="Pepper"] {
+.gg-color-dot[data-color-dot="pepper"] {
   background: #222222;
 }
 
-.gg-color-dot[data-color-dot="True Navy"] {
+.gg-color-dot[data-color-dot="true-navy"] {
   background: #1f2f46;
 }
 
-.gg-color-dot[data-color-dot="White"] {
+.gg-color-dot[data-color-dot="white"] {
   background: #ffffff;
 }
 
 .gg-color-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
   border: 1px solid rgba(36,39,44,.22);
 }
