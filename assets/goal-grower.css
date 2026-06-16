@@ -4318,3 +4318,62 @@ html {
   position: sticky;
   top: 0;
 }
+
+.gg-option-group {
+  display: grid;
+  gap: 12px;
+}
+
+.gg-option-label {
+  font-size: 14px;
+  color: var(--gg-muted);
+}
+
+.gg-option-label strong {
+  color: var(--gg-charcoal);
+}
+
+.gg-option-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.gg-option-button {
+  border: 1px solid rgba(36,39,44,.18);
+  background: white;
+  color: var(--gg-charcoal);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.color-grid .gg-option-button {
+  width: 92px;
+  padding: 6px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.color-grid .gg-option-button img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.color-grid .gg-option-button span {
+  display: none;
+}
+
+.size-grid .gg-option-button {
+  min-width: 72px;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+.gg-option-button.is-active {
+  border-color: var(--gg-clay);
+  box-shadow: 0 0 0 2px rgba(201,130,101,.28);
+}

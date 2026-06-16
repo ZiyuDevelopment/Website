@@ -61,15 +61,26 @@
           {% unless product.has_only_default_variant %}
             <div class="gg-product-options">
               {% for option in product.options_with_values %}
-                <label for="Option-{{ forloop.index }}">{{ option.name }}</label>
+                <div class="gg-option-group" data-option-group data-option-position="{{ option.position }}">
+                  <span class="gg-option-label">{{ option.name }}: <strong data-option-selected>{{ option.selected_value }}</strong></span>
 
-                <select id="Option-{{ forloop.index }}" data-option-position="{{ option.position }}">
-                  {% for value in option.values %}
-                    <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
-                      {{ value }}
-                    </option>
-                  {% endfor %}
-                </select>
+                  <div class="gg-option-values {% if option.name == 'Color' %}color-grid{% else %}size-grid{% endif %}">
+                    {% for value in option.values %}
+                      {% assign matching_variant = product.variants | where: 'option1', value | first %}
+
+                      <button
+                        type="button"
+                        class="gg-option-button {% if option.selected_value == value %}is-active{% endif %}"
+                        data-option-value="{{ value | escape }}"
+                      >
+                        {% if option.name == 'Color' and matching_variant.featured_image %}
+                          {{ matching_variant.featured_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: value }}
+                        {% endif %}
+                        <span>{{ value }}</span>
+                      </button>
+                    {% endfor %}
+                  </div>
+                </div>
               {% endfor %}
             </div>
           {% endunless %}

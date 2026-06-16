@@ -46,6 +46,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const thumbUp = document.querySelector("[data-thumb-up]");
   const thumbDown = document.querySelector("[data-thumb-down]");
 
+  const variantsElement = document.querySelector("[data-product-json]");
+  const variantInput = document.querySelector("[data-variant-id]");
+  const price = document.querySelector("[data-product-price]");
+  const addButton = document.querySelector(".gg-product-add");
+  const optionGroups = document.querySelectorAll("[data-option-group]");
+
+  const variants = variantsElement ? JSON.parse(variantsElement.textContent) : [];
+
+  function formatMoney(cents) {
+    return "$" + (cents / 100).toFixed(2);
+  }
+
   function switchToThumb(thumb) {
     if (!thumb || !mainImage) return;
 
@@ -63,24 +75,24 @@ document.addEventListener("DOMContentLoaded", () => {
     thumb.classList.add("is-active");
 
     if (thumbsScroller) {
-  const thumbTop = thumb.offsetTop;
-  const thumbBottom = thumbTop + thumb.offsetHeight;
+      const thumbTop = thumb.offsetTop;
+      const thumbBottom = thumbTop + thumb.offsetHeight;
 
-  const viewTop = thumbsScroller.scrollTop;
-  const viewBottom = viewTop + thumbsScroller.clientHeight;
+      const viewTop = thumbsScroller.scrollTop;
+      const viewBottom = viewTop + thumbsScroller.clientHeight;
 
-  if (thumbTop < viewTop) {
-    thumbsScroller.scrollTo({
-      top: thumbTop,
-      behavior: "smooth"
-    });
-  } else if (thumbBottom > viewBottom) {
-    thumbsScroller.scrollTo({
-      top: thumbBottom - thumbsScroller.clientHeight,
-      behavior: "smooth"
-    });
-  }
-}
+      if (thumbTop < viewTop) {
+        thumbsScroller.scrollTo({
+          top: thumbTop,
+          behavior: "smooth"
+        });
+      } else if (thumbBottom > viewBottom) {
+        thumbsScroller.scrollTo({
+          top: thumbBottom - thumbsScroller.clientHeight,
+          behavior: "smooth"
+        });
+      }
+    }
   }
 
   function moveThumb(direction) {
@@ -101,17 +113,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateThumbArrows() {
-  if (!thumbsScroller || !thumbUp || !thumbDown) return;
+    if (!thumbsScroller || !thumbUp || !thumbDown) return;
 
-  const isMobile = window.matchMedia("(max-width: 950px)").matches;
+    const isMobile = window.matchMedia("(max-width: 950px)").matches;
 
-  const needsScroll = isMobile
-    ? thumbsScroller.scrollWidth > thumbsScroller.clientWidth + 5
-    : thumbsScroller.scrollHeight > thumbsScroller.clientHeight + 5;
+    const needsScroll = isMobile
+      ? thumbsScroller.scrollWidth > thumbsScroller.clientWidth + 5
+      : thumbsScroller.scrollHeight > thumbsScroller.clientHeight + 5;
 
-  thumbUp.style.display = needsScroll ? "flex" : "none";
-  thumbDown.style.display = needsScroll ? "flex" : "none";
-}
+    thumbUp.style.display = needsScroll ? "flex" : "none";
+    thumbDown.style.display = needsScroll ? "flex" : "none";
+  }
 
   thumbs.forEach(thumb => {
     const preload = new Image();
@@ -137,8 +149,118 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", updateThumbArrows);
   }
 
+  function getSelectedOptions() {
+    return Array.from(optionGroups).map(group => {
+      const active = group.querySelector(".gg-option-button.is-active");
+      return active ? active.dataset.optionValue : "";
+    });
+  }
+
+  function findVariant() {
+    const selectedOptions = getSelectedOptions();
+
+    return variants.find(variant => {
+      return variant.options.every((option, index) => {
+        return option === selectedOptions[index];
+      });
+    });
+  }
+
+  function activateVariantImage(variant) {
+    if (!variant || !variant.featured_image || !variant.featured_image.src || !mainImage) {
+      return;
+    }
+
+    const imageUrl = variant.featured_image.src;
+
+    mainImage.src = imageUrl;
+    mainImage.srcset = "";
+    mainImage.removeAttribute("srcset");
+    mainImage.removeAttribute("sizes");
+
+    thumbs.forEach(thumb => {
+      thumb.classList.remove("is-active");
+
+      const thumbImage = thumb.dataset.productImage || "";
+
+      if (
+        thumbImage.includes(imageUrl.split("?")[0]) ||
+        imageUrl.includes(thumbImage.split("?")[0])
+      ) {
+        thumb.classList.add("is-active");
+      }
+    });
+  }
+
+  function updateVariant() {
+    if (!optionGroups.length || !variantInput) return;
+
+    const variant = findVariant();
+
+    if (!variant) {
+      if (addButton) {
+        addButton.disabled = true;
+        addButton.textContent = "Unavailable";
+      }
+      return;
+    }
+
+    variantInput.value = variant.id;
+
+    activateVariantImage(variant);
+
+    if (price) {
+      price.textContent = formatMoney(variant.price);
+    }
+
+    if (addButton) {
+      if (variant.available) {
+        addButton.disabled = false;
+        addButton.textContent = "Add to Cart";
+      } else {
+        addButton.disabled = true;
+        addButton.textContent = "Sold Out";
+      }
+    }
+  }
+
+  optionGroups.forEach(group => {
+    const buttons = group.querySelectorAll(".gg-option-button");
+    const selectedText = group.querySelector("[data-option-selected]");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        buttons.forEach(btn => btn.classList.remove("is-active"));
+        button.classList.add("is-active");
+
+        if (selectedText) {
+          selectedText.textContent = button.dataset.optionValue;
+        }
+
+        updateVariant();
+      });
+    });
+  });
+
+  const quantityInput = document.querySelector("[data-product-quantity]");
+  const minusButton = document.querySelector("[data-product-minus]");
+  const plusButton = document.querySelector("[data-product-plus]");
+
+  if (minusButton && quantityInput) {
+    minusButton.addEventListener("click", () => {
+      const value = parseInt(quantityInput.value || 1, 10);
+      quantityInput.value = Math.max(1, value - 1);
+    });
+  }
+
+  if (plusButton && quantityInput) {
+    plusButton.addEventListener("click", () => {
+      const value = parseInt(quantityInput.value || 1, 10);
+      quantityInput.value = value + 1;
+    });
+  }
+
   const productForm = document.querySelector(".gg-product-form");
-  const addButton = document.querySelector(".gg-product-add");
 
   if (productForm && addButton) {
     productForm.addEventListener("submit", async event => {
@@ -172,7 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
           count.textContent = cart.item_count;
         });
 
-addButton.textContent = "Added ✓";
+        addButton.textContent = "Added ✓";
 
         setTimeout(() => {
           addButton.textContent = originalText.trim() || "Add to Cart";
