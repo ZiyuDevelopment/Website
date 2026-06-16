@@ -222,61 +222,63 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function scrollToColorImage(color) {
-    if (!color || !thumbs.length || !thumbsScroller) return;
+function scrollToColorImage(color) {
+  if (!color || !thumbs.length || !thumbsScroller) return;
 
-    const normalizedColor = normalizeText(color);
-    let matchingThumb = null;
+  const normalizedColor = normalizeText(color);
+  let matchingThumb = null;
 
-    thumbs.forEach(thumb => {
-      thumb.style.display = "";
-    });
+  thumbs.forEach(thumb => {
+    thumb.style.display = "";
+  });
 
-    thumbs.forEach(thumb => {
-      const colors = normalizeText(thumb.dataset.imageColors || "");
-      const alt = normalizeText(thumb.dataset.imageAlt || "");
-      const src = normalizeText(thumb.dataset.imageSrc || "");
+  thumbs.forEach(thumb => {
+    const colors = normalizeText(thumb.dataset.imageColors || "");
+    const alt = normalizeText(thumb.dataset.imageAlt || "");
+    const src = normalizeText(thumb.dataset.imageSrc || "");
 
-      const isMatch =
-        colors.includes(normalizedColor) ||
-        alt.includes(normalizedColor) ||
-        src.includes(normalizedColor);
+    const isMatch =
+      colors.includes(normalizedColor) ||
+      alt.includes(normalizedColor) ||
+      src.includes(normalizedColor);
 
-      if (isMatch && !matchingThumb) {
-        matchingThumb = thumb;
-      }
-    });
-
-    if (!matchingThumb) {
-      const variant = findVariant();
-
-      if (variant && variant.featured_image && variant.featured_image.src) {
-        const variantSrc = normalizeText(variant.featured_image.src);
-
-        thumbs.forEach(thumb => {
-          const thumbSrc = normalizeText(thumb.dataset.productImage || "");
-
-          if (
-            variantSrc.includes(thumbSrc) ||
-            thumbSrc.includes(variantSrc)
-          ) {
-            matchingThumb = thumb;
-          }
-        });
-      }
+    if (isMatch && !matchingThumb) {
+      matchingThumb = thumb;
     }
+  });
 
-    if (matchingThumb) {
-      switchToThumb(matchingThumb);
+  if (!matchingThumb) {
+    const variant = findVariant();
 
-      thumbsScroller.scrollTo({
-        top: matchingThumb.offsetTop,
-        behavior: "smooth"
+    if (variant && variant.featured_image && variant.featured_image.src) {
+      const variantImage = normalizeText(variant.featured_image.src);
+
+      thumbs.forEach(thumb => {
+        const thumbImage = normalizeText(thumb.dataset.productImage || "");
+
+        if (
+          variantImage.includes(thumbImage) ||
+          thumbImage.includes(variantImage)
+        ) {
+          matchingThumb = thumb;
+        }
       });
     }
-
-    updateThumbArrows();
   }
+
+  if (matchingThumb) {
+    switchToThumb(matchingThumb);
+
+    const top = matchingThumb.offsetTop;
+
+    thumbsScroller.scrollTo({
+      top,
+      behavior: "smooth"
+    });
+  }
+
+  updateThumbArrows();
+}
 
   thumbs.forEach(thumb => {
     thumb.style.display = "";
