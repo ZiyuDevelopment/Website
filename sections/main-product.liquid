@@ -105,13 +105,31 @@
 
         <div class="gg-option-values {% if option_name contains 'color' or option_name contains 'colour' %}gg-color-options{% else %}gg-size-options{% endif %}">
           {% for value in option.values %}
-            {% assign color_value = value | downcase %}
+            {% assign selected_variant_available = false %}
 
-            <button
-              type="button"
-              class="gg-option-button {% if option_name contains 'color' or option_name contains 'colour' %}gg-color-dot-option{% else %}gg-size-option{% endif %} {% if option.selected_value == value %}is-active{% endif %}"
-              data-option-value="{{ value | escape }}"
-            >
+{% for variant in product.variants %}
+  {% case option.position %}
+    {% when 1 %}
+      {% if variant.option1 == value and variant.available %}
+        {% assign selected_variant_available = true %}
+      {% endif %}
+    {% when 2 %}
+      {% if variant.option2 == value and variant.available %}
+        {% assign selected_variant_available = true %}
+      {% endif %}
+    {% when 3 %}
+      {% if variant.option3 == value and variant.available %}
+        {% assign selected_variant_available = true %}
+      {% endif %}
+  {% endcase %}
+{% endfor %}
+
+<button
+  type="button"
+  class="gg-option-button {% if option_name contains 'color' or option_name contains 'colour' %}gg-color-dot-option{% else %}gg-size-option{% endif %} {% if option.selected_value == value %}is-active{% endif %} {% unless selected_variant_available %}is-unavailable{% endunless %}"
+  data-option-value="{{ value | escape }}"
+  {% unless selected_variant_available %}aria-disabled="true"{% endunless %}
+>
               {% if option_name contains 'color' or option_name contains 'colour' %}
                 <span
                   class="gg-color-dot"
