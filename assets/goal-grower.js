@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const price = document.querySelector("[data-product-price]");
   const addButton = document.querySelector(".gg-product-add");
   const optionGroups = document.querySelectorAll("[data-option-group]");
+  const variantMessage = document.querySelector("[data-variant-message]");
 
   const variants = variantsElement ? JSON.parse(variantsElement.textContent) : [];
 
@@ -65,32 +66,30 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/[^a-z0-9-]/g, "");
   }
 
-function colorToCss(colorName) {
-  const map = {
-    "white": "var(--color-white)",
-    "black": "var(--color-black)",
-    "grey": "var(--color-grey)",
-    "gray": "var(--color-gray)",
-    "pepper": "var(--color-pepper)",
-    "charcoal": "var(--color-charcoal)",
+  function colorToCss(colorName) {
+    const map = {
+      "white": "var(--color-white)",
+      "black": "var(--color-black)",
+      "grey": "var(--color-grey)",
+      "gray": "var(--color-gray)",
+      "pepper": "var(--color-pepper)",
+      "charcoal": "var(--color-charcoal)",
+      "flo blue": "var(--color-flo-blue)",
+      "blue jean": "var(--color-blue-jean)",
+      "blue spruce": "var(--color-blue-spruce)",
+      "chambray": "var(--color-chambray)",
+      "true navy": "var(--color-true-navy)",
+      "navy": "var(--color-navy)",
+      "seafoam": "var(--color-seafoam)",
+      "bay": "var(--color-bay)",
+      "berry": "var(--color-berry)",
+      "orchid": "var(--color-orchid)",
+      "ivory": "var(--color-ivory)",
+      "blossom": "var(--color-blossom)"
+    };
 
-    "flo blue": "var(--color-flo-blue)",
-    "blue jean": "var(--color-blue-jean)",
-    "blue spruce": "var(--color-blue-spruce)",
-    "chambray": "var(--color-chambray)",
-    "true navy": "var(--color-true-navy)",
-    "navy": "var(--color-navy)",
-
-    "seafoam": "var(--color-seafoam)",
-    "bay": "var(--color-bay)",
-    "berry": "var(--color-berry)",
-    "orchid": "var(--color-orchid)",
-    "ivory": "var(--color-ivory)",
-    "blossom": "var(--color-blossom)"
-  };
-
-  return map[colorName.toLowerCase()] || "#cccccc";
-}
+    return map[colorName.toLowerCase()] || "#cccccc";
+  }
 
   function updateSelectedColorDot(group, colorName) {
     const dot = group.querySelector("[data-selected-color-dot]");
@@ -101,6 +100,20 @@ function colorToCss(colorName) {
     if (colorName.toLowerCase() === "white") {
       dot.style.borderColor = "rgba(36,39,44,.28)";
     }
+  }
+
+  function showVariantMessage(text) {
+    if (!variantMessage) return;
+
+    variantMessage.hidden = false;
+    variantMessage.textContent = text;
+  }
+
+  function hideVariantMessage() {
+    if (!variantMessage) return;
+
+    variantMessage.hidden = true;
+    variantMessage.textContent = "";
   }
 
   function switchToThumb(thumb) {
@@ -175,67 +188,67 @@ function colorToCss(colorName) {
     });
   }
 
-function activateVariantImage(variant) {
-  if (!mainImage) return;
+  function activateVariantImage(variant) {
+    if (!mainImage) return;
 
-  let imageUrl = "";
+    let imageUrl = "";
 
-  if (variant && variant.featured_image && variant.featured_image.src) {
-    imageUrl = variant.featured_image.src;
-  }
+    if (variant && variant.featured_image && variant.featured_image.src) {
+      imageUrl = variant.featured_image.src;
+    }
 
-  if (!imageUrl) {
-    const selectedOptions = getSelectedOptions()
-      .map(option => normalizeText(option))
-      .filter(Boolean);
+    if (!imageUrl) {
+      const selectedOptions = getSelectedOptions()
+        .map(option => normalizeText(option))
+        .filter(Boolean);
 
-    let fallbackThumb = null;
+      let fallbackThumb = null;
 
-    thumbs.forEach(thumb => {
-      const alt = normalizeText(thumb.dataset.imageAlt || "");
-      const src = normalizeText(thumb.dataset.imageSrc || "");
-      const productImage = normalizeText(thumb.dataset.productImage || "");
-      const colors = normalizeText(thumb.dataset.imageColors || "");
+      thumbs.forEach(thumb => {
+        const alt = normalizeText(thumb.dataset.imageAlt || "");
+        const src = normalizeText(thumb.dataset.imageSrc || "");
+        const productImage = normalizeText(thumb.dataset.productImage || "");
+        const colors = normalizeText(thumb.dataset.imageColors || "");
 
-      const matches = selectedOptions.some(option => {
-        return (
-          alt.includes(option) ||
-          src.includes(option) ||
-          productImage.includes(option) ||
-          colors.includes(option)
-        );
+        const matches = selectedOptions.some(option => {
+          return (
+            alt.includes(option) ||
+            src.includes(option) ||
+            productImage.includes(option) ||
+            colors.includes(option)
+          );
+        });
+
+        if (matches && !fallbackThumb) {
+          fallbackThumb = thumb;
+        }
       });
 
-      if (matches && !fallbackThumb) {
-        fallbackThumb = thumb;
+      if (fallbackThumb) {
+        switchToThumb(fallbackThumb);
+      }
+
+      return;
+    }
+
+    mainImage.src = imageUrl;
+    mainImage.srcset = "";
+    mainImage.removeAttribute("srcset");
+    mainImage.removeAttribute("sizes");
+
+    thumbs.forEach(thumb => {
+      thumb.classList.remove("is-active");
+
+      const thumbImage = thumb.dataset.productImage || "";
+
+      if (
+        thumbImage.includes(imageUrl.split("?")[0]) ||
+        imageUrl.includes(thumbImage.split("?")[0])
+      ) {
+        thumb.classList.add("is-active");
       }
     });
-
-    if (fallbackThumb) {
-      switchToThumb(fallbackThumb);
-    }
-
-    return;
   }
-
-  mainImage.src = imageUrl;
-  mainImage.srcset = "";
-  mainImage.removeAttribute("srcset");
-  mainImage.removeAttribute("sizes");
-
-  thumbs.forEach(thumb => {
-    thumb.classList.remove("is-active");
-
-    const thumbImage = thumb.dataset.productImage || "";
-
-    if (
-      thumbImage.includes(imageUrl.split("?")[0]) ||
-      imageUrl.includes(thumbImage.split("?")[0])
-    ) {
-      thumb.classList.add("is-active");
-    }
-  });
-}
 
   function updateVariant() {
     if (!optionGroups.length || !variantInput) return;
@@ -247,6 +260,8 @@ function activateVariantImage(variant) {
         addButton.disabled = true;
         addButton.textContent = "Unavailable";
       }
+
+      showVariantMessage("This combination is currently unavailable.");
       return;
     }
 
@@ -262,70 +277,14 @@ function activateVariantImage(variant) {
       if (variant.available) {
         addButton.disabled = false;
         addButton.textContent = "Add to Cart";
+        hideVariantMessage();
       } else {
         addButton.disabled = true;
         addButton.textContent = "Sold Out";
+        showVariantMessage("This option is currently unavailable.");
       }
     }
   }
-
-function scrollToColorImage(color) {
-  if (!color || !thumbs.length || !thumbsScroller) return;
-
-  const normalizedColor = normalizeText(color);
-  let matchingThumb = null;
-
-  thumbs.forEach(thumb => {
-    thumb.style.display = "";
-  });
-
-  thumbs.forEach(thumb => {
-    const colors = normalizeText(thumb.dataset.imageColors || "");
-    const alt = normalizeText(thumb.dataset.imageAlt || "");
-    const src = normalizeText(thumb.dataset.imageSrc || "");
-    const imageUrl = normalizeText(thumb.dataset.productImage || "");
-
-    const isMatch =
-      colors.includes(normalizedColor) ||
-      alt.includes(normalizedColor) ||
-      src.includes(normalizedColor) ||
-      imageUrl.includes(normalizedColor);
-
-    if (isMatch && !matchingThumb) {
-      matchingThumb = thumb;
-    }
-  });
-
-  if (!matchingThumb) {
-    const variant = findVariant();
-
-    if (variant && variant.featured_image && variant.featured_image.src) {
-      const variantSrc = normalizeText(variant.featured_image.src);
-
-      thumbs.forEach(thumb => {
-        const thumbImage = normalizeText(thumb.dataset.productImage || "");
-
-        if (
-          variantSrc.includes(thumbImage) ||
-          thumbImage.includes(variantSrc)
-        ) {
-          matchingThumb = thumb;
-        }
-      });
-    }
-  }
-
-  if (matchingThumb) {
-    switchToThumb(matchingThumb);
-
-    thumbsScroller.scrollTo({
-      top: matchingThumb.offsetTop,
-      behavior: "smooth"
-    });
-  }
-
-  updateThumbArrows();
-}
 
   thumbs.forEach(thumb => {
     thumb.style.display = "";
@@ -367,11 +326,15 @@ function scrollToColorImage(color) {
           selectedText.textContent = button.dataset.optionValue;
         }
 
-        updateVariant();
-
         if (groupName.includes("color") || groupName.includes("colour")) {
-  updateSelectedColorDot(group, button.dataset.optionValue);
-}
+          updateSelectedColorDot(group, button.dataset.optionValue);
+        }
+
+        if (button.classList.contains("is-unavailable")) {
+          showVariantMessage(`"${button.dataset.optionValue}" is currently unavailable.`);
+        }
+
+        updateVariant();
       });
     });
   });

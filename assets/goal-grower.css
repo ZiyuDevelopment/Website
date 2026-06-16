@@ -4584,3 +4584,13 @@ html {
   justify-self: start !important;
 }
 
+.gg-variant-message {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(201,130,101,.12);
+  border: 1px solid rgba(201,130,101,.22);
+  color: var(--gg-clay);
+  font-size: 14px;
+  font-weight: 700;
+}
