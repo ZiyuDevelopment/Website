@@ -79,12 +79,12 @@
           <div class="gg-cart-total-row">
             <span>Subtotal</span>
             <strong data-cart-subtotal>
-  {% if cart.item_count > 0 %}
-    {{ cart.total_price | money }}
-  {% else %}
-    $0.00
-  {% endif %}
-</strong>
+                {% if cart.item_count > 0 %}
+                  {{ cart.total_price | money }}
+                {% else %}
+                  $0.00
+                {% endif %}
+              </strong>
           </div>
 
           <p>Taxes, shipping, and discounts are calculated at checkout.</p>
