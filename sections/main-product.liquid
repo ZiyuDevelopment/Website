@@ -86,53 +86,56 @@
             data-variant-id
           >
 
-          {% unless product.has_only_default_variant %}
-            <div class="gg-product-options">
-              {% for option in product.options_with_values %}
-                {% assign option_name = option.name | downcase %}
+         {% unless product.has_only_default_variant %}
+  <div class="gg-product-options">
+    {% for option in product.options_with_values %}
+      {% assign option_name = option.name | downcase %}
 
-                <div
-                  class="gg-option-group"
-                  data-option-group
-                  data-option-position="{{ option.position }}"
-                  data-option-name="{{ option_name }}"
-                >
-                  <span class="gg-option-label">
-                      {{ option.name }}:
-                      {% if option_name contains 'color' or option_name contains 'colour' %}
-                        <span
-                            class="gg-color-dot"
-                            style="background: {{ value | downcase | replace: 'flo blue', '#4c78c7' | replace: 'grey', '#8a8a8a' | replace: 'gray', '#8a8a8a' | replace: 'pepper', '#222222' | replace: 'true navy', '#1f2f46' | replace: 'white', '#ffffff' }};"
-                          ></span>
-                      {% endif %}
-                      <strong data-option-selected>{{ option.selected_value }}</strong>
-                    </span>
+      <div
+        class="gg-option-group"
+        data-option-group
+        data-option-position="{{ option.position }}"
+        data-option-name="{{ option_name }}"
+      >
+        <span class="gg-option-label">
+          {{ option.name }}:
 
-                  <div class="gg-option-values {% if option_name contains 'color' or option_name contains 'colour' %}gg-color-options{% else %}gg-size-options{% endif %}">
-                    {% for value in option.values %}
-                      {% assign color_value = value | downcase %}
+          {% if option_name contains 'color' or option_name contains 'colour' %}
+            <span
+              class="gg-selected-color-dot"
+              data-selected-color-dot
+            ></span>
+          {% endif %}
 
-                      <button
-                        type="button"
-                        class="gg-option-button {% if option_name contains 'color' or option_name contains 'colour' %}gg-color-dot-option{% else %}gg-size-option{% endif %} {% if option.selected_value == value %}is-active{% endif %}"
-                        data-option-value="{{ value | escape }}"
-                      >
-                        {% if option_name contains 'color' or option_name contains 'colour' %}
-                          <span
-                            class="gg-color-dot"
-                            style="background: {{ color_value }};"
-                          ></span>
-                          <span>{{ value }}</span>
-                        {% else %}
-                          {{ value }}
-                        {% endif %}
-                      </button>
-                    {% endfor %}
-                  </div>
-                </div>
-              {% endfor %}
-            </div>
-          {% endunless %}
+          <strong data-option-selected>{{ option.selected_value }}</strong>
+        </span>
+
+        <div class="gg-option-values {% if option_name contains 'color' or option_name contains 'colour' %}gg-color-options{% else %}gg-size-options{% endif %}">
+          {% for value in option.values %}
+            {% assign color_value = value | downcase %}
+
+            <button
+              type="button"
+              class="gg-option-button {% if option_name contains 'color' or option_name contains 'colour' %}gg-color-dot-option{% else %}gg-size-option{% endif %} {% if option.selected_value == value %}is-active{% endif %}"
+              data-option-value="{{ value | escape }}"
+            >
+              {% if option_name contains 'color' or option_name contains 'colour' %}
+                <span
+                  class="gg-color-dot"
+                  style="background: {{ color_value | replace: 'flo blue', '#4c78c7' | replace: 'grey', '#8a8a8a' | replace: 'gray', '#8a8a8a' | replace: 'pepper', '#222222' | replace: 'true navy', '#1f2f46' | replace: 'white', '#ffffff' }};"
+                ></span>
+
+                <span>{{ value }}</span>
+              {% else %}
+                {{ value }}
+              {% endif %}
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endunless %}
 
           <div class="gg-product-quantity">
             <span>Quantity</span>

@@ -4470,3 +4470,18 @@ html {
   border-radius: 999px;
   border: 1px solid rgba(36,39,44,.22);
 }
+
+.gg-option-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gg-selected-color-dot,
+.gg-color-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,39,44,.22);
+  flex: 0 0 24px;
+}
