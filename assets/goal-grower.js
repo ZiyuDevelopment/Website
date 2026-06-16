@@ -373,47 +373,55 @@ document.addEventListener("DOMContentLoaded", () => {
   const productForm = document.querySelector(".gg-product-form");
 
   if (productForm && addButton) {
-    productForm.addEventListener("submit", async event => {
-      const submitter = event.submitter;
+  productForm.addEventListener("submit", async event => {
+    const submitter = event.submitter;
 
-      if (!submitter || !submitter.classList.contains("gg-product-add")) {
-        return;
-      }
+    if (!submitter || !submitter.classList.contains("gg-product-add")) {
+      return;
+    }
 
-      event.preventDefault();
+    event.preventDefault();
 
-      const originalText = addButton.textContent;
-      const formData = new FormData(productForm);
+    const originalText = addButton.textContent.trim() || "Add to Cart";
+    const formData = new FormData(productForm);
 
-      addButton.disabled = true;
-      addButton.textContent = "Adding...";
+    addButton.disabled = true;
+    addButton.textContent = "Adding...";
 
-      try {
-        await fetch("/cart/add.js", {
-          method: "POST",
-          body: formData,
-          headers: { Accept: "application/json" }
-        });
+    try {
+      await fetch("/cart/add.js", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json"
+        }
+      });
 
-        const cartResponse = await fetch("/cart.js");
-        const cart = await cartResponse.json();
+      const cartResponse = await fetch("/cart.js");
+      const cart = await cartResponse.json();
 
-        document.querySelectorAll(".gg-cart-count").forEach(count => {
-          count.textContent = cart.item_count;
-        });
+      document.querySelectorAll(".gg-cart-count").forEach(count => {
+  count.textContent = cart.item_count;
 
-        addButton.textContent = "Added ✓";
-
-        setTimeout(() => {
-          addButton.textContent = originalText.trim() || "Add to Cart";
-          addButton.disabled = false;
-        }, 1600);
-      } catch (error) {
-        addButton.textContent = "Try Again";
-        addButton.disabled = false;
-      }
-    });
+  if (cart.item_count > 0) {
+    count.classList.remove("is-empty");
+  } else {
+    count.classList.add("is-empty");
   }
+});
+
+      addButton.textContent = "Added ✓";
+
+      setTimeout(() => {
+        addButton.textContent = originalText;
+        addButton.disabled = false;
+      }, 1200);
+    } catch (error) {
+      addButton.textContent = "Try Again";
+      addButton.disabled = false;
+    }
+  });
+}
 });
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {

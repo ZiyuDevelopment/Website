@@ -4594,3 +4594,7 @@ html {
   font-size: 14px;
   font-weight: 700;
 }
+
+.gg-cart-bubble.is-empty {
+  display: none;
+}

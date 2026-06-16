@@ -54,9 +54,9 @@
     {% endif %}
   {% endfor %}
 
-  {% if real_cart_count > 0 %}
-    <span class="gg-cart-bubble">{{ real_cart_count }}</span>
-  {% endif %}
+  <span class="gg-cart-bubble gg-cart-count {% if real_cart_count == 0 %}is-empty{% endif %}">
+  {{ real_cart_count }}
+</span>
 </a>
 
     <a href="{{ routes.account_url }}" class="gg-btn gg-btn-small">
