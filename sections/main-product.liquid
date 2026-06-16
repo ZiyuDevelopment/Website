@@ -102,7 +102,7 @@
                       {% if option_name contains 'color' or option_name contains 'colour' %}
                         <span
                             class="gg-color-dot"
-                            style="background: {{ color_value }};"
+                            style="background: {{ value | downcase | replace: 'flo blue', '#4c78c7' | replace: 'grey', '#8a8a8a' | replace: 'gray', '#8a8a8a' | replace: 'pepper', '#222222' | replace: 'true navy', '#1f2f46' | replace: 'white', '#ffffff' }};"
                           ></span>
                       {% endif %}
                       <strong data-option-selected>{{ option.selected_value }}</strong>
