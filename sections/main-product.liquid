@@ -214,9 +214,30 @@
   </div>
 </section>
 
+<div class="gg-cart-added-modal" data-cart-added-modal hidden>
+  <div class="gg-cart-added-overlay" data-cart-added-close></div>
+
+  <div class="gg-cart-added-panel">
+    <span class="gg-kicker">Added to cart</span>
+    <h2>Item added successfully.</h2>
+
+    <div class="gg-cart-added-actions">
+      <button type="button" class="gg-btn-soft" data-cart-added-close>
+        Continue Shopping
+      </button>
+
+      <a href="{{ routes.cart_url }}" class="gg-btn">
+        View Cart
+      </a>
+    </div>
+  </div>
+</div>
+
 <script type="application/json" data-product-json>
   {{ product.variants | json }}
 </script>
+
+
 
 {% schema %}
 {

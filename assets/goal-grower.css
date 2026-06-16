@@ -4624,3 +4624,41 @@ html {
   opacity: .45;
   pointer-events: none;
 }
+
+.gg-cart-added-modal[hidden] {
+  display: none;
+}
+
+.gg-cart-added-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.gg-cart-added-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(36,39,44,.45);
+  backdrop-filter: blur(8px);
+}
+
+.gg-cart-added-panel {
+  position: relative;
+  max-width: 460px;
+  padding: 36px;
+  border-radius: 34px;
+  background: var(--gg-paper);
+  text-align: center;
+  box-shadow: var(--gg-shadow);
+}
+
+.gg-cart-added-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 26px;
+  flex-wrap: wrap;
+}

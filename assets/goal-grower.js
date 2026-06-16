@@ -21,6 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.14 }
   );
 
+  const cartAddedModal = document.querySelector("[data-cart-added-modal]");
+const cartAddedCloseButtons = document.querySelectorAll("[data-cart-added-close]");
+
+cartAddedCloseButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    if (cartAddedModal) cartAddedModal.hidden = true;
+  });
+});
+
   revealItems.forEach(item => revealObserver.observe(item));
 
   const videos = document.querySelectorAll("video[autoplay]");
@@ -99,6 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         updateCartBubble(cart);
+        if (cartAddedModal) {
+  cartAddedModal.hidden = false;
+}
         updateCartSubtotal(cart);
 
         if (cart.item_count === 0) {
