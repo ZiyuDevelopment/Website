@@ -65,32 +65,21 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/[^a-z0-9-]/g, "");
   }
 
-  function colorToCss(colorName) {
-    const colorMap = {
-      "flo blue": "#4c78c7",
-      "blue": "#3b82f6",
-      "grey": "#8a8a8a",
-      "gray": "#8a8a8a",
-      "pepper": "#222222",
-      "black": "#111111",
-      "white": "#ffffff",
-      "true navy": "#1f2f46",
-      "navy": "#1f2f46",
-      "pink": "#ff5c7a",
-      "red": "#dc2626",
-      "green": "#16a34a",
-      "yellow": "#eab308",
-      "purple": "#9333ea",
-      "brown": "#8b5a2b",
-      "cream": "#f5f0df",
-      "natural": "#e8ddc7",
-      "sand": "#d6b98c",
-      "ash": "#c7c7c7",
-      "charcoal": "#333333"
-    };
+function colorToCss(colorName) {
+  const colorMap = {
+    "flo blue": "#4c78c7",
+    "blue": "#3b82f6",
+    "grey": "#8a8a8a",
+    "gray": "#8a8a8a",
+    "pepper": "#222222",
+    "black": "#111111",
+    "white": "#ffffff",
+    "true navy": "#1f2f46",
+    "navy": "#1f2f46"
+  };
 
-    return colorMap[colorName.toLowerCase()] || colorName.toLowerCase();
-  }
+  return colorMap[colorName.toLowerCase()] || colorName.toLowerCase();
+}
 
   function updateSelectedColorDot(group, colorName) {
     const dot = group.querySelector("[data-selected-color-dot]");

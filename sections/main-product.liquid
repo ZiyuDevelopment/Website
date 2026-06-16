@@ -102,7 +102,7 @@
                       {% if option_name contains 'color' or option_name contains 'colour' %}
                         <span
                             class="gg-color-dot"
-                            data-color-dot="{{ value | handleize }}"
+                            style="background: {{ color_value }};"
                           ></span>
                       {% endif %}
                       <strong data-option-selected>{{ option.selected_value }}</strong>
