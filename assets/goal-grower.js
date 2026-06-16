@@ -58,6 +58,51 @@ document.addEventListener("DOMContentLoaded", () => {
     return "$" + (cents / 100).toFixed(2);
   }
 
+  function normalizeText(value) {
+    return (value || "")
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9-]/g, "");
+  }
+
+  function colorToCss(colorName) {
+    const colorMap = {
+      "flo blue": "#4c78c7",
+      "blue": "#3b82f6",
+      "grey": "#8a8a8a",
+      "gray": "#8a8a8a",
+      "pepper": "#222222",
+      "black": "#111111",
+      "white": "#ffffff",
+      "true navy": "#1f2f46",
+      "navy": "#1f2f46",
+      "pink": "#ff5c7a",
+      "red": "#dc2626",
+      "green": "#16a34a",
+      "yellow": "#eab308",
+      "purple": "#9333ea",
+      "brown": "#8b5a2b",
+      "cream": "#f5f0df",
+      "natural": "#e8ddc7",
+      "sand": "#d6b98c",
+      "ash": "#c7c7c7",
+      "charcoal": "#333333"
+    };
+
+    return colorMap[colorName.toLowerCase()] || colorName.toLowerCase();
+  }
+
+  function updateSelectedColorDot(group, colorName) {
+    const dot = group.querySelector("[data-selected-color-dot]");
+    if (!dot) return;
+
+    dot.style.background = colorToCss(colorName);
+
+    if (colorName.toLowerCase() === "white") {
+      dot.style.borderColor = "rgba(36,39,44,.28)";
+    }
+  }
+
   function switchToThumb(thumb) {
     if (!thumb || !mainImage) return;
 
@@ -81,7 +126,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const viewBottom = viewTop + thumbsScroller.clientHeight;
 
       if (thumbTop < viewTop) {
-        thumbsScroller.scrollTo({ top: thumbTop, behavior: "smooth" });
+        thumbsScroller.scrollTo({
+          top: thumbTop,
+          behavior: "smooth"
+        });
       } else if (thumbBottom > viewBottom) {
         thumbsScroller.scrollTo({
           top: thumbBottom - thumbsScroller.clientHeight,
@@ -132,19 +180,52 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!color || !thumbs.length) return;
 
     const selectedColor = color.toLowerCase();
+    const normalizedColor = normalizeText(color);
+
     let firstVisibleThumb = null;
+    let matchedAny = false;
 
     thumbs.forEach(thumb => {
       const colors = (thumb.dataset.imageColors || "").toLowerCase();
+      const alt = (thumb.dataset.imageAlt || "").toLowerCase();
+      const src = (thumb.dataset.imageSrc || "").toLowerCase();
 
-      const shouldShow = colors.includes(selectedColor) || colors === "";
+      const normalizedColors = normalizeText(colors);
+      const normalizedAlt = normalizeText(alt);
+      const normalizedSrc = normalizeText(src);
+
+      const shouldShow =
+        colors.includes(selectedColor) ||
+        alt.includes(selectedColor) ||
+        src.includes(selectedColor) ||
+        normalizedColors.includes(normalizedColor) ||
+        normalizedAlt.includes(normalizedColor) ||
+        normalizedSrc.includes(normalizedColor);
 
       thumb.style.display = shouldShow ? "" : "none";
 
-      if (shouldShow && !firstVisibleThumb) {
-        firstVisibleThumb = thumb;
+      if (shouldShow) {
+        matchedAny = true;
+
+        if (!firstVisibleThumb) {
+          firstVisibleThumb = thumb;
+        }
       }
     });
+
+    if (!matchedAny) {
+      const variant = findVariant();
+
+      if (variant && variant.featured_image && variant.featured_image.src) {
+        mainImage.src = variant.featured_image.src;
+        mainImage.srcset = "";
+        mainImage.removeAttribute("srcset");
+        mainImage.removeAttribute("sizes");
+      }
+
+      updateThumbArrows();
+      return;
+    }
 
     if (thumbsScroller) {
       thumbsScroller.scrollTop = 0;
@@ -273,6 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateVariant();
 
         if (groupName.includes("color") || groupName.includes("colour")) {
+          updateSelectedColorDot(group, button.dataset.optionValue);
           filterImagesByColor(button.dataset.optionValue);
         }
       });
@@ -288,6 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const activeColorButton = activeColorGroup.querySelector(".gg-option-button.is-active");
 
     if (activeColorButton) {
+      updateSelectedColorDot(activeColorGroup, activeColorButton.dataset.optionValue);
       filterImagesByColor(activeColorButton.dataset.optionValue);
     }
   }

@@ -42,6 +42,8 @@
                   class="gg-product-thumb {% if forloop.first %}is-active{% endif %}"
                   data-product-image="{{ image | image_url: width: 1200 }}"
                   data-image-colors="{{ image_colors | downcase | escape }}"
+                  data-image-alt="{{ image.alt | downcase | escape }}"
+                  data-image-src="{{ image.src | downcase | escape }}"
                 >
                   {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: product.title }}
                 </button>
@@ -95,9 +97,15 @@
                   data-option-name="{{ option_name }}"
                 >
                   <span class="gg-option-label">
-                    {{ option.name }}:
-                    <strong data-option-selected>{{ option.selected_value }}</strong>
-                  </span>
+                      {{ option.name }}:
+                      {% if option_name contains 'color' or option_name contains 'colour' %}
+                        <span
+                          class="gg-selected-color-dot"
+                          data-selected-color-dot
+                        ></span>
+                      {% endif %}
+                      <strong data-option-selected>{{ option.selected_value }}</strong>
+                    </span>
 
                   <div class="gg-option-values {% if option_name contains 'color' or option_name contains 'colour' %}gg-color-options{% else %}gg-size-options{% endif %}">
                     {% for value in option.values %}

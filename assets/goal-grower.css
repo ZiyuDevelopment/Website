@@ -4442,3 +4442,17 @@ html {
   border-color: var(--gg-blue-deep);
   box-shadow: 0 0 0 3px rgba(93,145,163,.18);
 }
+
+.gg-option-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.gg-selected-color-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,39,44,.18);
+  background: transparent;
+}
