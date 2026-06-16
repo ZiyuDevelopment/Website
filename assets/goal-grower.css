@@ -4754,3 +4754,102 @@ html {
     padding: 38px 26px;
   }
 }
+
+.gg-consideration-layout {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.gg-consideration-card {
+  padding: 42px;
+  border-radius: 36px;
+  background: rgba(255,255,255,.74);
+  border: 1px solid rgba(255,255,255,.82);
+  box-shadow: 0 20px 60px rgba(36,39,44,.08);
+}
+
+.gg-consideration-card h2 {
+  margin-top: 14px;
+  font-size: clamp(36px, 4vw, 60px);
+  line-height: .95;
+}
+
+.gg-consideration-card p {
+  margin-top: 22px;
+  color: var(--gg-muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.gg-beta-benefits {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.gg-beta-benefits div {
+  padding: 30px;
+  border-radius: 30px;
+  background: rgba(93,145,163,.12);
+  border: 1px solid rgba(93,145,163,.14);
+}
+
+.gg-beta-benefits strong {
+  display: block;
+  color: var(--gg-clay);
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.gg-beta-benefits span {
+  display: block;
+  margin-top: 14px;
+  color: var(--gg-charcoal);
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+@media (max-width: 850px) {
+  .gg-consideration-layout,
+  .gg-beta-benefits {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gg-purchase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.gg-purchase-card {
+  padding: 34px;
+  border-radius: 32px;
+  background: rgba(255,255,255,.74);
+  border: 1px solid rgba(255,255,255,.82);
+  box-shadow: 0 20px 60px rgba(36,39,44,.08);
+}
+
+.gg-purchase-card span {
+  font-size: 42px;
+}
+
+.gg-purchase-card h2 {
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.gg-purchase-card p {
+  color: var(--gg-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 850px) {
+  .gg-purchase-grid {
+    grid-template-columns: 1fr;
+  }
+}
