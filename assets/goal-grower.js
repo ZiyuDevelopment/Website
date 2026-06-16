@@ -292,6 +292,62 @@ function filterImagesByColor(color) {
     }
   }
 
+  function scrollToColorImage(color) {
+  if (!color || !thumbs.length || !thumbsScroller) return;
+
+  const normalizedColor = normalizeText(color);
+  let matchingThumb = null;
+
+  thumbs.forEach(thumb => {
+    thumb.style.display = "";
+  });
+
+  thumbs.forEach(thumb => {
+    const colors = normalizeText(thumb.dataset.imageColors || "");
+    const alt = normalizeText(thumb.dataset.imageAlt || "");
+    const src = normalizeText(thumb.dataset.imageSrc || "");
+
+    const isMatch =
+      colors.includes(normalizedColor) ||
+      alt.includes(normalizedColor) ||
+      src.includes(normalizedColor);
+
+    if (isMatch && !matchingThumb) {
+      matchingThumb = thumb;
+    }
+  });
+
+  if (!matchingThumb) {
+    const variant = findVariant();
+
+    if (variant && variant.featured_image && variant.featured_image.src) {
+      const variantSrc = normalizeText(variant.featured_image.src);
+
+      thumbs.forEach(thumb => {
+        const thumbSrc = normalizeText(thumb.dataset.productImage || "");
+
+        if (
+          variantSrc.includes(thumbSrc) ||
+          thumbSrc.includes(variantSrc)
+        ) {
+          matchingThumb = thumb;
+        }
+      });
+    }
+  }
+
+  if (matchingThumb) {
+    switchToThumb(matchingThumb);
+
+    thumbsScroller.scrollTo({
+      top: matchingThumb.offsetTop,
+      behavior: "smooth"
+    });
+  }
+
+  updateThumbArrows();
+}
+
   optionGroups.forEach(group => {
     const buttons = group.querySelectorAll(".gg-option-button");
     const selectedText = group.querySelector("[data-option-selected]");
@@ -308,9 +364,9 @@ function filterImagesByColor(color) {
 
         updateVariant();
 
-        if (groupName.includes("color") || groupName.includes("colour")) {
+       if (groupName.includes("color") || groupName.includes("colour")) {
           updateSelectedColorDot(group, button.dataset.optionValue);
-          filterImagesByColor(button.dataset.optionValue);
+          scrollToColorImage(button.dataset.optionValue);
         }
       });
     });
