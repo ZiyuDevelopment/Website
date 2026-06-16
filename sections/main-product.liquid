@@ -44,6 +44,7 @@
                   data-image-colors="{{ image_colors | downcase | escape }}"
                   data-image-alt="{{ image.alt | downcase | escape }}"
                   data-image-src="{{ image.src | downcase | escape }}"
+                  data-image-index="{{ forloop.index0 }}"
                 >
                   {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: product.title }}
                 </button>
@@ -100,9 +101,9 @@
                       {{ option.name }}:
                       {% if option_name contains 'color' or option_name contains 'colour' %}
                         <span
-                          class="gg-selected-color-dot"
-                          data-selected-color-dot
-                        ></span>
+                            class="gg-color-dot"
+                            style="background: {{ color_value }};"
+                          ></span>
                       {% endif %}
                       <strong data-option-selected>{{ option.selected_value }}</strong>
                     </span>

@@ -4456,3 +4456,27 @@ html {
   border: 1px solid rgba(36,39,44,.18);
   background: transparent;
 }
+
+.gg-color-dot[data-color-dot="Flo Blue"] {
+  background: #4c78c7;
+}
+
+.gg-color-dot[data-color-dot="Grey"] {
+  background: #8a8a8a;
+}
+
+.gg-color-dot[data-color-dot="Pepper"] {
+  background: #222222;
+}
+
+.gg-color-dot[data-color-dot="True Navy"] {
+  background: #1f2f46;
+}
+
+.gg-color-dot[data-color-dot="White"] {
+  background: #ffffff;
+}
+
+.gg-color-dot {
+  border: 1px solid rgba(36,39,44,.22);
+}

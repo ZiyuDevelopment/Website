@@ -176,67 +176,33 @@ document.addEventListener("DOMContentLoaded", () => {
     thumbDown.style.display = needsScroll ? "flex" : "none";
   }
 
-  function filterImagesByColor(color) {
-    if (!color || !thumbs.length) return;
+function filterImagesByColor(color) {
+  if (!color || !thumbs.length) return;
 
-    const selectedColor = color.toLowerCase();
-    const normalizedColor = normalizeText(color);
+  const selectedColor = color.toLowerCase();
+  let firstVisibleThumb = null;
 
-    let firstVisibleThumb = null;
-    let matchedAny = false;
+  thumbs.forEach(thumb => {
+    const colors = (thumb.dataset.imageColors || "").toLowerCase();
+    const shouldShow = colors.includes(selectedColor);
 
-    thumbs.forEach(thumb => {
-      const colors = (thumb.dataset.imageColors || "").toLowerCase();
-      const alt = (thumb.dataset.imageAlt || "").toLowerCase();
-      const src = (thumb.dataset.imageSrc || "").toLowerCase();
+    thumb.style.display = shouldShow ? "" : "none";
 
-      const normalizedColors = normalizeText(colors);
-      const normalizedAlt = normalizeText(alt);
-      const normalizedSrc = normalizeText(src);
-
-      const shouldShow =
-        colors.includes(selectedColor) ||
-        alt.includes(selectedColor) ||
-        src.includes(selectedColor) ||
-        normalizedColors.includes(normalizedColor) ||
-        normalizedAlt.includes(normalizedColor) ||
-        normalizedSrc.includes(normalizedColor);
-
-      thumb.style.display = shouldShow ? "" : "none";
-
-      if (shouldShow) {
-        matchedAny = true;
-
-        if (!firstVisibleThumb) {
-          firstVisibleThumb = thumb;
-        }
-      }
-    });
-
-    if (!matchedAny) {
-      const variant = findVariant();
-
-      if (variant && variant.featured_image && variant.featured_image.src) {
-        mainImage.src = variant.featured_image.src;
-        mainImage.srcset = "";
-        mainImage.removeAttribute("srcset");
-        mainImage.removeAttribute("sizes");
-      }
-
-      updateThumbArrows();
-      return;
+    if (shouldShow && !firstVisibleThumb) {
+      firstVisibleThumb = thumb;
     }
+  });
 
-    if (thumbsScroller) {
-      thumbsScroller.scrollTop = 0;
-    }
-
-    if (firstVisibleThumb) {
-      switchToThumb(firstVisibleThumb);
-    }
-
-    updateThumbArrows();
+  if (thumbsScroller) {
+    thumbsScroller.scrollTop = 0;
   }
+
+  if (firstVisibleThumb) {
+    switchToThumb(firstVisibleThumb);
+  }
+
+  updateThumbArrows();
+}
 
   thumbs.forEach(thumb => {
     const preload = new Image();
