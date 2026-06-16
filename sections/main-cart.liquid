@@ -59,7 +59,14 @@
                     <button type="button" class="gg-qty-btn" data-qty-plus>+</button>
                   </div>
 
-                  <a href="{{ item.url_to_remove }}" class="gg-cart-remove">Remove</a>
+                  <button
+  type="button"
+  class="gg-cart-remove"
+  data-remove-item
+  data-line="{{ forloop.index }}"
+>
+  Remove
+</button>
                 </div>
               </div>
             </div>
