@@ -128,7 +128,9 @@
   type="button"
   class="gg-option-button {% if option_name contains 'color' or option_name contains 'colour' %}gg-color-dot-option{% else %}gg-size-option{% endif %} {% if option.selected_value == value %}is-active{% endif %} {% unless selected_variant_available %}is-unavailable{% endunless %}"
   data-option-value="{{ value | escape }}"
-  {% unless selected_variant_available %}aria-disabled="true"{% endunless %}
+  {% unless selected_variant_available %}
+  is-unavailable
+{% endunless %}
 >
               {% if option_name contains 'color' or option_name contains 'colour' %}
                 <span
