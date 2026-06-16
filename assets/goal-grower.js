@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     thumb.scrollIntoView({
       behavior: "smooth",
-      block: "nearest",
+      block: "start",
       inline: "nearest"
     });
   }
