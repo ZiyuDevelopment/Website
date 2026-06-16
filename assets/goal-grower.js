@@ -236,11 +236,13 @@ function scrollToColorImage(color) {
     const colors = normalizeText(thumb.dataset.imageColors || "");
     const alt = normalizeText(thumb.dataset.imageAlt || "");
     const src = normalizeText(thumb.dataset.imageSrc || "");
+    const imageUrl = normalizeText(thumb.dataset.productImage || "");
 
     const isMatch =
       colors.includes(normalizedColor) ||
       alt.includes(normalizedColor) ||
-      src.includes(normalizedColor);
+      src.includes(normalizedColor) ||
+      imageUrl.includes(normalizedColor);
 
     if (isMatch && !matchingThumb) {
       matchingThumb = thumb;
@@ -251,14 +253,14 @@ function scrollToColorImage(color) {
     const variant = findVariant();
 
     if (variant && variant.featured_image && variant.featured_image.src) {
-      const variantImage = normalizeText(variant.featured_image.src);
+      const variantSrc = normalizeText(variant.featured_image.src);
 
       thumbs.forEach(thumb => {
         const thumbImage = normalizeText(thumb.dataset.productImage || "");
 
         if (
-          variantImage.includes(thumbImage) ||
-          thumbImage.includes(variantImage)
+          variantSrc.includes(thumbImage) ||
+          thumbImage.includes(variantSrc)
         ) {
           matchingThumb = thumb;
         }
@@ -269,10 +271,8 @@ function scrollToColorImage(color) {
   if (matchingThumb) {
     switchToThumb(matchingThumb);
 
-    const top = matchingThumb.offsetTop;
-
     thumbsScroller.scrollTo({
-      top,
+      top: matchingThumb.offsetTop,
       behavior: "smooth"
     });
   }
