@@ -4377,3 +4377,25 @@ html {
   border-color: var(--gg-clay);
   box-shadow: 0 0 0 2px rgba(201,130,101,.28);
 }
+
+.gg-color-dot-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 999px;
+}
+
+.gg-color-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,39,44,.18);
+}
+
+.gg-size-option {
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 14px;
+}

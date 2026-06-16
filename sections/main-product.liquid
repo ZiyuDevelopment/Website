@@ -17,6 +17,7 @@
         type="button"
         class="gg-product-thumb {% if forloop.first %}is-active{% endif %}"
         data-product-image="{{ image | image_url: width: 1200 }}"
+        data-image-alt="{{ image.alt | downcase | escape }}"
       >
         {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: product.title }}
       </button>
@@ -73,8 +74,24 @@
                         class="gg-option-button {% if option.selected_value == value %}is-active{% endif %}"
                         data-option-value="{{ value | escape }}"
                       >
-                        {% if option.name == 'Color' and matching_variant.featured_image %}
-                          {{ matching_variant.featured_image | image_url: width: 180 | image_tag: loading: 'lazy', alt: value }}
+                        {% if option.name == 'Color' %}
+                          <button
+                            type="button"
+                            class="gg-option-button gg-color-dot-option {% if option.selected_value == value %}is-active{% endif %}"
+                            data-option-value="{{ value | escape }}"
+                            data-color-name="{{ value | escape }}"
+                          >
+                            <span class="gg-color-dot" style="background: {{ value | downcase }};"></span>
+                            <span>{{ value }}</span>
+                          </button>
+                        {% else %}
+                          <button
+                            type="button"
+                            class="gg-option-button gg-size-option {% if option.selected_value == value %}is-active{% endif %}"
+                            data-option-value="{{ value | escape }}"
+                          >
+                            {{ value }}
+                          </button>
                         {% endif %}
                         <span>{{ value }}</span>
                       </button>
