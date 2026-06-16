@@ -175,31 +175,67 @@ function colorToCss(colorName) {
     });
   }
 
-  function activateVariantImage(variant) {
-    if (!variant || !variant.featured_image || !variant.featured_image.src || !mainImage) {
-      return;
-    }
+function activateVariantImage(variant) {
+  if (!mainImage) return;
 
-    const imageUrl = variant.featured_image.src;
+  let imageUrl = "";
 
-    mainImage.src = imageUrl;
-    mainImage.srcset = "";
-    mainImage.removeAttribute("srcset");
-    mainImage.removeAttribute("sizes");
+  if (variant && variant.featured_image && variant.featured_image.src) {
+    imageUrl = variant.featured_image.src;
+  }
+
+  if (!imageUrl) {
+    const selectedOptions = getSelectedOptions()
+      .map(option => normalizeText(option))
+      .filter(Boolean);
+
+    let fallbackThumb = null;
 
     thumbs.forEach(thumb => {
-      thumb.classList.remove("is-active");
+      const alt = normalizeText(thumb.dataset.imageAlt || "");
+      const src = normalizeText(thumb.dataset.imageSrc || "");
+      const productImage = normalizeText(thumb.dataset.productImage || "");
+      const colors = normalizeText(thumb.dataset.imageColors || "");
 
-      const thumbImage = thumb.dataset.productImage || "";
+      const matches = selectedOptions.some(option => {
+        return (
+          alt.includes(option) ||
+          src.includes(option) ||
+          productImage.includes(option) ||
+          colors.includes(option)
+        );
+      });
 
-      if (
-        thumbImage.includes(imageUrl.split("?")[0]) ||
-        imageUrl.includes(thumbImage.split("?")[0])
-      ) {
-        thumb.classList.add("is-active");
+      if (matches && !fallbackThumb) {
+        fallbackThumb = thumb;
       }
     });
+
+    if (fallbackThumb) {
+      switchToThumb(fallbackThumb);
+    }
+
+    return;
   }
+
+  mainImage.src = imageUrl;
+  mainImage.srcset = "";
+  mainImage.removeAttribute("srcset");
+  mainImage.removeAttribute("sizes");
+
+  thumbs.forEach(thumb => {
+    thumb.classList.remove("is-active");
+
+    const thumbImage = thumb.dataset.productImage || "";
+
+    if (
+      thumbImage.includes(imageUrl.split("?")[0]) ||
+      imageUrl.includes(thumbImage.split("?")[0])
+    ) {
+      thumb.classList.add("is-active");
+    }
+  });
+}
 
   function updateVariant() {
     if (!optionGroups.length || !variantInput) return;
