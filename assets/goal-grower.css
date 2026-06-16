@@ -4174,14 +4174,24 @@ html {
   width: 82px;
   height: 82px;
   aspect-ratio: 1 / 1;
+
   padding: 0;
-  border: 0;
-  outline: none;
+  border: 2px solid transparent;
   border-radius: 18px;
+
   overflow: hidden;
   background: transparent;
   cursor: pointer;
-  box-shadow: none;
+
+  transition: border-color .15s ease;
+}
+
+.gg-product-thumb.is-active {
+  border-color: var(--gg-clay);
+}
+
+.gg-product-thumb:hover {
+  border-color: rgba(201,130,101,.45);
 }
 
 .gg-product-thumb img {
@@ -4190,10 +4200,6 @@ html {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 18px;
-}
-
-.gg-product-thumb.is-active img {
-  box-shadow: 0 0 0 3px var(--gg-clay);
 }
 
 .gg-thumb-arrow {
