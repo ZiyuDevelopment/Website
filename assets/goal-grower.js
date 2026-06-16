@@ -65,21 +65,32 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/[^a-z0-9-]/g, "");
   }
 
-  function colorToCss(colorName) {
-    const colorMap = {
-      "flo blue": "#4c78c7",
-      "blue": "#3b82f6",
-      "grey": "#8a8a8a",
-      "gray": "#8a8a8a",
-      "pepper": "#222222",
-      "black": "#111111",
-      "white": "#ffffff",
-      "true navy": "#1f2f46",
-      "navy": "#1f2f46"
-    };
+function colorToCss(colorName) {
+  const map = {
+    "white": "var(--color-white)",
+    "black": "var(--color-black)",
+    "grey": "var(--color-grey)",
+    "gray": "var(--color-gray)",
+    "pepper": "var(--color-pepper)",
+    "charcoal": "var(--color-charcoal)",
 
-    return colorMap[colorName.toLowerCase()] || colorName.toLowerCase();
-  }
+    "flo blue": "var(--color-flo-blue)",
+    "blue jean": "var(--color-blue-jean)",
+    "blue spruce": "var(--color-blue-spruce)",
+    "chambray": "var(--color-chambray)",
+    "true navy": "var(--color-true-navy)",
+    "navy": "var(--color-navy)",
+
+    "seafoam": "var(--color-seafoam)",
+    "bay": "var(--color-bay)",
+    "berry": "var(--color-berry)",
+    "orchid": "var(--color-orchid)",
+    "ivory": "var(--color-ivory)",
+    "blossom": "var(--color-blossom)"
+  };
+
+  return map[colorName.toLowerCase()] || "#cccccc";
+}
 
   function updateSelectedColorDot(group, colorName) {
     const dot = group.querySelector("[data-selected-color-dot]");

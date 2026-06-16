@@ -10,6 +10,47 @@
   --gg-muted: #756e66;
   --gg-line: rgba(36, 39, 44, 0.12);
   --gg-shadow: 0 28px 80px rgba(36, 39, 44, 0.13);
+
+  /* Product Colors */
+
+  --color-white: #ffffff;
+  --color-black: #111111;
+  --color-grey: #8a8a8a;
+  --color-gray: #8a8a8a;
+  --color-charcoal: #333333;
+  --color-pepper: #222222;
+
+  --color-blue: #3b82f6;
+  --color-flo-blue: #4c78c7;
+  --color-blue-jean: #6f8797;
+  --color-blue-spruce: #5f7f78;
+  --color-chambray: #9eb3c5;
+  --color-true-navy: #1f2f46;
+  --color-navy: #1f2f46;
+
+  --color-seafoam: #b7d6cf;
+  --color-green: #16a34a;
+  --color-sage: #a8b7a1;
+  --color-moss: #75816b;
+  --color-olive: #78825b;
+
+  --color-red: #dc2626;
+  --color-berry: #7b2f4d;
+  --color-orchid: #d465d8;
+  --color-purple: #9333ea;
+
+  --color-yellow: #eab308;
+  --color-ivory: #f6f3dc;
+  --color-cream: #f5f0df;
+  --color-natural: #e8ddc7;
+  --color-sand: #d6b98c;
+  --color-bay: #d8c2a3;
+  --color-blossom: #f4c6d8;
+
+  --color-brown: #8b5a2b;
+  --color-maroon: #6b1d1d;
+  --color-heather: #b7b7b7;
+  --color-ash: #c7c7c7;
 }
 
 * {

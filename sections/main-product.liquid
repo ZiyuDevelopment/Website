@@ -115,7 +115,7 @@
               {% if option_name contains 'color' or option_name contains 'colour' %}
                 <span
                   class="gg-color-dot"
-                  style="background: {{ color_value | replace: 'flo blue', '#4c78c7' | replace: 'grey', '#8a8a8a' | replace: 'gray', '#8a8a8a' | replace: 'pepper', '#222222' | replace: 'true navy', '#1f2f46' | replace: 'white', '#ffffff' }};"
+                  style="background: var(--color-{{ value | handleize }});"
                 ></span>
 
                 <span>{{ value }}</span>
