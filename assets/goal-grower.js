@@ -62,11 +62,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     thumb.classList.add("is-active");
 
-    thumb.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-      inline: "nearest"
+    if (thumbsScroller) {
+  const thumbTop = thumb.offsetTop;
+  const thumbBottom = thumbTop + thumb.offsetHeight;
+
+  const viewTop = thumbsScroller.scrollTop;
+  const viewBottom = viewTop + thumbsScroller.clientHeight;
+
+  if (thumbTop < viewTop) {
+    thumbsScroller.scrollTo({
+      top: thumbTop,
+      behavior: "smooth"
     });
+  } else if (thumbBottom > viewBottom) {
+    thumbsScroller.scrollTo({
+      top: thumbBottom - thumbsScroller.clientHeight,
+      behavior: "smooth"
+    });
+  }
+}
   }
 
   function moveThumb(direction) {
