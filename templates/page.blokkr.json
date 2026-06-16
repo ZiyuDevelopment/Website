@@ -1,8 +1,0 @@
-{
-  "sections": {
-    "main": {
-      "type": "page-blokkr"
-    }
-  },
-  "order": ["main"]
-}

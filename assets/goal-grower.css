@@ -4662,3 +4662,95 @@ html {
   margin-top: 26px;
   flex-wrap: wrap;
 }
+
+.gg-ad-landing {
+  min-height: 100svh;
+  margin-top: -92px;
+  padding: 145px 0 90px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(93,145,163,.16), transparent 30%),
+    radial-gradient(circle at 85% 80%, rgba(201,130,101,.14), transparent 34%),
+    linear-gradient(135deg, var(--gg-cream), var(--gg-paper));
+}
+
+.gg-ad-hero {
+  max-width: 950px;
+  text-align: center;
+  margin: 0 auto 60px;
+}
+
+.gg-ad-hero h1 {
+  margin-top: 16px;
+  font-size: clamp(52px, 7vw, 96px);
+  line-height: .9;
+}
+
+.gg-ad-hero p {
+  max-width: 720px;
+  margin: 24px auto 0;
+  color: var(--gg-muted);
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+.gg-awareness-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.gg-awareness-card {
+  padding: 34px;
+  border-radius: 32px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(255,255,255,.8);
+  box-shadow: 0 20px 60px rgba(36,39,44,.08);
+}
+
+.gg-awareness-card span {
+  font-size: 42px;
+}
+
+.gg-awareness-card h2 {
+  margin-top: 20px;
+  font-size: 28px;
+}
+
+.gg-awareness-card p {
+  color: var(--gg-muted);
+  line-height: 1.6;
+}
+
+.gg-ad-section {
+  margin-top: 70px;
+  padding: 54px;
+  border-radius: 38px;
+  background: var(--gg-charcoal);
+  color: white;
+  text-align: center;
+}
+
+.gg-ad-section h2 {
+  max-width: 850px;
+  margin: 14px auto 0;
+  font-size: clamp(38px, 5vw, 70px);
+  line-height: .95;
+}
+
+.gg-ad-section p {
+  max-width: 700px;
+  margin: 22px auto 30px;
+  color: rgba(255,255,255,.72);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+@media (max-width: 850px) {
+  .gg-awareness-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gg-ad-section {
+    padding: 38px 26px;
+  }
+}
