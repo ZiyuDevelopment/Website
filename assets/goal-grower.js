@@ -323,9 +323,8 @@ function scrollToColorImage(color) {
         updateVariant();
 
         if (groupName.includes("color") || groupName.includes("colour")) {
-          updateSelectedColorDot(group, button.dataset.optionValue);
-          scrollToColorImage(button.dataset.optionValue);
-        }
+  updateSelectedColorDot(group, button.dataset.optionValue);
+}
       });
     });
   });
