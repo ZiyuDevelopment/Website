@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "gg-landing-awareness"
+      "type": "gg-landing-consideration"
     }
   },
   "order": ["main"]

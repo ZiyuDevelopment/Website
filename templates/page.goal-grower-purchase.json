@@ -1,18 +1,8 @@
 {
   "sections": {
-    "header": {
-      "type": "goal-grower-header"
-    },
-    "home": {
+    "main": {
       "type": "gg-landing-purchase"
-    },
-    "footer": {
-      "type": "goal-grower-footer"
     }
   },
-  "order": [
-    "header",
-    "home",
-    "footer"
-  ]
+  "order": ["main"]
 }
