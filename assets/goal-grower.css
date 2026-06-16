@@ -4399,3 +4399,46 @@ html {
   padding: 0 18px;
   border-radius: 14px;
 }
+
+.gg-option-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.gg-color-dot-option {
+  min-height: 46px;
+  padding: 0 16px 0 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,39,44,.16);
+  background: white;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.gg-color-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,39,44,.18);
+}
+
+.gg-size-option {
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(36,39,44,.16);
+  background: white;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.gg-option-button.is-active {
+  border-color: var(--gg-blue-deep);
+  box-shadow: 0 0 0 3px rgba(93,145,163,.18);
+}

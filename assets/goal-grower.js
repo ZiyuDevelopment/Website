@@ -238,17 +238,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         updateVariant();
-
-        if (button.dataset.optionValue) {
-          const selectedColor = button.dataset.optionValue.toLowerCase();
-
-          thumbs.forEach(thumb => {
-            const alt = (thumb.dataset.imageAlt || "").toLowerCase();
-
-            thumb.style.display =
-              alt.includes(selectedColor) ? "" : "none";
-          });
-        }
       });
     });
   });
