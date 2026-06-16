@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
         addButton.textContent = "Unavailable";
       }
 
-      showVariantMessage("This combination is currently unavailable.");
+      showVariantMessage("This item is currently unavailable.");
       return;
     }
 
