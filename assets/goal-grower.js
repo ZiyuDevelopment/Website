@@ -102,7 +102,17 @@ document.addEventListener("DOMContentLoaded", () => {
         updateCartSubtotal(cart);
 
         if (cart.item_count === 0) {
-          window.location.reload();
+          const itemsContainer = document.querySelector(".gg-cart-items");
+
+          if (itemsContainer) {
+            itemsContainer.innerHTML = "";
+          }
+
+          const subtotal = document.querySelector("[data-cart-subtotal]");
+
+          if (subtotal) {
+            subtotal.textContent = "$0.00";
+          }
         }
       } catch (error) {
         button.classList.remove("is-loading");

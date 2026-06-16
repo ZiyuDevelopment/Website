@@ -60,13 +60,13 @@
                   </div>
 
                   <button
-  type="button"
-  class="gg-cart-remove"
-  data-remove-item
-  data-line="{{ forloop.index }}"
->
-  Remove
-</button>
+                      type="button"
+                      class="gg-cart-remove"
+                      data-remove-item
+                      data-line="{{ forloop.index }}"
+                    >
+                      Remove
+                    </button>
                 </div>
               </div>
             </div>
@@ -78,7 +78,13 @@
 
           <div class="gg-cart-total-row">
             <span>Subtotal</span>
-            <strong data-cart-subtotal>{{ cart.total_price | money }}</strong>
+            <strong data-cart-subtotal>
+  {% if cart.item_count > 0 %}
+    {{ cart.total_price | money }}
+  {% else %}
+    $0.00
+  {% endif %}
+</strong>
           </div>
 
           <p>Taxes, shipping, and discounts are calculated at checkout.</p>
