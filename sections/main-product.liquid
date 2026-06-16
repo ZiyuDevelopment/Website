@@ -8,11 +8,26 @@
     {% assign color_option_position = 0 %}
 
     {% for option in product.options_with_values %}
-      {% assign option_name = option.name | downcase %}
-      {% if option_name contains 'color' or option_name contains 'colour' %}
-        {% assign color_option_position = option.position %}
+  {% assign option_name = option.name | downcase %}
+
+  {% if option_name contains 'color' or option_name contains 'colour' %}
+    <div class="gg-card-colors">
+      {% for value in option.values limit: 5 %}
+        {% assign color_value = value | downcase %}
+
+        <span
+          class="gg-card-color-dot"
+          title="{{ value }}"
+          style="background: {{ color_value | replace: 'flo blue', '#4c78c7' | replace: 'grey', '#8a8a8a' | replace: 'gray', '#8a8a8a' | replace: 'pepper', '#222222' | replace: 'true navy', '#1f2f46' | replace: 'white', '#ffffff' }};"
+        ></span>
+      {% endfor %}
+
+      {% if option.values.size > 5 %}
+        <span class="gg-card-color-more">+{{ option.values.size | minus: 5 }}</span>
       {% endif %}
-    {% endfor %}
+    </div>
+  {% endif %}
+{% endfor %}
 
     <div class="gg-product-layout">
       <div class="gg-product-left">

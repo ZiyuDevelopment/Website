@@ -4485,3 +4485,23 @@ html {
   border: 1px solid rgba(36,39,44,.22);
   flex: 0 0 24px;
 }
+
+.gg-card-colors {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.gg-card-color-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,39,44,.22);
+}
+
+.gg-card-color-more {
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--gg-muted);
+}
