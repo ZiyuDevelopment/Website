@@ -1,31 +1,55 @@
 <section class="gg-product-page">
   <div class="gg-container">
     <a href="/collections/all" class="gg-product-back">
-  <span>←</span>
-  Back to Store
-</a>
+      <span>←</span>
+      Back to Store
+    </a>
+
+    {% assign color_option_position = 0 %}
+
+    {% for option in product.options_with_values %}
+      {% assign option_name = option.name | downcase %}
+      {% if option_name contains 'color' or option_name contains 'colour' %}
+        {% assign color_option_position = option.position %}
+      {% endif %}
+    {% endfor %}
 
     <div class="gg-product-layout">
       <div class="gg-product-left">
         <div class="gg-product-media">
           <div class="gg-product-thumbs-wrap">
-  <button type="button" class="gg-thumb-arrow" data-thumb-up>↑</button>
+            <button type="button" class="gg-thumb-arrow" data-thumb-up>↑</button>
 
-  <div class="gg-product-thumbs" data-product-thumbs>
-    {% for image in product.images %}
-      <button
-        type="button"
-        class="gg-product-thumb {% if forloop.first %}is-active{% endif %}"
-        data-product-image="{{ image | image_url: width: 1200 }}"
-        data-image-alt="{{ image.alt | downcase | escape }}"
-      >
-        {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: product.title }}
-      </button>
-    {% endfor %}
-  </div>
+            <div class="gg-product-thumbs" data-product-thumbs>
+              {% for image in product.images %}
+                {% assign image_colors = '' %}
 
-  <button type="button" class="gg-thumb-arrow" data-thumb-down>↓</button>
-</div>
+                {% for variant in product.variants %}
+                  {% if variant.featured_image and variant.featured_image.id == image.id %}
+                    {% case color_option_position %}
+                      {% when 1 %}
+                        {% assign image_colors = image_colors | append: variant.option1 | append: '|' %}
+                      {% when 2 %}
+                        {% assign image_colors = image_colors | append: variant.option2 | append: '|' %}
+                      {% when 3 %}
+                        {% assign image_colors = image_colors | append: variant.option3 | append: '|' %}
+                    {% endcase %}
+                  {% endif %}
+                {% endfor %}
+
+                <button
+                  type="button"
+                  class="gg-product-thumb {% if forloop.first %}is-active{% endif %}"
+                  data-product-image="{{ image | image_url: width: 1200 }}"
+                  data-image-colors="{{ image_colors | downcase | escape }}"
+                >
+                  {{ image | image_url: width: 180 | image_tag: loading: 'lazy', alt: product.title }}
+                </button>
+              {% endfor %}
+            </div>
+
+            <button type="button" class="gg-thumb-arrow" data-thumb-down>↓</button>
+          </div>
 
           <div class="gg-product-main-image">
             {% if product.featured_image %}
@@ -60,46 +84,46 @@
           >
 
           {% unless product.has_only_default_variant %}
-  <div class="gg-product-options">
-    {% for option in product.options_with_values %}
-      {% assign option_name = option.name | downcase %}
+            <div class="gg-product-options">
+              {% for option in product.options_with_values %}
+                {% assign option_name = option.name | downcase %}
 
-      <div
-        class="gg-option-group"
-        data-option-group
-        data-option-position="{{ option.position }}"
-        data-option-name="{{ option_name }}"
-      >
-        <span class="gg-option-label">
-          {{ option.name }}:
-          <strong data-option-selected>{{ option.selected_value }}</strong>
-        </span>
+                <div
+                  class="gg-option-group"
+                  data-option-group
+                  data-option-position="{{ option.position }}"
+                  data-option-name="{{ option_name }}"
+                >
+                  <span class="gg-option-label">
+                    {{ option.name }}:
+                    <strong data-option-selected>{{ option.selected_value }}</strong>
+                  </span>
 
-        <div class="gg-option-values {% if option_name contains 'color' or option_name contains 'colour' %}gg-color-options{% else %}gg-size-options{% endif %}">
-          {% for value in option.values %}
-            {% assign color_value = value | downcase %}
+                  <div class="gg-option-values {% if option_name contains 'color' or option_name contains 'colour' %}gg-color-options{% else %}gg-size-options{% endif %}">
+                    {% for value in option.values %}
+                      {% assign color_value = value | downcase %}
 
-            <button
-              type="button"
-              class="gg-option-button {% if option_name contains 'color' or option_name contains 'colour' %}gg-color-dot-option{% else %}gg-size-option{% endif %} {% if option.selected_value == value %}is-active{% endif %}"
-              data-option-value="{{ value | escape }}"
-            >
-              {% if option_name contains 'color' or option_name contains 'colour' %}
-                <span
-                  class="gg-color-dot"
-                  style="background: {{ color_value }};"
-                ></span>
-                <span>{{ value }}</span>
-              {% else %}
-                {{ value }}
-              {% endif %}
-            </button>
-          {% endfor %}
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-{% endunless %}
+                      <button
+                        type="button"
+                        class="gg-option-button {% if option_name contains 'color' or option_name contains 'colour' %}gg-color-dot-option{% else %}gg-size-option{% endif %} {% if option.selected_value == value %}is-active{% endif %}"
+                        data-option-value="{{ value | escape }}"
+                      >
+                        {% if option_name contains 'color' or option_name contains 'colour' %}
+                          <span
+                            class="gg-color-dot"
+                            style="background: {{ color_value }};"
+                          ></span>
+                          <span>{{ value }}</span>
+                        {% else %}
+                          {{ value }}
+                        {% endif %}
+                      </button>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endunless %}
 
           <div class="gg-product-quantity">
             <span>Quantity</span>
@@ -162,120 +186,6 @@
 
 <script type="application/json" data-product-json>
   {{ product.variants | json }}
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const variantsElement = document.querySelector('[data-product-json]');
-  const variantInput = document.querySelector('[data-variant-id]');
-  const optionSelectors = document.querySelectorAll('[data-option-position]');
-  const price = document.querySelector('[data-product-price]');
-  const addButton = document.querySelector('[data-add-button]');
-  const quantityInput = document.querySelector('[data-product-quantity]');
-  const minusButton = document.querySelector('[data-product-minus]');
-  const plusButton = document.querySelector('[data-product-plus]');
-  const mainImage = document.querySelector('.gg-product-main-image img');
-  const thumbs = document.querySelectorAll('[data-product-image]');
-
-  const variants = variantsElement ? JSON.parse(variantsElement.textContent) : [];
-
-  function formatMoney(cents) {
-    return '$' + (cents / 100).toFixed(2);
-  }
-
-  function getSelectedOptions() {
-    return Array.from(optionSelectors).map(select => select.value);
-  }
-
-  function findVariant() {
-    const selectedOptions = getSelectedOptions();
-
-    return variants.find(variant => {
-      return variant.options.every((option, index) => option === selectedOptions[index]);
-    });
-  }
-
-  function updateVariant() {
-    if (!optionSelectors.length) return;
-
-    const variant = findVariant();
-
-    if (!variant) {
-      addButton.disabled = true;
-      addButton.textContent = 'Unavailable';
-      return;
-    }
-
-    variantInput.value = variant.id;
-
-    if (variant.featured_image && variant.featured_image.src && mainImage) {
-  mainImage.src = variant.featured_image.src;
-  mainImage.srcset = '';
-  mainImage.removeAttribute('srcset');
-  mainImage.removeAttribute('sizes');
-
-  thumbs.forEach(thumb => {
-    thumb.classList.remove('is-active');
-
-    if (thumb.dataset.productImage && variant.featured_image.src.includes(thumb.dataset.productImage.split('?')[0])) {
-      thumb.classList.add('is-active');
-    }
-  });
-}
-
-    if (price) {
-      price.textContent = formatMoney(variant.price);
-    }
-
-    if (variant.available) {
-      addButton.disabled = false;
-      addButton.textContent = 'Add to Cart';
-    } else {
-      addButton.disabled = true;
-      addButton.textContent = 'Sold Out';
-    }
-  }
-
-  optionSelectors.forEach(select => {
-    select.addEventListener('change', updateVariant);
-  });
-
-  if (minusButton && quantityInput) {
-    minusButton.addEventListener('click', () => {
-      const value = parseInt(quantityInput.value || 1, 10);
-      quantityInput.value = Math.max(1, value - 1);
-    });
-  }
-
-  if (plusButton && quantityInput) {
-    plusButton.addEventListener('click', () => {
-      const value = parseInt(quantityInput.value || 1, 10);
-      quantityInput.value = value + 1;
-    });
-  }
-
-  thumbs.forEach(button => {
-  const preload = new Image();
-  preload.src = button.dataset.productImage;
-
-  button.addEventListener('click', () => {
-    if (!mainImage) return;
-
-    const imageUrl = button.dataset.productImage;
-
-    mainImage.src = imageUrl;
-mainImage.srcset = '';
-mainImage.removeAttribute('srcset');
-mainImage.removeAttribute('sizes');
-
-    thumbs.forEach(thumb => {
-      thumb.classList.remove('is-active');
-    });
-
-    button.classList.add('is-active');
-  });
-});
-});
 </script>
 
 {% schema %}

@@ -77,15 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (thumbsScroller) {
       const thumbTop = thumb.offsetTop;
       const thumbBottom = thumbTop + thumb.offsetHeight;
-
       const viewTop = thumbsScroller.scrollTop;
       const viewBottom = viewTop + thumbsScroller.clientHeight;
 
       if (thumbTop < viewTop) {
-        thumbsScroller.scrollTo({
-          top: thumbTop,
-          behavior: "smooth"
-        });
+        thumbsScroller.scrollTo({ top: thumbTop, behavior: "smooth" });
       } else if (thumbBottom > viewBottom) {
         thumbsScroller.scrollTo({
           top: thumbBottom - thumbsScroller.clientHeight,
@@ -96,33 +92,69 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function moveThumb(direction) {
-    const thumbArray = Array.from(thumbs);
-    if (!thumbArray.length) return;
+    const visibleThumbs = Array.from(thumbs).filter(thumb => {
+      return thumb.style.display !== "none";
+    });
 
-    const currentIndex = thumbArray.findIndex(thumb =>
+    if (!visibleThumbs.length) return;
+
+    const currentIndex = visibleThumbs.findIndex(thumb =>
       thumb.classList.contains("is-active")
     );
 
     let nextIndex = currentIndex + direction;
 
     if (currentIndex === -1) nextIndex = 0;
-    if (nextIndex < 0) nextIndex = thumbArray.length - 1;
-    if (nextIndex >= thumbArray.length) nextIndex = 0;
+    if (nextIndex < 0) nextIndex = visibleThumbs.length - 1;
+    if (nextIndex >= visibleThumbs.length) nextIndex = 0;
 
-    switchToThumb(thumbArray[nextIndex]);
+    switchToThumb(visibleThumbs[nextIndex]);
   }
 
   function updateThumbArrows() {
     if (!thumbsScroller || !thumbUp || !thumbDown) return;
 
+    const visibleThumbs = Array.from(thumbs).filter(thumb => {
+      return thumb.style.display !== "none";
+    });
+
     const isMobile = window.matchMedia("(max-width: 950px)").matches;
 
     const needsScroll = isMobile
       ? thumbsScroller.scrollWidth > thumbsScroller.clientWidth + 5
-      : thumbsScroller.scrollHeight > thumbsScroller.clientHeight + 5;
+      : visibleThumbs.length > 5 || thumbsScroller.scrollHeight > thumbsScroller.clientHeight + 5;
 
     thumbUp.style.display = needsScroll ? "flex" : "none";
     thumbDown.style.display = needsScroll ? "flex" : "none";
+  }
+
+  function filterImagesByColor(color) {
+    if (!color || !thumbs.length) return;
+
+    const selectedColor = color.toLowerCase();
+    let firstVisibleThumb = null;
+
+    thumbs.forEach(thumb => {
+      const colors = (thumb.dataset.imageColors || "").toLowerCase();
+
+      const shouldShow = colors.includes(selectedColor) || colors === "";
+
+      thumb.style.display = shouldShow ? "" : "none";
+
+      if (shouldShow && !firstVisibleThumb) {
+        firstVisibleThumb = thumb;
+      }
+    });
+
+    if (thumbsScroller) {
+      thumbsScroller.scrollTop = 0;
+    }
+
+    if (firstVisibleThumb) {
+      switchToThumb(firstVisibleThumb);
+    }
+
+    updateThumbArrows();
   }
 
   thumbs.forEach(thumb => {
@@ -227,6 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
   optionGroups.forEach(group => {
     const buttons = group.querySelectorAll(".gg-option-button");
     const selectedText = group.querySelector("[data-option-selected]");
+    const groupName = group.dataset.optionName || "";
 
     buttons.forEach(button => {
       button.addEventListener("click", () => {
@@ -238,9 +271,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         updateVariant();
+
+        if (groupName.includes("color") || groupName.includes("colour")) {
+          filterImagesByColor(button.dataset.optionValue);
+        }
       });
     });
   });
+
+  const activeColorGroup = Array.from(optionGroups).find(group => {
+    const name = group.dataset.optionName || "";
+    return name.includes("color") || name.includes("colour");
+  });
+
+  if (activeColorGroup) {
+    const activeColorButton = activeColorGroup.querySelector(".gg-option-button.is-active");
+
+    if (activeColorButton) {
+      filterImagesByColor(activeColorButton.dataset.optionValue);
+    }
+  }
 
   const quantityInput = document.querySelector("[data-product-quantity]");
   const minusButton = document.querySelector("[data-product-minus]");
@@ -282,9 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
         await fetch("/cart/add.js", {
           method: "POST",
           body: formData,
-          headers: {
-            Accept: "application/json"
-          }
+          headers: { Accept: "application/json" }
         });
 
         const cartResponse = await fetch("/cart.js");
