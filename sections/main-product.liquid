@@ -7,6 +7,13 @@
 
     {% assign color_option_position = 0 %}
 
+    {% for option in product.options_with_values %}
+  {% assign option_name = option.name | downcase %}
+  {% if option_name contains 'color' or option_name contains 'colour' %}
+    {% assign color_option_position = option.position %}
+  {% endif %}
+{% endfor %}
+
     <div class="gg-product-layout">
       <div class="gg-product-left">
         <div class="gg-product-media">
@@ -105,32 +112,22 @@
 
         <div class="gg-option-values {% if option_name contains 'color' or option_name contains 'colour' %}gg-color-options{% else %}gg-size-options{% endif %}">
           {% for value in option.values %}
-            {% assign selected_variant_available = false %}
+           {% assign selected_variant_available = false %}
 
 {% for variant in product.variants %}
-  {% case option.position %}
-    {% when 1 %}
-      {% if variant.option1 == value and variant.available %}
-        {% assign selected_variant_available = true %}
-      {% endif %}
-    {% when 2 %}
-      {% if variant.option2 == value and variant.available %}
-        {% assign selected_variant_available = true %}
-      {% endif %}
-    {% when 3 %}
-      {% if variant.option3 == value and variant.available %}
-        {% assign selected_variant_available = true %}
-      {% endif %}
-  {% endcase %}
+  {% if option.position == 1 and variant.option1 == value and variant.available %}
+    {% assign selected_variant_available = true %}
+  {% elsif option.position == 2 and variant.option2 == value and variant.available %}
+    {% assign selected_variant_available = true %}
+  {% elsif option.position == 3 and variant.option3 == value and variant.available %}
+    {% assign selected_variant_available = true %}
+  {% endif %}
 {% endfor %}
 
 <button
   type="button"
   class="gg-option-button {% if option_name contains 'color' or option_name contains 'colour' %}gg-color-dot-option{% else %}gg-size-option{% endif %} {% if option.selected_value == value %}is-active{% endif %} {% unless selected_variant_available %}is-unavailable{% endunless %}"
   data-option-value="{{ value | escape }}"
-  {% unless selected_variant_available %}
-  is-unavailable
-{% endunless %}
 >
               {% if option_name contains 'color' or option_name contains 'colour' %}
                 <span

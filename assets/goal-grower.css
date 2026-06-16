@@ -4568,3 +4568,19 @@ html {
 .gg-option-button.is-unavailable:hover {
   opacity: .7;
 }
+
+.gg-product-quantity {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+}
+
+.gg-product-quantity > span {
+  display: block !important;
+}
+
+.gg-product-quantity .gg-quantity-selector {
+  justify-self: start !important;
+}
+
