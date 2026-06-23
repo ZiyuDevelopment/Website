@@ -4827,11 +4827,16 @@ html {
   margin-top: 72px;
   padding: 56px 46px;
   border-radius: 40px;
-  background: linear-gradient(180deg, rgba(248,242,232,0.14), rgba(36,39,44,.96));
+  background: rgba(36,39,44,.96);
   color: white;
   text-align: center;
   border: 1px solid rgba(255,255,255,.08);
   box-shadow: 0 32px 100px rgba(36,39,44,.16);
+}
+
+.gg-text-accent {
+  color: var(--gg-clay-soft);
+  font-weight: 800;
 }
 
 .gg-ad-section .gg-kicker {
