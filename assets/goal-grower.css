@@ -4765,12 +4765,16 @@ html {
 
 .gg-awareness-card,
 .gg-purchase-card {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
   padding: 36px 32px;
   border-radius: 34px;
   background: rgba(255,255,255,.92);
   border: 1px solid rgba(255,255,255,.9);
   box-shadow: 0 24px 70px rgba(36,39,44,.08);
   transition: transform .28s ease, box-shadow .28s ease;
+  align-items: start;
 }
 
 .gg-awareness-card:hover,
@@ -4788,8 +4792,10 @@ html {
 
 .gg-card-screenshot,
 .gg-beta-benefit-image {
-  margin-bottom: 22px;
-  border-radius: 28px;
+  width: 120px;
+  min-width: 120px;
+  min-height: 120px;
+  border-radius: 24px;
   overflow: hidden;
   background: #f8f2e8;
   border: 1px solid rgba(36, 39, 44, 0.08);
@@ -4798,6 +4804,8 @@ html {
 .gg-card-screenshot img,
 .gg-beta-benefit-image img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -4813,7 +4821,7 @@ html {
   margin-top: 72px;
   padding: 56px 46px;
   border-radius: 40px;
-  background: rgba(36,39,44,.96);
+  background: linear-gradient(180deg, rgba(248,242,232,0.14), rgba(36,39,44,.96));
   color: white;
   text-align: center;
   border: 1px solid rgba(255,255,255,.08);
@@ -4907,11 +4915,13 @@ html {
 
 .gg-beta-benefits div {
   display: grid;
+  grid-template-columns: 120px 1fr;
   gap: 18px;
   padding: 30px;
   border-radius: 30px;
   background: rgba(93,145,163,.12);
   border: 1px solid rgba(93,145,163,.14);
+  align-items: start;
 }
 
 .gg-beta-benefits strong {
