@@ -4790,6 +4790,12 @@ html {
   line-height: 1.2;
 }
 
+.gg-card-copy,
+.gg-beta-benefit-copy {
+  display: grid;
+  gap: 12px;
+}
+
 .gg-card-screenshot,
 .gg-beta-benefit-image {
   width: 120px;
@@ -4866,6 +4872,22 @@ html {
   .gg-awareness-grid,
   .gg-purchase-grid {
     grid-template-columns: 1fr;
+  }
+
+  .gg-awareness-card,
+  .gg-purchase-card {
+    grid-template-columns: 1fr;
+  }
+
+  .gg-beta-benefits div {
+    grid-template-columns: 1fr;
+  }
+
+  .gg-card-screenshot,
+  .gg-beta-benefit-image {
+    width: 100%;
+    min-width: unset;
+    min-height: 180px;
   }
 }
 
