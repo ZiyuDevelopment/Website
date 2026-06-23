@@ -4805,6 +4805,16 @@ html {
   box-shadow: 0 32px 100px rgba(36,39,44,.16);
 }
 
+.gg-ad-section .gg-kicker {
+  color: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.04);
+  padding: 8px 12px;
+  border-radius: 14px;
+  display: inline-block;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
 .gg-ad-section h2 {
   max-width: 780px;
   margin: 14px auto 0;
