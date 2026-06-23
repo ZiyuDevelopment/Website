@@ -4809,7 +4809,15 @@ html {
   max-width: 780px;
   margin: 14px auto 0;
   font-size: clamp(36px, 5vw, 64px);
-  line-height: 1.02;
+  line-height: .95;
+  color: var(--color-white);
+}
+
+/* Ensure any headers inside the dark ad section use a light color for contrast */
+.gg-ad-section h1,
+.gg-ad-section h2,
+.gg-ad-section h3 {
+  color: var(--color-white);
 }
 
 .gg-ad-section p {
