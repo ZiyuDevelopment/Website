@@ -250,11 +250,46 @@ p {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
+  justify-content: center;
   margin-top: 26px;
 }
 
-.gg-hero-actions.center, .center {
-  justify-content: center;
+.gg-form-block {
+  margin: 28px auto 0;
+  max-width: 760px;
+}
+
+.gg-form-field {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+
+.gg-form-field input[type="email"] {
+  width: 100%;
+  min-height: 54px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,39,44,.12);
+  background: white;
+  color: var(--gg-charcoal);
+  font-size: 16px;
+}
+
+.gg-form-field input[type="email"]::placeholder {
+  color: var(--gg-muted);
+}
+
+.gg-form-field button {
+  min-height: 54px;
+  padding: 0 28px;
+}
+
+@media (max-width: 780px) {
+  .gg-form-field {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* REVEAL */

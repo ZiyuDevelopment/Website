@@ -8,8 +8,18 @@
       </p>
 
       <div class="gg-hero-actions">
-        <a href="/pages/contact" class="gg-btn">Join Beta Testing</a>
-        <a href="/pages/about" class="gg-btn-soft">See how it works</a>
+        <a href="/pages/about" class="gg-btn-soft">About Goal Grower</a>
+      </div>
+
+      <div class="gg-form-block">
+        {% form 'contact', id: 'AwarenessBetaSignup', class: 'gg-landing-form' %}
+          <input type="hidden" name="contact[tags]" value="Goal Grower Beta, Awareness Landing">
+          <input type="hidden" name="contact[subject]" value="Beta signup: Awareness landing">
+          <div class="gg-form-field">
+            <input type="email" name="contact[email]" placeholder="Enter your email" required>
+            <button type="submit" class="gg-btn">Join Beta Testing</button>
+          </div>
+        {% endform %}
       </div>
 
       <div class="gg-hero-meta">
