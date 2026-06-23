@@ -8,18 +8,7 @@
       </p>
 
       <div class="gg-hero-actions">
-        <a href="/pages/about" class="gg-btn-soft">About Goal Grower</a>
-      </div>
-
-      <div class="gg-form-block">
-        {% form 'contact', id: 'AwarenessBetaSignup', class: 'gg-landing-form' %}
-          <input type="hidden" name="contact[tags]" value="Goal Grower Beta, Awareness Landing">
-          <input type="hidden" name="contact[subject]" value="Beta signup: Awareness landing">
-          <div class="gg-form-field">
-            <input type="email" name="contact[email]" placeholder="Enter your email" required>
-            <button type="submit" class="gg-btn">Join Beta Testing</button>
-          </div>
-        {% endform %}
+        <a href="#beta-signup" class="gg-btn">Join Beta</a>
       </div>
 
       <div class="gg-hero-meta">
@@ -37,28 +26,46 @@
 
     <div class="gg-awareness-grid">
       <div class="gg-awareness-card">
-          <h2>Visible Progress</h2>
+        <div class="gg-card-screenshot">
+          {{ 'gg-exercise-more-before-placed-garden-view.png' | asset_img_url: '700x' | img_tag: 'Goal Grower garden view' }}
+        </div>
+        <h2>Visible Progress</h2>
         <p>Your effort becomes a visible signal, so you know when progress is moving forward and when it needs attention.</p>
       </div>
 
       <div class="gg-awareness-card">
+        <div class="gg-card-screenshot">
+          {{ 'gg-exercise-more-only-goal-list-view.png' | asset_img_url: '700x' | img_tag: 'Goal Grower goal list view' }}
+        </div>
         <h2>Return Easily</h2>
         <p>Goal Grower helps you stay steady without guilt, making it easier to keep momentum week after week.</p>
       </div>
 
       <div class="gg-awareness-card">
+        <div class="gg-card-screenshot">
+          {{ 'gg-exercise-more-goal-details-view.png' | asset_img_url: '700x' | img_tag: 'Goal Grower goal details view' }}
+        </div>
         <h2>Better Habits</h2>
         <p>Choose a system that rewards consistent effort and helps your goals feel motivating instead of overwhelming.</p>
       </div>
     </div>
 
-    <div class="gg-ad-section">
-      <span class="gg-kicker">Get started</span>
-      <h2>Join Beta</h2>
+    <div class="gg-ad-section" id="beta-signup">
+      <span class="gg-kicker">Get Early Access</span>
+      <h2>Join Goal Grower</h2>
       <p>
         If you want a better way to keep progress visible and sustainable, this page is for you. Sign up to test the app and help shape the experience.
       </p>
-      <a href="/pages/contact" class="gg-btn">Join Beta Testing</a>
+      <div class="gg-form-block">
+        {% form 'contact', id: 'AwarenessBetaSignup', class: 'gg-landing-form' %}
+          <input type="hidden" name="contact[tags]" value="Goal Grower Beta, Awareness Landing">
+          <input type="hidden" name="contact[subject]" value="Beta signup: Awareness landing">
+          <div class="gg-form-field">
+            <input type="email" name="contact[email]" placeholder="Enter your email" required>
+            <button type="submit" class="gg-btn">Join Beta Testing</button>
+          </div>
+        {% endform %}
+      </div>
     </div>
   </div>
 </section>

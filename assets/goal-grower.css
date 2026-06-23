@@ -4786,6 +4786,21 @@ html {
   line-height: 1.2;
 }
 
+.gg-card-screenshot,
+.gg-beta-benefit-image {
+  margin-bottom: 22px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #f8f2e8;
+  border: 1px solid rgba(36, 39, 44, 0.08);
+}
+
+.gg-card-screenshot img,
+.gg-beta-benefit-image img {
+  width: 100%;
+  display: block;
+}
+
 .gg-awareness-card p,
 .gg-purchase-card p {
   margin-top: 18px;
@@ -4891,6 +4906,8 @@ html {
 }
 
 .gg-beta-benefits div {
+  display: grid;
+  gap: 18px;
   padding: 30px;
   border-radius: 30px;
   background: rgba(93,145,163,.12);
@@ -4903,6 +4920,19 @@ html {
   font-size: 14px;
   font-weight: 900;
   letter-spacing: .12em;
+}
+
+.gg-beta-benefit-image {
+  height: 198px;
+  display: block;
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+.gg-beta-benefits div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .gg-beta-benefits span {

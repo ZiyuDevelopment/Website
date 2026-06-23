@@ -8,18 +8,7 @@
       </p>
 
       <div class="gg-hero-actions">
-        <a href="/pages/about" class="gg-btn-soft">About Goal Grower</a>
-      </div>
-
-      <div class="gg-form-block">
-        {% form 'contact', id: 'ConsiderationBetaSignup', class: 'gg-landing-form' %}
-          <input type="hidden" name="contact[tags]" value="Goal Grower Beta, Consideration Landing">
-          <input type="hidden" name="contact[subject]" value="Beta signup: Consideration landing">
-          <div class="gg-form-field">
-            <input type="email" name="contact[email]" placeholder="Enter your email" required>
-            <button type="submit" class="gg-btn">Join the Beta</button>
-          </div>
-        {% endform %}
+        <a href="#beta-signup" class="gg-btn">Join Beta</a>
       </div>
     </div>
 
@@ -33,20 +22,49 @@
       </div>
 
       <div class="gg-beta-benefits">
-        <div><strong>Try Features</strong><span>See the next features before launch.</span></div>
-        <div><strong>Give Feedback</strong><span>Tell us what helps and what feels confusing.</span></div>
-        <div><strong>Clear Progress</strong><span>Help the app feel more motivating and less distracting.</span></div>
-        <div><strong>Shape Release</strong><span>Your input decides the priorities for the next release.</span></div>
+        <div>
+          <div class="gg-beta-benefit-image">
+            {{ 'gg-no-goals-yet.png' | asset_img_url: '400x' | img_tag: 'Goal Grower empty goals screen' }}
+          </div>
+          <strong>Try Features</strong><span>See the next features before launch.</span>
+        </div>
+        <div>
+          <div class="gg-beta-benefit-image">
+            {{ 'gg-exercise-more-only-goal-list-view.png' | asset_img_url: '400x' | img_tag: 'Goal Grower goal list screen' }}
+          </div>
+          <strong>Give Feedback</strong><span>Tell us what helps and what feels confusing.</span>
+        </div>
+        <div>
+          <div class="gg-beta-benefit-image">
+            {{ 'gg-exercise-more-before-placed-garden-view.png' | asset_img_url: '400x' | img_tag: 'Goal Grower garden screen' }}
+          </div>
+          <strong>Clear Progress</strong><span>Help the app feel more motivating and less distracting.</span>
+        </div>
+        <div>
+          <div class="gg-beta-benefit-image">
+            {{ 'gg-exercise-more-goal-details-view.png' | asset_img_url: '400x' | img_tag: 'Goal Grower goal details screen' }}
+          </div>
+          <strong>Shape Release</strong><span>Your input decides the priorities for the next release.</span>
+        </div>
       </div>
     </div>
 
-    <div class="gg-ad-section">
+    <div class="gg-ad-section" id="beta-signup">
       <span class="gg-kicker">Ready to help?</span>
       <h2>Join Beta</h2>
       <p>
         You do not need to be perfect at goals. You just need to try the app and tell us what makes it feel helpful.
       </p>
-      <a href="/pages/contact" class="gg-btn">Join the Beta</a>
+      <div class="gg-form-block">
+        {% form 'contact', id: 'ConsiderationBetaSignup', class: 'gg-landing-form' %}
+          <input type="hidden" name="contact[tags]" value="Goal Grower Beta, Consideration Landing">
+          <input type="hidden" name="contact[subject]" value="Beta signup: Consideration landing">
+          <div class="gg-form-field">
+            <input type="email" name="contact[email]" placeholder="Enter your email" required>
+            <button type="submit" class="gg-btn">Join the Beta</button>
+          </div>
+        {% endform %}
+      </div>
     </div>
   </div>
 </section>
